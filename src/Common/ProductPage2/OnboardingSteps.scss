@@ -1,0 +1,114 @@
+$bg-void: #07080a; // page background
+$bg-panel: #0e1014; // card / panel background
+$bg-panel-alt: #131620; // alt panel (slightly lifted)
+$bg-elevated: #181b24; // hover / elevated surface
+$border-hair: #232730; // hairline borders
+$border-soft: #1a1d26;
+
+$text-primary: #f3f4f6;
+$text-secondary: #9aa0ad;
+$text-faint: #5b6170;
+
+$accent-signal: #ff5a1f; // hot signal orange
+$accent-signal-dim: #ff5a1f1a;
+$accent-cyan: #38e1d4; // data cyan
+$accent-cyan-dim: #38e1d41a;
+
+$gradient-signal: linear-gradient(135deg, #ff5a1f 0%, #ff8a3d 100%);
+$gradient-panel: linear-gradient(160deg, #131620 0%, #0a0b0e 100%);
+
+// Type
+$font-display: 'Sora', 'Inter', sans-serif;
+$font-body: 'Inter', sans-serif;
+$font-mono: 'JetBrains Mono', monospace;
+
+// Layout
+$container-max: 1240px;
+$radius-sm: 6px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$gap-section: clamp(64px, 10vw, 120px);
+
+// Breakpoints
+$bp-mobile: 600px;
+$bp-tablet: 900px;
+$bp-desktop: 1200px;
+
+.process {
+  background: #141518;
+  padding: clamp(64px, 10vw, 80px) 0;
+  position: relative;
+
+  // &__container { @include container; }
+  .section-head {
+    text-align: center;
+    margin-bottom: 34px;
+  }
+
+  &__timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+
+    @media (max-width: $bp-tablet) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__line {
+    position: absolute;
+    top: 22px;
+    left: 4%;
+    right: 4%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $border-hair 10%, $border-hair 90%, transparent);
+
+    @media (max-width: $bp-tablet) {
+      display: none;
+    }
+  }
+
+  &__step {
+    position: relative;
+    text-align: center;
+
+    @media (max-width: $bp-tablet) {
+      display: flex;
+      gap: 16px;
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    h4 {
+      margin-top: 18px;
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+    }
+
+    p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--text-muted-light);
+    }
+  }
+
+  &__marker {
+    width: 46px;
+    height: 46px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: $bg-panel;
+    border: 1px solid $border-hair;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-mono;
+    font-size: 15px;
+    font-weight: 700;
+    color: $accent-signal;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+}

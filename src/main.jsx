@@ -1,0 +1,45 @@
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.scss'
+import App from './App.jsx'
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom'
+import Home from './Pages/Home/Home.jsx'
+import ContactUs from './Pages/ContactUs/ContactUs.jsx'
+import AboutUs from './Pages/AboutUs/AboutUs.jsx'
+import HomeDark from './Pages/HomeDark/HomeDark.jsx';
+import CustomSoftwareDevelopment from './Pages/Services/CustomSoftDevelopment/CustomSoftDevelopment.jsx';
+import WebAppDevelopment from './Pages/Services/WebAppDevelopment/WebAppDevelopment.jsx';
+import MobileAppDevelopment from './Pages/Services/MobileAppDevelopment/MobileAppDevelopment.jsx';
+import AndroidAppDevelopment from './Pages/Services/AndroidAppDevelopment/AndroidAppDevelopment.jsx';
+import IOSAppDevelopment from './Pages/Services/IOSAppDevelopment/IOSAppDevelopment.jsx';
+import Services from './Pages/Services/Services.jsx';
+import Products from './Pages/Products/Products.jsx';
+import Products2 from './Pages/Products2/Products2.jsx';
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<App />}>
+      <Route index element={<Home />} />
+      <Route path='home' element={<Home />} />
+      <Route path='home-dark' element={<HomeDark />} />
+      <Route path='about' element={<AboutUs />} />
+      <Route path='services' element={<Services />}>
+      <Route path='custom-software-development' element={<CustomSoftwareDevelopment />} />
+        <Route path='web-app-development' element={<WebAppDevelopment />} />
+        <Route path='mobile-app-development' element={<MobileAppDevelopment />} />
+        <Route path='android-app-development' element={<AndroidAppDevelopment />} />
+        <Route path='ios-app-development' element={<IOSAppDevelopment />} />
+      </Route>
+      <Route path='products' element={<Products />} />
+      <Route path='products2' element={<Products2 />} />
+      <Route path='contact' element={<ContactUs />} />
+    </Route>
+  )
+)
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>,
+)

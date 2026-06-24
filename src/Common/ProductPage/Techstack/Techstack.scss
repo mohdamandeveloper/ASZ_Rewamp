@@ -1,0 +1,146 @@
+.tech-stack {
+  position: relative;
+  background: #0d0d0d;
+  padding: 90px 20px;
+  overflow: hidden;
+
+  &__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(130px);
+    pointer-events: none;
+    z-index: 0;
+
+    &--l {
+      width: 400px;
+      height: 400px;
+      background: rgba(255, 107, 53, .09);
+      top: -120px;
+      left: -100px;
+    }
+
+    &--r {
+      width: 350px;
+      height: 350px;
+      background: rgba(255, 107, 53, .07);
+      bottom: -100px;
+      right: -80px;
+    }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    text-align: center;
+    max-width: 580px;
+    margin: 0 auto 60px;
+  }
+
+  // &__eyebrow {
+  //   display: inline-flex;
+  //   align-items: center;
+  //   gap: 10px;
+  //   color: rgb(255, 107, 53);
+  //   font-size: 12px;
+  //   font-weight: 700;
+  //   letter-spacing: 1.5px;
+  //   margin-bottom: 14px;
+
+  //   span {
+  //     width: 24px;
+  //     height: 2px;
+  //     background: rgb(255, 107, 53);
+  //     display: inline-block;
+  //   }
+  // }
+
+  // &__title {
+  //   font-size: clamp(1.9rem, 4vw, 2.5rem);
+  //   font-weight: 800;
+  //   color: #fff;
+  //   margin-bottom: 14px;
+
+  //   span {
+  //     color: rgb(255, 107, 53);
+  //   }
+  // }
+
+  // &__sub {
+  //   font-size: .98rem;
+  //   line-height: 1.7;
+  //   color: #999;
+  // }
+
+  &__groups {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__group {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    flex-wrap: wrap;
+    padding: 28px 30px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .025);
+    border: 1px solid rgba(255, 255, 255, .07);
+    transition: border-color .3s ease, background .3s ease;
+
+    &:hover {
+      border-color: rgba(255, 107, 53, .25);
+      background: rgba(255, 107, 53, .03);
+    }
+  }
+
+  &__group-label {
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: rgb(255, 107, 53);
+    min-width: 90px;
+    padding-top: 5px;
+  }
+
+  &__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  &__pill {
+    padding: 7px 18px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .1);
+    color: #ccc;
+    font-size: .85rem;
+    font-weight: 600;
+    transition: all .3s ease;
+    cursor: default;
+
+    &:hover {
+      background: rgba(255, 107, 53, .12);
+      border-color: rgba(255, 107, 53, .4);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+  }
+
+  @media (max-width:600px) {
+    &__group {
+      gap: 16px;
+      padding: 20px;
+    }
+
+    &__group-label {
+      min-width: 100%;
+    }
+  }
+}

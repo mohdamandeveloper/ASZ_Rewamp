@@ -1,0 +1,88 @@
+$color-base: #0A0A0F;
+$color-surface: #111118;
+$color-card: #14141E;
+$color-card-alt: #1C1C2A;
+$color-accent: #FF4D00;
+$color-lime: #C8FF00;
+$color-text: #F0F0F0;
+$color-muted: #888899;
+$color-border: rgba(255, 255, 255, 0.07);
+
+$font-display: 'Space Grotesk', sans-serif;
+$font-body: 'Inter', sans-serif;
+
+.stack {
+  background: $color-base;
+  padding: 120px 64px;
+  border-top: 1px solid $color-border;
+
+  &__header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 64px;
+
+    .eyebrow {
+      justify-content: center;
+      margin-bottom: 16px;
+      &::before { display: none; }
+    }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(30px, 3.5vw, 46px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+
+    em {
+      font-style: italic;
+      color: $color-accent;
+    }
+  }
+
+  &__sub {
+    font-size: 15px;
+    color: $color-muted;
+    line-height: 1.65;
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  &__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: $color-card;
+    border: 1px solid $color-border;
+    border-radius: 100px;
+    font-family: $font-display;
+    font-size: 13px;
+    font-weight: 500;
+    color: $color-muted;
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: rgba(255,255,255,0.2);
+      color: $color-text;
+      background: $color-card-alt;
+    }
+  }
+
+  &__chip-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $color-accent;
+    flex-shrink: 0;
+  }
+}

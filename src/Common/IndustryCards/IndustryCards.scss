@@ -1,0 +1,417 @@
+
+$accent:        #FF6B35;
+$accent-rgb:    255, 107, 53;
+$accent-light:  rgba(255,107,53, 0.10);
+$accent-mid:    rgba(255,107,53, 0.22);
+$card-bg:       #ffffff;
+$card-border:   rgba(0, 0, 0, 0.07);
+$text-primary:  #0f0f0f;
+$text-muted:    #6b6b6b;
+$radius-card:   18px;
+$radius-inner:  12px;
+$shadow-card:   0 2px 16px rgba(0, 0, 0, 0.07), 0 0 0 1px $card-border;
+$shadow-hover:  0 12px 40px rgba(255, 107, 53, 0.14), 0 2px 12px rgba(0,0,0,0.08);
+$font:          'Inter', 'Helvetica Neue', sans-serif;
+
+// ─── Section ─────────────────────────────────────────────────────────────────
+.ic-section {
+  position: relative;
+  background: #fafaf8;
+  padding: 72px 40px 80px;
+  font-family: $font;
+  overflow: hidden;
+  isolation: isolate;
+
+  @media (max-width: 768px) {
+    padding: 48px 20px 56px;
+  }
+}
+
+// ─── Hidden SVG filter ───────────────────────────────────────────────────────
+.ic-svg-filter {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+// ─── Background graphics ──────────────────────────────────────────────────────
+.ic-bg-graphics {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ic-bg-arc {
+  position: absolute;
+  top: -140px;
+  right: -140px;
+  width: 520px;
+  height: 520px;
+  opacity: 1;
+
+  @media (max-width: 768px) {
+    width: 280px;
+    height: 280px;
+    top: -80px;
+    right: -80px;
+  }
+}
+
+.ic-bg-dots {
+  position: absolute;
+  bottom: 40px;
+  right: 32px;
+  width: 340px;
+  opacity: 1;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.ic-bg-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 420px;
+  opacity: 1;
+
+  @media (max-width: 768px) {
+    width: 240px;
+  }
+}
+
+// ─── Header ──────────────────────────────────────────────────────────────────
+.ic-header {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 44px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 28px;
+  }
+}
+
+.ic-subtitle {
+  font-size: 15px;
+  color: $text-muted;
+  max-width: 480px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+// ─── Grid ─────────────────────────────────────────────────────────────────────
+.ic-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(6, 1fr);
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+// ─── Particle host (from MagicBento ParticleCard) ────────────────────────────
+.ic-particle-host {
+  position: relative;
+  overflow: hidden;
+}
+
+// ─── Card ─────────────────────────────────────────────────────────────────────
+.ic-card {
+  position: relative;
+  border-radius: $radius-card;
+  overflow: hidden;
+  background: $card-bg;
+  box-shadow: $shadow-card;
+  aspect-ratio: 1 / 0.8;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  // CSS vars for border glow (MagicBento pattern)
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-intensity: 0;
+  --glow-radius: 280px;
+  --glow-color: #{$accent-rgb};
+
+  &:hover {
+    box-shadow: $shadow-hover;
+  }
+
+  // MagicBento border glow via pseudo-element
+  &--glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 5px;
+    background: radial-gradient(
+      var(--glow-radius) circle at var(--glow-x) var(--glow-y),
+      rgba(var(--glow-color), calc(var(--glow-intensity) * 0.7)) 0%,
+      rgba(var(--glow-color), calc(var(--glow-intensity) * 0.35)) 30%,
+      transparent 60%
+    );
+    border-radius: inherit;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 22;
+    transition: opacity 0.3s ease;
+  }
+
+  // Selected / active state
+  &--active {
+    box-shadow:
+      0 0 0 2.5px $accent,
+      0 12px 40px rgba(255, 107, 53, 0.2),
+      0 2px 8px rgba(0,0,0,0.06);
+
+    .ic-card-name {
+      color: $accent;
+      font-weight: 600;
+    }
+
+    .ic-card-border {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 107, 53, 0.7) 0%,
+        rgba(255, 107, 53, 0.25) 50%,
+        rgba(255, 107, 53, 0.55) 100%
+      );
+    }
+  }
+}
+
+// ─── Reflective webcam layer ─────────────────────────────────────────────────
+.ic-card-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.25) scaleX(-1);
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+
+  &--active {
+    opacity: 0.55;
+    filter: saturate(0.12) contrast(115%) brightness(108%) blur(9px) url(#ic-metal);
+  }
+}
+
+// ─── Noise overlay (roughness) ───────────────────────────────────────────────
+.ic-card-noise {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.18;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+// ─── Sheen (metalness) ───────────────────────────────────────────────────────
+.ic-card-sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.55) 0%,
+    rgba(255,255,255,0.18) 40%,
+    rgba(255,255,255,0) 50%,
+    rgba(255,255,255,0.12) 60%,
+    rgba(255,255,255,0.38) 100%
+  );
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+
+  .ic-card:hover & {
+    opacity: 1;
+  }
+}
+
+// ─── Metallic border shine ────────────────────────────────────────────────────
+.ic-card-border {
+  position: absolute;
+  inset: 0;
+  border-radius: $radius-card;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.75) 0%,
+    rgba(255,255,255,0.2) 50%,
+    rgba(255,255,255,0.55) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  z-index: 20;
+  pointer-events: none;
+  transition: background 0.3s;
+}
+
+// ─── Card content ─────────────────────────────────────────────────────────────
+.ic-card-content {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.72);
+  transition: background 0.3s;
+  .ic-card:hover & {
+    background: rgb(255 255 255 / 4%);
+  }
+}
+
+.ic-card-arrow {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.28);
+  transition: color 0.2s, transform 0.2s;
+  line-height: 1;
+
+  .ic-card:hover & {
+    color: $accent;
+    transform: translate(2px, -2px);
+  }
+}
+
+.ic-card-icon {
+  width: 75px;
+  height: 75px;
+  border-radius: $radius-inner;
+  overflow: hidden;
+  // flex-shrink: 0;
+  // background: rgba(255, 107, 53, 0.06);
+  border: 1px solid rgba(255, 107, 53, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ic-card:hover & {
+    transform: scale(1.06);
+    box-shadow: 0 4px 14px rgba(255, 107, 53, 0.2);
+  }
+}
+
+.ic-card-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: $text-primary;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  transition: color 0.2s;
+  text-align: center;
+}
+
+// ─── MagicBento particle ──────────────────────────────────────────────────────
+.ic-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 107, 53, 1);
+  box-shadow: 0 0 7px rgba(255, 107, 53, 0.55);
+  pointer-events: none;
+  z-index: 100;
+}
+
+// ─── Global spotlight (MagicBento pattern) ────────────────────────────────────
+.ic-global-spotlight {
+  position: fixed;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 53, 0.12) 0%,
+    rgba(255, 107, 53, 0.06) 18%,
+    rgba(255, 107, 53, 0.03) 30%,
+    rgba(255, 107, 53, 0.015) 45%,
+    transparent 65%
+  );
+  z-index: 200;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: multiply;
+}
+
+// ─── Camera badge ─────────────────────────────────────────────────────────────
+.ic-cam-badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 28px;
+  font-size: 12px;
+  color: $text-muted;
+  background: #fff;
+  border: 1px solid $card-border;
+  border-radius: 100px;
+  padding: 6px 14px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.ic-cam-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d1d5db;
+  flex-shrink: 0;
+  transition: background 0.3s;
+
+  &--live {
+    background: #22c55e;
+    animation: ic-pulse 5.8s ease-in-out infinite;
+  }
+}
+
+@keyframes ic-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+// ─── Reduced motion ───────────────────────────────────────────────────────────
+@media (prefers-reduced-motion: reduce) {
+  .ic-card,
+  .ic-card-icon,
+  .ic-card-video,
+  .ic-card-sheen,
+  .ic-card-arrow {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .ic-cam-dot--live {
+    animation: none;
+  }
+}

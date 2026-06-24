@@ -1,0 +1,172 @@
+.how-it-works {
+  position: relative;
+  background: #0a0a0a;
+  padding: 100px 20px;
+  overflow: hidden;
+
+  &__glow {
+    position: absolute;
+    width: 700px;
+    height: 400px;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 107, 53, 0.1);
+    border-radius: 50%;
+    filter: blur(140px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px;
+  }
+
+  // &__eyebrow {
+  //   display: inline-flex;
+  //   align-items: center;
+  //   gap: 10px;
+  //   color: rgb(255, 107, 53);
+  //   font-size: 12px;
+  //   font-weight: 700;
+  //   letter-spacing: 1.5px;
+  //   margin-bottom: 14px;
+
+  //   span {
+  //     width: 24px;
+  //     height: 2px;
+  //     background: rgb(255, 107, 53);
+  //     display: inline-block;
+  //   }
+  // }
+
+  // &__title {
+  //   font-size: clamp(1.9rem, 4vw, 2.6rem);
+  //   font-weight: 800;
+  //   color: #fff;
+  //   margin-bottom: 14px;
+
+  //   span {
+  //     color: rgb(255, 107, 53);
+  //   }
+  // }
+
+  // &__sub {
+  //   font-size: .98rem;
+  //   line-height: 1.7;
+  //   color: #999;
+  // }
+
+  &__steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative;
+
+    &.is-vis .how-it-works__step {
+      animation: stepIn .6s ease forwards;
+    }
+  }
+
+  &__step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 16px;
+    opacity: 0;
+
+    &:hover .how-it-works__icon {
+      background: rgb(255, 107, 53);
+      color: #fff;
+      transform: scale(1.1) rotate(-6deg);
+    }
+  }
+
+  &__connector {
+    position: absolute;
+    top: 34px;
+    left: calc(50% + 24px);
+    width: calc(100% - 48px);
+    height: 1.5px;
+    background: repeating-linear-gradient(90deg, rgba(255, 107, 53, .4) 0, rgba(255, 107, 53, .4) 4px, transparent 4px, transparent 9px);
+    pointer-events: none;
+  }
+
+  &__icon {
+    position: relative;
+    z-index: 1;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgba(255, 107, 53, 0.12);
+    border: 1px solid rgba(255, 107, 53, .3);
+    color: rgb(255, 107, 53);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    transition: all .4s ease;
+  }
+
+  &__num {
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: rgba(255, 107, 53, .6);
+    margin-bottom: 10px;
+  }
+
+  &__step-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  &__step-desc {
+    font-size: .85rem;
+    line-height: 1.65;
+    color: #888;
+  }
+
+  @keyframes stepIn {
+    from {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width:1000px) {
+    &__steps {
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 50px;
+    }
+
+    &__connector {
+      display: none;
+    }
+  }
+
+  @media (max-width:600px) {
+    &__steps {
+      grid-template-columns: 1fr;
+      row-gap: 40px;
+    }
+  }
+}

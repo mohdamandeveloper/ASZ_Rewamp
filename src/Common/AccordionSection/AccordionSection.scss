@@ -1,0 +1,539 @@
+// ============================================================
+// AccordionSection.scss
+// Theme: rgb(255,107,53) | Dark bg: #0d1b35
+// ============================================================
+
+$acc:          rgb(255, 107, 53);
+$acc-glow:     rgba(255, 107, 53, 0.28);
+$acc-border:   rgba(255, 107, 53, 0.38);
+$acc-subtle:   rgba(255, 107, 53, 0.08);
+$bg:           #111111;
+$dark:         rgba(8, 12, 24, 0.94);
+$text:         #ffffff;
+$text-muted:   rgba(215, 220, 238, 0.84);
+$ease:         cubic-bezier(0.23, 1, 0.32, 1);
+$radius:       16px;
+
+// ============================================================
+// SECTION
+// ============================================================
+.why-section {
+  background: $bg;
+  padding: 72px 36px 80px;
+  position: relative;
+  overflow: hidden;
+  // font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  // subtle dot grid
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 107, 53, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 107, 53, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  // radial vignette
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 55% at 50% 50%, transparent 38%, #121212 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+// ============================================================
+// ANIMATED BLOBS
+// ============================================================
+.why-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+
+  &--1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.13) 0%, transparent 70%);
+    top: -160px;
+    left: -150px;
+    animation: blobFloat1 20s ease-in-out infinite alternate;
+  }
+
+  &--2 {
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle, rgba(29, 78, 216, 0.14) 0%, transparent 70%);
+    bottom: -110px;
+    right: -90px;
+    animation: blobFloat2 25s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes blobFloat1 {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(48px, 36px); }
+}
+
+@keyframes blobFloat2 {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(-38px, -28px); }
+}
+
+// ============================================================
+// HEADER
+// ============================================================
+.why-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 52px;
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 0.7s 0.05s both;
+
+  h2 {
+    color: var(--color-white);
+  }
+
+  p {
+    color: var(--text-muted-light);
+    line-height: 1.65;
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+// ============================================================
+// ACCORDION TRACK
+// ============================================================
+.accordion-track {
+  display: flex;
+  gap: 10px;
+  max-width: 1260px;
+  margin: 0 auto;
+  height: 480px;
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: 860px) {
+    height: auto;
+    flex-direction: column;
+  }
+}
+
+// ============================================================
+// PANEL — BASE
+// ============================================================
+.panel {
+  position: relative;
+  border-radius: $radius;
+  overflow: hidden;
+  cursor: pointer;
+  flex: 0 0 100px;
+  transition:
+    flex 0.65s $ease,
+    border-color 0.35s ease;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  outline: none;
+
+  // keyboard focus ring
+  &:focus-visible {
+    box-shadow: 0 0 0 2px $acc;
+  }
+
+  // hover border ring (not active)
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: $radius;
+    border: 1.5px solid transparent;
+    transition: border-color 0.35s ease;
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  &:not(.panel--active):hover::after {
+    border-color: $acc-border;
+  }
+
+  @media (max-width: 860px) {
+    flex: 0 0 60px;
+    min-height: 60px;
+  }
+
+  // ── ACTIVE STATE ──
+  &--active {
+    flex: 1 1 0;
+    cursor: default;
+    border-color: $acc-border;
+
+    @media (max-width: 860px) {
+      flex: 0 0 380px;
+      min-height: 380px;
+    }
+  }
+
+  // ============================================================
+  // BACKGROUND IMAGE
+  // ============================================================
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.65) saturate(0.75);
+    transition:
+      transform 0.65s $ease,
+      filter 0.5s ease;
+  }
+
+  &--active &__bg {
+    filter: brightness(0.52) saturate(0.9);
+    transform: scale(1.04);
+  }
+
+  &:not(.panel--active):hover &__bg {
+    filter: brightness(0.78) saturate(0.9);
+    transform: scale(1.06);
+  }
+
+  // ============================================================
+  // DARK OVERLAY
+  // ============================================================
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(8, 12, 24, 0.42) 0%,
+      rgba(8, 12, 24, 0.52) 100%
+    );
+    transition: background 0.5s ease;
+  }
+
+  &:not(.panel--active):hover &__overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(8, 12, 24, 0.26) 0%,
+      rgba(8, 12, 24, 0.36) 100%
+    );
+  }
+
+  &--active &__overlay {
+    background: linear-gradient(
+      to top,
+      rgba(8, 12, 24, 0.95) 0%,
+      rgba(8, 12, 24, 0.55) 44%,
+      rgba(8, 12, 24, 0.16) 100%
+    );
+  }
+
+  // ============================================================
+  // ORANGE CORNER GLOW
+  // ============================================================
+  &__glow {
+    position: absolute;
+    top: -70px;
+    right: -70px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, $acc-glow 0%, transparent 70%);
+    opacity: 0;
+    transform: scale(0.5);
+    transition:
+      opacity 0.5s ease,
+      transform 0.6s $ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &--active &__glow {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  // ============================================================
+  // TOP ORANGE STRIPE
+  // ============================================================
+  &__stripe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: $acc;
+    border-radius: $radius $radius 0 0;
+    transition: width 0.55s $ease;
+    z-index: 3;
+  }
+
+  &--active &__stripe {
+    width: 100%;
+  }
+
+  // ============================================================
+  // VERTICAL TITLE (collapsed)
+  // ============================================================
+  &__vtitle {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 3;
+    transition: opacity 0.3s ease;
+
+    @media (max-width: 860px) {
+      bottom: unset;
+      top: 50%;
+      transform: translateY(-50%);
+      flex-direction: row;
+      padding: 0 18px;
+    }
+  }
+
+  &--active &__vtitle {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__vtitle-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 107, 53, 0.65);
+    background: transparent;
+    flex-shrink: 0;
+    transition: background 0.3s ease;
+  }
+
+  &:not(.panel--active):hover &__vtitle-dot {
+    background: $acc;
+  }
+
+  &__vtitle-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 0.73rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.82);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+    transition: color 0.3s ease;
+
+    @media (max-width: 860px) {
+      writing-mode: horizontal-tb;
+      transform: none;
+    }
+  }
+
+  &:not(.panel--active):hover &__vtitle-text {
+    color: $acc;
+  }
+
+  // ============================================================
+  // PLUS BUTTON
+  // ============================================================
+  &__plus {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.28);
+    background: rgba(0, 0, 0, 0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition:
+      opacity 0.35s ease,
+      border-color 0.3s ease,
+      background 0.3s ease,
+      transform 0.35s $ease;
+
+    svg {
+      width: 13px;
+      height: 13px;
+      stroke: rgba(255, 255, 255, 0.75);
+      transition: stroke 0.3s ease;
+    }
+  }
+
+  &--active &__plus {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &:not(.panel--active):hover &__plus {
+    border-color: $acc;
+    background: rgba(255, 107, 53, 0.18);
+    transform: translateX(-50%) rotate(90deg);
+
+    svg { stroke: $acc; }
+  }
+
+  // ============================================================
+  // ACTIVE BADGE (top-right)
+  // ============================================================
+  &__badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.25s;
+  }
+
+  &--active &__badge {
+    opacity: 1;
+  }
+
+  &__badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $acc;
+    box-shadow: 0 0 7px rgba(255, 107, 53, 0.8);
+    animation: dotPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes dotPulse {
+    0%, 100% { box-shadow: 0 0 5px rgba(255, 107, 53, 0.65); }
+    50%       { box-shadow: 0 0 14px rgba(255, 107, 53, 1); }
+  }
+
+  // ============================================================
+  // EXPANDED CONTENT
+  // ============================================================
+  &__content {
+    position: absolute;
+    inset: 0;
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 3;
+    pointer-events: none;
+
+    // hidden by default
+    opacity: 0;
+    transform: translateX(-20px);
+    transition:
+      opacity 0.45s ease 0.18s,
+      transform 0.45s $ease 0.18s;
+  }
+
+  &--active &__content {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  // ---- orange divider line ----
+  &__divider {
+    width: 52px;
+    height: 2px;
+    background: $acc;
+    border-radius: 2px;
+    margin-bottom: 18px;
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 0.4s $ease 0.36s;
+  }
+
+  &--active &__divider {
+    transform: scaleX(1);
+  }
+
+  // ---- heading ----
+  &__heading {
+    font-size: clamp(1.2rem, 1.9vw, 1.72rem);
+    font-weight: 800;
+    line-height: 1.22;
+    color: $text;
+    letter-spacing: -0.022em;
+    margin-bottom: 12px;
+
+    &-hl {
+      color: $acc;
+    }
+  }
+
+  // ---- description ----
+  &__desc {
+    font-size: 0.875rem;
+    color: $text-muted;
+    line-height: 1.72;
+    max-width: 430px;
+    margin-bottom: 26px;
+  }
+
+  // ---- CTA button ----
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #0d1b35;
+    font-size: 0.84rem;
+    font-weight: 700;
+    padding: 11px 22px;
+    border-radius: 100px;
+    text-decoration: none;
+    align-self: flex-start;
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      transform 0.25s $ease,
+      box-shadow 0.25s ease;
+
+    svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+      transition: transform 0.25s $ease;
+    }
+
+    &:hover {
+      background: $acc;
+      color: $text;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 107, 53, 0.42);
+
+      svg { transform: translateX(4px); }
+    }
+
+    &:focus-visible {
+      outline: 2px solid $acc;
+      outline-offset: 2px;
+    }
+  }
+}
