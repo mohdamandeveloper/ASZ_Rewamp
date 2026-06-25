@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import { Link } from 'react-router-dom';
 import './AboutUs.scss';
@@ -340,17 +341,23 @@ export default function AboutUs() {
                 </section>
                 <CoreValues />
                 <AccordionSection />
-                <FAQSection />
+                {/* <FAQSection /> */}
                 <section className="partners-section">
                     <div className="container">
                         <div>
-                            <h3 className="heading_title text-center mb-5" style={{color: 'white'}}>
+                            <h3 className="heading_title text-center mb-2" style={{color: 'white'}}>
                                 <span>We Support</span> Customers Around The Globe
                             </h3>
+                            <p className="heading_subtitle mb-5">Delivering innovative technology solutions to businesses worldwide, building lasting partnerships across industries and regions.</p>
                             <div className="partners-row">
                                 <Swiper
                                     spaceBetween={50}
                                     slidesPerView={4.5}
+                                    modules={[Autoplay]}
+                                    autoplay={{
+                                        delay: 1500,
+                                        disableOnInteraction: false,
+                                    }}
                                     onSlideChange={() => console.log('slide change')}
                                     onSwiper={(swiper) => console.log(swiper)}
                                 >

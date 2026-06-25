@@ -1,106 +1,154 @@
 .header {
+
+    // ── Navbar ────────────────────────────────────────────────
     .navbar {
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
+        top: 0; left: 0; right: 0;
         z-index: 1000;
-        // background: rgba(255, 255, 255, 1);
         transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
         padding: 4px 0;
-        // box-shadow: 0px 1px 9px #80808040;
+
         &.scrolled {
-            // background: rgba(255, 255, 255, 0.97);
             backdrop-filter: blur(20px) saturate(180%);
             border-bottom: 1px solid var(--glass-border);
             box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
             background-color: #00000052;
-            // .desktop-nav{
-            //     .nav-link-btn{
-            //         color: var(--text-primary);
-            //     }
-            // }
-        }
-
-        &:not(.scrolled) {
-            // backdrop-filter: blur(12px);
         }
     }
 
     .navbar-inner {
         width: 100%;
-        justify-content: space-between;
         margin: 0 auto;
         padding: 0 24px;
         height: 64px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         gap: 8px;
-
-        .mobile-hamburger {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--color-primary);
-            font-size: 22px;
-            cursor: pointer;
-            margin-left: auto;
-
-            @media (max-width: 900px) {
-                display: flex !important;
-            }
-        }
     }
 
+    // ── Logo ──────────────────────────────────────────────────
     .navbar-logo {
         display: flex;
         align-items: center;
         gap: 8px;
         margin-right: 20px;
         flex-shrink: 0;
-        @media (max-width: 900px){
-            flex: 1;
-        }
-        img {
-            height: 45px;
-        }
+
+        @media (max-width: 900px) { flex: 1; }
+
+        img { height: 45px; }
     }
 
+    // ── Desktop nav ───────────────────────────────────────────
     .desktop-nav {
         display: flex;
         align-items: center;
         gap: 2px;
         margin-left: 8px;
 
-        @media (max-width: 900px) {
-            display: none !important;
-        }
+        @media (max-width: 900px) { display: none !important; }
+    }
 
-        .nav-link-btn {
-            background: none;
-            border: none;
-            color: var(--color-white);
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            padding: 8px 18px;
-            border-radius: 8px;
-            transition: all 0.18s ease;
-            border-bottom: 2px solid transparent;
-            position: relative;
-            letter-spacing: 0.6px;
+    // Each nav item wrapper (position: relative for dropdown)
+    .nav-item {
+        position: relative;
+    }
 
-            &:hover,
-            &.active {
-                color: var(--color-primary);
-            }
+    .nav-link-btn {
+        background: none;
+        border: none;
+        border-bottom: 2px solid transparent;
+        color: var(--color-white);
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        padding: 8px 18px;
+        border-radius: 8px;
+        letter-spacing: 0.6px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        transition: color 0.18s ease, border-color 0.18s ease;
+        white-space: nowrap;
 
-            &.active {
-                border-bottom-color: var(--color-primary);
-            }
+        &:hover,
+        &.active {
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
         }
     }
 
+    // Chevron icon next to Services / Products
+    .nav-chevron {
+        font-size: 10px;
+        opacity: 0.6;
+        display: inline-flex;
+        align-items: center;
+        transition: transform 0.22s ease;
+
+        &.rotated {
+            transform: rotate(180deg);
+        }
+    }
+
+    // ── Shared nav dropdown (Services & Products) ─────────────
+    .nav-dropdown {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: -50%;
+        transform: translateX(-50%);
+        min-width: 240px;
+        background: #0f0f0ffc;
+        border: 1px solid rgb(255 255 255 / 3%);
+        border-radius: 14px;
+        // overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+
+        // Arrow pointer
+        &__arrow {
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 12px;
+            height: 12px;
+            background: #0f0f0f;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: none;
+            border-right: none;
+        }
+
+        // Each link row
+        &__item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 13.5px;
+            text-decoration: none;
+            transition: background 0.15s ease, color 0.15s ease;
+
+            &:hover {
+                background: rgba(35, 35, 35, 0.15);
+                color: #fff;
+            }
+        }
+
+        // Bullet dot
+        // &__dot {
+        //     width: 6px;
+        //     height: 6px;
+        //     border-radius: 50%;
+        //     background: #3b82f6;
+        //     flex-shrink: 0;
+        // }
+    }
+
+    // ── Navbar actions (right side) ───────────────────────────
     .navbar-actions {
         display: flex;
         align-items: center;
@@ -121,99 +169,51 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            position: relative;
             border: 2px solid var(--color-primary);
             outline: none;
-            transition: color 0.2s ease, background 0.2s ease;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+            white-space: nowrap;
 
-            svg {
-                font-size: 12px;
-            }
+            &:hover { opacity: 0.88; }
 
-            @media (max-width: 900px) {
-                display: none !important;
-            }
+            @media (max-width: 900px) { display: none !important; }
         }
     }
 
-    // @property --border-angle {
-    //     // syntax: '<angle>';
-    //     initial-value: 0deg;
-    //     inherits: false;
-    // }
-
-    @keyframes spinBorder {
-        to {
-            --border-angle: 360deg;
-        }
-    }
-
-    @media (max-width: 900px) {
-        .hero-content {
-            padding: 100px 20px 60px;
-        }
-
-        .glass-accent {
-            display: none;
-        }
-    }
-
-    @media (max-width: 600px) {
-        .hero-stats {
-            padding: 20px 20px;
-            gap: 20px;
-        }
-    }
-
-
-    ::-webkit-scrollbar {
-        width: 6px;
-        background: var(--navy-deepest);
-    }
-
-    ::-webkit-scrollbar-track {
-        background: var(--navy-deepest);
-        border-radius: 99px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: linear-gradient(180deg,
-                var(--blue-primary) 0%,
-                var(--indigo) 50%,
-                var(--cyan) 100%);
-        border-radius: 99px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(180deg,
-                var(--cyan) 0%,
-                var(--blue-light) 50%,
-                var(--indigo) 100%);
-    }
-
-    .scroll-progress-bar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 3px;
-        background: linear-gradient(90deg, var(--blue-primary), var(--cyan), var(--indigo));
-        background-size: 200% 100%;
+    // ── Language dropdown ─────────────────────────────────────
+    .lang-dropdown {
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        background: #0f0f0ffc;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        overflow: hidden;
+        min-width: 160px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         z-index: 9999;
-        animation: progressShimmer 2s linear infinite;
-        transform-origin: left;
-        transition: width 0.1s linear;
+
+        &__item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            padding: 10px 16px;
+            background: transparent;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 13px;
+            text-align: left;
+            transition: background 0.15s;
+
+            &:hover    { background: rgba(35, 35, 35, 0.15); }
+            &.active   { background: rgba(255, 255, 255, 0.1); }
+        }
     }
 
-    @keyframes progressShimmer {
-        0% {
-            background-position: 0% 50%;
-        }
-
-        100% {
-            background-position: 200% 50%;
-        }
-    }
-
+    // ── Language selector button ──────────────────────────────
     .language_selector {
         display: flex;
         align-items: center;
@@ -229,23 +229,57 @@
         transition: background 0.2s;
         width: 135px;
         background: transparent;
-        svg {
-            font-size: 14px;
-        }
     }
 
-    .mega_menu {
-        position: absolute;
-        top: calc(100% + 4px);
-        left: 50%;
-        transform: translateX(-50%) !important;
-        width: min(1100px, 96vw);
-        background: rgba(25, 27, 73, 0.97);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 18px;
-        overflow: hidden;
-        box-shadow: rgba(0, 0, 0, 0.6) 0px 30px 80px;
-        z-index: 1000;
+    // ── Hamburger ─────────────────────────────────────────────
+    .mobile-hamburger {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--color-primary);
+        font-size: 22px;
+        cursor: pointer;
+        margin-left: auto;
+
+        @media (max-width: 900px) { display: flex !important; }
+    }
+
+    // ── Scroll progress bar ───────────────────────────────────
+    .scroll-progress-bar {
+        position: fixed;
+        top: 0; left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--blue-primary), var(--cyan), var(--indigo));
+        background-size: 200% 100%;
+        z-index: 9999;
+        animation: progressShimmer 2s linear infinite;
+        transform-origin: left;
+        transition: width 0.1s linear;
+    }
+
+    @keyframes progressShimmer {
+        0%   { background-position: 0% 50%;   }
+        100% { background-position: 200% 50%; }
+    }
+
+    // ── Scrollbar ─────────────────────────────────────────────
+    ::-webkit-scrollbar         { width: 6px; background: var(--navy-deepest); }
+    ::-webkit-scrollbar-track   { background: var(--navy-deepest); border-radius: 99px; }
+    ::-webkit-scrollbar-thumb   {
+        background: linear-gradient(180deg, var(--blue-primary) 0%, var(--indigo) 50%, var(--cyan) 100%);
+        border-radius: 99px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, var(--cyan) 0%, var(--blue-light) 50%, var(--indigo) 100%);
+    }
+
+    // ── Responsive ────────────────────────────────────────────
+    @media (max-width: 900px) {
+        .hero-content { padding: 100px 20px 60px; }
+        .glass-accent { display: none; }
+    }
+
+    @media (max-width: 600px) {
+        .hero-stats { padding: 20px; gap: 20px; }
     }
 }

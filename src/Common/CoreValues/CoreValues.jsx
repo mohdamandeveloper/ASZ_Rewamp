@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import BearingCard from './BearingCard';
-import './CoreValues.css'
+import './CoreValues.scss'
 
 const BEARINGS = [
   {
@@ -49,7 +49,7 @@ export default function CoreValues() {
   const glowOpacity = active ? 0.3 : 0.14;
 
   return (
-    <section className="cv">
+    <section className="cv core_values">
       <div className="cv__backdrop"></div>
       <div className="cv__grid"></div>
       <div className="cv__ring cv__ring--a"></div>

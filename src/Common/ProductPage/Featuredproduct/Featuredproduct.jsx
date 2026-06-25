@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { CheckCircle2, ArrowRight, Play } from "lucide-react";
 import "./FeaturedProduct.scss";
+import { Link } from "react-router-dom";
 
 const features = [
   "GPT-4 ticket auto-resolution (avg 68% deflection rate)",
@@ -24,11 +25,11 @@ const FeaturedProduct = () => {
       <div className="feat-prod__glow feat-prod__glow--a" />
       <div className="feat-prod__glow feat-prod__glow--b" />
 
-      <div className="feat-prod__container">
+      <div className="feat-prod__container container">
         <div className={`feat-prod__text ${vis ? "is-vis" : ""}`}>
-          <div className="hero_badge">
+          {/* <div className="hero_badge">
             <span></span>FEATURED PRODUCT
-          </div>
+          </div> */}
           <h2 className="heading_title" style={{color: 'white'}}>
             Meet <span>NeuralDesk</span> — the AI Helpdesk That Resolves Before You Escalate
           </h2>
@@ -47,9 +48,9 @@ const FeaturedProduct = () => {
             ))}
           </ul>
           <div className="feat-prod__actions">
-            <button className="btn-primary">
+            <Link to={'/contact'} className="btn-primary">
               Get Early Access <ArrowRight size={16} />
-            </button>
+            </Link>
           </div>
         </div>
 

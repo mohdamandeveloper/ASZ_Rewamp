@@ -236,7 +236,7 @@ export default function MobileAppDevelopment() {
                 </section>
 
                 {/* ── 2. SERVICES (STICKY) ── */}
-                <section className='our_services' style={{ background: "#0a0a0f", padding: "0 0 80px" }}>
+                <section className='our_services' style={{ background: "#0a0a0f" }}>
                     <div className="services-section">
                         <div className="services-left">
                             <div className="hero_badge">Our Services</div>
@@ -353,7 +353,7 @@ export default function MobileAppDevelopment() {
                 </section> */}
 
                 {/* ── 7. FEATURES (BOXY) ── */}
-                <section className="features-section">
+                {/* <section className="features-section">
                     <div className="features-inner">
                         <div className="section-header reveal" ref={addReveal}>
                             <div className="hero_badge" style={{ justifyContent: "center" }}>Industries</div>
@@ -374,7 +374,7 @@ export default function MobileAppDevelopment() {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* ── 4. INDUSTRIES ── */}
                 {/* <section style={{ padding: "100px 40px", background: "#0a0a0f" }}>

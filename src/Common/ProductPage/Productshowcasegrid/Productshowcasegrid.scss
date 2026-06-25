@@ -19,8 +19,115 @@
   &__container {
     position: relative;
     z-index: 1;
-    max-width: 1200px;
+    max-width: 1320px;
     margin: 0 auto;
+
+    .features-boxy-grid {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .feature-box {
+      padding: 40px 36px;
+      border-right: 1px solid rgba(255, 255, 255, 0.07);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      transition: all 0.35s ease;
+      position: relative;
+      cursor: pointer;
+      background: linear-gradient(145deg, #121212, #000000);
+      overflow: hidden;
+    }
+
+    .feature-box:nth-child(3),
+    .feature-box:nth-child(6),
+    .feature-box:nth-child(9) {
+      border-right: none;
+    }
+
+    .feature-box:nth-child(7),
+    .feature-box:nth-child(8),
+    .feature-box:nth-child(9) {
+      border-bottom: none;
+    }
+
+    .feature-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(230, 100, 30, 0.06) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .feature-box::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, #e6641e, transparent);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.4s ease;
+    }
+
+    .feature-box:hover::before {
+      opacity: 1;
+    }
+
+    .feature-box:hover::after {
+      transform: scaleY(1);
+    }
+
+    .feature-box:hover {
+      background: linear-gradient(145deg, #000000, #121212);
+    }
+
+    .feature-box-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(230, 100, 30, 0.1);
+      border: 1px solid rgba(230, 100, 30, 0.15);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 20px;
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+      svg {
+        color: white;
+      }
+    }
+
+    .feature-box:hover .feature-box-icon {
+      background: rgba(230, 100, 30, 0.2);
+      transform: scale(1.1) rotate(-5deg);
+      border-color: rgba(230, 100, 30, 0.4);
+    }
+
+    .feature-box-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: #e0e0f0;
+      margin-bottom: 10px;
+      transition: color 0.3s;
+    }
+    .feature-box-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #686888;
+    }
   }
 
   &__header {
@@ -28,42 +135,6 @@
     max-width: 600px;
     margin: 0 auto 56px;
   }
-
-  // &__eyebrow {
-  //   display: inline-flex;
-  //   align-items: center;
-  //   gap: 10px;
-  //   color: rgb(255, 107, 53);
-  //   font-size: 12px;
-  //   font-weight: 700;
-  //   letter-spacing: 1.5px;
-  //   margin-bottom: 16px;
-
-  //   span {
-  //     width: 24px;
-  //     height: 2px;
-  //     background: rgb(255, 107, 53);
-  //     display: inline-block;
-  //   }
-  // }
-
-  // &__title {
-  //   font-size: clamp(1.9rem, 4vw, 2.6rem);
-  //   font-weight: 800;
-  //   color: #fff;
-  //   margin-bottom: 14px;
-
-  //   span {
-  //     color: rgb(255, 107, 53);
-  //   }
-  // }
-
-  // &__sub {
-  //   font-size: 1rem;
-  //   line-height: 1.7;
-  //   color: #999;
-  //   margin: 0;
-  // }
 
   &__grid {
     display: grid;
@@ -115,7 +186,6 @@
       color: #0a0a0a;
       transform: rotate(-7deg) scale(1.1);
     }
-
     .showcase-card__link svg {
       transform: translateX(4px);
     }
@@ -188,16 +258,16 @@
     gap: 6px;
     font-size: .88rem;
     font-weight: 700;
-    color: var(--c);
+    color: var(--color-primary);
     text-decoration: none;
     transition: gap .3s ease;
-
     svg {
       transition: transform .3s ease;
     }
 
     &:hover {
       gap: 10px;
+      color: rgb(255, 120, 30);
     }
   }
 

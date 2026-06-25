@@ -16,6 +16,9 @@ import IOSAppDevelopment from './Pages/Services/IOSAppDevelopment/IOSAppDevelopm
 import Services from './Pages/Services/Services.jsx';
 import Products from './Pages/Products/Products.jsx';
 import Products2 from './Pages/Products2/Products2.jsx';
+import ProductsDetails from './Pages/ProductsDetails/ProductsDetails.jsx';
+import CaseStudyDetail from './Pages/CaseStudyDetail/CaseStudyDetail.jsx';
+import Service from './Pages/Services/Service/Service.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +27,7 @@ const router = createBrowserRouter(
       <Route path='home' element={<Home />} />
       <Route path='home-dark' element={<HomeDark />} />
       <Route path='about' element={<AboutUs />} />
+      <Route path='service' element={<Service />} />
       <Route path='services' element={<Services />}>
       <Route path='custom-software-development' element={<CustomSoftwareDevelopment />} />
         <Route path='web-app-development' element={<WebAppDevelopment />} />
@@ -32,8 +36,10 @@ const router = createBrowserRouter(
         <Route path='ios-app-development' element={<IOSAppDevelopment />} />
       </Route>
       <Route path='products' element={<Products />} />
+      <Route path='products/:id' element={<ProductsDetails />} /> 
       <Route path='products2' element={<Products2 />} />
       <Route path='contact' element={<ContactUs />} />
+      <Route path="case-study/:id" element={<CaseStudyDetail />} />
     </Route>
   )
 )

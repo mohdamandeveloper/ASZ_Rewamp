@@ -16,15 +16,15 @@ export default function Products(){
     return(
         <>
             <div className="products">
-                <ProductHero />
-                <ProductShowcaseGrid />
+                {/* <ProductHero /> */}
                 <FeaturedProduct />
-                <ProductFeatures />
-                <ProductCategories />
-                <ProductCardsSlider />
-                <ProductBenefits />
+                <ProductShowcaseGrid />
+                {/* <ProductFeatures /> */}
+                {/* <ProductCategories /> */}
+                {/* <ProductCardsSlider /> */}
+                {/* <ProductBenefits /> */}
                 <HowItWorks />
-                <TechStack />
+                {/* <TechStack /> */}
                 {/* <Testimonials />
                 <ProductCTA /> */}
             </div>

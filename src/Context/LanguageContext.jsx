@@ -1,53 +1,99 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import translations from "./Translation"; // adjust path if needed
 
 const LanguageContext = createContext(null);
 
-const RTL_CODES = ["AR", "SA"];
+// Languages that use RTL layout
+const RTL_CODES = ["AR"];
 
 export const LANGUAGES = [
-  { code: "EN", label: "English",    flag: "🇺🇸" },
-  { code: "ES", label: "Español",    flag: "🇪🇸" },
-  { code: "FR", label: "Français",   flag: "🇫🇷" },
-  { code: "DE", label: "Deutsch",    flag: "🇩🇪" },
-  { code: "PT", label: "Português",  flag: "🇧🇷" },
-  { code: "JA", label: "日本語",      flag: "🇯🇵" },
-  { code: "ZH", label: "中文",        flag: "🇨🇳" },
-  { code: "AR", label: "العربية",    flag: "🇸🇦" },
+  { code: "EN", label: "English",   flag: "🇺🇸" },
+  // { code: "ES", label: "Español",   flag: "🇪🇸" },
+  { code: "FR", label: "Français",  flag: "🇫🇷" },
+  { code: "DE", label: "Deutsch",   flag: "🇩🇪" },
+  // { code: "PT", label: "Português", flag: "🇧🇷" },
+  // { code: "JA", label: "日本語",     flag: "🇯🇵" },
+  // { code: "ZH", label: "中文",       flag: "🇨🇳" },
+  { code: "AR", label: "العربية",   flag: "🇸🇦" },
 ];
 
 const DEFAULT_LANG = LANGUAGES[0]; // EN
 
 function getLangFromCode(code) {
-  return LANGUAGES.find(l => l.code === code.toUpperCase()) ?? DEFAULT_LANG;
+  return LANGUAGES.find(l => l.code === code.toUpperCase()) ?? null;
 }
+
+// ─── Browser locale → language detection ─────────────────────────────────────
+// navigator.languages returns e.g. ["de-DE", "de", "en-US", "en"]
+// We walk through each locale, extract the primary subtag (e.g. "DE"),
+// and return the first one that exists in our LANGUAGES list.
+// Falls back to English if nothing matches.
+function detectBrowserLang() {
+  try {
+    const locales = navigator.languages?.length
+      ? navigator.languages
+      : [navigator.language];
+
+    for (const locale of locales) {
+      if (!locale) continue;
+      // "de-DE" → "DE" | "ar-SA" → "AR" | "zh-CN" → "ZH"
+      const primary = locale.split("-")[0].toUpperCase();
+      const matched = getLangFromCode(primary);
+      if (matched) return matched;
+    }
+  } catch (_) {
+    // SSR / old-browser safety
+  }
+  return DEFAULT_LANG;
+}
+// ─────────────────────────────────────────────────────────────────────────────
 
 export function LanguageProvider({ children }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // On first render read ?lang=ar (or SA / AR / en …) from the URL
   const urlCode = (searchParams.get("lang") ?? "").toUpperCase();
-  const initial = urlCode ? getLangFromCode(urlCode) : DEFAULT_LANG;
+
+  // Priority:
+  //  1. ?lang= in URL  — explicit user / shareable choice
+  //  2. Browser locale — auto-detect on first visit
+  //  3. English        — hard fallback
+  const initial = urlCode
+    ? (getLangFromCode(urlCode) ?? DEFAULT_LANG)
+    : detectBrowserLang();
 
   const [language, _setLanguage] = useState(initial);
 
-  // Whenever language changes → keep the URL in sync
+  // Keep URL in sync whenever language changes
   const setLanguage = (lang) => {
     _setLanguage(lang);
     setSearchParams(prev => {
       const next = new URLSearchParams(prev);
       if (lang.code === "EN") {
-        next.delete("lang");          // clean URL for default language
+        next.delete("lang");           // clean URL for default language
       } else {
         next.set("lang", lang.code.toLowerCase());
       }
       return next;
-    }, { replace: true });           // replace so back-button still works
+    }, { replace: true });
   };
+
+  // On first load: if browser-detected lang isn't EN, write it into the URL
+  // so ?lang= persists across navigation and refresh.
+  useEffect(() => {
+    if (!searchParams.get("lang") && initial.code !== "EN") {
+      setSearchParams(prev => {
+        const next = new URLSearchParams(prev);
+        next.set("lang", initial.code.toLowerCase());
+        return next;
+      }, { replace: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const isRTL = RTL_CODES.includes(language.code);
 
-  // Apply dir / lang / class to <html>
+  // Apply dir / lang attribute / class to <html>
   useEffect(() => {
     const html = document.documentElement;
     if (isRTL) {
@@ -56,10 +102,10 @@ export function LanguageProvider({ children }) {
       html.classList.add("rtl");
     } else {
       html.setAttribute("dir", "ltr");
-      html.removeAttribute("lang");
+      html.setAttribute("lang", language.code.toLowerCase());
       html.classList.remove("rtl");
     }
-  }, [isRTL]);
+  }, [isRTL, language.code]);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, isRTL }}>
@@ -68,8 +114,20 @@ export function LanguageProvider({ children }) {
   );
 }
 
+// ─── useLanguage — access language state ────────────────────────────────────
 export function useLanguage() {
   const ctx = useContext(LanguageContext);
   if (!ctx) throw new Error("useLanguage must be used inside <LanguageProvider>");
   return ctx;
+}
+
+// ─── useTranslation — get the right translation object for current language ──
+// Usage in any component:
+//   const t = useTranslation();
+//   <h1>{t.hero_title_white}</h1>
+//
+// If a language has no translations file entry it gracefully falls back to EN.
+export function useTranslation() {
+  const { language } = useLanguage();
+  return translations[language.code] ?? translations["EN"];
 }
