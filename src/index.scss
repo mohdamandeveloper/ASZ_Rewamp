@@ -46,6 +46,7 @@ a:focus {
     gap: 10px;
     cursor: pointer;
     transition: all linear 0.2s;
+    justify-content: center;
 
     svg {
         transition: all linear 0.2s;
@@ -89,7 +90,8 @@ a:focus {
         transform: translateY(-2px);
     }
 }
-.hero_badge{
+
+.hero_badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -102,7 +104,8 @@ a:focus {
     letter-spacing: 0.5px;
     background: rgba(255, 107, 53, 0.05);
     margin-bottom: 28px;
-    span{
+
+    span {
         width: 8px;
         height: 8px;
         border-radius: 50%;
@@ -111,13 +114,14 @@ a:focus {
     }
 }
 
-.heading_title{
+.heading_title {
     font-size: 40px;
     font-weight: 700;
     color: #12132c;
     line-height: 1.15;
     margin-bottom: 0.75rem;
-    span{
+
+    span {
         background: var(--color-primary-gradient);
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -126,19 +130,40 @@ a:focus {
     }
 
     @keyframes textGradientFlow {
-        0%{
+        0% {
             background-position: 0% 50%;
         }
-        100%{
+
+        100% {
             background-position: 100% 50%;
         }
     }
 }
-.heading_subtitle{
+
+.heading_subtitle {
     font-size: 17px;
     font-weight: 500;
     color: var(--text-muted-light);
     line-height: 1.6;
     margin: 0 auto 38px;
     max-width: 700px;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    background: var(--navy-deepest);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--navy-deepest);
+    border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--blue-primary) 0%, var(--indigo) 50%, var(--cyan) 100%);
+    border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--cyan) 0%, var(--blue-light) 50%, var(--indigo) 100%);
 }

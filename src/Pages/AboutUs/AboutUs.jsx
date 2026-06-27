@@ -222,121 +222,99 @@ export default function AboutUs() {
         <>
             <div className="about_us">
                 <section className="hero-section" ref={sectionRef} aria-label="ASZ Technologies hero banner">
-                    <svg
-                        className="bg-canvas"
-                        viewBox="0 0 100 100"
-                        preserveAspectRatio="xMidYMid slice"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                    >
-                        <g>
-                            {[
-                                [8, 72, 9], [25, 10, 7], [85, 15, 8],
-                                [95, 60, 6], [60, 90, 7.5], [45, 50, 5],
-                            ].map(([cx, cy, r], i) => (
-                                <path key={i} className="hex-shape" d={hexPath(cx, cy, r)} />
-                            ))}
-                        </g>
-                    </svg>
-                    <div className="hero-content">
-                        <div className="hero-eyebrow">
-                            <h6 className="hero_badge"><span></span>About ASZ Technologies</h6>
-                            <h1 className="heading_title mb-4">Engineering Beyond Code <br /><span className="c_primary">Building Digital Systems</span> Services</h1>
-                        </div>
-                        <p className="hero-subtitle">
-                            We Design, Engineer and scale Mission-Critical Enterprise solutions powered by AI,
-                            Blockchain and Cloud technologies — helping businesses achieve resilient, lasting growth.
-                        </p>
-
-                        <div className="hero-actions mt-4">
-                            <Link to="services" className="btn-primary">
-                                Explore Services <i className="bi bi-arrow-right"></i>
-                            </Link>
-                        </div>
-                    </div>
-                </section>
-                <style>{`
-                        @keyframes pulseDot {
-                        0%,100% { opacity:0.2; transform:scale(1); }
-                        50%      { opacity:0.75; transform:scale(1.5); }
-                        }
-                        @keyframes floatUp {
-                        0%,100% { transform:translateY(0) rotate(0deg); }
-                        33%      { transform:translateY(-10px) rotate(0.8deg); }
-                        66%      { transform:translateY(-4px) rotate(-0.4deg); }
-                        }
-                        @keyframes floatDown {
-                        0%,100% { transform:translateY(0); }
-                        50%      { transform:translateY(12px); }
-                        }
-                        @keyframes driftRight {
-                        0%   { transform:translateX(0) translateY(0); }
-                        50%  { transform:translateX(8px) translateY(-6px); }
-                        100% { transform:translateX(0) translateY(0); }
-                        }
-                        @keyframes ringExpand {
-                        0%   { transform:scale(0.7); opacity:0; }
-                        60%  { opacity:0.5; }
-                        100% { transform:scale(1.6); opacity:0; }
-                        }
-                        @keyframes accentFloat {
-                        0%,100% { transform:translateX(-50%) translateY(0); }
-                        50%      { transform:translateX(-50%) translateY(-6px); }
-                        }
-                    `}</style>
-                <section className="who-are-we">
-                    {/* Background image + overlay */}
-                    <div className="who-are-we__bg-image"></div>
-                    <div className="who-are-we__overlay"></div>
-
-                    {/* Animated particles */}
-                    <ParticleLayer />
-
-                    <div className="who-are-we__container">
-                        {/* Top row: heading + image + stats */}
-                        <div className="who-are-we__top">
-                            <div className="who-are-we__intro">
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        <div className="who-are-we__image-wrap">
-                                            <img
-                                                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=900"
-                                                alt="ASZ team collaborating"
-                                                className="who-are-we__image"
-                                            />
-                                        </div>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <svg
+                                    className="bg-canvas"
+                                    viewBox="0 0 100 100"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                >
+                                    <g>
+                                        {[
+                                            [8, 72, 9], [25, 10, 7], [85, 15, 8],
+                                            [95, 60, 6], [60, 90, 7.5], [45, 50, 5],
+                                        ].map(([cx, cy, r], i) => (
+                                            <path key={i} className="hex-shape" d={hexPath(cx, cy, r)} />
+                                        ))}
+                                    </g>
+                                </svg>
+                                <div className="hero-content">
+                                    <div className="hero-eyebrow">
+                                        <h6 className="hero_badge"><span></span>About ASZ Technologies</h6>
+                                        <h1 className="heading_title mb-4">Engineering Beyond Code <span className="c_primary">Building Digital Systems</span> Services</h1>
                                     </div>
-                                    <div className="col-md-6">
-                                        <h2 className="heading_title who-are-we__title" style={{color: 'white'}}><span>Who</span> We Are</h2>
-                                        <p className="who-are-we__desc">
-                                            ASZ Technologies specializes in Digital Transformation Services that includes Sourcing and Advisory, Market Intelligence, Industry 4.0, Data Science and Enterprise Data Management. We work in a collaborative way with our customers by implementing business requirements from strategy to launch as quickly and effectively as possible.
-                                        </p>
-                                        <p className="who-are-we__desc">Our diverse teams of experts combine innovative thinking and breakthrough technologies & enable our clients adapt and transform, and together we achieve enduring results.</p>
-                                        <div className="who-are-we__stats">
-                                            {statsData.map((stat) => (
-                                                <div className="who-are-we__stat" key={stat.id}>
-                                                    <Counter target={stat.target} suffix={stat.suffix} />
-                                                    <p className="who-are-we__stat-label">{stat.label}</p>
-                                                </div>
-                                            ))}
-                                        </div>
+                                    <p className="hero-subtitle">
+                                        We Design, Engineer and scale Mission-Critical Enterprise solutions powered by AI,
+                                        Blockchain and Cloud technologies — helping businesses achieve resilient, lasting growth.
+                                    </p>
+
+                                    <div className="hero-actions mt-4">
+                                        <Link to="services" className="btn-primary">
+                                            Explore Services <i className="bi bi-arrow-right"></i>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
+                    </div>
+                </section>
+                <section className="who-are-we">
+                    <div className="who-are-we__bg-image"></div>
+                    <div className="who-are-we__overlay"></div>
+                    <ParticleLayer />
+                    <div className="who-are-we__container container">
+                        {/* Top row: heading + image + stats */}
+                        {/* <div className="who-are-we__top"> */}
+                        {/* <div className="who-are-we__intro"> */}
+                        <div className="row">
+                            <div className="col-md-6">
+                                <div className="who-are-we__image-wrap">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=900"
+                                        alt="ASZ team collaborating"
+                                        className="who-are-we__image"
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-md-6">
+                                <h2 className="heading_title who-are-we__title" style={{ color: 'white' }}><span>Who</span> We Are</h2>
+                                <p className="who-are-we__desc">
+                                    ASZ Technologies specializes in Digital Transformation Services that includes Sourcing and Advisory, Market Intelligence, Industry 4.0, Data Science and Enterprise Data Management. We work in a collaborative way with our customers by implementing business requirements from strategy to launch as quickly and effectively as possible.
+                                </p>
+                                <p className="who-are-we__desc">Our diverse teams of experts combine innovative thinking and breakthrough technologies & enable our clients adapt and transform, and together we achieve enduring results.</p>
+                                <div className="who-are-we__stats">
+                                    {statsData.map((stat) => (
+                                        <div className="who-are-we__stat" key={stat.id}>
+                                            <Counter target={stat.target} suffix={stat.suffix} />
+                                            <p className="who-are-we__stat-label">{stat.label}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row mt-5">
+                            <div className="col-md-12">
+                                <div className="who-are-we__cards">
+                                    {cardsData.map((card) => (
+                                        <div className="who-are-we__card" key={card.id}>
+                                            <div className="who-are-we__card-icon">{card.icon}</div>
+                                            <h3 className="who-are-we__card-title">{card.title}</h3>
+                                            <p className="who-are-we__card-desc">{card.description}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                        {/* </div> */}
+
+
+                        {/* </div> */}
 
                         {/* Bottom row: feature cards */}
-                        <div className="who-are-we__cards">
-                            {cardsData.map((card) => (
-                                <div className="who-are-we__card" key={card.id}>
-                                    <div className="who-are-we__card-icon">{card.icon}</div>
-                                    <h3 className="who-are-we__card-title">{card.title}</h3>
-                                    <p className="who-are-we__card-desc">{card.description}</p>
-                                </div>
-                            ))}
-                        </div>
+
                     </div>
                 </section>
                 <CoreValues />
@@ -345,7 +323,7 @@ export default function AboutUs() {
                 <section className="partners-section">
                     <div className="container">
                         <div>
-                            <h3 className="heading_title text-center mb-2" style={{color: 'white'}}>
+                            <h3 className="heading_title text-center mb-2" style={{ color: 'white' }}>
                                 <span>We Support</span> Customers Around The Globe
                             </h3>
                             <p className="heading_subtitle mb-5">Delivering innovative technology solutions to businesses worldwide, building lasting partnerships across industries and regions.</p>
@@ -354,12 +332,28 @@ export default function AboutUs() {
                                     spaceBetween={50}
                                     slidesPerView={4.5}
                                     modules={[Autoplay]}
+                                    breakpoints={{
+                                        240: {
+                                            slidesPerView: 2,
+                                            spaceBetween: 20,
+                                        },
+                                        768: {
+                                            slidesPerView: 3,
+                                            spaceBetween: 40,
+                                        },
+                                        1024: {
+                                            slidesPerView: 4,
+                                            spaceBetween: 50,
+                                        },
+                                        1200: {
+                                            slidesPerView: 5,
+                                            spaceBetween: 50,
+                                        },
+                                    }}
                                     autoplay={{
                                         delay: 1500,
                                         disableOnInteraction: false,
                                     }}
-                                    onSlideChange={() => console.log('slide change')}
-                                    onSwiper={(swiper) => console.log(swiper)}
                                 >
                                     {partners.map((p, i) => (
                                         <SwiperSlide>

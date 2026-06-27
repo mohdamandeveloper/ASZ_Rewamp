@@ -2,14 +2,15 @@
     .hero-banner {
         position: relative;
         width: 100%;
-        // min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
         background-color: #0a0a0a;
         padding-top: 150px;
-
+        @media (max-width:600px){
+            padding-top: 150px;
+        }
         &__video {
             position: absolute;
             top: 0;
@@ -244,13 +245,14 @@
             }
 
             &__item {
-                border-right: 1px solid rgba(255, 255, 255, 0.08);
-
-                &:nth-child(4n),
-                // every 2nd item due to fragment structure won't work simply; handled below
-                &:nth-of-type(2n) {
-                    border-right: none;
+                // border-right: 1px solid rgba(255, 255, 255, 0.08);
+                &:nth-child(3n){
+                    border-right: 1px solid rgba(255, 255, 255, 0.08);
                 }
+                // &:nth-child(4n),
+                // &:nth-of-type(2n) {
+                //     border-right: none;
+                // }
             }
         }
 
@@ -335,6 +337,9 @@
                 border: 1px solid rgba(255, 255, 255, 0.07);
                 border-radius: 24px;
                 overflow: hidden;
+                @media (max-width: 600px){
+                    grid-template-columns: repeat(1, 1fr);
+                }
             }
 
             .feature-box {
@@ -765,7 +770,7 @@
         // background-size: cover;
 
         .contact_inner {
-            padding: 50px 0;
+            padding: 50px 30px;
             border: 1px solid rgba(94, 94, 94, 0.25);
             border-radius: 36px;
             text-align: center;
@@ -784,6 +789,14 @@
                 gap: 14px;
                 justify-content: center;
                 flex-wrap: wrap;
+                @media (max-width: 600px){
+                    gap: 24px;
+                }
+                a, button{
+                    @media (max-width: 600px){
+                        width: 100%;
+                    }
+                }
             }
         }
     }
@@ -860,17 +873,14 @@ html[dir="rtl"] * {
         &__content {
             text-align: center; // keep hero centred
         }
-
         &__actions {
             flex-direction: row-reverse;
             justify-content: center;
         }
-
         &__badge {
             flex-direction: row-reverse;
             justify-content: center;
         }
-
         &__scroll {
             flex-direction: column; // stays vertical, no change needed
         }

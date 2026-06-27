@@ -160,7 +160,7 @@ export default function Service() {
                             <div className="cv-layout">
                                 <div className='row'>
                                     {BEARINGS.map((b, i) => (
-                                        <div className={`col-md-4 ${i == 6  ? 'offset-md-4' : ''}`}>
+                                        <div className={`col-md-6 col-lg-4 ${i == 6  ? 'offset-md-4' : ''}`}>
                                             <div className="cv-grid-cards mb-4">
                                                 <BearingCard
                                                     key={b.code}

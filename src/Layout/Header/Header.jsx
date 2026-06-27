@@ -6,13 +6,13 @@ import { useLanguage, LANGUAGES } from '../../Context/LanguageContext';
 
 /* ─── DROPDOWN DATA ─────────────────────────────────────────── */
 const SERVICES_ITEMS = [
-  { label: "Software Development",   url: "/services/custom-software-development" },
-  { label: "Web Development",        url: "/services/web-app-development"         },
-  { label: "Mobile Development",     url: "/services/mobile-app-development"      },
-  { label: "UX/UI Design",           url: "/services/ux-ui-design"                },
-  { label: "IT Consulting",          url: "/services/it-consulting"               },
-  { label: "Data Analytics",         url: "/services/data-analytics"              },
-  { label: "CyberSecurity Services", url: "/services/cybersecurity-services"      },
+  { label: "Software Development", url: "/services/custom-software-development" },
+  { label: "Web Development", url: "/services/web-app-development" },
+  { label: "Mobile Development", url: "/services/mobile-app-development" },
+  { label: "UX/UI Design", url: "/services/ux-ui-design" },
+  { label: "IT Consulting", url: "/services/it-consulting" },
+  { label: "Data Analytics", url: "/services/data-analytics" },
+  { label: "CyberSecurity Services", url: "/services/cybersecurity-services" },
 ];
 
 const PRODUCTS_ITEMS = [
@@ -21,18 +21,18 @@ const PRODUCTS_ITEMS = [
 ];
 
 const NAV_LINKS = [
-  { link: "Home",     url: "/",         dropdown: null            },
-  { link: "About Us", url: "/about",    dropdown: null            },
-  { link: "Services", url: "/service", dropdown: SERVICES_ITEMS  },
-  { link: "Products", url: "/products", dropdown: PRODUCTS_ITEMS  },
+  { link: "Home", url: "/", dropdown: null },
+  { link: "About Us", url: "/about", dropdown: null },
+  { link: "Services", url: "/service", dropdown: SERVICES_ITEMS },
+  { link: "Products", url: "/products", dropdown: PRODUCTS_ITEMS },
 ];
 
 const MOBILE_MENU = [
-  { label: "Home",       url: "/",         children: null          },
-  { label: "About Us",   url: "/about",    children: null          },
-  { label: "Services",   url: "/service", children: SERVICES_ITEMS },
-  { label: "Products",   url: "/products", children: PRODUCTS_ITEMS },
-  { label: "Contact Us", url: "/contact",  children: null          },
+  { label: "Home", url: "/", children: null },
+  { label: "About Us", url: "/about", children: null },
+  { label: "Services", url: "/service", children: SERVICES_ITEMS },
+  { label: "Products", url: "/products", children: PRODUCTS_ITEMS },
+  { label: "Contact Us", url: "/contact", children: null },
 ];
 
 /* ─── LANGUAGE SELECTOR ─────────────────────────────────────── */
@@ -90,9 +90,6 @@ function LanguageSelector() {
   );
 }
 
-/* ─── NAV DROPDOWN ──────────────────────────────────────────── */
-// Single reusable dropdown used by both Services and Products.
-// open/close is React state — clicking a link calls onClose.
 function NavDropdown({ items, open, onClose }) {
   return (
     <AnimatePresence>
@@ -115,9 +112,8 @@ function NavDropdown({ items, open, onClose }) {
                   ? "1px solid rgb(255 255 255 / 3%)"
                   : "none",
               }}
-              onClick={onClose}   // ← closes dropdown on click
+              onClick={onClose}
             >
-              {/* <span className="nav-dropdown__dot" /> */}
               {item.label}
             </Link>
           ))}
@@ -133,7 +129,7 @@ function MobileMenu({ open, onClose }) {
 
   const sidebarVariants = {
     closed: { x: "-100%", transition: { type: "tween", duration: 0.35, ease: [0.4, 0, 0.2, 1] } },
-    open:   { x: 0,       transition: { type: "tween", duration: 0.35, ease: [0.4, 0, 0.2, 1] } },
+    open: { x: 0, transition: { type: "tween", duration: 0.35, ease: [0.4, 0, 0.2, 1] } },
   };
   const itemVariants = {
     closed: { opacity: 0, x: -20 },
@@ -141,10 +137,13 @@ function MobileMenu({ open, onClose }) {
   };
   const collapseV = {
     closed: { height: 0, opacity: 0, transition: { duration: 0.22 } },
-    open:   { height: "auto", opacity: 1, transition: { duration: 0.25 } },
+    open: { height: "auto", opacity: 1, transition: { duration: 0.25 } },
   };
 
-  const toggle = (label) => setExpanded(p => p === label ? null : label);
+  const toggle = (label) => {
+    setExpanded(p => p === label ? null : label)
+    p == 'services' ? onClose : null;
+  };
 
   return (
     <AnimatePresence>
@@ -157,49 +156,34 @@ function MobileMenu({ open, onClose }) {
             style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", zIndex: 2000 }}
           />
           <motion.div
+            className='side_nav'
             key="sidebar"
             variants={sidebarVariants} initial="closed" animate="open" exit="closed"
-            style={{
-              position: "fixed", top: 0, left: 0, bottom: 0, width: 300,
-              background: "#2563eb", zIndex: 2001,
-              overflowY: "auto", display: "flex", flexDirection: "column",
-            }}
           >
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "20px 20px 16px" }}>
-              <span style={{ color: "#fff", fontWeight: 800, fontSize: 18 }}>ASZ</span>
-              <button onClick={onClose} style={{ background: "none", border: "none", color: "#ff4444", fontSize: 22, cursor: "pointer", fontWeight: 700 }}>✕</button>
+            <div className='logo'>
+              <Link to="/">
+                <img src="/images/asz-logo2.png" alt="ASZ" style={{ height: '40px' }} />
+              </Link>
+              <button onClick={onClose}>✕</button>
             </div>
 
-            <div style={{ flex: 1 }}>
+            <div className='menu_list'>
               {MOBILE_MENU.map((item, i) => (
-                <motion.div key={item.label} custom={i} variants={itemVariants} initial="closed" animate="open">
-                  <div style={{ display: "flex", alignItems: "center", borderBottom: "1px solid rgba(255,255,255,0.12)" }}>
+                <motion.div className='menu_item' key={item.label} custom={i} variants={itemVariants} initial="closed" animate="open">
+                  <div className='menu_item_inner'>
                     {item.children ? (
-                      <button
-                        onClick={() => toggle(item.label)}
-                        style={{
-                          flex: 1, padding: "16px 20px", background: "none", border: "none",
-                          color: "#fff", fontWeight: 700, fontSize: 15, cursor: "pointer",
-                          display: "flex", alignItems: "center", justifyContent: "space-between", textAlign: "left",
-                        }}
-                      >
+                      <Link to={item.url}
+                        onClick={() => toggle(item.label)}>
                         <span>{item.label}</span>
                         <span style={{
-                          fontSize: 12, opacity: 0.7,
                           transform: expanded === item.label ? "rotate(180deg)" : "none",
                           transition: "transform 0.2s",
-                        }}>▼</span>
-                      </button>
+                        }}><i class="bi bi-chevron-down"></i></span>
+                      </Link>
                     ) : (
                       <Link
                         to={item.url}
-                        onClick={onClose}
-                        style={{
-                          flex: 1, padding: "16px 20px",
-                          color: "#fff", fontWeight: 700, fontSize: 15,
-                          textDecoration: "none", display: "block",
-                        }}
-                      >
+                        onClick={onClose}>
                         {item.label}
                       </Link>
                     )}
@@ -209,27 +193,17 @@ function MobileMenu({ open, onClose }) {
                     <AnimatePresence>
                       {expanded === item.label && (
                         <motion.div
+                          className='sub_menu'
                           variants={collapseV} initial="closed" animate="open" exit="closed"
-                          style={{ overflow: "hidden" }}
                         >
                           {item.children.map(child => (
                             <Link
                               key={child.url}
                               to={child.url}
                               onClick={onClose}
-                              style={{
-                                display: "flex", alignItems: "center", gap: 10,
-                                padding: "13px 20px 13px 32px",
-                                borderBottom: "1px solid rgba(255,255,255,0.07)",
-                                background: "rgba(0,0,0,0.18)",
-                                color: "rgba(255,255,255,0.85)",
-                                fontSize: 13.5, textDecoration: "none",
-                                transition: "color 0.15s",
-                              }}
                               onMouseEnter={e => e.currentTarget.style.color = "#fff"}
                               onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.85)"}
                             >
-                              <span style={{ width: 5, height: 5, borderRadius: "50%", background: "rgba(255,255,255,0.5)", flexShrink: 0 }} />
                               {child.label}
                             </Link>
                           ))}
@@ -241,19 +215,12 @@ function MobileMenu({ open, onClose }) {
               ))}
             </div>
 
-            <div style={{ padding: 20, borderTop: "1px solid rgba(255,255,255,0.15)" }}>
+            <div className='btn_footer'>
               <Link
                 to="/contact"
                 onClick={onClose}
-                style={{
-                  display: "block", width: "100%", padding: 13,
-                  background: "#fff", color: "#2563eb",
-                  border: "none", borderRadius: 10,
-                  fontWeight: 700, fontSize: 14,
-                  textAlign: "center", textDecoration: "none",
-                }}
-              >
-                Contact Us →
+                className='btn-primary' style={{ width: '100%' }}>
+                Contact Us <i class="bi bi-arrow-right"></i>
               </Link>
             </div>
           </motion.div>
@@ -265,9 +232,9 @@ function MobileMenu({ open, onClose }) {
 
 /* ─── HEADER ────────────────────────────────────────────────── */
 export default function Header() {
-  const [openDropdown, setOpenDropdown] = useState(null); // "Services" | "Products" | null
-  const [mobileOpen,   setMobileOpen]   = useState(false);
-  const [scrolled,     setScrolled]     = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const navRef = useRef(null);
 
   useEffect(() => {
@@ -275,8 +242,6 @@ export default function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  // Close dropdown when clicking anywhere outside the nav
   useEffect(() => {
     const handler = (e) => {
       if (navRef.current && !navRef.current.contains(e.target)) {
@@ -304,13 +269,9 @@ export default function Header() {
       <header className="header">
         <nav ref={navRef} className={`navbar${scrolled ? " scrolled" : ""}`}>
           <div className="navbar-inner">
-
-            {/* Logo */}
             <div className="navbar-logo">
               <Link to="/"><img src="/images/asz-logo2.png" alt="ASZ" /></Link>
             </div>
-
-            {/* Desktop nav */}
             <div className="desktop-nav">
               {NAV_LINKS.map(link => (
                 <div
@@ -342,8 +303,6 @@ export default function Header() {
                 </div>
               ))}
             </div>
-
-            {/* Right side */}
             <div className="navbar-actions">
               <Link to="/contact" className="contact-btn">
                 Contact Us <i className="bi bi-chevron-right"></i>
