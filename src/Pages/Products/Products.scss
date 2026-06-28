@@ -16,7 +16,9 @@
         align-items: center;
         justify-content: space-between;
         margin-bottom: 40px;
-
+        @media (max-width:600px){
+            flex-direction: column;
+        }
         .heading_title {
             margin-bottom: 0 !important;
         }
@@ -164,4 +166,10 @@
         margin: 0;
     }
 
+}
+
+.our-work__header{
+    @media (max-width: 600px){
+        flex-direction: column;
+    }
 }

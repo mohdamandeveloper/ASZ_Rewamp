@@ -118,7 +118,9 @@ $map-highlight: rgba(255, 107, 53, 0.35);
         background: #090909;
         padding: 80px 48px 90px;
         overflow: hidden;
-
+        @media (max-width:600px){
+            padding: 80px 25px 0px 25px;
+        }
         &::before {
             content: '';
             position: absolute;
@@ -753,10 +755,13 @@ $shadow-card-hover: 0 10px 32px rgba(255, 107, 53, 0.1);
         position: absolute;
         top: -10%;
         margin: auto;
-        transform: rotate(45deg);
-        left: 38%;
+        // transform: rotate(45deg);
+        left: 0;
         right: auto;
         z-index: 0;
+        @media (max-width: 700px){
+            width: 100%;
+        }
     }
 
     //   &__container {

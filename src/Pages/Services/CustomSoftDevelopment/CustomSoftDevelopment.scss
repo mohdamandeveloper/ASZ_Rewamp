@@ -20,19 +20,30 @@
             width: calc(100% - (100% - 92%) / 2);
             max-width: calc(100% - (100% - 1360px) / 2);
             margin: 0 0 0 auto;
-
+            @media (max-width: 600px){
+                padding: 0 25px;
+                width: 100%;
+                max-width: 100%;
+            }
             .custom_soft_inner {
                 display: flex;
-                // align-items: center;
                 justify-content: space-between;
                 flex-wrap: wrap;
-
+                @media (max-width: 600px){
+                    flex-direction: column;
+                }
                 .cust_banner_lt {
                     width: 50%;
-
+                    @media (max-width: 600px){
+                        width: 100%;
+                        margin-bottom: 30px;
+                    }
                     h1 {
                         width: 470px;
                         color: var(--color-white);
+                        @media (max-width: 600px){
+                            width: 100%;
+                        }
                     }
 
                     p {
@@ -69,7 +80,9 @@
 
                 .cust_banner_rt {
                     width: 46%;
-
+                    @media (max-width: 600px){
+                        width: 100%;
+                    }
                     figure {
                         width: 100%;
                         height: 600px;
@@ -567,11 +580,19 @@
         grid-template-columns: 500px 1fr;
         gap: 80px;
         align-items: start;
+        @media (max-width: 600px){
+            display: block;
+            padding: 60px 25px;
+        }
     }
 
     .services-left {
         position: sticky;
         top: 100px;
+        @media (max-width: 600px){
+            position: static;
+            margin-bottom: 34px;
+        }
     }
 
     .services-left-title {
