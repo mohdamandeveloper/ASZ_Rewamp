@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import './MobileAppDevelopment.scss';
+import './ItConsulting.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -9,41 +9,48 @@ import { Link } from 'react-router-dom';
 import HeroSectionServices from '../../../Common/HeroSectionServices/HeroSectionServices';
 
 const SERVICES = [
-    {
-        icon: "🍎",
-        title: "iOS Mobile App Development",
-        desc: "Crafting pixel-perfect, high-performance apps for iPhone and iPad using Swift and SwiftUI. We build apps that feel native, intuitive, and ready for the App Store from day one.",
-        tags: ["Swift", "SwiftUI", "Xcode", "TestFlight"],
-        emoji: "📱",
-    },
-    {
-        icon: "🤖",
-        title: "Android Mobile App Development",
-        desc: "Building robust Android apps with Kotlin and Jetpack Compose. We cover the full Android ecosystem — phones, tablets, foldables — with smooth performance and material design polish.",
-        tags: ["Kotlin", "Jetpack", "Compose", "Play Store"],
-        emoji: "🤖",
-    },
-    {
-        icon: "⌚",
-        title: "Wearable Mobile App Development",
-        desc: "Developing sleek, context-aware apps for smartwatches and fitness trackers on WatchOS and Wear OS. Minimal UI, real-time sync, and health integration built in.",
-        tags: ["WearOS", "WatchKit", "Health APIs", "BLE"],
-        emoji: "⌚",
-    },
-    {
-        icon: "🔀",
-        title: "Cross-Platform Mobile App Development",
-        desc: "One codebase, two platforms. Using React Native and Flutter, we ship apps that look and behave native on both iOS and Android — cutting cost without cutting quality.",
-        tags: ["React Native", "Flutter", "Expo", "Dart"],
-        emoji: "🔀",
-    },
-    {
-        icon: "⚡",
-        title: "Native Mobile App Development",
-        desc: "Maximum performance, deepest device access. We write fully native apps when you need to push hardware limits, access low-level APIs, or deliver a truly platform-first experience.",
-        tags: ["C++", "Metal", "Vulkan", "NDK"],
-        emoji: "⚡",
-    },
+  {
+    icon: "🚀",
+    title: "Digital Transformation Consulting",
+    desc: "Accelerate your digital transformation journey with tailored technology strategies that modernize business processes, improve operational efficiency, and drive sustainable growth through innovative digital solutions.",
+    tags: ["Digital Strategy", "Business Transformation", "Cloud Adoption", "Innovation"],
+    emoji: "🌐",
+  },
+  {
+    icon: "📋",
+    title: "Project Management Consulting",
+    desc: "Ensure successful project delivery with expert project management consulting. We help define project roadmaps, optimize resources, mitigate risks, and implement agile methodologies for predictable outcomes.",
+    tags: ["Agile", "Project Planning", "Risk Management", "PMO"],
+    emoji: "📈",
+  },
+  {
+    icon: "🛡️",
+    title: "Digital Crisis Management Consulting",
+    desc: "Prepare your organization for unexpected disruptions with proactive crisis management strategies, business continuity planning, disaster recovery, and rapid incident response frameworks.",
+    tags: ["Business Continuity", "Disaster Recovery", "Risk Assessment", "Incident Response"],
+    emoji: "🚨",
+  },
+  {
+    icon: "⚙️",
+    title: "IT Service Management Consulting",
+    desc: "Optimize IT operations with ITSM best practices, streamlined service delivery, process automation, and governance frameworks that improve efficiency, reliability, and customer satisfaction.",
+    tags: ["ITIL", "Service Delivery", "Process Automation", "IT Governance"],
+    emoji: "🔧",
+  },
+  {
+    icon: "💼",
+    title: "Solution Consulting",
+    desc: "Design scalable and secure technology solutions tailored to your business needs. Our consultants help evaluate, architect, and implement solutions that maximize business value and performance.",
+    tags: ["Solution Architecture", "Enterprise Solutions", "System Design", "Technology Advisory"],
+    emoji: "💡",
+  },
+  {
+    icon: "☁️",
+    title: "Platform Consulting",
+    desc: "Maximize the value of your technology platforms with expert consulting on cloud, enterprise, and business applications. We help optimize performance, scalability, integration, and long-term platform success.",
+    tags: ["Cloud Platforms", "Enterprise Systems", "Platform Integration", "Scalability"],
+    emoji: "🖥️",
+  },
 ];
 
 // const INDUSTRIES = [
@@ -74,38 +81,38 @@ const SERVICES = [
 //     { icon: "📈", name: "Data Analytics" },
 // ];
 
-const PROCESS_STEPS = [
-    {
-        title: "Discovery & Strategy",
-        desc: "We start by understanding your goals, audience, and competitive landscape. This phase produces a detailed product brief, tech stack recommendation, and MVP scope.",
-        deliverables: ["Product Brief", "Tech Stack", "MVP Scope"],
-    },
-    {
-        title: "UX Research & Wireframing",
-        desc: "Our designers map user journeys, define information architecture, and build low-fidelity wireframes — validated with real users before a pixel of UI is drawn.",
-        deliverables: ["User Flows", "Wireframes", "IA Map"],
-    },
-    {
-        title: "UI Design & Prototyping",
-        desc: "High-fidelity, clickable prototypes in Figma. Every micro-interaction is designed before development starts, so engineers build with clarity and confidence.",
-        deliverables: ["Design System", "Prototype", "Figma File"],
-    },
-    {
-        title: "Agile Development",
-        desc: "Two-week sprints, daily standups, and continuous integration. You see working software every two weeks — not a reveal at the end of the project.",
-        deliverables: ["Sprint Demos", "CI/CD Pipeline", "Code Reviews"],
-    },
-    {
-        title: "QA & Testing",
-        desc: "Multi-device testing across real hardware, automated test suites, performance benchmarking, and security audits. We test what users actually do — and the edge cases they don't.",
-        deliverables: ["Test Reports", "Performance Audit", "Security Scan"],
-    },
-    {
-        title: "Launch & Post-Launch Support",
-        desc: "App store submission, phased rollout, crash monitoring, and 30-day post-launch support included in every engagement. We stay on until the app is stable and growing.",
-        deliverables: ["App Store Listing", "Monitoring", "30-day Support"],
-    },
-];
+// const PROCESS_STEPS = [
+//     {
+//         title: "Discovery & Strategy",
+//         desc: "We start by understanding your goals, audience, and competitive landscape. This phase produces a detailed product brief, tech stack recommendation, and MVP scope.",
+//         deliverables: ["Product Brief", "Tech Stack", "MVP Scope"],
+//     },
+//     {
+//         title: "UX Research & Wireframing",
+//         desc: "Our designers map user journeys, define information architecture, and build low-fidelity wireframes — validated with real users before a pixel of UI is drawn.",
+//         deliverables: ["User Flows", "Wireframes", "IA Map"],
+//     },
+//     {
+//         title: "UI Design & Prototyping",
+//         desc: "High-fidelity, clickable prototypes in Figma. Every micro-interaction is designed before development starts, so engineers build with clarity and confidence.",
+//         deliverables: ["Design System", "Prototype", "Figma File"],
+//     },
+//     {
+//         title: "Agile Development",
+//         desc: "Two-week sprints, daily standups, and continuous integration. You see working software every two weeks — not a reveal at the end of the project.",
+//         deliverables: ["Sprint Demos", "CI/CD Pipeline", "Code Reviews"],
+//     },
+//     {
+//         title: "QA & Testing",
+//         desc: "Multi-device testing across real hardware, automated test suites, performance benchmarking, and security audits. We test what users actually do — and the edge cases they don't.",
+//         deliverables: ["Test Reports", "Performance Audit", "Security Scan"],
+//     },
+//     {
+//         title: "Launch & Post-Launch Support",
+//         desc: "App store submission, phased rollout, crash monitoring, and 30-day post-launch support included in every engagement. We stay on until the app is stable and growing.",
+//         deliverables: ["App Store Listing", "Monitoring", "30-day Support"],
+//     },
+// ];
 
 export const WORKS = [
     {
@@ -417,7 +424,7 @@ The underutilised licence detection was the feature that drove the most immediat
 //     { icon: "🤝", title: "Transparent, Collaborative Process", desc: "Slack access to your team, weekly reporting, and no surprises on scope or cost." },
 // ];
 
-export default function MobileAppDevelopment() {
+export default function ItConsulting() {
     const sectionRef = useRef(null);
     const revealRefs = useRef([]);
 
@@ -435,7 +442,7 @@ export default function MobileAppDevelopment() {
     };
     return (
         <>
-            <div className="mobile-app-development">
+            <div className="ux-ui-development">
                 {/* <section className="hero-section" ref={sectionRef} aria-label="ASZ Technologies hero banner">
                     <HeroSectionServices
                         backgroundImage="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1600&q=80"
@@ -462,37 +469,27 @@ export default function MobileAppDevelopment() {
 
                     <div className="hero-content">
                         <div className="hero-text">
-                            <div className="hero_badge"><span />Mobile App Development</div>
+                            {/* <div className="hero_badge"><span />UX/UI Design</div> */}
                             <h1 className="heading_title" style={{ color: 'white' }}>
-                                <span>Build Apps</span> That Users Love — and Businesses Rely On
+                                <span>IT</span> Consulting
                             </h1>
                             <p className="heading_subtitle">
-                                From concept to App Store, we design, develop, and deploy enterprise-grade mobile applications
-                                across iOS, Android, and cross-platform — powered by AI and built for scale.
+                                Empower your business with strategic IT consulting services that align technology with your business goals. Our experts help you modernize infrastructure, optimize processes, strengthen cybersecurity, and implement scalable digital solutions that drive efficiency, innovation, and long-term growth.
                             </p>
+                            <ul class="bnrlst mb-4">
+                                <li>Strategic Technology Planning</li>
+                                <li>Digital Transformation</li>
+                                <li>Cloud & Infrastructure Optimization</li>
+                            </ul>
                             <div className="hero-ctas">
-                                <button className="btn-primary">Start Your Project →</button>
-                                <button className="btn-secondary">View Portfolio</button>
-                            </div>
-                            <div className="hero-stats">
-                                <div className="hero-stat">
-                                    <div className="hero-stat-num">200+</div>
-                                    <div className="hero-stat-label">Apps Delivered</div>
-                                </div>
-                                <div className="hero-stat">
-                                    <div className="hero-stat-num">50+</div>
-                                    <div className="hero-stat-label">Industries Served</div>
-                                </div>
-                                <div className="hero-stat">
-                                    <div className="hero-stat-num">12+</div>
-                                    <div className="hero-stat-label">Years of Experience</div>
-                                </div>
+                                <button className="btn-primary">Get in Touch →</button>
+                                {/* <button className="btn-secondary">View Portfolio</button> */}
                             </div>
                         </div>
 
                         <div className="hero-visual">
-                            <div className="orbit-ring r1" />
-                            <div className="orbit-ring r2" />
+                            {/* <div className="orbit-ring r1" />
+                            <div className="orbit-ring r2" /> */}
                             {/* <div className="phone-mockup-wrap">
                                 <div className="phone-outer">
                                     <div className="phone-screen">
@@ -525,7 +522,7 @@ export default function MobileAppDevelopment() {
                                 <div className="phone-float-badge top-right">🍎 iOS Ready</div>
                                 <div className="phone-float-badge bottom-left">🤖 Android Ready</div>
                             </div> */}
-                            <img src='/images/asz/Gemini_Generated_Image_mfh661mfh661mfh6.png' />
+                            <img src='/images/it-consulting.jpg' />
                         </div>
                     </div>
                 </section>
@@ -534,28 +531,27 @@ export default function MobileAppDevelopment() {
                 <section className='our_services' style={{ background: "#0a0a0f" }}>
                     <div className="services-section">
                         <div className="services-left">
-                            <div className="hero_badge">Our Services</div>
+                            {/* <div className="hero_badge">Our Services</div> */}
                             <h2 className="heading_title" style={{ color: 'white' }}>
-                                <span>Mobile Development</span> Services Built for Every Platform
+                                <span>Strategic IT Consulting</span> That Drives Business Growth
                             </h2>
                             <p className="heading_subtitle">
-                                Whether you need an app for Apple's ecosystem, the Android world, wearables, or everywhere at once —
-                                we have a dedicated practice for it. Every service is staffed by specialists, not generalists.
+                                Empower your business with expert IT consulting services designed to optimize technology investments, streamline operations, and accelerate digital transformation. From IT strategy and cloud adoption to solution architecture and technology roadmaps, we help you make confident technology decisions.
                             </p>
                             <div className="services-left-cta">
                                 <button className="btn-primary">Discuss Your Project →</button>
                                 <div className="services-trust-row mt-5">
                                     <div className="services-trust-item">
-                                        <div className="services-trust-num">4.9★</div>
-                                        <div className="services-trust-label">Clutch Rating</div>
+                                        <div className="services-trust-num">150+</div>
+                                        <div className="services-trust-label">Consulting Projects</div>
                                     </div>
                                     <div className="services-trust-item">
                                         <div className="services-trust-num">98%</div>
-                                        <div className="services-trust-label">Client Retention</div>
+                                        <div className="services-trust-label">Client Satisfaction</div>
                                     </div>
                                     <div className="services-trust-item">
-                                        <div className="services-trust-num">2wk</div>
-                                        <div className="services-trust-label">Avg Kickoff</div>
+                                        <div className="services-trust-num">12+</div>
+                                        <div className="services-trust-label">Years of Experience</div>
                                     </div>
                                 </div>
                             </div>
@@ -720,7 +716,7 @@ export default function MobileAppDevelopment() {
                 </section> */}
 
                 {/* ── 6. PROCESS ── */}
-                <section style={{ background: "#0a0a0f" }}>
+                {/* <section style={{ background: "#0a0a0f" }}>
                     <div className="process-section">
                         <div className="section-header reveal" ref={addReveal}>
                             <div className="hero_badge" style={{ justifyContent: "center" }}>Our Process</div>
@@ -749,7 +745,7 @@ export default function MobileAppDevelopment() {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 <section className="our-work">
                     <div className="our-work__container">

@@ -9,7 +9,6 @@ import ContactUs from './Pages/ContactUs/ContactUs.jsx'
 import AboutUs from './Pages/AboutUs/AboutUs.jsx'
 import HomeDark from './Pages/HomeDark/HomeDark.jsx';
 import CustomSoftwareDevelopment from './Pages/Services/CustomSoftDevelopment/CustomSoftDevelopment.jsx';
-import WebAppDevelopment from './Pages/Services/WebAppDevelopment/WebAppDevelopment.jsx';
 import MobileAppDevelopment from './Pages/Services/MobileAppDevelopment/MobileAppDevelopment.jsx';
 import AndroidAppDevelopment from './Pages/Services/AndroidAppDevelopment/AndroidAppDevelopment.jsx';
 import IOSAppDevelopment from './Pages/Services/IOSAppDevelopment/IOSAppDevelopment.jsx';
@@ -19,6 +18,9 @@ import Products2 from './Pages/Products2/Products2.jsx';
 import ProductsDetails from './Pages/ProductsDetails/ProductsDetails.jsx';
 import CaseStudyDetail from './Pages/CaseStudyDetail/CaseStudyDetail.jsx';
 import Service from './Pages/Services/Service/Service.jsx';
+import TestingQA from './Pages/Services/TestingQA/TestingQA.jsx';
+import UxUiDesign from './Pages/Services/UxUiDesign/UxUiDesign.jsx';
+import ItConsulting from './Pages/Services/ItConsulting/ItConsulting.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,9 +31,11 @@ const router = createBrowserRouter(
       <Route path='about' element={<AboutUs />} />
       <Route path='service' element={<Service />} />
       <Route path='services' element={<Services />}>
-      <Route path='custom-software-development' element={<CustomSoftwareDevelopment />} />
-        <Route path='web-app-development' element={<WebAppDevelopment />} />
+        <Route path='custom-software-development' element={<CustomSoftwareDevelopment />} />
+        <Route path='testing-qa' element={<TestingQA />} />
         <Route path='mobile-app-development' element={<MobileAppDevelopment />} />
+        <Route path='ux-ui-development' element={<UxUiDesign />} />
+        <Route path='it-consulting' element={<ItConsulting />} />
         <Route path='android-app-development' element={<AndroidAppDevelopment />} />
         <Route path='ios-app-development' element={<IOSAppDevelopment />} />
       </Route>

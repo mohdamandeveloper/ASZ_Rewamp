@@ -7,12 +7,12 @@ const translations = {
 
   EN: {
     // Hero
-    badge_hero:          "AI-FIRST SOFTWARE DEVELOPMENT",
-    hero_title_white:    "Build Smarter with",
-    hero_title_gradient: "AI-Powered Technology",
-    hero_subtitle:       "ASZ Technologies delivers intelligent software solutions — from custom AI applications and automation to dedicated offshore delivery teams — helping businesses scale faster.",
-    btn_explore:         "Explore AI Solutions",
-    btn_services:        "View Services",
+    badge_hero:          "TRUSTED SOFTWARE DEVELOPMENT & DIGITAL TRANSFORMATION PARTNER",
+    hero_title_white:    "Building Scalable Digital",
+    hero_title_gradient: "Solutions for Modern Businesses",
+    hero_subtitle:       "ASZ Technologies delivers secure, scalable, and innovative software solutions that accelerate digital transformation. From enterprise applications and cloud platforms to AI-powered solutions.",
+    btn_explore:         "Start Your Project",
+    btn_services:        "Explore Services",
     scroll:              "SCROLL",
 
     // AI Platform

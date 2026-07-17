@@ -6,7 +6,6 @@ import IndustryCards from "../../Common/IndustryCards/IndustryCards";
 import { useLanguage, useTranslation } from "../../Context/LanguageContext";
 import { Link } from "react-router-dom";
 
-/* ─── STATIC DATA (icons live here — not translatable) ───────────────────── */
 const statsData = [
     { id: 1, value: 15,  suffix: "+" },
     { id: 2, value: 200, suffix: "+" },
@@ -14,7 +13,6 @@ const statsData = [
     { id: 4, value: 98,  suffix: "%" },
 ];
  useLanguage
-// Icons for platform cards — order must match translations.platform[]
 const platformIcons = [
     <Bot size={22} />,
     <TrendingUp size={22} />,
@@ -22,7 +20,6 @@ const platformIcons = [
     <Eye size={22} />,
 ];
 
-// Icons + IDs for services cards — order must match translations.services[]
 const servicesMeta = [
     { id: "01", icon: <Laptop size={22} /> },
     { id: "02", icon: <Landmark size={22} /> },
@@ -32,7 +29,6 @@ const servicesMeta = [
     { id: "06", icon: <Globe size={22} /> },
 ];
 
-/* ─── COUNTER ─────────────────────────────────────────────────────────────── */
 const Counter = ({ value, suffix, duration = 2000 }) => {
     const [count, setCount] = useState(0);
     const ref = useRef(null);
@@ -67,10 +63,9 @@ const Counter = ({ value, suffix, duration = 2000 }) => {
     );
 };
 
-/* ─── HOME ────────────────────────────────────────────────────────────────── */
 export default function Home() {
     const { isRTL } = useLanguage();
-    const t = useTranslation();           // ← always the right language object
+    const t = useTranslation();           
     const revealRefs = useRef([]);
 
     useEffect(() => {
@@ -90,7 +85,6 @@ export default function Home() {
         <>
             <div className={`homeDark${isRTL ? " rtl" : ""}`}>
 
-                {/* ── HERO ── */}
                 <section className="hero-banner">
                     <video className="hero-banner__video" autoPlay loop muted playsInline>
                         <source src="/images/home/home_bnr.mp4" type="video/mp4" />
@@ -127,7 +121,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* ── KEY FACTS ── */}
                 <section className="key-facts">
                     <div className="key-facts__container">
                         {statsData.map((stat, index) => (
@@ -146,7 +139,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* ── AI PLATFORM ── */}
                 <section className="ai-platform">
                     <div className="ai-platform__bg">
                         <div className="ai-platform__glow ai-platform__glow--top"></div>
@@ -179,7 +171,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* ── CORE SERVICES ── */}
                 <section className="core-services">
                     <div className="core-services__bg">
                         <div className="core-services__glow core-services__glow--top"></div>
@@ -216,12 +207,10 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* ── INDUSTRY ── */}
                 <section className='Industry_section'>
                     <IndustryCards />
                 </section>
 
-                {/* ── CONTACT ── */}
                 <section className='contact_section'>
                     <div className='container'>
                         <div className='row'>
@@ -247,7 +236,6 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-
             </div>
         </>
     );

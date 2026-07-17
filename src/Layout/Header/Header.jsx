@@ -7,9 +7,9 @@ import { useLanguage, LANGUAGES } from '../../Context/LanguageContext';
 /* ─── DROPDOWN DATA ─────────────────────────────────────────── */
 const SERVICES_ITEMS = [
   { label: "Software Development", url: "/services/custom-software-development" },
-  { label: "Web Development", url: "/services/web-app-development" },
+  { label: "Testing & QA", url: "/services/testing-qa" },
   { label: "Mobile Development", url: "/services/mobile-app-development" },
-  { label: "UX/UI Design", url: "/services/ux-ui-design" },
+  { label: "UX/UI Design", url: "/services/ux-ui-development" },
   { label: "IT Consulting", url: "/services/it-consulting" },
   { label: "Data Analytics", url: "/services/data-analytics" },
   { label: "CyberSecurity Services", url: "/services/cybersecurity-services" },
