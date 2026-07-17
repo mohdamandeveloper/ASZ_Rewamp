@@ -105,14 +105,14 @@ export default function Home() {
                         </h1>
                         <p className="hero-banner__subtitle">{t.hero_subtitle}</p>
                         <div className="hero-banner__actions">
-                            <button className="btn-primary hero-banner__btn hero-banner__btn--primary">
+                            <Link to="/contact" className="btn-primary hero-banner__btn hero-banner__btn--primary">
                                 {t.btn_explore}&nbsp;
                                 <span><i className="bi bi-arrow-right"></i></span>
-                            </button>
-                            <button className="btn-secondary hero-banner__btn hero-banner__btn--secondary">
+                            </Link>
+                            <Link to="/service" className="btn-secondary hero-banner__btn hero-banner__btn--secondary">
                                 {t.btn_services}&nbsp;
                                 <span><i className="bi bi-arrow-right"></i></span>
-                            </button>
+                            </Link>
                         </div>
                         <div className="hero-banner__scroll">
                             <span className="hero-banner__scroll-line"></span>
@@ -198,9 +198,9 @@ export default function Home() {
                                     <div className="core-services__icon">{servicesMeta[i].icon}</div>
                                     <h3 className="core-services__card-title">{item.title}</h3>
                                     <p className="core-services__card-desc">{item.description}</p>
-                                    <a href="#" className="core-services__link">
+                                    {/* <a href="#" className="core-services__link">
                                         {t.learn_more} <ArrowRight size={15} />
-                                    </a>
+                                    </a> */}
                                 </div>
                             ))}
                         </div>

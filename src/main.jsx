@@ -21,6 +21,8 @@ import Service from './Pages/Services/Service/Service.jsx';
 import TestingQA from './Pages/Services/TestingQA/TestingQA.jsx';
 import UxUiDesign from './Pages/Services/UxUiDesign/UxUiDesign.jsx';
 import ItConsulting from './Pages/Services/ItConsulting/ItConsulting.jsx';
+import DataAnalytics from './Pages/Services/DataAnalytics/DataAnalytics.jsx';
+import CyberSecrurityServices from './Pages/Services/CyberSecrurityServices/CyberSecrurityServices.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,6 +38,8 @@ const router = createBrowserRouter(
         <Route path='mobile-app-development' element={<MobileAppDevelopment />} />
         <Route path='ux-ui-development' element={<UxUiDesign />} />
         <Route path='it-consulting' element={<ItConsulting />} />
+        <Route path='data-analytics' element={<DataAnalytics />} />
+        <Route path='cybersecurity-services' element={<CyberSecrurityServices />} />
         <Route path='android-app-development' element={<AndroidAppDevelopment />} />
         <Route path='ios-app-development' element={<IOSAppDevelopment />} />
       </Route>

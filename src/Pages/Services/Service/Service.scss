@@ -626,6 +626,7 @@
             line-height: 1.68;
             color: var(--text-2);
             margin-bottom: 20px;
+            min-height: 130px;
         }
 
         .b-card__tags {
@@ -633,6 +634,8 @@
             flex-wrap: wrap;
             gap: 7px;
             margin-bottom: 18px;
+            align-items: center;
+            min-height: 65px;
         }
 
         .b-tag {

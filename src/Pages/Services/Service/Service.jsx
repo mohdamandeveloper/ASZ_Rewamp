@@ -19,17 +19,19 @@ const BEARINGS = [
         accentVar: '--n-innovation',
         icon: 'innovation',
         title: 'Software Development',
-        body: "We challenge conventional thinking at every turn. From AI-powered features to groundbreaking UX, we chase ideas no one else has tried — and ship them as products that lead the market.",
-        tags: ['R&D first', 'Future-ready', 'Bold ideas']
+        body: "Build scalable, secure, and high-performance software solutions tailored to your business goals. We deliver custom web, desktop, and enterprise applications using modern technologies and agile development practices.",
+        tags: ['Custom Software', 'Scalable Solutions', 'Agile Development'],
+        url: '/services/custom-software-development'
     },
     {
         code: 'E',
         deg: 90,
         accentVar: '--e-collaboration',
         icon: 'collaboration',
-        title: 'Web Development',
-        body: 'Great products are never built alone. We embed with your team, share knowledge in the open, and trust that the best outcomes come from diverse minds solving problems together.',
-        tags: ['Transparent', 'Team-first', 'Co-create']
+        title: 'Testing & QA',
+        body: "Ensure software quality with comprehensive testing services including functional, automation, performance, and security testing. We help deliver reliable applications with faster release cycles and fewer defects.",
+        tags: ['Automation Testing', 'Performance QA', 'Bug-Free Delivery'],
+        url: '/services/testing-qa'
     },
     {
         code: 'S',
@@ -37,8 +39,9 @@ const BEARINGS = [
         accentVar: '--s-excellence',
         icon: 'excellence',
         title: 'Mobile Development',
-        body: "We hold ourselves to the highest standard in everything: architecture, design, delivery, communication. Good enough is never good enough — we sweat the details so you don't have to.",
-        tags: ['Zero compromise', 'High craft', 'On-time']
+        body: "Develop intuitive and high-performance mobile applications for Android, iOS, and cross-platform environments. We create secure, scalable apps that deliver exceptional user experiences.",
+        tags: ['Android & iOS', 'Cross-Platform', 'Native Performance'],
+        url: '/services/mobile-app-development'
     },
     {
         code: 'W',
@@ -46,8 +49,9 @@ const BEARINGS = [
         accentVar: '--w-sustainability',
         icon: 'sustainability',
         title: 'UX/UI Design',
-        body: "We build for the long run — in code, culture, and impact. From efficient architecture to equitable hiring, we make choices today that tomorrow's world will be glad we made.",
-        tags: ['Green tech', 'Long-term', 'Responsible']
+        body: "Design intuitive, visually engaging, and user-centric digital experiences that enhance usability, strengthen your brand, and increase customer engagement across every platform.",
+        tags: ['User Experience', 'Modern UI', 'Design Systems'],
+        url: '/services/ux-ui-development'
     },
     {
         code: 'W',
@@ -55,8 +59,9 @@ const BEARINGS = [
         accentVar: '--w-sustainability',
         icon: 'sustainability',
         title: 'IT Consulting',
-        body: "We build for the long run — in code, culture, and impact. From efficient architecture to equitable hiring, we make choices today that tomorrow's world will be glad we made.",
-        tags: ['Green tech', 'Long-term', 'Responsible']
+        body: "Align technology with your business objectives through expert consulting. We provide strategic guidance, solution architecture, digital transformation planning, and technology optimization.",
+        tags: ['Digital Strategy', 'Solution Architecture', 'Technology Consulting'],
+        url: '/services/it-consulting'
     },
     {
         code: 'W',
@@ -64,8 +69,9 @@ const BEARINGS = [
         accentVar: '--w-sustainability',
         icon: 'sustainability',
         title: 'Data Analytics',
-        body: "We build for the long run — in code, culture, and impact. From efficient architecture to equitable hiring, we make choices today that tomorrow's world will be glad we made.",
-        tags: ['Green tech', 'Long-term', 'Responsible']
+        body: "Transform business data into actionable insights with advanced analytics, interactive dashboards, and business intelligence solutions that enable smarter, data-driven decisions.",
+        tags: ['Business Intelligence', 'Data Visualization', 'Predictive Analytics'],
+        url: '/services/data-analytics'
     },
     {
         code: 'W',
@@ -73,8 +79,9 @@ const BEARINGS = [
         accentVar: '--w-sustainability',
         icon: 'sustainability',
         title: 'Cybersecurity Services',
-        body: "We build for the long run — in code, culture, and impact. From efficient architecture to equitable hiring, we make choices today that tomorrow's world will be glad we made.",
-        tags: ['Green tech', 'Long-term', 'Responsible']
+        body: "Protect your business with comprehensive cybersecurity solutions including threat detection, vulnerability assessments, cloud security, compliance, and proactive risk management.",
+        tags: ['Threat Protection', 'Cloud Security', 'Compliance'],
+        url: '/services/cybersecurity-services'
     }
 ]
 
@@ -161,14 +168,17 @@ export default function Service() {
                                 <div className='row'>
                                     {BEARINGS.map((b, i) => (
                                         <div className={`col-md-6 col-lg-4 ${i == 6  ? 'offset-md-4' : ''}`}>
-                                            <div className="cv-grid-cards mb-4">
-                                                <BearingCard
-                                                    key={b.code}
-                                                    bearing={b}
-                                                    onActivate={() => setActiveIndex(i)}
-                                                    onDeactivate={() => setActiveIndex(null)}
-                                                />
-                                            </div>
+                                            <Link to={b.url}>
+                                                <div className="cv-grid-cards mb-4" style={{cursor: 'pointer'}}>
+                                                    <BearingCard
+                                                        key={b.code}
+                                                        bearing={b}
+                                                        onActivate={() => setActiveIndex(i)}
+                                                        onDeactivate={() => setActiveIndex(null)}
+                                                        lin
+                                                    />
+                                                </div>
+                                            </Link>
                                         </div>
                                     ))}
                                 </div>
