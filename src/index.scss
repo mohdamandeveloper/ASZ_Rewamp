@@ -37,9 +37,9 @@ a:focus {
     background: linear-gradient(135deg, #e8292a 0%, #f97316 100%);
     color: white !important;
     border: 2px solid var(--color-primary);
-    padding: 12px 30px;
+    padding: 12px 22px;
     border-radius: 35px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     display: inline-flex;
     align-items: center;
@@ -117,7 +117,7 @@ a:focus {
 }
 
 .heading_title {
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 700;
     color: #12132c;
     line-height: 1.15;
@@ -143,7 +143,7 @@ a:focus {
 }
 
 .heading_subtitle {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 500;
     color: var(--text-muted-light);
     line-height: 1.6;

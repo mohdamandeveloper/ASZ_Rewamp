@@ -118,7 +118,61 @@ export default function Service() {
     return (
         <>
             <div className="service_page">
-                <section className="hero-section" ref={sectionRef} aria-label="ASZ Technologies hero banner">
+                <section class="services-hero">
+                    <div class="services-hero__bg" aria-hidden="true"></div>
+
+                    <div class="services-hero__media" aria-hidden="true">
+                        <img
+                            class="services-hero__image"
+                            src="https://images.unsplash.com/photo-1689443111130-6e9c7dfd8f9e?fm=jpg&q=80&w=1800&auto=format&fit=crop"
+                            alt=""
+                        />
+                        <div class="services-hero__overlay"></div>
+                    </div>
+
+                    <div class="services-hero__inner container">
+
+                        <span class="hero_badge">Our Services</span>
+
+                        <h1 class="heading_title services-hero__title">
+                            Building digital <span >products</span>&nbsp;
+                            that perform, <br />platforms <span class="services-hero__title--muted">that scale</span>,
+                            and AI <br /><span class="services-hero__title--muted">that delivers real value</span>
+                        </h1>
+
+                        <p class="services-hero__subtitle">
+                            Your business doesn't need another isolated technology initiative. It needs
+                            an engineering partner that connects strategy, systems, and execution — across
+                            product design, platform engineering, and applied AI — to turn priorities
+                            into measurable outcomes.
+                        </p>
+
+                        <div class="services-hero__actions">
+                            <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                            {/* <a href="#" class="services-hero__secondary-cta">
+                                View all services
+                                <span class="services-hero__secondary-arrow">→</span>
+                            </a> */}
+                        </div>
+
+                        <ul class="services-hero__pillars">
+                            <li class="services-hero__pillar">
+                                <span class="services-hero__pillar-index">01</span>
+                                <span class="services-hero__pillar-label">Product Engineering</span>
+                            </li>
+                            <li class="services-hero__pillar">
+                                <span class="services-hero__pillar-index">02</span>
+                                <span class="services-hero__pillar-label">Platform &amp; Cloud</span>
+                            </li>
+                            <li class="services-hero__pillar">
+                                <span class="services-hero__pillar-index">03</span>
+                                <span class="services-hero__pillar-label">Applied AI</span>
+                            </li>
+                        </ul>
+
+                    </div>
+                </section>
+                {/* <section className="hero-section" ref={sectionRef} aria-label="ASZ Technologies hero banner">
                     <svg
                         className="bg-canvas"
                         viewBox="0 0 100 100"
@@ -144,7 +198,7 @@ export default function Service() {
                             From idea to impact, we deliver end-to-end IT Services that empower businesses to innovate, optimize and grow in a digital-first world.
                         </p>
                     </div>
-                </section>
+                </section> */}
                 <section className="cv">
                     <div className="container">
                         <div className="cv__backdrop"></div>
@@ -155,7 +209,7 @@ export default function Service() {
 
                         <div className="cv__inner">
                             <header className="cv-head">
-                                <p className="cv-head__eyebrow hero_badge"><span></span>OUR SERVICES</p>
+                                {/* <p className="cv-head__eyebrow hero_badge"><span></span>OUR SERVICES</p> */}
                                 <h2 className="heading_title cv-head__title" style={{ color: 'white' }}>
                                     Everything you need to <span>build and scale</span>
                                 </h2>
@@ -167,9 +221,9 @@ export default function Service() {
                             <div className="cv-layout">
                                 <div className='row'>
                                     {BEARINGS.map((b, i) => (
-                                        <div className={`col-md-6 col-lg-4 ${i == 6  ? 'offset-md-4' : ''}`}>
+                                        <div className={`col-md-6 col-lg-4 ${i == 6 ? 'offset-md-4' : ''}`}>
                                             <Link to={b.url}>
-                                                <div className="cv-grid-cards mb-4" style={{cursor: 'pointer'}}>
+                                                <div className="cv-grid-cards mb-4" style={{ cursor: 'pointer' }}>
                                                     <BearingCard
                                                         key={b.code}
                                                         bearing={b}

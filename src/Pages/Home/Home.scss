@@ -73,7 +73,7 @@
 
             span {
                 display: block;
-                font-size: clamp(2.2rem, 6vw, 3.2rem);
+                font-size: 40px;
             }
 
             &--white {
@@ -333,14 +333,41 @@
             max-width: 1200px;
             margin: 0 auto;
 
-            .features-boxy-grid {
+            .features-boxy-grid-wrap {
+                position: relative;
                 margin-top: 60px;
+                /* generous breathing room so the grid can scale up from
+                   below 100% without ever clipping against the section */
+                padding: 28px 0 8px;
+            }
+
+            .features-boxy-grid-glow {
+                position: absolute;
+                inset: -40px -20px;
+                z-index: 0;
+                pointer-events: none;
+                border-radius: 40px;
+                background: radial-gradient(60% 80% at 50% 30%,
+                        rgba(230, 100, 30, 0.16) 0%,
+                        rgba(230, 100, 30, 0.05) 45%,
+                        transparent 75%);
+                filter: blur(10px);
+            }
+
+            .features-boxy-grid {
+                position: relative;
+                z-index: 1;
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 0;
                 border: 1px solid rgba(255, 255, 255, 0.07);
                 border-radius: 24px;
                 overflow: hidden;
+                transform-origin: center top;
+                will-change: transform;
+                box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.65),
+                    0 0 0 1px rgba(255, 255, 255, 0.02);
+                backface-visibility: hidden;
 
                 @media (max-width: 600px) {
                     grid-template-columns: repeat(1, 1fr);
@@ -351,7 +378,7 @@
                 padding: 40px 36px;
                 border-right: 1px solid rgba(255, 255, 255, 0.07);
                 border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-                transition: all 0.35s ease;
+                transition: background 0.35s ease, box-shadow 0.35s ease;
                 position: relative;
                 cursor: pointer;
                 background: linear-gradient(145deg, #121212, #000000);
@@ -861,174 +888,7 @@
             color: var(--text-muted-light);
         }
     }
-    .our-work {
-        background: #0a0a0a;
-        padding: 80px 0 100px;
-        background-image: url(/images/our-work-bg.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        &__container {
-            max-width: 1320px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        // ── Header row: title + arrows ──────────────────────────────────────────
-        &__header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 40px;
-
-            .heading_title {
-                margin-bottom: 0 !important;
-            }
-        }
-
-        &__nav {
-            display: flex;
-            gap: 12px;
-            flex-shrink: 0;
-        }
-
-        &__nav-btn {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            border: 2px solid #ff2d2d;
-            background: transparent;
-            color: #ff2d2d;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
-
-            &:hover {
-                background: #ff2d2d;
-                color: #fff;
-                transform: scale(1.08);
-            }
-
-            &.swiper-button-disabled {
-                opacity: 0.35;
-                cursor: default;
-
-                &:hover {
-                    background: transparent;
-                    color: #ff2d2d;
-                    transform: none;
-                }
-            }
-
-            svg {
-                pointer-events: none;
-            }
-        }
-
-        // ── Swiper overrides ─────────────────────────────────────────────────────
-        &__swiper {
-            width: 100%;
-
-            .swiper-wrapper {
-                align-items: stretch;
-            }
-
-            .swiper-slide {
-                height: auto;
-            }
-        }
-
-        // ── Pagination bullets ────────────────────────────────────────────────────
-        &__pagination {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 32px;
-
-            .swiper-pagination-bullet {
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background: transparent;
-                border: 2px solid #ff2d2d;
-                opacity: 1;
-                transition: background 0.25s ease, transform 0.2s ease;
-                cursor: pointer;
-            }
-
-            .swiper-pagination-bullet-active {
-                background: #ff2d2d;
-                transform: scale(1.2);
-            }
-        }
-
-        // ── Card ─────────────────────────────────────────────────────────────────
-        &__card {
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            border-radius: 4px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            height: 100%;
-
-            &:hover {
-                transform: translateY(-4px);
-
-                .our-work__cover-img {
-                    transform: scale(1.04);
-                }
-            }
-        }
-
-        &__cover {
-            width: 100%;
-            aspect-ratio: 16 / 10;
-            overflow: hidden;
-            position: relative;
-        }
-
-        &__cover-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            display: block;
-        }
-
-        &__info {
-            padding: 20px 4px 8px;
-        }
-
-        &__tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        &__tag {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-            padding: 3px 10px;
-            border-radius: 20px;
-            border: 1px solid currentColor;
-            opacity: 0.9;
-        }
-
-        &__title {
-            font-size: 17px;
-            font-weight: 800;
-            color: var(--text-muted-light);
-            line-height: 1.5;
-            letter-spacing: 0.2px;
-            margin: 0;
-        }
-
-    }
+    
 }
 
 /* ═══════════════════════════════════════════════════════════════

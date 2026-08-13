@@ -1,7 +1,7 @@
 .showcase-grid {
   position: relative;
   background: #0a0a0a;
-  padding: 90px 20px;
+  padding: 50px 20px;
   overflow: hidden;
 
   &__glow {
@@ -300,4 +300,170 @@
   .showcase-grid__grid {
     grid-template-columns: 1fr;
   }
+}
+
+
+
+.our-work {
+  background: #0a0a0a;
+  padding: 80px 0 100px;
+    
+  &__container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  // ── Header row: title + arrows ──────────────────────────────────────────
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    .heading_title {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  &__nav-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #ff2d2d;
+    background: transparent;
+    color: #ff2d2d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+
+    &:hover {
+      background: #ff2d2d;
+      color: #fff;
+      transform: scale(1.08);
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0.35;
+      cursor: default;
+      &:hover {
+        background: transparent;
+        color: #ff2d2d;
+        transform: none;
+      }
+    }
+
+    svg {
+      pointer-events: none;
+    }
+  }
+
+  // ── Swiper overrides ─────────────────────────────────────────────────────
+  &__swiper {
+    width: 100%;
+    .swiper-wrapper {
+      align-items: stretch;
+    }
+
+    .swiper-slide {
+      height: auto;
+    }
+  }
+
+  // ── Pagination bullets ────────────────────────────────────────────────────
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: transparent;
+      border: 2px solid #ff2d2d;
+      opacity: 1;
+      transition: background 0.25s ease, transform 0.2s ease;
+      cursor: pointer;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #ff2d2d;
+      transform: scale(1.2);
+    }
+  }
+
+  // ── Card ─────────────────────────────────────────────────────────────────
+  &__card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    height: 100%;
+
+    &:hover {
+      transform: translateY(-4px);
+
+      .our-work__cover-img {
+        transform: scale(1.04);
+      }
+    }
+  }
+
+  &__cover {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+
+  &__info {
+    padding: 20px 4px 8px;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  &__tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid currentColor;
+    opacity: 0.9;
+  }
+
+  &__title {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text-muted-light);
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+    margin: 0;
+  }
+  
 }

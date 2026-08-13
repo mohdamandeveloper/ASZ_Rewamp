@@ -25,6 +25,7 @@ const NAV_LINKS = [
   { link: "About Us", url: "/about", dropdown: null },
   { link: "Services", url: "/service", dropdown: SERVICES_ITEMS },
   { link: "Products", url: "/products", dropdown: PRODUCTS_ITEMS },
+  { link: "Our Work", url: "/work", children: null },
 ];
 
 const MOBILE_MENU = [
@@ -32,6 +33,7 @@ const MOBILE_MENU = [
   { label: "About Us", url: "/about", children: null },
   { label: "Services", url: "/service", children: SERVICES_ITEMS },
   { label: "Products", url: "/products", children: PRODUCTS_ITEMS },
+  { label: "Our Work", url: "/work", children: null },
   { label: "Contact Us", url: "/contact", children: null },
 ];
 

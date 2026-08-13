@@ -27,7 +27,7 @@ const cardsData = [
         id: 1,
         title: "Human Centric",
         description:
-            "We work hand-in-hand with you to ensure clear communication and collaboration.",
+            "We work hand-in-hand with you at every stage, prioritizing clear communication and real collaboration over rigid process.",
         icon: (
             <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
                 <path d="M22 6L38 16L22 26L6 16L22 6Z" fill="rgb(255,107,53)" />
@@ -42,7 +42,7 @@ const cardsData = [
         id: 2,
         title: "Exceptional Expertise",
         description:
-            "Our seasoned team brings top-tier innovation and best-in-class development methodologies.",
+            "Our seasoned team brings top-tier innovation and best-in-class development methodology to every project we touch.",
         icon: (
             <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
                 <path d="M22 6L38 36H6L22 6Z" fill="rgb(255,107,53)" />
@@ -53,7 +53,7 @@ const cardsData = [
         id: 3,
         title: "End-to-End Support",
         description:
-            "From concept to launch and beyond, ASZ provides continuous maintenance support.",
+            "From concept to launch and well beyond, ASZ provides continuous maintenance and support — we don't disappear once the invoice is paid.",
         icon: (
             <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
                 <circle cx="16" cy="22" r="11" fill="rgb(255,107,53)" />
@@ -244,11 +244,10 @@ export default function AboutUs() {
                                 <div className="hero-content">
                                     <div className="hero-eyebrow">
                                         <h6 className="hero_badge"><span></span>About ASZ Technologies</h6>
-                                        <h1 className="heading_title mb-4">Engineering Beyond Code <span className="c_primary">Building Digital Systems</span> Services</h1>
+                                        <h1 className="heading_title mb-4">Engineering Beyond Code <span className="c_primary">Building Digital Systems</span> That Last</h1>
                                     </div>
                                     <p className="hero-subtitle">
-                                        We Design, Engineer and scale Mission-Critical Enterprise solutions powered by AI,
-                                        Blockchain and Cloud technologies — helping businesses achieve resilient, lasting growth.
+                                        We design, engineer, and scale mission-critical enterprise solutions powered by AI, blockchain, and cloud technologies — helping businesses achieve resilient, lasting growth in a market that rewards speed and punishes fragility.
                                     </p>
 
                                     <div className="hero-actions mt-4">
@@ -282,9 +281,11 @@ export default function AboutUs() {
                             <div className="col-md-6">
                                 <h2 className="heading_title who-are-we__title" style={{ color: 'white' }}><span>Who</span> We Are</h2>
                                 <p className="who-are-we__desc">
-                                    ASZ Technologies specializes in Digital Transformation Services that includes Sourcing and Advisory, Market Intelligence, Industry 4.0, Data Science and Enterprise Data Management. We work in a collaborative way with our customers by implementing business requirements from strategy to launch as quickly and effectively as possible.
+                                    ASZ Technologies specializes in digital transformation services spanning sourcing and advisory, market intelligence, Industry 4.0, data science, and enterprise data management. We work collaboratively with our clients — translating business requirements into shipped, working technology as quickly and effectively as possible, without sacrificing the engineering discipline that makes systems reliable long after launch.
                                 </p>
-                                <p className="who-are-we__desc">Our diverse teams of experts combine innovative thinking and breakthrough technologies & enable our clients adapt and transform, and together we achieve enduring results.</p>
+                                <p className="who-are-we__desc">Our diverse team combines innovative thinking with proven, battle-tested technology to help clients adapt, transform, and compete. We don't believe in one-size-fits-all delivery — every engagement starts with understanding what actually moves the needle for your business, then engineering toward it.</p>
+                                
+                                {/* <p className="who-are-we__desc">ASZ Technologies currently operates out of India, Singapore, and the United States, and continues to expand its global footprint. We're the partner of choice for regional and multinational companies looking for cloud and software-as-a-service integration, and hands-on support through cloud onboarding.</p> */}
                                 <div className="who-are-we__stats">
                                     {statsData.map((stat) => (
                                         <div className="who-are-we__stat" key={stat.id}>

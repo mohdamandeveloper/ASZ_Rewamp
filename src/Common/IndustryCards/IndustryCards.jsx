@@ -321,7 +321,7 @@ export default function IndustryCards() {
                 Built for every <span>sector</span>
               </h2>
               <p className="ic-subtitle">
-                Tailored solutions across 12+ verticals — from regulated finance to complex supply chains.
+                We build tailored solutions across 12+ verticals — from regulated finance to complex, multi-node supply chains. Whatever your industry's constraints, we've likely already solved for them.
               </p>
             </div>
 

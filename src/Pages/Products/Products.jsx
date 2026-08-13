@@ -16,6 +16,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import "./Products.scss";
 import { Link } from "react-router-dom";
 
 export const WORKS = [
@@ -313,8 +314,116 @@ export default function Products() {
     return (
         <>
             <div className="products">
+                <section class="product-hero">
+                    <div class="product-hero__bg" aria-hidden="true"></div>
+                    <div class="product-hero__grid" aria-hidden="true"></div>
+
+                    <div class="product-hero__inner">
+
+                        <div class="product-hero__content">
+                            {/* <span class="product-hero__kicker">
+                                <span class="product-hero__kicker-dot"></span>
+                                AI-Powered Customer Support
+                            </span> */}
+
+                            <h1 class="heading_title" style={{color: 'white'}}>
+                                Meet <span class="product-hero__title--accent">NeuralDesk</span> — the AI Helpdesk
+                                That Resolves Before You Escalate
+                            </h1>
+
+                            <p class="product-hero__subtitle">
+                                NeuralDesk embeds GPT-4 into every layer of your customer support operation —
+                                from first-contact auto-resolution to agent assist, QA scoring, and predictive
+                                churn alerts. Deploy in 48 hours, no migration required.
+                            </p>
+
+                            <ul class="product-hero__features">
+                                {/* <li class="product-hero__feature">
+                                    <span class="product-hero__feature-icon">✓</span>
+                                    GPT-4 ticket auto-resolution (avg 68% deflection rate)
+                                </li>
+                                <li class="product-hero__feature">
+                                    <span class="product-hero__feature-icon">✓</span>
+                                    Smart agent routing based on skills &amp; availability
+                                </li> */}
+                                <li class="product-hero__feature">
+                                    <span class="product-hero__feature-icon">✓</span>
+                                    Real-time CSAT dashboards with drill-down analytics
+                                </li>
+                                <li class="product-hero__feature">
+                                    <span class="product-hero__feature-icon">✓</span>
+                                    White-label &amp; multi-tenant ready out of the box
+                                </li>
+                            </ul>
+
+                            <div class="product-hero__actions">
+                                <a href="#" class="btn-primary">
+                                    Get In Touch
+                                    <span class="product-hero__cta-arrow">→</span>
+                                </a>
+                                {/* <a href="#" class="product-hero__secondary-cta">
+                                    Watch demo
+                                </a> */}
+                            </div>
+
+                            {/* <div class="product-hero__proof">
+                                <div class="product-hero__avatars">
+                                    <span class="product-hero__avatar" style={{background:'#e8621f;'}}>A</span>
+                                    <span class="product-hero__avatar" style={{background:'#4f7ea8;'}}>S</span>
+                                    <span class="product-hero__avatar" style={{background:'#6b8f5c;'}}>M</span>
+                                    <span class="product-hero__avatar" style={{background:'#a86b4f;'}}>R</span>
+                                </div>
+                                <p class="product-hero__proof-text">
+                                    Trusted by <strong>500+</strong> support teams worldwide
+                                </p>
+                            </div> */}
+                        </div>
+
+                        <div class="product-hero__media">
+                            {/* <div class="product-hero__badge product-hero__badge--top">
+                                <span class="product-hero__badge-dot"></span>
+                                68% Auto-resolved
+                            </div> */}
+
+                            <div class="product-hero__frame">
+                                <img
+                                    class="product-hero__image"
+                                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80"
+                                    alt="NeuralDesk product analytics dashboard showing ticket resolution and CSAT metrics"
+                                />
+                                <div class="product-hero__overlay" aria-hidden="true"></div>
+                            </div>
+
+                            {/* <div class="product-hero__badge product-hero__badge--bottom">
+                                <span class="product-hero__badge-dot"></span>
+                                Live in 48 hrs
+                            </div> */}
+                        </div>
+
+                    </div>
+
+                    <div class="product-hero__stats">
+                        <div class="product-hero__stat">
+                            <span class="product-hero__stat-value">68%</span>
+                            <span class="product-hero__stat-label">Ticket deflection</span>
+                        </div>
+                        <div class="product-hero__stat">
+                            <span class="product-hero__stat-value">48 hrs</span>
+                            <span class="product-hero__stat-label">Time to deploy</span>
+                        </div>
+                        <div class="product-hero__stat">
+                            <span class="product-hero__stat-value">4.8/5</span>
+                            <span class="product-hero__stat-label">Avg. CSAT score</span>
+                        </div>
+                        <div class="product-hero__stat">
+                            <span class="product-hero__stat-value">500+</span>
+                            <span class="product-hero__stat-label">Teams onboard</span>
+                        </div>
+                    </div>
+                </section>
+
                 {/* <ProductHero /> */}
-                <FeaturedProduct />
+                {/* <FeaturedProduct /> */}
                 <ProductShowcaseGrid />
                 {/* <ProductFeatures /> */}
                 {/* <ProductCategories /> */}
@@ -324,7 +433,7 @@ export default function Products() {
                 {/* <TechStack /> */}
                 {/* <Testimonials />
                 <ProductCTA /> */}
-                <section className="our-work">
+                {/* <section className="our-work">
                     <div className="our-work__container">
                         <div className="our-work__header">
                             <div>
@@ -388,7 +497,7 @@ export default function Products() {
                             ))}
                         </Swiper>
                     </div>
-                </section>
+                </section> */}
             </div>
         </>
     )

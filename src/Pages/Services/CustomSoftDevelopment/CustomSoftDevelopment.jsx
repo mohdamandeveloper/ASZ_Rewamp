@@ -716,15 +716,15 @@ import { Link } from 'react-router-dom';
 const SERVICES = [
     {
         icon: "🍎",
-        title: "Software Consulting Services",
-        desc: "Our custom software consulting services help businesses identify their specific needs and challenges. We analyze existing workflows and recommend tailored custom software development solutions that enhance operational efficiency and drive innovation. ",
+        title: "Software Consulting",
+        desc: "Our software consulting services help you identify the real challenges behind the ones you think you have. We analyze your existing workflows and recommend tailored development paths that improve operational efficiency and open the door to innovation — before a single line of code gets written.",
         tags: ["Swift", "SwiftUI", "Xcode", "TestFlight"],
         emoji: "📱",
     },
     {
         icon: "🤖",
-        title: "Custom Software Development Services",
-        desc: "Our custom software development agency creates applications specifically designed to address the unique requirements of a business. By choosing to hire software developers  for custom solutions, businesses can eliminate unnecessary features found in off-the-shelf software.",
+        title: "Custom Software Development",
+        desc: "We build applications engineered specifically around your business's unique requirements — not bloated with features you'll never use. By developing custom software rather than adapting off-the-shelf tools, you get a system that fits your operations exactly, scales as you grow, and doesn't force your team to work around someone else's assumptions. This covers software consulting, custom development, development outsourcing, and full product development from concept to launch.",
         tags: ["Kotlin", "Jetpack", "Compose", "Play Store"],
         emoji: "🤖",
     },
@@ -1096,7 +1096,7 @@ export default function CustomSoftwareDevelopment() {
                             <div className="cust_banner_lt">
                                 {/* <h6 className="hero_badge"><span></span>Intelligent. Scalable. AI-Powered.</h6> */}
                                 <h1 className="heading_title mb-4">Custom <span className="c_primary">Software Development</span> Services</h1>
-                                <p>Turn your digital vision into a high-impact business asset with ASZ's custom software development solutions. We had crafted enterprise-grade, bespoke solutions for Fortune 500 companies designed with advanced security, strict compliance standards, and intuitive user experiences to maximize long-term ROI.</p>
+                                <p>Turn your digital vision into a high-impact business asset with enterprise-grade software development. We've crafted solutions for organizations of every size — engineered with advanced security, strict compliance standards, and intuitive user experiences that make complex systems feel simple to use.</p>
                                 <ul className="bnrlst mb-4">
                                     <li>Built for Every Business Scale</li>
                                     <li>12+ Years of Experience</li>
@@ -1120,7 +1120,7 @@ export default function CustomSoftwareDevelopment() {
                                 <span>Custom Software Development</span> Services Built for Every Platform
                             </h2>
                             <p className="heading_subtitle">
-                                Explore our tailored custom software development services, designed to meet unique business
+                                Explore our tailored software development services, designed around your business's unique constraints rather than a one-size-fits-all template. Every engagement starts with understanding your workflows, your users, and your growth plans — then we build toward that, not around it.
                             </p>
                             <div className="services-left-cta">
                                 <Link to={'/contact'} className="btn-primary">Discuss Your Project →</Link>

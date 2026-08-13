@@ -123,25 +123,7 @@ const CaseStudyDetail = () => {
 
     return (
         <div className="cs-page">
-
-            {/* ── Breadcrumb topbar ── */}
-            {/* <div className="cs-topbar">
-                <div className="cs-topbar__inner">
-                    <Link to="/services/custom-software-development" className="cs-topbar__back">
-                        ← Custom Software Development
-                    </Link>
-                    <span className="cs-topbar__divider">/</span>
-                    <span className="cs-topbar__crumb">{work.breadcrumb}</span>
-                    {work.badge && <span className="cs-topbar__badge">{work.badge}</span>}
-                </div>
-            </div> */}
-
-            {/* ── Hero banner ── */}
-
-
-            {/* ── Body: sticky left + scrollable right ── */}
             <div className="cs-body">
-                {/* LEFT — sticky nav */}
                 <aside className="cs-sidebar">
                     <nav className="cs-nav">
                         {NAV_SECTIONS.map(({ id: sid, label }) => (
@@ -156,18 +138,9 @@ const CaseStudyDetail = () => {
                     </nav>
                 </aside>
 
-                {/* RIGHT — main content */}
                 <main className="cs-content" ref={contentRef}>
                     <div className="cs-hero">
                         <div className="cs-hero__inner">
-                            {/* <div className="cs-hero__tags">
-                                {work.tags.map((t, i) => (
-                                    <span key={t} className="cs-hero__tag"
-                                        style={{ background: `${work.tagColors?.[i] || '#ff6b35'}22`, color: work.tagColors?.[i] || '#ff6b35' }}>
-                                        {t}
-                                    </span>
-                                ))}
-                            </div> */}
                             <h1 className="cs-hero__title">{work.heroTitle}</h1>
                             <p className="cs-hero__summary">{work.summary}</p>
                         </div>
@@ -182,8 +155,6 @@ const CaseStudyDetail = () => {
                         {work.challenge.body.split('\n\n').map((para, i) => (
                             <p key={i} className="cs-section__body">{para}</p>
                         ))}
-
-                        {/* Challenge image — appears after text */}
                         {work.images?.challenge && (
                             <SectionImage
                                 src={work.images.challenge.src}
@@ -193,7 +164,6 @@ const CaseStudyDetail = () => {
                         )}
                     </section>
 
-                    {/* ── Approach ── */}
                     <section id="approach" className="cs-section">
                         <h2 className="cs-section__heading">{work.approach.heading}</h2>
                         <h3 className="cs-section__subheading">{work.approach.subheading}</h3>
@@ -201,7 +171,6 @@ const CaseStudyDetail = () => {
                             <p key={i} className="cs-section__body">{para}</p>
                         ))}
 
-                        {/* Approach image */}
                         {work.images?.approach && (
                             <SectionImage
                                 src={work.images.approach.src}
@@ -209,12 +178,9 @@ const CaseStudyDetail = () => {
                                 caption={work.images.approach.caption}
                             />
                         )}
-
-                        {/* Stats bar after approach */}
                         {work.approachStats && <StatBar stats={work.approachStats} />}
                     </section>
 
-                    {/* ── Streaming / secondary section ── */}
                     <section id="streaming" className="cs-section">
                         <h2 className="cs-section__heading">{work.streamingSection.heading}</h2>
                         {work.streamingSection.body.split('\n\n').map((para, i) => (

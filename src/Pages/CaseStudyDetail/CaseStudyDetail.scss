@@ -111,8 +111,8 @@ $content-max:760px;
   }
 
   &__title {
-    font-size: clamp(1.5rem, 2.8vw, 2.1rem);
-    font-weight: 800;
+    font-size: 30px;
+    font-weight: 600;
     color: $text-head;
     line-height: 1.25;
     margin: 0 0 18px;
@@ -150,7 +150,7 @@ $content-max:760px;
   position: sticky;
   top: 72px;                   // clears the fixed navbar
   padding-top: 48px;
-  padding-bottom: 48px;
+  // padding-bottom: 48px;
   align-self: start;
   max-height: calc(100vh - 72px);
   overflow-y: auto;
