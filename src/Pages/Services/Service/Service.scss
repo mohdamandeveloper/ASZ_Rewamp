@@ -23,13 +23,13 @@
 
 .service_page {
     .services-hero {
-        position: relative;
-        min-height: 100vh;
+        // position: relative;
+        // min-height: 100vh;
         display: flex;
         align-items: center;
         overflow: hidden;
         background: #1c0a3e;
-        padding: 100px 64px 50px 64px;
+        padding: 100px 64px 75px 64px;
 
         // Base dark-purple ambient gradient, professional and understated
         &__bg {
@@ -44,9 +44,9 @@
         &__media {
             position: absolute;
             top: 0;
-            right: -8%;
+            left: 0%;
             bottom: 0;
-            width: 62%;
+            width: 100%;
             z-index: 0;
             overflow: hidden;
             border-radius: 0 0 0 24px;
@@ -67,12 +67,13 @@
             position: absolute;
             inset: 0;
             background:
-                linear-gradient(90deg, #0c041a 0%, rgb(0 0 0 / 21%) 22%, rgba(28, 10, 62, 0.35) 55%, rgb(38 38 38 / 15%) 100%), linear-gradient(0deg, rgb(25 25 25 / 40%) 0%, #000000db 40%);
+                linear-gradient(90deg, #000000 0%, #00000000 22%, #0000005c 55%, #00000054 100%), linear-gradient(#000000db 60%, #000000e0 100%);
         }
 
         &__inner {
             position: relative;
             z-index: 1;
+            text-align: center;
             // width: 100%;
             // max-width: 1440px;
             // margin: 0 auto;
@@ -96,11 +97,12 @@
         // }
 
         &__title {
-            // font-family: 'Sora', sans-serif;
             // font-size: 50px;
             // line-height: 1.22;
             // font-weight: 700;
             color: #ffffff;
+            max-width: 800px;
+            margin: 0 auto 15px auto;
             // letter-spacing: -0.01em;
 
             // &--muted {
@@ -109,17 +111,19 @@
         }
 
         &__subtitle {
-            font-size: 17px;
-            line-height: 1.7;
-            color: #c9bce6;
-            max-width: 620px;
+            // font-size: 17px;
+            // line-height: 1.7;
+            // color: #c9bce6;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         &__actions {
             display: flex;
             align-items: center;
-            gap: 28px;
-            margin-top: 8px;
+            // gap: 28px;
+            margin-top: 15px;
+            justify-content: center;
         }
 
         // &__cta {
@@ -178,6 +182,7 @@
             margin-top: 24px;
             padding-top: 24px;
             border-top: 1px solid rgba(255, 255, 255, 0.12);
+            justify-content: center;
         }
 
         &__pillar {
@@ -187,16 +192,15 @@
         }
 
         &__pillar-index {
-            font-family: 'Sora', sans-serif;
             font-size: 13px;
             font-weight: 700;
-            color: #9076c9;
+            color: white;
         }
 
         &__pillar-label {
             font-size: 14px;
             font-weight: 500;
-            color: #e5ddf7;
+            color: var(--text-muted-light);
         }
     }
 
@@ -204,17 +208,17 @@
 
     @media (max-width: 1100px) {
         .services-hero {
-            padding: 72px 32px;
+            // padding: 72px 32px;
 
-            &__media {
-                width: 90%;
-                right: -20%;
-                opacity: 0.5;
-            }
+            // &__media {
+            //     width: 90%;
+            //     right: -20%;
+            //     opacity: 0.5;
+            // }
 
-            &__title {
-                font-size: 38px;
-            }
+            // &__title {
+            //     font-size: 38px;
+            // }
 
             &__pillars {
                 flex-wrap: wrap;
@@ -225,7 +229,7 @@
 
     @media (max-width: 560px) {
         .services-hero {
-            padding: 56px 20px;
+            // padding: 56px 20px;
 
             &__media {
                 width: 140%;
@@ -656,7 +660,7 @@
         position: relative;
         overflow: hidden;
         padding: 70px 24px 120px;
-        background-color: #0c0c0c;
+        background-color: #0d0d0d;
 
         .cv__ring {
             position: absolute;

@@ -119,7 +119,7 @@ export default function Service() {
         <>
             <div className="service_page">
                 <section class="services-hero">
-                    <div class="services-hero__bg" aria-hidden="true"></div>
+                    {/* <div class="services-hero__bg" aria-hidden="true"></div> */}
 
                     <div class="services-hero__media" aria-hidden="true">
                         <img
@@ -136,11 +136,11 @@ export default function Service() {
 
                         <h1 class="heading_title services-hero__title">
                             Building digital <span >products</span>&nbsp;
-                            that perform, <br />platforms <span class="services-hero__title--muted">that scale</span>,
-                            and AI <br /><span class="services-hero__title--muted">that delivers real value</span>
+                            that perform, platforms <span class="services-hero__title--muted">that scale</span>,
+                            and AI <span class="services-hero__title--muted">that delivers real value</span>
                         </h1>
 
-                        <p class="services-hero__subtitle">
+                        <p class="heading_subtitle services-hero__subtitle">
                             Your business doesn't need another isolated technology initiative. It needs
                             an engineering partner that connects strategy, systems, and execution — across
                             product design, platform engineering, and applied AI — to turn priorities
