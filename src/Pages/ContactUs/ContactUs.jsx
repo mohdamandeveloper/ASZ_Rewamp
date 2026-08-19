@@ -225,22 +225,6 @@ const PARTICLES = Array.from({ length: 14 }, (_, i) => ({
     dur: `${6 + (i * 1.1) % 10}s`,
 }));
 
-
-const NODES = [
-    { x: 8, y: 22, r: 5, type: "orange" },
-    { x: 18, y: 60, r: 3.5, type: "orange" },
-    { x: 32, y: 14, r: 3, type: "blue" },
-    { x: -36, y: 80, r: 4, type: "blue" },
-    { x: 55, y: 8, r: 2.5, type: "orange" },
-    { x: 72, y: 88, r: 3, type: "blue" },
-    { x: 88, y: 18, r: 4, type: "orange" },
-    { x: 92, y: 72, r: 5, type: "orange" },
-    { x: 62, y: 32, r: 2, type: "blue" },
-    { x: 42, y: 66, r: 2.5, type: "orange" },
-    { x: 78, y: 50, r: 3, type: "blue" },
-    { x: 15, y: 42, r: 2, type: "blue" },
-];
-
 function hexPath(cx, cy, r) {
     return Array.from({ length: 6 }, (_, i) => {
         const a = (Math.PI / 3) * i - Math.PI / 6;
@@ -248,21 +232,21 @@ function hexPath(cx, cy, r) {
     }).join(" L ").replace(/^/, "M ") + " Z";
 }
 
-const offices = [
-    {
-        city: "Bengaluru HQ",
-        address: "Koramangala 5th Block, Bengaluru, Karnataka 560095",
-        isHQ: true,
-    },
-    {
-        city: "New Delhi",
-        address: "Connaught Place, New Delhi 110001",
-    },
-    {
-        city: "Singapore",
-        address: "One Raffles Quay, Singapore 048583",
-    },
-];
+// const offices = [
+//     {
+//         city: "Bengaluru HQ",
+//         address: "Koramangala 5th Block, Bengaluru, Karnataka 560095",
+//         isHQ: true,
+//     },
+//     {
+//         city: "New Delhi",
+//         address: "Connaught Place, New Delhi 110001",
+//     },
+//     {
+//         city: "Singapore",
+//         address: "One Raffles Quay, Singapore 048583",
+//     },
+// ];
 
 const initialForm = {
     firstName: "",
@@ -537,19 +521,10 @@ function ContactUs() {
                     </div>
                 </div>
             </section>
-            <section className="go-section" aria-label="Global offices">
+            {/* <section className="go-section" aria-label="Global offices">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            {/* Ambient orbs */}
-                            {/* <div className="go-orb go-orb--1" aria-hidden="true" />
-                <div className="go-orb go-orb--2" aria-hidden="true" />
-                <div className="go-orb go-orb--3" aria-hidden="true" /> */}
-
-                            {/* Subtle grid */}
-                            {/* <div className="go-grid" aria-hidden="true" /> */}
-
-                            {/* Floating particles */}
                             <div className="go-particles" aria-hidden="true">
                                 {PARTICLES.map(p => (
                                     <span
@@ -558,11 +533,6 @@ function ContactUs() {
                                     />
                                 ))}
                             </div>
-
-                            {/* Shimmer bar */}
-                            {/* <div className="go-shimmer-bar" aria-hidden="true" /> */}
-
-                            {/* Heading */}
                             <div className="contact_headline">
                                 <h6 className="hero_badge">Connect with us</h6>
                                 <h2 className="heading_title go-title" style={{ color: 'white' }}>
@@ -573,15 +543,8 @@ function ContactUs() {
                                     of a local partner, with the flexibility and cost-effectiveness of great global talent.
                                 </p>
                             </div>
-
-
-                            {/* Body */}
                             <div className="go-body">
-
-                                {/* ── Offices list ── */}
-
                                 <aside className="go-offices mb-5">
-                                    {/* <div className="go-offices-label">Offices</div> */}
                                     <div className="row">
                                         {OFFICES.map((office) => (
                                             <div className="col-md-4">
@@ -613,9 +576,7 @@ function ContactUs() {
                                         ))}
                                     </div>
                                 </aside>
-                                {/* ── Map ── */}
                                 <div className="go-map-wrap">
-                                    {/* SVG world map */}
                                     <svg
                                         className="go-map-svg"
                                         viewBox="380 120 580 370"
@@ -631,11 +592,6 @@ function ContactUs() {
                                                 </feMerge>
                                             </filter>
                                         </defs>
-
-                                        {/* Background ocean */}
-                                        {/* <rect width="900" height="500" fill="#0d1f33" rx="6" /> */}
-
-                                        {/* Landmasses */}
                                         {Object.entries(MAP_PATHS).map(([key, d]) => {
                                             const isCountry = ["india", "singapore", "uae"].includes(key);
                                             const highlighted = isCountry && activeId === key;
@@ -652,19 +608,7 @@ function ContactUs() {
                                                 />
                                             );
                                         })}
-
-                                        {/* Latitude lines */}
-                                        {/* {[100, 150, 200, 250, 300, 350, 400].map(y => (
-                                <line key={y} x1="0" y1={y} x2="900" y2={y}
-                                    stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
-                            ))}
-                            {[100, 200, 300, 400, 500, 600, 700, 800].map(x => (
-                                <line key={x} x1={x} y1="0" x2={x} y2="500"
-                                    stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
-                            ))} */}
                                     </svg>
-
-                                    {/* Map markers (positioned absolutely over the SVG) */}
                                     {OFFICES.map((office) => (
                                         <div
                                             key={office.id}
@@ -694,7 +638,7 @@ function ContactUs() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </div>
         </>
     );

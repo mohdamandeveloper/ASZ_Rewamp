@@ -6,12 +6,12 @@ import { WORKS } from '../Services/CustomSoftDevelopment/CustomSoftDevelopment';
 // ── Section IDs ──────────────────────────────────────────────────
 const NAV_SECTIONS = [
     { id: 'challenge', label: 'Challenge' },
-    { id: 'approach', label: 'Approach' },
-    { id: 'streaming', label: 'Streaming' },
-    { id: 'budget', label: 'Budget' },
-    { id: 'output', label: 'Agent Output' },
+    { id: 'solution', label: 'solution' },
+    // { id: 'streaming', label: 'Streaming' },
+    // { id: 'budget', label: 'Budget' },
+    // { id: 'output', label: 'Agent Output' },
     { id: 'results', label: 'Results' },
-    { id: 'techstack', label: 'Tech stack' },
+    // { id: 'techstack', label: 'Tech stack' },
 ];
 
 // ── Helpers ──────────────────────────────────────────────────────
@@ -181,32 +181,25 @@ const CaseStudyDetail = () => {
                         {work.approachStats && <StatBar stats={work.approachStats} />}
                     </section>
 
-                    <section id="streaming" className="cs-section">
+                    {/* <section id="streaming" className="cs-section">
                         <h2 className="cs-section__heading">{work.streamingSection.heading}</h2>
                         {work.streamingSection.body.split('\n\n').map((para, i) => (
                             <p key={i} className="cs-section__body">{para}</p>
                         ))}
 
-                        {/* Image row (2-up) */}
                         {work.images?.streamingRow && (
                             <ImageRow images={work.images.streamingRow} />
                         )}
                     </section>
-
-                    {/* ── Budget ── */}
                     <section id="budget" className="cs-section">
                         <h2 className="cs-section__heading">{work.budget.heading}</h2>
                         {work.budget.body.split('\n\n').map((para, i) => (
                             <p key={i} className="cs-section__body">{para}</p>
                         ))}
                     </section>
-
-                    {/* ── Agent Output ── */}
                     <section id="output" className="cs-section">
                         <h2 className="cs-section__heading">{work.agentOutput.heading}</h2>
                         <p className="cs-section__body">{work.agentOutput.preTitle}</p>
-
-                        {/* Output card */}
                         <div className="cs-output-card">
                             <div className="cs-output-card__header">
                                 <span className="cs-output-card__icon">⬡</span>
@@ -229,8 +222,6 @@ const CaseStudyDetail = () => {
                                 <p className="cs-section__body" style={{ marginTop: 16 }}>{work.agentOutput.finding1Details}</p>
                             </div>
                         </div>
-
-                        {/* Output screenshot */}
                         {work.images?.output && (
                             <SectionImage
                                 src={work.images.output.src}
@@ -238,7 +229,7 @@ const CaseStudyDetail = () => {
                                 caption={work.images.output.caption}
                             />
                         )}
-                    </section>
+                    </section> */}
 
                     {/* ── Results ── */}
                     <section id="results" className="cs-section">
@@ -263,14 +254,14 @@ const CaseStudyDetail = () => {
                     </section>
 
                     {/* ── Tech stack ── */}
-                    <section id="techstack" className="cs-section">
+                    {/* <section id="techstack" className="cs-section">
                         <h2 className="cs-section__heading">{work.techStack.heading}</h2>
                         <div className="cs-tech-row">
                             {work.techStack.items.map((t) => (
                                 <TechPill key={t} label={t} />
                             ))}
                         </div>
-                    </section>
+                    </section> */}
 
                 </main>
             </div>

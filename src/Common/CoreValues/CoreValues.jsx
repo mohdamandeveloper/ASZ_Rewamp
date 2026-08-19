@@ -46,7 +46,7 @@ export default function CoreValues() {
   const [activeIndex, setActiveIndex] = useState(null);
   const active = activeIndex !== null ? BEARINGS[activeIndex] : null;
   const glowColor = active ? `var(${active.accentVar})` : 'var(--brass-dim)';
-  const glowOpacity = active ? 0.3 : 0.14;
+  const glowOpacity = active ? 0.3 : 0.3;
 
   return (
     <section className="cv core_values">
@@ -56,7 +56,7 @@ export default function CoreValues() {
       <div className="cv__ring cv__ring--b"></div>
       <div className="cv__noise"></div>
 
-      <div className="cv__inner">
+      <div className="cv__inner container">
         <header className="cv-head">
           <p className="cv-head__eyebrow hero_badge"><span></span>Four bearings, one course</p>
           <h2 className="heading_title cv-head__title" style={{color: 'white'}}>

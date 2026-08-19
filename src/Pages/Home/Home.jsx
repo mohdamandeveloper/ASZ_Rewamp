@@ -5,7 +5,7 @@ import './Home.scss';
 import IndustryCards from "../../Common/IndustryCards/IndustryCards";
 import { useLanguage, useTranslation } from "../../Context/LanguageContext";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -23,6 +23,25 @@ const platformIcons = [
     <TrendingUp size={22} />,
     <Settings size={22} />,
     <Eye size={22} />,
+];
+
+const partners = [
+    { text: 'Client1', src: '/images/asz/client-1.png', type: 'text' },
+    { text: 'Client2', src: '/images/asz/client-2.png', type: 'text' },
+    { name: 'Client3', src: '/images/asz/client-3.png', type: 'img' },
+    { text: 'Client4', src: '/images/asz/client-4.png', type: 'text' },
+    { text: 'Client5', src: '/images/asz/client-5.png', type: 'text' },
+    { text: 'Client6', src: '/images/asz/client-6.png', type: 'text' },
+    { text: 'Client7', src: '/images/asz/client-7.png', type: 'text' },
+    { text: 'Client8', src: '/images/asz/client-8.png', type: 'text' },
+    { text: 'Client9', src: '/images/asz/client-9.png', type: 'text' },
+    { text: 'Client10', src: '/images/asz/client-10.png', type: 'text' },
+    { text: 'Client11', src: '/images/asz/client-11.png', type: 'text' },
+    { text: 'Client12', src: '/images/asz/client-12.png', type: 'text' },
+    { text: 'Client13', src: '/images/asz/client-13.png', type: 'text' },
+    { text: 'Client14', src: '/images/asz/client-14.png', type: 'text' },
+    { text: 'Client15', src: '/images/asz/client-15.png', type: 'text' },
+    { text: 'Client16', src: '/images/asz/client-16.png', type: 'text' },
 ];
 
 const servicesMeta = [
@@ -113,7 +132,7 @@ export default function Home() {
     const aiGridY = useTransform(aiSmoothProgress, [0, 1], prefersReducedMotion ? [0, 0] : [60, 0]);
     const aiGlowOpacity = useTransform(aiSmoothProgress, [0, 1], [0, 1]);
 
-    
+
 
     return (
         <>
@@ -233,9 +252,58 @@ export default function Home() {
                     </div>
                 </section>
 
-                
+                <section className="partners-section">
+                    <div className="container">
+                        <div>
+                            <h3 className="heading_title text-center mb-2" style={{ color: 'white' }}>
+                                <span>We Support</span> Customers Around The Globe
+                            </h3>
+                            <p className="heading_subtitle mb-5">Delivering innovative technology solutions to businesses worldwide, building lasting partnerships across industries and regions.</p>
+                            <div className="partners-row">
+                                <Swiper
+                                    spaceBetween={50}
+                                    slidesPerView={4.5}
+                                    modules={[Autoplay]}
+                                    breakpoints={{
+                                        240: {
+                                            slidesPerView: 2,
+                                            spaceBetween: 20,
+                                        },
+                                        768: {
+                                            slidesPerView: 3,
+                                            spaceBetween: 40,
+                                        },
+                                        1024: {
+                                            slidesPerView: 4,
+                                            spaceBetween: 50,
+                                        },
+                                        1200: {
+                                            slidesPerView: 5,
+                                            spaceBetween: 50,
+                                        },
+                                    }}
+                                    autoplay={{
+                                        delay: 1500,
+                                        disableOnInteraction: false,
+                                    }}
+                                >
+                                    {partners.map((p, i) => (
+                                        <SwiperSlide>
+                                            <div
+                                                key={i}
+                                                className="partner-item">
+                                                <img src={p.src} alt={p.name} loading="lazy" />
+                                            </div>
+                                        </SwiperSlide>
+                                    ))}
+                                </Swiper>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-                <section className="core-services">
+
+                {/* <section className="core-services">
                     <div className="core-services__bg">
                         <div className="core-services__glow core-services__glow--top"></div>
                         <div className="core-services__glow core-services__glow--bottom"></div>
@@ -262,14 +330,11 @@ export default function Home() {
                                     <div className="core-services__icon">{servicesMeta[i].icon}</div>
                                     <h3 className="core-services__card-title">{item.title}</h3>
                                     <p className="core-services__card-desc">{item.description}</p>
-                                    {/* <a href="#" className="core-services__link">
-                                        {t.learn_more} <ArrowRight size={15} />
-                                    </a> */}
                                 </div>
                             ))}
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 <section className='Industry_section'>
                     <IndustryCards />

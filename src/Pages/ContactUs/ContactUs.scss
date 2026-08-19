@@ -67,12 +67,6 @@ $map-highlight: rgba(255, 107, 53, 0.35);
         }
     }
 
-    // @keyframes borderGlow {
-    //   0%   { box-shadow: 0 0 0px 0px $accent-glow, inset 0 0 0px 0px $accent-glow; }
-    //   50%  { box-shadow: 0 0 22px 4px $accent-glow, inset 0 0 8px 0px rgba(255,107,53,0.08); }
-    //   100% { box-shadow: 0 0 0px 0px $accent-glow, inset 0 0 0px 0px $accent-glow; }
-    // }
-
     @keyframes shimmer {
         0% {
             background-position: -200% center;
@@ -181,7 +175,7 @@ $map-highlight: rgba(255, 107, 53, 0.35);
             width: 3px;
             height: 3px;
             border-radius: 50%;
-            background: $accent;
+            background: var(--color-primary);
 
             @for $i from 1 through 14 {
                 &:nth-child(#{$i}) {
@@ -206,26 +200,7 @@ $map-highlight: rgba(255, 107, 53, 0.35);
         background-size: 60px 60px;
     }
 
-    /* ── Title ── */
-    // .go-title {
-    //     position: relative;
-    //     z-index: 2;
-    //     text-align: center;
-    //     font-size: 36px;
-    //     font-weight: 700;
-    //     color: $text-primary;
-    //     letter-spacing: -0.5px;
-    //     margin-bottom: 16px;
-    //     animation: fadeInUp 0.7s ease both;
-
-    //     span {
-    //         background: linear-gradient(90deg, $text-primary 30%, $accent 70%);
-    //         background-clip: text;
-    //         -webkit-background-clip: text;
-    //         -webkit-text-fill-color: transparent;
-    //     }
-    // }
-
+    
     .go-subtitle {
         max-width: 600px;
         margin: 0 auto;
@@ -236,43 +211,12 @@ $map-highlight: rgba(255, 107, 53, 0.35);
     .go-body {
         position: relative;
         z-index: 2;
-        // display: grid;
-        // grid-template-columns: 320px 1fr;
-        // gap: 40px;
-        // align-items: start;
         animation: fadeInUp 0.7s 0.22s ease both;
 
         @media (max-width: 900px) {
             grid-template-columns: 1fr;
         }
     }
-
-    /* ── Offices sidebar ── */
-    // .go-offices {
-    //     display: flex;
-    //     flex-direction: column;
-    //     gap: 0;
-    // }
-
-    // .go-offices-label {
-    //   font-size: 11px;
-    //   font-weight: 700;
-    //   letter-spacing: 2.5px;
-    //   color: $accent;
-    //   text-transform: uppercase;
-    //   margin-bottom: 18px;
-    //   display: flex;
-    //   align-items: center;
-    //   gap: 10px;
-
-    //   &::after {
-    //     content: '';
-    //     flex: 1;
-    //     height: 1px;
-    //     background: linear-gradient(90deg, $accent 0%, transparent 100%);
-    //     opacity: 0.35;
-    //   }
-    // }
 
     .go-card {
         position: relative;
@@ -295,8 +239,6 @@ $map-highlight: rgba(255, 107, 53, 0.35);
             inset: -1px;
             border-radius: 14px;
             border: 1px solid transparent;
-            // background: linear-gradient($dark-bg, $dark-bg) padding-box,
-            //             linear-gradient(135deg, $accent, rgba(255,107,53,0.1), $accent) border-box;
             opacity: 0;
             transition: opacity 0.35s ease;
             pointer-events: none;
@@ -309,7 +251,6 @@ $map-highlight: rgba(255, 107, 53, 0.35);
             left: -100%;
             width: 60%;
             height: 100%;
-            // background: linear-gradient(90deg, transparent, rgba(255,107,53,0.07), transparent);
             transform: skewX(-15deg);
             transition: left 0.5s ease;
             pointer-events: none;
@@ -353,7 +294,7 @@ $map-highlight: rgba(255, 107, 53, 0.35);
     .go-card__country {
         font-size: 13px;
         font-weight: 600;
-        color: $accent;
+        color: var(--color-primary);
         letter-spacing: 0.5px;
         margin-bottom: 5px;
         display: flex;
@@ -364,8 +305,8 @@ $map-highlight: rgba(255, 107, 53, 0.35);
             width: 7px;
             height: 7px;
             border-radius: 50%;
-            background: $accent;
-            box-shadow: 0 0 6px $accent;
+            background: var(--color-primary);
+            box-shadow: 0 0 6px var(--color-primary);
             flex-shrink: 0;
         }
     }
@@ -383,7 +324,7 @@ $map-highlight: rgba(255, 107, 53, 0.35);
         font-weight: 600;
         // letter-spacing: 1.2px;
         text-transform: uppercase;
-        color: $accent;
+        color: var(--color-primary);
         background: $accent-soft;
         border: 1px solid rgba(255, 107, 53, 0.2);
         border-radius: 4px;
@@ -400,10 +341,6 @@ $map-highlight: rgba(255, 107, 53, 0.35);
     /* ── Map ── */
     .go-map-wrap {
         position: relative;
-        //   background: rgba(255,255,255,0.025);
-        //   border: 1px solid rgba(255,255,255,0.07);
-        //   border-radius: 18px;
-        //   padding: 24px;
         overflow: hidden;
         min-height: 380px;
 
@@ -470,7 +407,7 @@ $map-highlight: rgba(255, 107, 53, 0.35);
             width: 14px;
             height: 14px;
             border-radius: 50%;
-            background: $accent;
+            background: var(--color-primary);
             border: 2.5px solid rgba(255, 255, 255, 0.85);
             box-shadow: 0 0 10px $accent-glow;
             position: relative;
@@ -483,7 +420,7 @@ $map-highlight: rgba(255, 107, 53, 0.35);
             position: absolute;
             inset: -4px;
             border-radius: 50%;
-            border: 2px solid $accent;
+            border: 2px solid var(--color-primary);
             opacity: 0;
             animation: pulseRing 1.8s ease-out infinite;
             pointer-events: none;
@@ -523,7 +460,7 @@ $map-highlight: rgba(255, 107, 53, 0.35);
                 display: block;
                 font-size: 11px;
                 font-weight: 700;
-                color: $accent;
+                color: var(--color-primary);
                 letter-spacing: 0.5px;
                 margin-bottom: 3px;
             }

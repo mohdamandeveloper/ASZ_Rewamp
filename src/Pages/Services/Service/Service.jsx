@@ -124,7 +124,7 @@ export default function Service() {
                     <div class="services-hero__media" aria-hidden="true">
                         <img
                             class="services-hero__image"
-                            src="https://images.unsplash.com/photo-1689443111130-6e9c7dfd8f9e?fm=jpg&q=80&w=1800&auto=format&fit=crop"
+                            src="/images/about_hero.png"
                             alt=""
                         />
                         <div class="services-hero__overlay"></div>
@@ -149,27 +149,7 @@ export default function Service() {
 
                         <div class="services-hero__actions">
                             <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
-                            {/* <a href="#" class="services-hero__secondary-cta">
-                                View all services
-                                <span class="services-hero__secondary-arrow">→</span>
-                            </a> */}
                         </div>
-
-                        <ul class="services-hero__pillars">
-                            <li class="services-hero__pillar">
-                                <span class="services-hero__pillar-index">01</span>
-                                <span class="services-hero__pillar-label">Product Engineering</span>
-                            </li>
-                            <li class="services-hero__pillar">
-                                <span class="services-hero__pillar-index">02</span>
-                                <span class="services-hero__pillar-label">Platform &amp; Cloud</span>
-                            </li>
-                            <li class="services-hero__pillar">
-                                <span class="services-hero__pillar-index">03</span>
-                                <span class="services-hero__pillar-label">Applied AI</span>
-                            </li>
-                        </ul>
-
                     </div>
                 </section>
                 {/* <section className="hero-section" ref={sectionRef} aria-label="ASZ Technologies hero banner">

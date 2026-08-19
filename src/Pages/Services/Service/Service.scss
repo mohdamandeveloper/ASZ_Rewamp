@@ -5,16 +5,16 @@
     --surface-hi: rgba(255, 255, 255, 0.05);
     --hair: rgba(201, 163, 94, 0.16);
     --brass: #c9a35e;
-    --brass-dim: #9fb0c2;
+    --brass-dim: #ff8b3c;
 
     --text-1: #eef2f4;
     --text-2: #7e93a8;
     --text-3: #354559;
 
-    --n-innovation: #4fc3c8;
+    --n-innovation: #ff8b3c;
     --e-collaboration: #e2933f;
     --s-excellence: #d4af37;
-    --w-sustainability: #6da77c;
+    --w-sustainability: #ff8b3c;
 
     --font-display: 'Fraunces', serif;
     --font-body: 'Inter', sans-serif;
@@ -23,7 +23,7 @@
 
 .service_page {
     .services-hero {
-        // position: relative;
+        position: relative;
         // min-height: 100vh;
         display: flex;
         align-items: center;
@@ -710,7 +710,7 @@
 
         .cv-reading {
             text-align: center;
-            color: var(--text-2);
+            color: var(--text-muted);
             font-size: 0.78rem;
             letter-spacing: 0.06em;
         }
@@ -837,7 +837,7 @@
         }
 
         .b-card__bearing strong {
-            color: var(--text-2);
+            color: var(--text-muted);
             display: block;
             font-size: 0.9rem;
         }
@@ -863,7 +863,7 @@
         .b-card__body {
             font-size: 0.89rem;
             line-height: 1.68;
-            color: var(--text-2);
+            color: var(--text-muted);
             margin-bottom: 20px;
             min-height: 130px;
         }
@@ -883,7 +883,7 @@
             padding: 4px 9px;
             border-radius: 3px;
             border: 1px solid var(--hair);
-            color: var(--text-2);
+            color: var(--text-muted);
             background: rgba(255, 255, 255, 0.015);
             transition: border-color 0.35s, color 0.35s;
         }

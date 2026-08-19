@@ -1106,12 +1106,38 @@ export default function Work() {
                     </div>
                 </div>
             </section> */}
-            <section class="hero_work cs">
+            <section class="services-hero">
+                {/* <div class="services-hero__bg" aria-hidden="true"></div> */}
+
+                <div class="services-hero__media" aria-hidden="true">
+                    <img
+                        class="services-hero__image"
+                        src="/images/our_work_hero.jpg"
+                        alt=""
+                    />
+                    <div class="services-hero__overlay"></div>
+                </div>
+
+                <div class="services-hero__inner container">
+
+                    <span class="hero_badge">Our Work</span>
+
+                    <h1 class="heading_title services-hero__title">
+                        <span>Real challenges.</span> <br />Thoughtful solutions.
+                    </h1>
+
+                    <p class="heading_subtitle services-hero__subtitle">
+                        Explore how we've helped businesses across industries overcome challenges, modernize their operations, and achieve meaningful results with our technology solutions.
+                    </p>
+
+                    <div class="services-hero__actions">
+                        <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                    </div>
+                </div>
+            </section>
+            {/* <section class="hero_work cs">
                 <div class="cs__inner">
                     <div class="cs__content">
-
-                        {/* <span class="cs__eyebrow">Case Studies</span> */}
-
                         <h1 class="heading_title">
                             <span>Real challenges.</span> <br />Thoughtful solutions.
                         </h1>
@@ -1125,16 +1151,6 @@ export default function Work() {
                         <div class="cs__grid">
 
                             <div class="cs__card">
-                                {/* <div class="cs__icon">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M3 20h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                                        <rect x="5" y="13" width="3" height="7" rx="0.5" stroke="currentColor" stroke-width="1.8" />
-                                        <rect x="10.5" y="9" width="3" height="11" rx="0.5" stroke="currentColor" stroke-width="1.8" />
-                                        <rect x="16" y="5" width="3" height="15" rx="0.5" stroke="currentColor" stroke-width="1.8" />
-                                        <path d="M5 9l4-3 4 2 6-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M15.5 3h3.5v3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </div> */}
                                 <h3 class="cs__card-title">Business Impact</h3>
                                 <p class="cs__card-text">
                                     Delivering measurable results that drive growth, efficiency,
@@ -1144,12 +1160,6 @@ export default function Work() {
                             </div>
 
                             <div class="cs__card">
-                                {/* <div class="cs__icon">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9 18h6M10 21h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                                        <path d="M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6v.5h5.4v-.5c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-                                    </svg>
-                                </div> */}
                                 <h3 class="cs__card-title">Diverse Solutions</h3>
                                 <p class="cs__card-text">
                                     Custom software, web, mobile, cloud, and AI solutions tailored
@@ -1157,41 +1167,6 @@ export default function Work() {
                                 </p>
                                 <span class="cs__stat">10+ Industries Served</span>
                             </div>
-
-                            {/* <div class="cs__card">
-                                <div class="cs__icon">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.8" />
-                                        <path d="M3.5 20c.6-3.3 3-5 5.5-5s4.9 1.7 5.5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                                        <path d="M15.5 4.3c1.2.4 2 1.5 2 2.9 0 1.4-.8 2.5-2 2.9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                                        <path d="M16.5 15.2c2 .5 3.5 2.1 4 4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                                    </svg>
-                                </div>
-                                <h3 class="cs__card-title">Client Success</h3>
-                                <p class="cs__card-text">
-                                    Long-term partnerships built on trust, transparency, and a
-                                    commitment to excellence.
-                                </p>
-                                <span class="cs__stat">90% Client Retention</span>
-                            </div>
-
-                            <div class="cs__card">
-                                <div class="cs__icon">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8" />
-                                        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" />
-                                        <circle cx="12" cy="12" r="0.9" fill="currentColor" />
-                                        <path d="M12 2v3M12 19v3M22 12h-3M5 12H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                                    </svg>
-                                </div>
-                                <h3 class="cs__card-title">Our Approach</h3>
-                                <p class="cs__card-text">
-                                    We combine deep technical expertise with an agile mindset to
-                                    deliver lasting impact.
-                                </p>
-                                <span class="cs__stat">Agile. Transparent. Results&#8209;Driven.</span>
-                            </div> */}
-
                         </div>
 
                         <a href="#" class="btn btn-primary">
@@ -1205,105 +1180,11 @@ export default function Work() {
 
                     <div class="cs__visual" aria-hidden="true">
                         <div class="cs__photo">
-                                <img src="/images/case_studies.jpg" />
-                            {/* <div class="device device--back">
-                                <div class="device__screen">
-                                    <div class="slide">
-                                        <span class="slide__eyebrow">Case Study &nbsp;·&nbsp; No.0459</span>
-                                        <h4 class="slide__title">Transforming Operations<br />with a Scalable Platform</h4>
-                                        <p class="slide__text">
-                                            We built a cloud-based platform that streamlined operations,
-                                            improved visibility, and reduced manual effort by 60%.
-                                        </p>
-                                        <div class="slide__meta">
-                                            <div>
-                                                <span class="slide__label">Industry</span>
-                                                <span class="slide__value">Logistics</span>
-                                            </div>
-                                            <div>
-                                                <span class="slide__label">Solution</span>
-                                                <span class="slide__value">System Modernization</span>
-                                            </div>
-                                        </div>
-                                        <div class="slide__impact">
-                                            <span class="slide__label">Impact</span>
-                                            <span class="slide__big">60% Reduction in<br />Manual Effort</span>
-                                        </div>
-                                        <div class="slide__bars">
-                                            <span style={{height:'35%'}}></span>
-                                            <span style={{height:'55%'}}></span>
-                                            <span style={{height:'40%'}}></span>
-                                            <span style={{height:'75%'}}></span>
-                                            <span style={{height:'95%'}}></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="device device--front">
-                                <div class="device__screen">
-                                    <div class="dash">
-                                        <div class="dash__top">
-                                            <span class="dash__title">Project Overview</span>
-                                            <span class="dash__dot"></span>
-                                        </div>
-                                        <div class="dash__stats">
-                                            <div class="stat">
-                                                <span class="stat__label">Total Users</span>
-                                                <span class="stat__value">12,540</span>
-                                                <span class="stat__delta">&#9650; 12.3%</span>
-                                            </div>
-                                            <div class="stat">
-                                                <span class="stat__label">Active Users</span>
-                                                <span class="stat__value">8,430</span>
-                                                <span class="stat__delta">&#9650; 10.3%</span>
-                                            </div>
-                                            <div class="stat">
-                                                <span class="stat__label">Revenue</span>
-                                                <span class="stat__value">$98,420</span>
-                                                <span class="stat__delta">&#9650; 15.7%</span>
-                                            </div>
-                                            <div class="stat">
-                                                <span class="stat__label">Tasks Completed</span>
-                                                <span class="stat__value">24,512</span>
-                                                <span class="stat__delta">&#9650; 17.2%</span>
-                                            </div>
-                                        </div>
-                                        <div class="dash__panels">
-                                            <div class="panel panel--chart">
-                                                <span class="panel__title">Performance Overview</span>
-                                                <svg class="panel__line" viewBox="0 0 240 70" preserveAspectRatio="none">
-                                                    <polyline points="0,55 20,45 40,50 60,30 80,38 100,20 120,28 140,15 160,25 180,10 200,18 220,6 240,14" fill="none" stroke="currentColor" stroke-width="2" />
-                                                </svg>
-                                            </div>
-                                            <div class="panel panel--list">
-                                                <span class="panel__title">Top Features</span>
-                                                <div class="feat">
-                                                    <span>Real-time Analytics</span>
-                                                    <div class="feat__bar"><i style={{width:'78%'}}></i></div>
-                                                </div>
-                                                <div class="feat">
-                                                    <span>Automated Reports</span>
-                                                    <div class="feat__bar"><i style={{width:'64%'}}></i></div>
-                                                </div>
-                                                <div class="feat">
-                                                    <span>User Management</span>
-                                                    <div class="feat__bar"><i style={{width:'52%'}}></i></div>
-                                                </div>
-                                                <div class="feat">
-                                                    <span>Data Integration</span>
-                                                    <div class="feat__bar"><i style={{width:'40%'}}></i></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
-
+                            <img src="/images/case_studies.jpg" />
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
             <section className="our-work" ref={ourWorkRef}>
                 <div className="our-work__container">
                     <div className="our-work__layout">
