@@ -715,42 +715,42 @@ import { Link } from 'react-router-dom';
 
 const SERVICES = [
     {
-        icon: "🍎",
+        icon: "/images/asz/services/software_consulting.png",
         title: "Software Consulting",
         desc: "Our software consulting services help you identify the real challenges behind the ones you think you have. We analyze your existing workflows and recommend tailored development paths that improve operational efficiency and open the door to innovation — before a single line of code gets written.",
         tags: ["Swift", "SwiftUI", "Xcode", "TestFlight"],
         emoji: "📱",
     },
     {
-        icon: "🤖",
+        icon: "/images/asz/services/custom_software_development.png",
         title: "Custom Software Development",
-        desc: "We build applications engineered specifically around your business's unique requirements — not bloated with features you'll never use. By developing custom software rather than adapting off-the-shelf tools, you get a system that fits your operations exactly, scales as you grow, and doesn't force your team to work around someone else's assumptions. This covers software consulting, custom development, development outsourcing, and full product development from concept to launch.",
+        desc: "We build applications engineered specifically around your business's unique requirements — not bloated with features you'll never use. By developing custom software rather than adapting off-the-shelf tools, you get a system that fits your operations exactly, scales as you grow.",
         tags: ["Kotlin", "Jetpack", "Compose", "Play Store"],
         emoji: "🤖",
     },
     {
-        icon: "⌚",
+        icon: "/images/asz/services/enterprise_software_development.png",
         title: "Enterprise Software Development",
         desc: " solutions are designed to support large organizations with complex processes. These systems integrate various functions such as accounting, human resources, and inventory management into a cohesive platform.",
         tags: ["WearOS", "WatchKit", "Health APIs", "BLE"],
         emoji: "⌚",
     },
     {
-        icon: "🔀",
+        icon: "/images/asz/services/software_product_development.png",
         title: "Software Product Development",
         desc: "We validate ideas through MVP development and user research to ensure every product aligns with real market needs. Our team delivers secure, scalable software products for businesses worldwide, offering ",
         tags: ["React Native", "Flutter", "Expo", "Dart"],
         emoji: "🔀",
     },
     {
-        icon: "⚡",
+        icon: "/images/asz/services/software_integration.png",
         title: "Software Integration",
         desc: "Our custom software development company offers integration services that are crucial for businesses looking to enhance their existing tech stack. This service is particularly important for organizations that rely on multiple platforms to manage their operations.",
         tags: ["C++", "Metal", "Vulkan", "NDK"],
         emoji: "⚡",
     },
     {
-        icon: "⚡",
+        icon: "/images/asz/services/api_development.png",
         title: "API Development Services",
         desc: "Our custom API development allows businesses to extend the functionality of their existing systems without starting from scratch. This service can significantly accelerate development timelines and reduce costs by reusing existing codebases. ",
         tags: ["C++", "Metal", "Vulkan", "NDK"],
@@ -1090,11 +1090,52 @@ export default function CustomSoftwareDevelopment() {
                         ]}
                     />
                 </section> */}
-                <section className="custom_soft_banner">
+                <section class="services-hero">
+                    <div class="services-hero__media" aria-hidden="true">
+                        <img class="services-hero__image" src="/images/services_sub_banner.png" alt="" />
+                        <div class="services-hero__overlay"></div>
+                    </div>
+                    <div class="services-hero__inner container">
+                        <span class="hero_badge">Our Services</span>
+                        <h1 class="heading_title services-hero__title">
+                            <span>Software Development</span> Services&nbsp;
+                            <br />Built for Every Platform
+                        </h1>
+                        <p class="heading_subtitle services-hero__subtitle">
+                            Turn your digital vision into a high-impact business asset with enterprise-grade software development. We've crafted solutions for organizations of every size — engineered with advanced security, strict compliance standards, and intuitive user experiences that make complex systems feel simple to use.
+                        </p>
+                        <div class="services-hero__actions">
+                            <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                        </div>
+                    </div>
+                </section>
+                <section className='our_services' style={{ background: "rgb(15 15 18)" }}>
+                    <div className='services-section'>
+                        <div className='row'>
+                            {SERVICES.map((s, i) => (
+                                <div className='col-md-4 mb-5'>
+                                    <div className="service-card reveal" ref={addReveal} key={i}>
+                                        <div>
+                                            <div className="service-card-icon">
+                                                <img src={s.icon} />
+                                            </div>
+                                            <div className="service-card-title">{s.title}</div>
+                                            <p className="service-card-desc">{s.desc}</p>
+                                            <div className="service-card-tags">
+                                                {s.tags.map((t) => <span className="service-tag" key={t}>{t}</span>)}
+                                            </div>
+                                        </div>
+                                        {/* <div className="service-card-img">{s.emoji}</div> */}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+                {/* <section className="custom_soft_banner">
                     <div className="custom_soft_cont">
                         <div className="custom_soft_inner">
                             <div className="cust_banner_lt">
-                                {/* <h6 className="hero_badge"><span></span>Intelligent. Scalable. AI-Powered.</h6> */}
                                 <h1 className="heading_title mb-4">Custom <span className="c_primary">Software Development</span> Services</h1>
                                 <p>Turn your digital vision into a high-impact business asset with enterprise-grade software development. We've crafted solutions for organizations of every size — engineered with advanced security, strict compliance standards, and intuitive user experiences that make complex systems feel simple to use.</p>
                                 <ul className="bnrlst mb-4">
@@ -1111,8 +1152,8 @@ export default function CustomSoftwareDevelopment() {
                             </div>
                         </div>
                     </div>
-                </section>
-                <section className='our_services' style={{ background: "#0a0a0f" }}>
+                </section> */}
+                {/* <section className='our_services' style={{ background: "rgb(15 15 18)" }}>
                     <div className="services-section">
                         <div className="services-left">
                             <div className="hero_badge">Our Services</div>
@@ -1124,20 +1165,6 @@ export default function CustomSoftwareDevelopment() {
                             </p>
                             <div className="services-left-cta">
                                 <Link to={'/contact'} className="btn-primary">Discuss Your Project →</Link>
-                                <div className="services-trust-row mt-5">
-                                    <div className="services-trust-item">
-                                        <div className="services-trust-num">4.9★</div>
-                                        <div className="services-trust-label">Clutch Rating</div>
-                                    </div>
-                                    <div className="services-trust-item">
-                                        <div className="services-trust-num">98%</div>
-                                        <div className="services-trust-label">Client Retention</div>
-                                    </div>
-                                    <div className="services-trust-item">
-                                        <div className="services-trust-num">2wk</div>
-                                        <div className="services-trust-label">Avg Kickoff</div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
@@ -1157,7 +1184,7 @@ export default function CustomSoftwareDevelopment() {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section> */}
                 {/* <section className='custom_ai_industries'>
                     <ParticleCanvas />
                     <div className='container'>

@@ -10,35 +10,35 @@ import HeroSectionServices from '../../../Common/HeroSectionServices/HeroSection
 
 const SERVICES = [
     {
-        icon: "🍎",
+        icon: "/images/asz/services/ios_mobile_app_development.png",
         title: "iOS Mobile App Development",
         desc: "Crafting pixel-perfect, high-performance apps for iPhone and iPad using Swift and SwiftUI. We build apps that feel native, intuitive, and ready for the App Store from day one.",
         tags: ["Swift", "SwiftUI", "Xcode", "TestFlight"],
         emoji: "📱",
     },
     {
-        icon: "🤖",
+        icon: "/images/asz/services/android_app_development.png",
         title: "Android Mobile App Development",
         desc: "Building robust Android apps with Kotlin and Jetpack Compose. We cover the full Android ecosystem — phones, tablets, foldables — with smooth performance and material design polish.",
         tags: ["Kotlin", "Jetpack", "Compose", "Play Store"],
         emoji: "🤖",
     },
     {
-        icon: "⌚",
+        icon: "/images/asz/services/wearable_app_development.png",
         title: "Wearable Mobile App Development",
         desc: "Developing sleek, context-aware apps for smartwatches and fitness trackers on WatchOS and Wear OS. Minimal UI, real-time sync, and health integration built in.",
         tags: ["WearOS", "WatchKit", "Health APIs", "BLE"],
         emoji: "⌚",
     },
     {
-        icon: "🔀",
+        icon: "/images/asz/services/cross_platform_app_development.png",
         title: "Cross-Platform Mobile App Development",
         desc: "One codebase, two platforms. Using React Native and Flutter, we ship apps that look and behave native on both iOS and Android — cutting cost without cutting quality.",
         tags: ["React Native", "Flutter", "Expo", "Dart"],
         emoji: "🔀",
     },
     {
-        icon: "⚡",
+        icon: "/images/asz/services/native_mobile_app_development.png",
         title: "Native Mobile App Development",
         desc: "Maximum performance, deepest device access. We write fully native apps when you need to push hardware limits, access low-level APIs, or deliver a truly platform-first experience.",
         tags: ["C++", "Metal", "Vulkan", "NDK"],
@@ -74,38 +74,38 @@ const SERVICES = [
 //     { icon: "📈", name: "Data Analytics" },
 // ];
 
-const PROCESS_STEPS = [
-    {
-        title: "Discovery & Strategy",
-        desc: "We start by understanding your goals, audience, and competitive landscape. This phase produces a detailed product brief, tech stack recommendation, and MVP scope.",
-        deliverables: ["Product Brief", "Tech Stack", "MVP Scope"],
-    },
-    {
-        title: "UX Research & Wireframing",
-        desc: "Our designers map user journeys, define information architecture, and build low-fidelity wireframes — validated with real users before a pixel of UI is drawn.",
-        deliverables: ["User Flows", "Wireframes", "IA Map"],
-    },
-    {
-        title: "UI Design & Prototyping",
-        desc: "High-fidelity, clickable prototypes in Figma. Every micro-interaction is designed before development starts, so engineers build with clarity and confidence.",
-        deliverables: ["Design System", "Prototype", "Figma File"],
-    },
-    {
-        title: "Agile Development",
-        desc: "Two-week sprints, daily standups, and continuous integration. You see working software every two weeks — not a reveal at the end of the project.",
-        deliverables: ["Sprint Demos", "CI/CD Pipeline", "Code Reviews"],
-    },
-    {
-        title: "QA & Testing",
-        desc: "Multi-device testing across real hardware, automated test suites, performance benchmarking, and security audits. We test what users actually do — and the edge cases they don't.",
-        deliverables: ["Test Reports", "Performance Audit", "Security Scan"],
-    },
-    {
-        title: "Launch & Post-Launch Support",
-        desc: "App store submission, phased rollout, crash monitoring, and 30-day post-launch support included in every engagement. We stay on until the app is stable and growing.",
-        deliverables: ["App Store Listing", "Monitoring", "30-day Support"],
-    },
-];
+// const PROCESS_STEPS = [
+//     {
+//         title: "Discovery & Strategy",
+//         desc: "We start by understanding your goals, audience, and competitive landscape. This phase produces a detailed product brief, tech stack recommendation, and MVP scope.",
+//         deliverables: ["Product Brief", "Tech Stack", "MVP Scope"],
+//     },
+//     {
+//         title: "UX Research & Wireframing",
+//         desc: "Our designers map user journeys, define information architecture, and build low-fidelity wireframes — validated with real users before a pixel of UI is drawn.",
+//         deliverables: ["User Flows", "Wireframes", "IA Map"],
+//     },
+//     {
+//         title: "UI Design & Prototyping",
+//         desc: "High-fidelity, clickable prototypes in Figma. Every micro-interaction is designed before development starts, so engineers build with clarity and confidence.",
+//         deliverables: ["Design System", "Prototype", "Figma File"],
+//     },
+//     {
+//         title: "Agile Development",
+//         desc: "Two-week sprints, daily standups, and continuous integration. You see working software every two weeks — not a reveal at the end of the project.",
+//         deliverables: ["Sprint Demos", "CI/CD Pipeline", "Code Reviews"],
+//     },
+//     {
+//         title: "QA & Testing",
+//         desc: "Multi-device testing across real hardware, automated test suites, performance benchmarking, and security audits. We test what users actually do — and the edge cases they don't.",
+//         deliverables: ["Test Reports", "Performance Audit", "Security Scan"],
+//     },
+//     {
+//         title: "Launch & Post-Launch Support",
+//         desc: "App store submission, phased rollout, crash monitoring, and 30-day post-launch support included in every engagement. We stay on until the app is stable and growing.",
+//         deliverables: ["App Store Listing", "Monitoring", "30-day Support"],
+//     },
+// ];
 
 export const WORKS = [
     {
@@ -436,6 +436,47 @@ export default function MobileAppDevelopment() {
     return (
         <>
             <div className="mobile-app-development">
+                <section class="services-hero">
+                    <div class="services-hero__media" aria-hidden="true">
+                        <img class="services-hero__image" src="/images/services_sub_banner.png" alt="" />
+                        <div class="services-hero__overlay"></div>
+                    </div>
+                    <div class="services-hero__inner container">
+                        <span class="hero_badge">Our Services</span>
+                        <h1 class="heading_title services-hero__title">
+                            <span>Mobile App Development</span> &nbsp;
+                            <br />That Users Love — and Businesses Rely On
+                        </h1>
+                        <p class="heading_subtitle services-hero__subtitle">
+                            From concept to App Store, we design, develop, and deploy enterprise-grade mobile applications across iOS, Android, and cross-platform — powered by AI and built for scale. We combine intuitive UX, robust architecture, seamless integrations, and advanced technologies to create secure, high-performance apps that drive real business growth.
+                        </p>
+                        <div class="services-hero__actions">
+                            <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                        </div>
+                    </div>
+                </section>
+                <section className='our_services' style={{ background: "rgb(15 15 18)" }}>
+                    <div className='services-section'>
+                        <div className='row'>
+                            {SERVICES.map((s, i) => (
+                                <div className='col-md-4 mb-5'>
+                                    <div className="service-card reveal" ref={addReveal} key={i}>
+                                        <div>
+                                            <div className="service-card-icon">
+                                                <img src={s.icon} />
+                                            </div>
+                                            <div className="service-card-title">{s.title}</div>
+                                            <p className="service-card-desc">{s.desc}</p>
+                                            <div className="service-card-tags">
+                                                {s.tags.map((t) => <span className="service-tag" key={t}>{t}</span>)}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
                 {/* <section className="hero-section" ref={sectionRef} aria-label="ASZ Technologies hero banner">
                     <HeroSectionServices
                         backgroundImage="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1600&q=80"
@@ -455,7 +496,7 @@ export default function MobileAppDevelopment() {
                         ]}
                     />
                 </section> */}
-                <section className="hero">
+                {/* <section className="hero">
                     <div className="hero-bg-glow" />
                     <div className="hero-bg-glow2" />
                     <div className="hero-grid-overlay" />
@@ -493,45 +534,14 @@ export default function MobileAppDevelopment() {
                         <div className="hero-visual">
                             <div className="orbit-ring r1" />
                             <div className="orbit-ring r2" />
-                            {/* <div className="phone-mockup-wrap">
-                                <div className="phone-outer">
-                                    <div className="phone-screen">
-                                        <img src='/images/asz/Gemini_Generated_Image_mfh661mfh661mfh6.png' />
-                                        <div className="phone-notch" />
-                                        <div className="phone-ui-bar w80" />
-                                        <div className="phone-ui-bar w60" />
-                                        <div className="phone-ui-card">
-                                            <div className="phone-ui-dot-row">
-                                                <div className="phone-ui-dot" />
-                                                <div className="phone-ui-dot blue" />
-                                                <div className="phone-ui-dot green" />
-                                            </div>
-                                            <div className="phone-ui-bar w90" />
-                                            <div style={{ height: 8 }} />
-                                            <div className="phone-ui-bar w60" />
-                                        </div>
-                                        <div style={{ height: 12 }} />
-                                        <div className="phone-ui-bar w80" />
-                                        <div style={{ height: 8 }} />
-                                        <div className="phone-ui-card">
-                                            <div className="phone-ui-bar w90" />
-                                            <div style={{ height: 8 }} />
-                                            <div className="phone-ui-bar w60" />
-                                        </div>
-                                        <div style={{ height: 12 }} />
-                                        <div className="phone-ui-bar w80" />
-                                    </div>
-                                </div>
-                                <div className="phone-float-badge top-right">🍎 iOS Ready</div>
-                                <div className="phone-float-badge bottom-left">🤖 Android Ready</div>
-                            </div> */}
                             <img src='/images/asz/Gemini_Generated_Image_mfh661mfh661mfh6.png' />
                         </div>
                     </div>
-                </section>
+                </section> */}
+
 
                 {/* ── 2. SERVICES (STICKY) ── */}
-                <section className='our_services' style={{ background: "#0a0a0f" }}>
+                {/* <section className='our_services' style={{ background: "#0a0a0f" }}>
                     <div className="services-section">
                         <div className="services-left">
                             <div className="hero_badge">Our Services</div>
@@ -577,7 +587,7 @@ export default function MobileAppDevelopment() {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* ── 3. ABOUT MOBILE DEV ── */}
                 {/* <section className="about-section">
@@ -720,7 +730,7 @@ export default function MobileAppDevelopment() {
                 </section> */}
 
                 {/* ── 6. PROCESS ── */}
-                <section style={{ background: "#0a0a0f" }}>
+                {/* <section style={{ background: "#0a0a0f" }}>
                     <div className="process-section">
                         <div className="section-header reveal" ref={addReveal}>
                             <div className="hero_badge" style={{ justifyContent: "center" }}>Our Process</div>
@@ -749,7 +759,7 @@ export default function MobileAppDevelopment() {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 <section className="our-work">
                     <div className="our-work__container">

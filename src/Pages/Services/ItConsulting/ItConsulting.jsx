@@ -10,42 +10,42 @@ import HeroSectionServices from '../../../Common/HeroSectionServices/HeroSection
 
 const SERVICES = [
   {
-    icon: "🚀",
+    icon: "/images/asz/services/digital-transformation-consulting.png",
     title: "Digital Transformation Consulting",
     desc: "Accelerate your digital transformation journey with tailored technology strategies that modernize business processes, improve operational efficiency, and drive sustainable growth through innovative digital solutions.",
     tags: ["Digital Strategy", "Business Transformation", "Cloud Adoption", "Innovation"],
     emoji: "🌐",
   },
   {
-    icon: "📋",
+    icon: "/images/asz/services/project-management-consulting.png",
     title: "Project Management Consulting",
     desc: "Ensure successful project delivery with expert project management consulting. We help define project roadmaps, optimize resources, mitigate risks, and implement agile methodologies for predictable outcomes.",
     tags: ["Agile", "Project Planning", "Risk Management", "PMO"],
     emoji: "📈",
   },
   {
-    icon: "🛡️",
+    icon: "/images/asz/services/digital-crisis-consulting.png",
     title: "Digital Crisis Management Consulting",
     desc: "Prepare your organization for unexpected disruptions with proactive crisis management strategies, business continuity planning, disaster recovery, and rapid incident response frameworks.",
     tags: ["Business Continuity", "Disaster Recovery", "Risk Assessment", "Incident Response"],
     emoji: "🚨",
   },
   {
-    icon: "⚙️",
+    icon: "/images/asz/services/it-service-management-consultancy.png",
     title: "IT Service Management Consulting",
     desc: "Optimize IT operations with ITSM best practices, streamlined service delivery, process automation, and governance frameworks that improve efficiency, reliability, and customer satisfaction.",
     tags: ["ITIL", "Service Delivery", "Process Automation", "IT Governance"],
     emoji: "🔧",
   },
   {
-    icon: "💼",
+    icon: "/images/asz/services/solution-consulting.png",
     title: "Solution Consulting",
     desc: "Design scalable and secure technology solutions tailored to your business needs. Our consultants help evaluate, architect, and implement solutions that maximize business value and performance.",
     tags: ["Solution Architecture", "Enterprise Solutions", "System Design", "Technology Advisory"],
     emoji: "💡",
   },
   {
-    icon: "☁️",
+    icon: "/images/asz/services/platform-consulting.png",
     title: "Platform Consulting",
     desc: "Maximize the value of your technology platforms with expert consulting on cloud, enterprise, and business applications. We help optimize performance, scalability, integration, and long-term platform success.",
     tags: ["Cloud Platforms", "Enterprise Systems", "Platform Integration", "Scalability"],
@@ -442,7 +442,49 @@ export default function ItConsulting() {
     };
     return (
         <>
-            <div className="ux-ui-development">
+            <div className="it-consulting">
+                <section class="services-hero">
+                    <div class="services-hero__media" aria-hidden="true">
+                        <img class="services-hero__image" src="/images/services_sub_banner.png" alt="" />
+                        <div class="services-hero__overlay"></div>
+                    </div>
+                    <div class="services-hero__inner container">
+                        <span class="hero_badge">Our Services</span>
+                        <h1 class="heading_title services-hero__title">
+                            <span>Strategic IT Consulting</span> &nbsp;
+                            <br />That Drives Business Growth
+                        </h1>
+                        <p class="heading_subtitle services-hero__subtitle">
+                             Empower your business with expert IT consulting services designed to optimize technology investments, streamline operations, and accelerate digital transformation. From IT strategy and cloud adoption to solution architecture and technology roadmaps, we help you make confident technology decisions.
+                        </p>
+                        <div class="services-hero__actions">
+                            <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                        </div>
+                    </div>
+                </section>
+                <section className='our_services' style={{ background: "rgb(15 15 18)" }}>
+                    <div className='services-section'>
+                        <div className='row'>
+                            {SERVICES.map((s, i) => (
+                                <div className='col-md-4 mb-5'>
+                                    <div className="service-card reveal" ref={addReveal} key={i}>
+                                        <div>
+                                            <div className="service-card-icon">
+                                                <img src={s.icon} />
+                                            </div>
+                                            <div className="service-card-title">{s.title}</div>
+                                            <p className="service-card-desc">{s.desc}</p>
+                                            <div className="service-card-tags">
+                                                {s.tags.map((t) => <span className="service-tag" key={t}>{t}</span>)}
+                                            </div>
+                                        </div>
+                                        {/* <div className="service-card-img">{s.emoji}</div> */}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
                 {/* <section className="hero-section" ref={sectionRef} aria-label="ASZ Technologies hero banner">
                     <HeroSectionServices
                         backgroundImage="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1600&q=80"
@@ -462,14 +504,13 @@ export default function ItConsulting() {
                         ]}
                     />
                 </section> */}
-                <section className="hero">
+                {/* <section className="hero">
                     <div className="hero-bg-glow" />
                     <div className="hero-bg-glow2" />
                     <div className="hero-grid-overlay" />
 
                     <div className="hero-content">
                         <div className="hero-text">
-                            {/* <div className="hero_badge"><span />UX/UI Design</div> */}
                             <h1 className="heading_title" style={{ color: 'white' }}>
                                 <span>IT</span> Consulting
                             </h1>
@@ -483,55 +524,17 @@ export default function ItConsulting() {
                             </ul>
                             <div className="hero-ctas">
                                 <button className="btn-primary">Get in Touch →</button>
-                                {/* <button className="btn-secondary">View Portfolio</button> */}
                             </div>
                         </div>
 
                         <div className="hero-visual">
-                            {/* <div className="orbit-ring r1" />
-                            <div className="orbit-ring r2" /> */}
-                            {/* <div className="phone-mockup-wrap">
-                                <div className="phone-outer">
-                                    <div className="phone-screen">
-                                        <img src='/images/asz/Gemini_Generated_Image_mfh661mfh661mfh6.png' />
-                                        <div className="phone-notch" />
-                                        <div className="phone-ui-bar w80" />
-                                        <div className="phone-ui-bar w60" />
-                                        <div className="phone-ui-card">
-                                            <div className="phone-ui-dot-row">
-                                                <div className="phone-ui-dot" />
-                                                <div className="phone-ui-dot blue" />
-                                                <div className="phone-ui-dot green" />
-                                            </div>
-                                            <div className="phone-ui-bar w90" />
-                                            <div style={{ height: 8 }} />
-                                            <div className="phone-ui-bar w60" />
-                                        </div>
-                                        <div style={{ height: 12 }} />
-                                        <div className="phone-ui-bar w80" />
-                                        <div style={{ height: 8 }} />
-                                        <div className="phone-ui-card">
-                                            <div className="phone-ui-bar w90" />
-                                            <div style={{ height: 8 }} />
-                                            <div className="phone-ui-bar w60" />
-                                        </div>
-                                        <div style={{ height: 12 }} />
-                                        <div className="phone-ui-bar w80" />
-                                    </div>
-                                </div>
-                                <div className="phone-float-badge top-right">🍎 iOS Ready</div>
-                                <div className="phone-float-badge bottom-left">🤖 Android Ready</div>
-                            </div> */}
                             <img src='/images/it-consulting.jpg' />
                         </div>
                     </div>
                 </section>
-
-                {/* ── 2. SERVICES (STICKY) ── */}
                 <section className='our_services' style={{ background: "#0a0a0f" }}>
                     <div className="services-section">
                         <div className="services-left">
-                            {/* <div className="hero_badge">Our Services</div> */}
                             <h2 className="heading_title" style={{ color: 'white' }}>
                                 <span>Strategic IT Consulting</span> That Drives Business Growth
                             </h2>
@@ -573,7 +576,7 @@ export default function ItConsulting() {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* ── 3. ABOUT MOBILE DEV ── */}
                 {/* <section className="about-section">

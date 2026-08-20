@@ -9,48 +9,48 @@ import { Link } from 'react-router-dom';
 import HeroSectionServices from '../../../Common/HeroSectionServices/HeroSectionServices';
 
 const SERVICES = [
-  {
-    icon: "🛡️",
-    title: "Network Security",
-    desc: "Protect your business network from cyber threats with advanced firewalls, intrusion prevention systems, secure network architecture, and continuous monitoring to ensure reliable and secure connectivity.",
-    tags: ["Firewall", "IDS/IPS", "VPN", "Network Monitoring"],
-    emoji: "🌐",
-  },
-  {
-    icon: "🔍",
-    title: "Vulnerability Assessment & Penetration Testing",
-    desc: "Identify and eliminate security weaknesses through comprehensive vulnerability assessments and penetration testing, helping safeguard your applications, infrastructure, and sensitive business data.",
-    tags: ["VAPT", "Pen Testing", "Risk Assessment", "Security Audit"],
-    emoji: "🎯",
-  },
-  {
-    icon: "☁️",
-    title: "Cloud Security",
-    desc: "Secure your cloud infrastructure with robust identity management, encryption, compliance controls, and continuous monitoring across AWS, Azure, and Google Cloud environments.",
-    tags: ["AWS", "Azure", "Cloud Security", "IAM"],
-    emoji: "☁️",
-  },
-  {
-    icon: "🔐",
-    title: "Identity & Access Management",
-    desc: "Control and secure user access with multi-factor authentication, role-based access control, single sign-on, and identity governance to minimize unauthorized access risks.",
-    tags: ["MFA", "SSO", "RBAC", "Identity Governance"],
-    emoji: "👤",
-  },
-  {
-    icon: "🚨",
-    title: "Security Monitoring & Incident Response",
-    desc: "Detect, investigate, and respond to cyber threats in real time with continuous security monitoring, SIEM solutions, and rapid incident response to minimize business impact.",
-    tags: ["SIEM", "SOC", "Threat Detection", "Incident Response"],
-    emoji: "📡",
-  },
-  {
-    icon: "📋",
-    title: "Compliance & Risk Management",
-    desc: "Achieve regulatory compliance and reduce security risks through policy assessments, governance frameworks, compliance audits, and cybersecurity best practices.",
-    tags: ["ISO 27001", "GDPR", "PCI DSS", "Risk Management"],
-    emoji: "✅",
-  },
+    {
+        icon: "/images/asz/services/network-security.png",
+        title: "Network Security",
+        desc: "Protect your business network from cyber threats with advanced firewalls, intrusion prevention systems, secure network architecture, and continuous monitoring to ensure reliable and secure connectivity.",
+        tags: ["Firewall", "IDS/IPS", "VPN", "Network Monitoring"],
+        emoji: "🌐",
+    },
+    {
+        icon: "/images/asz/services/vulnerability-assesment.png",
+        title: "Vulnerability Assessment & Penetration Testing",
+        desc: "Identify and eliminate security weaknesses through comprehensive vulnerability assessments and penetration testing, helping safeguard your applications, infrastructure, and sensitive business data.",
+        tags: ["VAPT", "Pen Testing", "Risk Assessment", "Security Audit"],
+        emoji: "🎯",
+    },
+    {
+        icon: "/images/asz/services/cloud-security.png",
+        title: "Cloud Security",
+        desc: "Secure your cloud infrastructure with robust identity management, encryption, compliance controls, and continuous monitoring across AWS, Azure, and Google Cloud environments.",
+        tags: ["AWS", "Azure", "Cloud Security", "IAM"],
+        emoji: "☁️",
+    },
+    {
+        icon: "/images/asz/services/identity-access.png",
+        title: "Identity & Access Management",
+        desc: "Control and secure user access with multi-factor authentication, role-based access control, single sign-on, and identity governance to minimize unauthorized access risks.",
+        tags: ["MFA", "SSO", "RBAC", "Identity Governance"],
+        emoji: "👤",
+    },
+    {
+        icon: "/images/asz/services/security-monitoring.png",
+        title: "Security Monitoring & Incident Response",
+        desc: "Detect, investigate, and respond to cyber threats in real time with continuous security monitoring, SIEM solutions, and rapid incident response to minimize business impact.",
+        tags: ["SIEM", "SOC", "Threat Detection", "Incident Response"],
+        emoji: "📡",
+    },
+    {
+        icon: "/images/asz/services/compliance-risk.png",
+        title: "Compliance & Risk Management",
+        desc: "Achieve regulatory compliance and reduce security risks through policy assessments, governance frameworks, compliance audits, and cybersecurity best practices.",
+        tags: ["ISO 27001", "GDPR", "PCI DSS", "Risk Management"],
+        emoji: "✅",
+    },
 ];
 
 // const INDUSTRIES = [
@@ -442,7 +442,49 @@ export default function CyberSecrurityServices() {
     };
     return (
         <>
-            <div className="ux-ui-development">
+            <div className="cybersecurity_services">
+                <section class="services-hero">
+                    <div class="services-hero__media" aria-hidden="true">
+                        <img class="services-hero__image" src="/images/services_sub_banner.png" alt="" />
+                        <div class="services-hero__overlay"></div>
+                    </div>
+                    <div class="services-hero__inner container">
+                        <span class="hero_badge">Our Services</span>
+                        <h1 class="heading_title services-hero__title">
+                            <span>Intelligent Cybersecurity</span> &nbsp;
+                            <br />Built for Modern Businesses
+                        </h1>
+                        <p class="heading_subtitle services-hero__subtitle">
+                            Strengthen your security posture with end-to-end cybersecurity solutions designed to safeguard your digital assets. From vulnerability assessments and penetration testing to security consulting and compliance management, we help businesses stay resilient against cyber threats.
+                        </p>
+                        <div class="services-hero__actions">
+                            <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                        </div>
+                    </div>
+                </section>
+                <section className='our_services' style={{ background: "rgb(15 15 18)" }}>
+                    <div className='services-section'>
+                        <div className='row'>
+                            {SERVICES.map((s, i) => (
+                                <div className='col-md-4 mb-5'>
+                                    <div className="service-card reveal" ref={addReveal} key={i}>
+                                        <div>
+                                            <div className="service-card-icon">
+                                                <img src={s.icon} />
+                                            </div>
+                                            <div className="service-card-title">{s.title}</div>
+                                            <p className="service-card-desc">{s.desc}</p>
+                                            <div className="service-card-tags">
+                                                {s.tags.map((t) => <span className="service-tag" key={t}>{t}</span>)}
+                                            </div>
+                                        </div>
+                                        {/* <div className="service-card-img">{s.emoji}</div> */}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
                 {/* <section className="hero-section" ref={sectionRef} aria-label="ASZ Technologies hero banner">
                     <HeroSectionServices
                         backgroundImage="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1600&q=80"
@@ -462,14 +504,13 @@ export default function CyberSecrurityServices() {
                         ]}
                     />
                 </section> */}
-                <section className="hero">
+                {/* <section className="hero">
                     <div className="hero-bg-glow" />
                     <div className="hero-bg-glow2" />
                     <div className="hero-grid-overlay" />
 
                     <div className="hero-content">
                         <div className="hero-text">
-                            {/* <div className="hero_badge"><span />UX/UI Design</div> */}
                             <h1 className="heading_title" style={{ color: 'white' }}>
                                 Managing risks,<span> keeping businesses secure</span>
                             </h1>
@@ -483,55 +524,17 @@ export default function CyberSecrurityServices() {
                             </ul>
                             <div className="hero-ctas">
                                 <button className="btn-primary">Get in Touch →</button>
-                                {/* <button className="btn-secondary">View Portfolio</button> */}
                             </div>
                         </div>
 
                         <div className="hero-visual">
-                            {/* <div className="orbit-ring r1" />
-                            <div className="orbit-ring r2" /> */}
-                            {/* <div className="phone-mockup-wrap">
-                                <div className="phone-outer">
-                                    <div className="phone-screen">
-                                        <img src='/images/asz/Gemini_Generated_Image_mfh661mfh661mfh6.png' />
-                                        <div className="phone-notch" />
-                                        <div className="phone-ui-bar w80" />
-                                        <div className="phone-ui-bar w60" />
-                                        <div className="phone-ui-card">
-                                            <div className="phone-ui-dot-row">
-                                                <div className="phone-ui-dot" />
-                                                <div className="phone-ui-dot blue" />
-                                                <div className="phone-ui-dot green" />
-                                            </div>
-                                            <div className="phone-ui-bar w90" />
-                                            <div style={{ height: 8 }} />
-                                            <div className="phone-ui-bar w60" />
-                                        </div>
-                                        <div style={{ height: 12 }} />
-                                        <div className="phone-ui-bar w80" />
-                                        <div style={{ height: 8 }} />
-                                        <div className="phone-ui-card">
-                                            <div className="phone-ui-bar w90" />
-                                            <div style={{ height: 8 }} />
-                                            <div className="phone-ui-bar w60" />
-                                        </div>
-                                        <div style={{ height: 12 }} />
-                                        <div className="phone-ui-bar w80" />
-                                    </div>
-                                </div>
-                                <div className="phone-float-badge top-right">🍎 iOS Ready</div>
-                                <div className="phone-float-badge bottom-left">🤖 Android Ready</div>
-                            </div> */}
                             <img src='/images/cyber-security-services.jpg' />
                         </div>
                     </div>
                 </section>
-
-                {/* ── 2. SERVICES (STICKY) ── */}
                 <section className='our_services' style={{ background: "#0a0a0f" }}>
                     <div className="services-section">
                         <div className="services-left">
-                            {/* <div className="hero_badge">Our Services</div> */}
                             <h2 className="heading_title" style={{ color: 'white' }}>
                                 <span>Cybersecurity</span> Built for Modern Businesses
                             </h2>
@@ -573,7 +576,7 @@ export default function CyberSecrurityServices() {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* ── 3. ABOUT MOBILE DEV ── */}
                 {/* <section className="about-section">

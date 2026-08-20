@@ -10,45 +10,45 @@ import HeroSectionServices from '../../../Common/HeroSectionServices/HeroSection
 
 const SERVICES = [
   {
-    icon: "🔍",
+    icon: "/images/asz/services/uxui-research.png",
     title: "UI/UX Design Research",
     desc: "Gain valuable user insights through research, competitor analysis, user personas, and usability studies. We identify user needs and business goals to create meaningful digital experiences.",
-    tags: ["User Research", "Personas", "Usability", "Competitor Analysis"],
+    tags: ["User Research", "Personas", "Usability"],
     emoji: "🧠",
   },
   {
-    icon: "🎨",
+    icon: "/images/asz/services/ux-design.png",
     title: "UX Design",
     desc: "Design intuitive user journeys and seamless interactions that enhance usability and engagement. We focus on creating experiences that are simple, accessible, and user-centered.",
     tags: ["Wireframes", "User Flow", "Prototyping", "Usability"],
     emoji: "✨",
   },
   {
-    icon: "📈",
+    icon: "/images/asz/services/ux-strategy.png",
     title: "UX Strategy",
     desc: "Align user experience with your business objectives through data-driven design strategies. We define product roadmaps, optimize customer journeys, and improve overall user satisfaction.",
-    tags: ["Product Strategy", "Customer Journey", "UX Audit", "Design Thinking"],
+    tags: ["Product Strategy", "Customer Journey", "UX Audit"],
     emoji: "🚀",
   },
   {
-    icon: "💡",
+    icon: "/images/asz/services/uxui_consulting.png",
     title: "UI & UX Consulting",
     desc: "Receive expert guidance on improving digital products through UX audits, interface optimization, accessibility reviews, and design best practices that drive measurable business results.",
-    tags: ["UX Audit", "Consulting", "Accessibility", "Design Systems"],
+    tags: ["UX Audit", "Consulting", "Accessibility"],
     emoji: "🤝",
   },
   {
-    icon: "📱",
+    icon: "/images/asz/services/uxui-mobileapp.png",
     title: "Mobile App UX & UI Design",
     desc: "Create engaging mobile experiences with modern interfaces optimized for Android and iOS. We design intuitive layouts, smooth interactions, and visually appealing mobile applications.",
     tags: ["Mobile UI", "iOS", "Android", "Responsive Design"],
     emoji: "📲",
   },
   {
-    icon: "🌐",
-    title: "Cross-Platform Experience Design",
+    icon: "/images/asz/services/uxui-cross-platform.png",
+    title: "Cross-Platform Design",
     desc: "Deliver consistent and engaging user experiences across web, mobile, tablet, and desktop platforms. We ensure your brand and interactions remain seamless on every device.",
-    tags: ["Cross Platform", "Responsive UI", "Design System", "Multi-Device"],
+    tags: ["Cross Platform", "Responsive UI", "Design System"],
     emoji: "💻",
   },
 ];
@@ -443,6 +443,48 @@ export default function UxUiDesign() {
     return (
         <>
             <div className="ux-ui-development">
+                <section class="services-hero">
+                    <div class="services-hero__media" aria-hidden="true">
+                        <img class="services-hero__image" src="/images/services_sub_banner.png" alt="" />
+                        <div class="services-hero__overlay"></div>
+                    </div>
+                    <div class="services-hero__inner container">
+                        <span class="hero_badge">Our Services</span>
+                        <h1 class="heading_title services-hero__title">
+                            <span>UX/UI Design Services</span> &nbsp;
+                            <br />Built for Every Platform
+                        </h1>
+                        <p class="heading_subtitle services-hero__subtitle">
+                            Create intuitive, engaging, and visually stunning digital experiences that delight users and drive business growth. From user research and wireframes to interactive prototypes and polished interfaces, we design products that are functional, accessible, and user-centric.
+                        </p>
+                        <div class="services-hero__actions">
+                            <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                        </div>
+                    </div>
+                </section>
+                <section className='our_services' style={{ background: "rgb(15 15 18)" }}>
+                    <div className='services-section'>
+                        <div className='row'>
+                            {SERVICES.map((s, i) => (
+                                <div className='col-md-4 mb-5'>
+                                    <div className="service-card reveal" ref={addReveal} key={i}>
+                                        <div>
+                                            <div className="service-card-icon">
+                                                <img src={s.icon} />
+                                            </div>
+                                            <div className="service-card-title">{s.title}</div>
+                                            <p className="service-card-desc">{s.desc}</p>
+                                            <div className="service-card-tags">
+                                                {s.tags.map((t) => <span className="service-tag" key={t}>{t}</span>)}
+                                            </div>
+                                        </div>
+                                        {/* <div className="service-card-img">{s.emoji}</div> */}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
                 {/* <section className="hero-section" ref={sectionRef} aria-label="ASZ Technologies hero banner">
                     <HeroSectionServices
                         backgroundImage="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1600&q=80"
@@ -462,14 +504,12 @@ export default function UxUiDesign() {
                         ]}
                     />
                 </section> */}
-                <section className="hero">
+                {/* <section className="hero">
                     <div className="hero-bg-glow" />
                     <div className="hero-bg-glow2" />
                     <div className="hero-grid-overlay" />
-
                     <div className="hero-content">
                         <div className="hero-text">
-                            {/* <div className="hero_badge"><span />UX/UI Design</div> */}
                             <h1 className="heading_title" style={{ color: 'white' }}>
                                 <span>Design Experiences</span> That Users Love — and Businesses Trust
                             </h1>
@@ -478,7 +518,6 @@ export default function UxUiDesign() {
                             </p>
                             <div className="hero-ctas">
                                 <button className="btn-primary">Start Your Project →</button>
-                                {/* <button className="btn-secondary">View Portfolio</button> */}
                             </div>
                             <div className="hero-stats">
                                 <div className="hero-stat">
@@ -497,46 +536,10 @@ export default function UxUiDesign() {
                         </div>
 
                         <div className="hero-visual">
-                            {/* <div className="orbit-ring r1" />
-                            <div className="orbit-ring r2" /> */}
-                            {/* <div className="phone-mockup-wrap">
-                                <div className="phone-outer">
-                                    <div className="phone-screen">
-                                        <img src='/images/asz/Gemini_Generated_Image_mfh661mfh661mfh6.png' />
-                                        <div className="phone-notch" />
-                                        <div className="phone-ui-bar w80" />
-                                        <div className="phone-ui-bar w60" />
-                                        <div className="phone-ui-card">
-                                            <div className="phone-ui-dot-row">
-                                                <div className="phone-ui-dot" />
-                                                <div className="phone-ui-dot blue" />
-                                                <div className="phone-ui-dot green" />
-                                            </div>
-                                            <div className="phone-ui-bar w90" />
-                                            <div style={{ height: 8 }} />
-                                            <div className="phone-ui-bar w60" />
-                                        </div>
-                                        <div style={{ height: 12 }} />
-                                        <div className="phone-ui-bar w80" />
-                                        <div style={{ height: 8 }} />
-                                        <div className="phone-ui-card">
-                                            <div className="phone-ui-bar w90" />
-                                            <div style={{ height: 8 }} />
-                                            <div className="phone-ui-bar w60" />
-                                        </div>
-                                        <div style={{ height: 12 }} />
-                                        <div className="phone-ui-bar w80" />
-                                    </div>
-                                </div>
-                                <div className="phone-float-badge top-right">🍎 iOS Ready</div>
-                                <div className="phone-float-badge bottom-left">🤖 Android Ready</div>
-                            </div> */}
                             <img src='/images/ux-ui-design.jpg' />
                         </div>
                     </div>
                 </section>
-
-                {/* ── 2. SERVICES (STICKY) ── */}
                 <section className='our_services' style={{ background: "#0a0a0f" }}>
                     <div className="services-section">
                         <div className="services-left">
@@ -565,7 +568,6 @@ export default function UxUiDesign() {
                                 </div>
                             </div>
                         </div>
-
                         <div className="services-right">
                             {SERVICES.map((s, i) => (
                                 <div className="service-card reveal" ref={addReveal} key={i}>
@@ -582,7 +584,7 @@ export default function UxUiDesign() {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* ── 3. ABOUT MOBILE DEV ── */}
                 {/* <section className="about-section">

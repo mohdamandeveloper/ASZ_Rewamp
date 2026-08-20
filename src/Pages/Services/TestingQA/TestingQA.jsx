@@ -714,48 +714,48 @@ import { Link } from 'react-router-dom';
 // ];
 
 const SERVICES = [
-  {
-    icon: "🌐",
-    title: "Web App Testing",
-    desc: "Ensure your web applications deliver a seamless experience across browsers, devices, and operating systems. We perform functional, usability, compatibility, performance, and security testing to guarantee reliable and high-quality web solutions.",
-    tags: ["Cross-Browser", "Functional", "Performance", "Security"],
-    emoji: "🌍",
-  },
-  {
-    icon: "📱",
-    title: "Mobile App Testing",
-    desc: "Deliver flawless mobile experiences with comprehensive testing for Android and iOS applications. Our QA team validates functionality, performance, usability, compatibility, and security across multiple devices and OS versions.",
-    tags: ["Android", "iOS", "Device Testing", "App Performance"],
-    emoji: "📲",
-  },
-  {
-    icon: "🌎",
-    title: "Localization Testing",
-    desc: "Verify that your application is accurately adapted for different languages, regions, and cultures. We ensure translations, date formats, currencies, layouts, and local regulations are correctly implemented for global users.",
-    tags: ["Language", "Regional", "Translation", "Global QA"],
-    emoji: "🌐",
-  },
-  {
-    icon: "♿",
-    title: "Accessibility Testing",
-    desc: "Make your digital products accessible to everyone by validating compliance with WCAG standards. We test keyboard navigation, screen readers, color contrast, and assistive technologies to create inclusive user experiences.",
-    tags: ["WCAG", "Screen Reader", "Keyboard", "Inclusive UX"],
-    emoji: "🦾",
-  },
-  {
-    icon: "🎯",
-    title: "User Experience Testing",
-    desc: "Improve customer satisfaction through usability testing that evaluates navigation, interface design, workflows, and overall user interactions. We identify friction points and recommend enhancements for better engagement.",
-    tags: ["Usability", "UX Research", "User Journey", "UI Validation"],
-    emoji: "😊",
-  },
-  {
-    icon: "🔍",
-    title: "Exploratory Testing",
-    desc: "Identify hidden defects through unscripted, real-world testing performed by experienced QA engineers. Exploratory testing uncovers edge cases, usability issues, and unexpected behaviors that automated tests may miss.",
-    tags: ["Manual QA", "Bug Discovery", "Edge Cases", "Ad-hoc Testing"],
-    emoji: "🕵️",
-  },
+    {
+        icon: "/images/asz/services/webapp_testing.png",
+        title: "Web App Testing",
+        desc: "Ensure your web applications deliver a seamless experience across browsers, devices, and operating systems. We perform functional, usability, compatibility, performance, and security testing to guarantee reliable and high-quality web solutions.",
+        tags: ["Cross-Browser", "Functional", "Performance"],
+        emoji: "🌍",
+    },
+    {
+        icon: "/images/asz/services/mobileapp_testing.png",
+        title: "Mobile App Testing",
+        desc: "Deliver flawless mobile experiences with comprehensive testing for Android and iOS applications. Our QA team validates functionality, performance, usability, compatibility, and security across multiple devices and OS versions.",
+        tags: ["Android", "iOS", "Device Testing", "App Performance"],
+        emoji: "📲",
+    },
+    {
+        icon: "/images/asz/services/localization_testing.png",
+        title: "Localization Testing",
+        desc: "Verify that your application is accurately adapted for different languages, regions, and cultures. We ensure translations, date formats, currencies, layouts, and local regulations are correctly implemented for global users.",
+        tags: ["Language", "Regional", "Translation", "Global QA"],
+        emoji: "🌐",
+    },
+    {
+        icon: "/images/asz/services/accessbility_testing.png",
+        title: "Accessibility Testing",
+        desc: "Make your digital products accessible to everyone by validating compliance with WCAG standards. We test keyboard navigation, screen readers, color contrast, and assistive technologies to create inclusive user experiences.",
+        tags: ["WCAG", "Screen Reader", "Keyboard", "Inclusive UX"],
+        emoji: "🦾",
+    },
+    {
+        icon: "/images/asz/services/userex_testing.png",
+        title: "User Experience Testing",
+        desc: "Improve customer satisfaction through usability testing that evaluates navigation, interface design, workflows, and overall user interactions. We identify friction points and recommend enhancements for better engagement.",
+        tags: ["Usability", "UX Research", "User Journey"],
+        emoji: "😊",
+    },
+    {
+        icon: "/images/asz/services/exploratory_testing.png",
+        title: "Exploratory Testing",
+        desc: "Identify hidden defects through unscripted, real-world testing performed by experienced QA engineers. Exploratory testing uncovers edge cases, usability issues, and unexpected behaviors that automated tests may miss.",
+        tags: ["Manual QA", "Bug Discovery", "Edge Cases"],
+        emoji: "🕵️",
+    },
 ];
 
 export const WORKS = [
@@ -1069,32 +1069,52 @@ export default function TestingQA() {
     return (
         <>
             <div className="web-app-development">
-                {/* <section className="hero-section" ref={sectionRef} aria-label="ASZ Technologies hero banner">
-                    <HeroSectionServices
-                        backgroundImage="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1600&q=80"
-                        title={
-                            <>
-                                Custom Software
-                                <br />
-                                Development Services
-                            </>
-                        }
-                        subtitle="Modernize outdated systems with custom Software development services designed to streamline operations, improve scalability, and accelerate business growth."
-                        ctaText="Build a Custom Web App"
-                        ctaHref="#contact"
-                        features={[
-                            "SEO & User Friendly UI Designs",
-                            "Certified Web Designers & Developers",
-                            "Bug-free & Standardized Code",
-                            "Unmatched User Experience",
-                        ]}
-                    />
-                </section> */}
-                <section className="custom_soft_banner">
+                <section class="services-hero">
+                    <div class="services-hero__media" aria-hidden="true">
+                        <img class="services-hero__image" src="/images/services_sub_banner.png" alt="" />
+                        <div class="services-hero__overlay"></div>
+                    </div>
+                    <div class="services-hero__inner container">
+                        <span class="hero_badge">Our Services</span>
+                        <h1 class="heading_title services-hero__title">
+                            <span>Testing & Quality</span> Assurance Services &nbsp;
+                            <br />Built for Reliable Software
+                        </h1>
+                        <p class="heading_subtitle services-hero__subtitle">
+                            We offer full-range QA and testing outsourcing services, can help to develop your QA or enhance the existing one, assist you in TCoE setup and evolution. We perform end-to-end testing of mobile, web and desktop application at each stage of the development lifecycle.
+                        </p>
+                        <div class="services-hero__actions">
+                            <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                        </div>
+                    </div>
+                </section>
+                <section className='our_services' style={{ background: "rgb(15 15 18)" }}>
+                    <div className='services-section'>
+                        <div className='row'>
+                            {SERVICES.map((s, i) => (
+                                <div className='col-md-4 mb-5'>
+                                    <div className="service-card reveal" ref={addReveal} key={i}>
+                                        <div>
+                                            <div className="service-card-icon">
+                                                <img src={s.icon} />
+                                            </div>
+                                            <div className="service-card-title">{s.title}</div>
+                                            <p className="service-card-desc">{s.desc}</p>
+                                            <div className="service-card-tags">
+                                                {s.tags.map((t) => <span className="service-tag" key={t}>{t}</span>)}
+                                            </div>
+                                        </div>
+                                        {/* <div className="service-card-img">{s.emoji}</div> */}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+                {/* <section className="custom_soft_banner">
                     <div className="custom_soft_cont">
                         <div className="custom_soft_inner">
                             <div className="cust_banner_lt">
-                                {/* <h6 className="hero_badge"><span></span>Intelligent. Scalable. AI-Powered.</h6> */}
                                 <h1 className="heading_title mb-4">Testing <span className="c_primary">& QA</span></h1>
                                 <p>We offer full-range QA and testing outsourcing services, can help to develop your QA or enhance the existing one, assist you in TCoE setup and evolution. We perform end-to-end testing of mobile, web and desktop application at each stage of the development lifecycle.</p>
                                 <ul className="bnrlst mb-4">
@@ -1111,8 +1131,8 @@ export default function TestingQA() {
                             </div>
                         </div>
                     </div>
-                </section>
-                <section className='our_services' style={{ background: "#0a0a0f" }}>
+                </section> */}
+                {/* <section className='our_services' style={{ background: "#0a0a0f" }}>
                     <div className="services-section">
                         <div className="services-left">
                             <div className="hero_badge">Our Services</div>
@@ -1157,7 +1177,7 @@ export default function TestingQA() {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section> */}
                 {/* <section className='custom_ai_industries'>
                     <ParticleCanvas />
                     <div className='container'>

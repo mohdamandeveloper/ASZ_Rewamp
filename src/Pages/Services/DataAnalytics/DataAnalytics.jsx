@@ -10,42 +10,42 @@ import HeroSectionServices from '../../../Common/HeroSectionServices/HeroSection
 
 const SERVICES = [
   {
-    icon: "📊",
+    icon: "/images/asz/services/saas-based-application.png",
     title: "SAS Based Application",
     desc: "Develop enterprise-grade analytics solutions using SAS to automate reporting, perform statistical analysis, and generate actionable insights that support informed business decisions.",
     tags: ["SAS", "Statistical Analysis", "Business Intelligence", "Reporting"],
     emoji: "📈",
   },
   {
-    icon: "🗄️",
+    icon: "/images/asz/services/big-data-analytics.png",
     title: "Big Data Analysis",
     desc: "Unlock the value of large and complex datasets through advanced big data analytics. We identify trends, patterns, and opportunities that help businesses optimize performance and make data-driven decisions.",
     tags: ["Big Data", "Data Mining", "Predictive Analytics", "Hadoop"],
     emoji: "🔍",
   },
   {
-    icon: "🧠",
+    icon: "/images/asz/services/systematic-decision.png",
     title: "Systematic Decision",
     desc: "Leverage data-driven decision-making frameworks that combine analytics, forecasting, and business intelligence to improve operational efficiency and strategic planning.",
     tags: ["Decision Support", "Business Intelligence", "Forecasting", "Data Insights"],
     emoji: "🎯",
   },
   {
-    icon: "🔐",
+    icon: "/images/asz/services/security.png",
     title: "Security",
     desc: "Protect sensitive business data with secure analytics solutions, governance frameworks, access controls, and compliance-driven data security practices across your organization.",
     tags: ["Data Security", "Compliance", "Governance", "Risk Management"],
     emoji: "🛡️",
   },
   {
-    icon: "⚙️",
+    icon: "/images/asz/services/data-processing.png",
     title: "Data Processing",
     desc: "Transform raw data into clean, structured, and reliable datasets through automated data processing, integration, cleansing, and ETL workflows for accurate analysis.",
     tags: ["ETL", "Data Cleansing", "Data Integration", "Automation"],
     emoji: "🔄",
   },
   {
-    icon: "📑",
+    icon: "/images/asz/services/reporting.png",
     title: "Reporting",
     desc: "Build interactive dashboards and automated reports that provide real-time visibility into key business metrics, enabling faster and more informed decision-making.",
     tags: ["Dashboards", "Power BI", "Data Visualization", "KPI Reports"],
@@ -442,7 +442,49 @@ export default function DataAnalytics() {
     };
     return (
         <>
-            <div className="ux-ui-development">
+            <div className="data-analytics">
+                <section class="services-hero">
+                    <div class="services-hero__media" aria-hidden="true">
+                        <img class="services-hero__image" src="/images/services_sub_banner.png" alt="" />
+                        <div class="services-hero__overlay"></div>
+                    </div>
+                    <div class="services-hero__inner container">
+                        <span class="hero_badge">Our Services</span>
+                        <h1 class="heading_title services-hero__title">
+                            <span>Accurate Data Analytics</span> &nbsp;
+                            <br />That Drives Business Growth
+                        </h1>
+                        <p class="heading_subtitle services-hero__subtitle">
+                             Transform your data into actionable insights with our end-to-end data analytics solutions. We help businesses collect, process, visualize, and analyze data to uncover trends, optimize performance, and support informed decision-making.
+                        </p>
+                        <div class="services-hero__actions">
+                            <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                        </div>
+                    </div>
+                </section>
+                <section className='our_services' style={{ background: "rgb(15 15 18)" }}>
+                    <div className='services-section'>
+                        <div className='row'>
+                            {SERVICES.map((s, i) => (
+                                <div className='col-md-4 mb-5'>
+                                    <div className="service-card reveal" ref={addReveal} key={i}>
+                                        <div>
+                                            <div className="service-card-icon">
+                                                <img src={s.icon} />
+                                            </div>
+                                            <div className="service-card-title">{s.title}</div>
+                                            <p className="service-card-desc">{s.desc}</p>
+                                            <div className="service-card-tags">
+                                                {s.tags.map((t) => <span className="service-tag" key={t}>{t}</span>)}
+                                            </div>
+                                        </div>
+                                        {/* <div className="service-card-img">{s.emoji}</div> */}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
                 {/* <section className="hero-section" ref={sectionRef} aria-label="ASZ Technologies hero banner">
                     <HeroSectionServices
                         backgroundImage="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1600&q=80"
@@ -462,14 +504,12 @@ export default function DataAnalytics() {
                         ]}
                     />
                 </section> */}
-                <section className="hero">
+                {/* <section className="hero">
                     <div className="hero-bg-glow" />
                     <div className="hero-bg-glow2" />
                     <div className="hero-grid-overlay" />
-
                     <div className="hero-content">
                         <div className="hero-text">
-                            {/* <div className="hero_badge"><span />UX/UI Design</div> */}
                             <h1 className="heading_title" style={{ color: 'white' }}>
                                 Accurate<span> Data Analytics Services</span>
                             </h1>
@@ -483,55 +523,17 @@ export default function DataAnalytics() {
                             </ul>
                             <div className="hero-ctas">
                                 <button className="btn-primary">Get in Touch →</button>
-                                {/* <button className="btn-secondary">View Portfolio</button> */}
                             </div>
                         </div>
 
                         <div className="hero-visual">
-                            {/* <div className="orbit-ring r1" />
-                            <div className="orbit-ring r2" /> */}
-                            {/* <div className="phone-mockup-wrap">
-                                <div className="phone-outer">
-                                    <div className="phone-screen">
-                                        <img src='/images/asz/Gemini_Generated_Image_mfh661mfh661mfh6.png' />
-                                        <div className="phone-notch" />
-                                        <div className="phone-ui-bar w80" />
-                                        <div className="phone-ui-bar w60" />
-                                        <div className="phone-ui-card">
-                                            <div className="phone-ui-dot-row">
-                                                <div className="phone-ui-dot" />
-                                                <div className="phone-ui-dot blue" />
-                                                <div className="phone-ui-dot green" />
-                                            </div>
-                                            <div className="phone-ui-bar w90" />
-                                            <div style={{ height: 8 }} />
-                                            <div className="phone-ui-bar w60" />
-                                        </div>
-                                        <div style={{ height: 12 }} />
-                                        <div className="phone-ui-bar w80" />
-                                        <div style={{ height: 8 }} />
-                                        <div className="phone-ui-card">
-                                            <div className="phone-ui-bar w90" />
-                                            <div style={{ height: 8 }} />
-                                            <div className="phone-ui-bar w60" />
-                                        </div>
-                                        <div style={{ height: 12 }} />
-                                        <div className="phone-ui-bar w80" />
-                                    </div>
-                                </div>
-                                <div className="phone-float-badge top-right">🍎 iOS Ready</div>
-                                <div className="phone-float-badge bottom-left">🤖 Android Ready</div>
-                            </div> */}
                             <img src='/images/data-analytics.jpg' />
                         </div>
                     </div>
                 </section>
-
-                {/* ── 2. SERVICES (STICKY) ── */}
                 <section className='our_services' style={{ background: "#0a0a0f" }}>
                     <div className="services-section">
                         <div className="services-left">
-                            {/* <div className="hero_badge">Our Services</div> */}
                             <h2 className="heading_title" style={{ color: 'white' }}>
                                 <span>Data Analytics</span> That Drives Smarter Business Decisions
                             </h2>
@@ -573,7 +575,7 @@ export default function DataAnalytics() {
                             ))}
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* ── 3. ABOUT MOBILE DEV ── */}
                 {/* <section className="about-section">
