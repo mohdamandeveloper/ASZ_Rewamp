@@ -123,6 +123,82 @@ $map-highlight: rgba(255, 107, 53, 0.35);
             }
         }
 
+        // ——— Decorative split world map (west-of-India left, India-east right) ———
+        .hero-world-map {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-world-map__half {
+            height: 100%;
+            max-height: 500px;
+            opacity: 0.2;
+            @media (max-width: 1400px){
+                max-height: 430px;
+            }
+            @media (max-width: 1250px){
+                max-height: 400px;
+            }
+            @media (max-width: 1050px){
+                max-height: 350px;
+            }
+            path {
+                fill: none;
+                stroke: var(--text-primary);
+                stroke-width: 0.6;
+            }
+
+            &--left {
+                // width: 42%;
+                margin-left: -24%;
+                margin-top: 225px;
+                @media (max-width: 1400px){
+                    margin-left: -22%;
+                    margin-top: 180px;
+                }
+                @media (max-width: 1250px){
+                        margin-left: -24%;
+                        margin-top: 150px;
+                }
+                @media (max-width: 1050px){
+                        margin-left: -26%;
+                        margin-top: 74px;
+                }
+            }
+
+            &--right {
+                width: 42%;
+                margin-right: -20%;
+                @media (max-width: 1400px){
+                    margin-right: -22%;
+                }
+                @media (max-width: 1250px){
+                        margin-right: -22%;
+                }
+                @media (max-width: 1050px){
+                        margin-right: -22%;
+                }
+            }
+
+            // @media (max-width: 900px) {
+            //     opacity: 0.06;
+
+            //     &--left,
+            //     &--right {
+            //         width: 50%;
+            //     }
+            // }
+
+            // @media (max-width: 600px) {
+            //     display: none;
+            // }
+        }
+
         // ——— Content ———
         .hero-content {
             position: relative;
@@ -697,7 +773,6 @@ $map-highlight: rgba(255, 107, 53, 0.35);
     /* ── Map ── */
     .go-map-wrap {
         position: relative;
-        overflow: hidden;
         min-height: 280px;
 
         &::before {
@@ -826,6 +901,78 @@ $map-highlight: rgba(255, 107, 53, 0.35);
                 color: rgba(255, 255, 255, 0.7);
                 line-height: 1.5;
                 display: block;
+            }
+        }
+
+        /* Markers near the right edge: anchor the tooltip's right side to
+           the pin instead of centering it, so it can't run off the map. */
+        &.go-marker--edge-right {
+            .go-marker__label {
+                left: auto;
+                right: -10px;
+                transform: translateX(0) translateY(4px);
+            }
+
+            &:hover .go-marker__label,
+            &.is-active .go-marker__label {
+                transform: translateX(0) translateY(0px);
+            }
+
+            .go-marker__label::after {
+                left: auto;
+                right: 16px;
+                transform: translateX(0);
+            }
+        }
+
+        /* Markers near the left edge: anchor the tooltip's left side. */
+        &.go-marker--edge-left {
+            .go-marker__label {
+                left: -10px;
+                transform: translateX(0) translateY(4px);
+            }
+
+            &:hover .go-marker__label,
+            &.is-active .go-marker__label {
+                transform: translateX(0) translateY(0px);
+            }
+
+            .go-marker__label::after {
+                left: 16px;
+                transform: translateX(0);
+            }
+        }
+
+        /* Markers near the top edge: flip the tooltip to open downward. */
+        &.go-marker--flip-below {
+            .go-marker__label {
+                bottom: auto;
+                top: calc(100% + 10px);
+                transform: translateX(-50%) translateY(-4px);
+            }
+
+            &.go-marker--edge-right .go-marker__label,
+            &.go-marker--edge-left .go-marker__label {
+                transform: translateY(-4px);
+            }
+
+            &:hover .go-marker__label,
+            &.is-active .go-marker__label {
+                transform: translateX(-50%) translateY(0px);
+            }
+
+            &.go-marker--edge-right:hover .go-marker__label,
+            &.go-marker--edge-right.is-active .go-marker__label,
+            &.go-marker--edge-left:hover .go-marker__label,
+            &.go-marker--edge-left.is-active .go-marker__label {
+                transform: translateY(0px);
+            }
+
+            .go-marker__label::after {
+                top: auto;
+                bottom: 100%;
+                border-top-color: transparent;
+                border-bottom-color: rgba(255, 107, 53, 0.35);
             }
         }
     }

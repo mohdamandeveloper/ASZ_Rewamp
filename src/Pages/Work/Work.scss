@@ -83,61 +83,61 @@ $container: 1240px;
             pointer-events: none;
         }
 
-        .our-work__container {
-            position: relative;
-            z-index: 1;
-            max-width: 1400px;
-            margin-left: auto;
-            padding-left: 50px;
-            padding-right: 0;
-            margin-right: 0;
+        // .our-work__container {
+        //     position: relative;
+        //     z-index: 1;
+        //     max-width: 1400px;
+        //     margin-left: auto;
+        //     padding-left: 50px;
+        //     padding-right: 0;
+        //     margin-right: 0;
 
-            @media (min-width: 1600px) {
-                max-width: 1500px;
-            }
+        //     @media (min-width: 1600px) {
+        //         max-width: 1500px;
+        //     }
 
-            @media (min-width: 1920px) {
-                max-width: 1600px;
-            }
+        //     @media (min-width: 1920px) {
+        //         max-width: 1600px;
+        //     }
 
-            @media (min-width: 2040px) {
-                max-width: 1800px;
-            }
+        //     @media (min-width: 2040px) {
+        //         max-width: 1800px;
+        //     }
 
-            @media (min-width: 2300px) {
-                max-width: 2130px;
-            }
+        //     @media (min-width: 2300px) {
+        //         max-width: 2130px;
+        //     }
 
-            @media (max-width: 900px) {
-                padding-left: clamp(20px, 5vw, 50px);
-                padding-right: clamp(20px, 5vw, 50px);
-            }
-        }
+        //     @media (max-width: 900px) {
+        //         padding-left: clamp(20px, 5vw, 50px);
+        //         padding-right: clamp(20px, 5vw, 50px);
+        //     }
+        // }
 
         // Section badge — "Real Challenges."
-        .hero_badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 7px 16px 7px 12px;
-            border: 1px solid $border;
-            border-radius: 999px;
-            background: $surface;
-            color: $muted;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.01em;
-            margin-bottom: 20px;
+        // .hero_badge {
+        //     display: inline-flex;
+        //     align-items: center;
+        //     gap: 8px;
+        //     padding: 7px 16px 7px 12px;
+        //     border: 1px solid $border;
+        //     border-radius: 999px;
+        //     background: $surface;
+        //     color: $muted;
+        //     font-size: 0.8rem;
+        //     font-weight: 600;
+        //     letter-spacing: 0.01em;
+        //     margin-bottom: 20px;
 
-            span {
-                width: 6px;
-                height: 6px;
-                border-radius: 50%;
-                background: $red;
-                box-shadow: 0 0 8px rgba(255, 80, 104, 0.7);
-                flex-shrink: 0;
-            }
-        }
+        //     span {
+        //         width: 6px;
+        //         height: 6px;
+        //         border-radius: 50%;
+        //         background: $red;
+        //         box-shadow: 0 0 8px rgba(255, 80, 104, 0.7);
+        //         flex-shrink: 0;
+        //     }
+        // }
 
         // Section heading — "Our Case Studies"
         .heading_title {
@@ -145,35 +145,36 @@ $container: 1240px;
         }
 
         &__desc {
-            font-size: clamp(0.92rem, 1.2vw, 1rem);
-            line-height: 1.65;
-            color: $muted;
-            max-width: 420px;
-            margin: 0;
+            // font-size: clamp(0.92rem, 1.2vw, 1rem);
+            // line-height: 1.65;
+            // color: $muted;
+            // max-width: 420px;
+            // margin: 0;
+            margin: 20px 0 50px 0;
         }
 
-        &__layout {
-            display: flex;
-            gap: 30px;
+        // &__layout {
+            // display: flex;
+            // gap: 30px;
 
-            .our-work__intro {
-                width: 35%;
-                display: flex;
-                flex-direction: column;
+            // .our-work__intro {
+            //     width: 35%;
+            //     display: flex;
+            //     flex-direction: column;
 
-                @media (max-width: 900px) {
-                    width: 100%;
-                }
-            }
+            //     @media (max-width: 900px) {
+            //         width: 100%;
+            //     }
+            // }
 
-            .our-work__carousel {
-                width: 65%;
+            // .our-work__carousel {
+            //     width: 65%;
 
-                @media (max-width: 900px) {
-                    width: 100%;
-                }
-            }
-        }
+            //     @media (max-width: 900px) {
+            //         width: 100%;
+            //     }
+            // }
+        // }
 
         &__actions {
             display: flex;
@@ -192,7 +193,7 @@ $container: 1240px;
             gap: 30px;
         }
 
-        .swiper-slide {
+        // .swiper-slide {
             .our-work__card-wrap {
                 .our-work__card {
                     display: block;
@@ -254,7 +255,7 @@ $container: 1240px;
 
                         .our-work__eyebrow {
                             display: block;
-                            font-size: 18px;
+                            font-size: 17px;
                             font-weight: 600;
                             letter-spacing: 0.04em;
                             text-transform: uppercase;
@@ -263,7 +264,7 @@ $container: 1240px;
                         }
 
                         .our-work__card-title {
-                            font-size: 18px;
+                            font-size: 17px;
                             font-weight: 500;
                             line-height: 1.45;
                             color: $ink;
@@ -273,7 +274,7 @@ $container: 1240px;
                     }
                 }
             }
-        }
+        // }
     }
 
     &__bg-grid {
@@ -1742,7 +1743,7 @@ $container: 1240px;
         }
 
         &__desc {
-            margin: 0 0 40px;
+            margin: 20px 0 50px 0;
             max-width: 540px;
             color: #a8a8ad;
             font-size: 16px;

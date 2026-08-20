@@ -188,15 +188,14 @@ export default function Service() {
                         <div className="cv__noise"></div>
 
                         <div className="cv__inner">
-                            <header className="cv-head">
-                                {/* <p className="cv-head__eyebrow hero_badge"><span></span>OUR SERVICES</p> */}
+                            {/* <header className="cv-head">
                                 <h2 className="heading_title cv-head__title" style={{ color: 'white' }}>
                                     Everything you need to <span>build and scale</span>
                                 </h2>
                                 <p className="cv-head__sub">
                                     Seven disciplines, one team. From first line of code to production rollout, ASZ Technologies covers the full stack — software, web, mobile, design, strategy, data, and security.
                                 </p>
-                            </header>
+                            </header> */}
 
                             <div className="cv-layout">
                                 <div className='row'>

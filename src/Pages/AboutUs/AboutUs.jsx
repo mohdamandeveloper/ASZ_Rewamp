@@ -8,6 +8,21 @@ import AccordionSection from "../../Common/AccordionSection/AccordionSection";
 import FAQSection from "../../Common/FaqSection/FaqSection";
 import CoreValues from "../../Common/CoreValues/CoreValues";
 
+// Decide which side a marker's tooltip should open toward so it never
+// gets clipped by the edge of the map container.
+function getMarkerEdgeClass(markerPos) {
+    const left = parseFloat(markerPos.left);
+    const top = parseFloat(markerPos.top);
+    const classes = [];
+
+    if (left >= 72) classes.push("go-marker--edge-right");
+    else if (left <= 18) classes.push("go-marker--edge-left");
+
+    if (top <= 16) classes.push("go-marker--flip-below");
+
+    return classes.join(" ");
+}
+
 function hexPath(cx, cy, r) {
     return Array.from({ length: 6 }, (_, i) => {
         const a = (Math.PI / 3) * i - Math.PI / 6;
@@ -201,7 +216,7 @@ const OFFICES = [
         company: "ASZ Technologies",
         type: "Headquarters",
         address: "No.106, 4th Floor, 10th Cross,\nGanganagar, Bangalore – 560 032",
-        markerPos: { left: "56.9%", top: "24.1%" },
+        markerPos: { left: "53.2%", top: "31.9%" },
     },
     {
         id: "singapore",
@@ -209,7 +224,7 @@ const OFFICES = [
         company: "Sagacity Consultancy",
         type: "Branch Office",
         address: "156 MacPherson Rd,\nSingapore 348528",
-        markerPos: { left: "71.6%", top: "52.9%" },
+        markerPos: { left: "64.8%", top: "47.4%" },
     },
     {
         id: "uae",
@@ -217,7 +232,16 @@ const OFFICES = [
         company: "ASZ Technologies",
         type: "Branch Office",
         address: "Unit #18-01, 18th Floor,\nOntario Tower, Business Bay, Dubai",
-        markerPos: { left: "40.9%", top: "23.3%" },
+        markerPos: { left: "42.7%", top: "23.5%" },
+    },
+    {
+        id: "australia",
+        country: "Australia",
+        company: "ASZ Technologies",
+        type: "Branch Office",
+        // TODO: swap in the real Sydney office address
+        address: "Suite 4.02, Level 4,\n55 Market Street, Sydney NSW 2000",
+        markerPos: { left: "86.9%", top: "81.7%" },
     },
 ];
 
@@ -358,7 +382,7 @@ const MAP_PATHS = {
     "senegal": "M435.37,213.696L434.264,211.617L432.938,210.668L434.111,210.162L435.399,208.286L436.033,206.912L436.956,206.058L438.283,206.288L439.581,205.705L441.071,205.678L442.349,206.46L444.118,207.169L445.733,209.136L447.502,210.966L447.627,212.629L448.146,214.157L449.146,214.907L449.377,215.942L449.252,216.774L448.867,216.923L447.415,216.711L447.214,217.009L446.627,217.068L444.705,216.417L443.416,216.39L438.485,216.277L437.764,216.58L436.879,216.494L435.466,216.928L435.024,214.88L437.456,214.939L438.1,214.564L438.581,214.541L439.571,213.926L440.715,214.487L441.878,214.537L443.032,213.936L442.493,213.167L441.609,213.615L440.782,213.601L439.725,212.946L438.879,212.986L438.273,213.619Z",
     "serbia": "M530.283,127.405L532.33,126.705L533.993,126.822L535.445,127.871L535.743,128.721L537.368,129.349L537.579,130.452L539.137,131.229L539.973,130.628L540.636,130.962L540.011,131.41L540.502,131.875L539.848,132.481L540.079,133.457L541.377,134.61L540.367,135.446L539.915,136.296L540.204,136.612L539.762,136.992L538.531,137.032L537.618,137.191L537.531,136.992L537.848,136.671L538.146,136.02L537.772,136.038L537.252,135.541L536.81,135.414L536.464,134.989L535.964,134.827L535.58,134.447L535.099,134.596L534.734,135.482L534.099,135.676L534.311,135.446L533.292,134.89L532.417,134.605L532.032,134.235L531.321,133.778L531.946,133.656L532.34,132.4L531.052,131.374L531.715,130.198L530.754,130.208L531.782,129.204L530.927,128.44Z",
     "sierra_leone": "M444.628,226.225L446.05,225.05L446.358,224.313L446.819,223.734L447.55,223.676L448.175,223.169L450.309,223.174L451.059,224.128L451.636,225.253L451.549,226.026L451.972,226.726L451.943,227.707L452.684,227.553L451.443,228.801L450.232,230.247L450.088,231.025L449.454,231.879L448.733,231.68L446.81,230.604L445.426,229.176L444.954,228.2Z",
-    //   singapore: 'M766.68475,459.2094 -0.42,0.185 -0.476,-0.168 0.154,-0.273 0.316,-0.066 0.256,0.087 0.145,0.066 0.1,0.075Z',
+    singapore: "M754.200,247.600L754.800,246.900L755.800,246.700L756.900,247.000L757.800,247.700L757.600,248.600L756.700,249.100L755.500,249.200L754.500,248.600Z",
     "slovakia": "M540.242,118.922L539.502,119.618L538.973,120.693L538.406,120.969L535.551,120.156L534.676,120.318L534.042,120.947L532.792,121.281L532.503,121.109L531.206,121.525L530.139,121.606L529.927,122.14L527.687,122.47L526.697,122.176L525.341,121.493L525.072,120.567L525.293,120.228L525.668,119.64L526.851,119.686L527.764,119.41L527.831,119.161L528.35,119.035L528.523,118.429L529.139,118.312L529.552,117.833L530.34,117.828L530.494,117.991L531.59,117.625L532.936,118.574L534.522,118L535.782,118.275L537.704,117.896Z",
     "slovenia": "M516.872,125.805L519.074,126.009L520.419,125.403L522.755,125.34L523.265,124.888L523.717,124.915L524.236,125.819L522.111,126.528L521.852,127.609L520.919,127.88L520.929,128.626L519.881,128.576L518.977,128.137L518.487,128.589L516.622,128.499L517.218,128.255L516.574,127.121Z",
     "solomon_islands": "M912.914,277.994L913.664,278.911L911.799,278.893L910.78,277.252L912.376,277.894ZM911.741,275.634L911.337,276.127L909.357,273.813L908.809,272.217L909.713,272.217L910.674,274.355ZM909.53,276.362L908.492,276.425L906.858,276.154L906.3,275.743L906.463,274.681L908.223,275.101L909.098,275.661ZM906.3,271.417L906.925,272.263L907.04,272.8L904.945,271.666L903.483,270.708L902.484,269.817L902.878,269.546L904.108,270.188ZM899.619,268.751L900.686,269.623L900.148,269.772L898.984,269.167L897.888,268.068L898.023,267.621Z",
@@ -399,6 +423,25 @@ const MAP_PATHS = {
     "zimbabwe": "M563.295,309.419L561.872,309.153L560.969,309.474L559.68,309.022L558.594,308.99L556.893,307.783L554.826,307.376L554.037,305.682L554.037,304.741L552.893,304.452L549.865,301.519L549.029,299.973L548.49,299.499L547.462,297.361L550.452,297.654L551.317,297.962L552.22,297.903L553.701,296.172L556.018,293.975L556.979,293.768L557.296,292.841L558.825,291.779L560.844,291.413L561.017,292.407L563.247,292.353L564.477,292.918L565.054,293.578L566.323,293.772L567.717,294.631L567.717,298.012L567.198,299.86L567.083,301.858L567.515,302.649L567.217,304.222L566.814,304.461L566.102,306.387Z"
 };
 
+// Split the world map into a "west of India" half and an "India-eastward"
+// half so the hero banner can show one on each side of the headline,
+// symmetrical around the India marker. Only the paths that actually fall
+// on each side are kept, so we're not rendering ~150 hidden shapes twice.
+const HERO_MAP_SPLIT_X = 740; // east edge of India's landmass in map units
+function averagePathX(d) {
+    const xs = [];
+    const re = /(-?\d+\.?\d*),(-?\d+\.?\d*)/g;
+    let m;
+    while ((m = re.exec(d))) xs.push(parseFloat(m[1]));
+    return xs.reduce((sum, x) => sum + x, 0) / xs.length;
+}
+const HERO_MAP_LEFT = Object.entries(MAP_PATHS).filter(
+    ([, d]) => averagePathX(d) < HERO_MAP_SPLIT_X
+);
+const HERO_MAP_RIGHT = Object.entries(MAP_PATHS).filter(
+    ([, d]) => averagePathX(d) >= HERO_MAP_SPLIT_X
+);
+
 /* ─── Particles ─────────────────────────────────────────── */
 const PARTICLES = Array.from({ length: 14 }, (_, i) => ({
     id: i,
@@ -413,6 +456,16 @@ export default function AboutUs() {
     const [activeId, setActiveId] = useState(null);
     const handleCardEnter = useCallback((id) => setActiveId(id), []);
         const handleCardLeave = useCallback(() => setActiveId(null), []);
+
+    // Clicking a map marker scrolls the page to that office's card and
+    // highlights it briefly so the connection is obvious.
+    const handleMarkerClick = useCallback((id) => {
+        setActiveId(id);
+        const card = document.getElementById(`office-${id}`);
+        if (card) {
+            card.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+    }, []);
 
     useEffect(() => {
         const panels = document.querySelectorAll('.panel');
@@ -442,7 +495,7 @@ export default function AboutUs() {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
-                                <svg
+                                {/* <svg
                                     className="bg-canvas"
                                     viewBox="0 0 100 100"
                                     preserveAspectRatio="xMidYMid slice"
@@ -457,7 +510,29 @@ export default function AboutUs() {
                                             <path key={i} className="hex-shape" d={hexPath(cx, cy, r)} />
                                         ))}
                                     </g>
-                                </svg>
+                                </svg> */}
+                                <div className="hero-world-map" aria-hidden="true">
+                                    <svg
+                                        className="hero-world-map__half hero-world-map__half--left"
+                                        viewBox={`380 120 ${HERO_MAP_SPLIT_X - 380} 270`}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        preserveAspectRatio="xMaxYMid meet"
+                                    >
+                                        {HERO_MAP_LEFT.map(([key, d]) => (
+                                            <path key={key} d={d} />
+                                        ))}
+                                    </svg>
+                                    <svg
+                                        className="hero-world-map__half hero-world-map__half--right"
+                                        viewBox={`${HERO_MAP_SPLIT_X} 120 ${960 - HERO_MAP_SPLIT_X} 270`}
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        preserveAspectRatio="xMinYMid meet"
+                                    >
+                                        {HERO_MAP_RIGHT.map(([key, d]) => (
+                                            <path key={key} d={d} />
+                                        ))}
+                                    </svg>
+                                </div>
                                 <div className="hero-content">
                                     <div className="hero-eyebrow">
                                         <h6 className="hero_badge"><span></span>About ASZ Technologies</h6>
@@ -581,10 +656,12 @@ export default function AboutUs() {
                                     <aside className="go-offices mb-5">
                                         {/* <div className="go-offices-label">Offices</div> */}
                                         <div className="row">
-                                            {OFFICES.map((office) => (
-                                                <div className="col-md-4">
+                                            {OFFICES.map((office, index) => (
+                                                <div className={`col-md-4 mb-3${index === OFFICES.length - 1 ? " offset-md-4" : ""}`}
+                                                        key={index}>
                                                     <div
                                                         key={office.id}
+                                                        id={`office-${office.id}`}
                                                         className={`go-card${activeId === office.id ? " is-active" : ""}`}
                                                         onMouseEnter={() => handleCardEnter(office.id)}
                                                         onMouseLeave={handleCardLeave}
@@ -612,8 +689,7 @@ export default function AboutUs() {
                                         </div>
                                     </aside>
                                     {/* ── Map ── */}
-                                    <div className="go-map-wrap">
-                                        {/* SVG world map */}
+                                    {/* <div className="go-map-wrap">
                                         <svg
                                             className="go-map-svg"
                                             viewBox="380 120 580 270"
@@ -629,13 +705,8 @@ export default function AboutUs() {
                                                     </feMerge>
                                                 </filter>
                                             </defs>
-
-                                            {/* Background ocean */}
-                                            {/* <rect width="900" height="500" fill="#0d1f33" rx="6" /> */}
-
-                                            {/* Landmasses */}
                                             {Object.entries(MAP_PATHS).map(([key, d]) => {
-                                                const isCountry = ["india", "singapore", "uae"].includes(key);
+                                                const isCountry = ["india", "singapore", "uae", "australia"].includes(key);
                                                 const highlighted = isCountry && activeId === key;
                                                 return (
                                                     <path
@@ -651,28 +722,32 @@ export default function AboutUs() {
                                                 );
                                             })}
 
-                                            {/* Latitude lines */}
-                                            {/* {[100, 150, 200, 250, 300, 350, 400].map(y => (
+                                            {[100, 150, 200, 250, 300, 350, 400].map(y => (
                                 <line key={y} x1="0" y1={y} x2="900" y2={y}
                                     stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
                             ))}
                             {[100, 200, 300, 400, 500, 600, 700, 800].map(x => (
                                 <line key={x} x1={x} y1="0" x2={x} y2="500"
                                     stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
-                            ))} */}
+                            ))}
                                         </svg>
-
-                                        {/* Map markers (positioned absolutely over the SVG) */}
                                         {OFFICES.map((office) => (
                                             <div
                                                 key={office.id}
-                                                className={`go-marker${activeId === office.id ? " is-active" : ""}`}
+                                                className={`go-marker${activeId === office.id ? " is-active" : ""} ${getMarkerEdgeClass(office.markerPos)}`}
                                                 style={{ left: office.markerPos.left, top: office.markerPos.top }}
                                                 onMouseEnter={() => handleCardEnter(office.id)}
                                                 onMouseLeave={handleCardLeave}
+                                                onClick={() => handleMarkerClick(office.id)}
+                                                onKeyDown={(e) => {
+                                                    if (e.key === "Enter" || e.key === " ") {
+                                                        e.preventDefault();
+                                                        handleMarkerClick(office.id);
+                                                    }
+                                                }}
                                                 role="button"
                                                 tabIndex={0}
-                                                aria-label={`Map pin: ${office.country}`}
+                                                aria-label={`Go to ${office.country} office details`}
                                                 onFocus={() => handleCardEnter(office.id)}
                                                 onBlur={handleCardLeave}
                                             >
@@ -687,7 +762,7 @@ export default function AboutUs() {
                                                 </div>
                                             </div>
                                         ))}
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

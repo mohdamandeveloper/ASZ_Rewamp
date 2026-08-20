@@ -1,5 +1,6 @@
 // import './Header.scss';
-
+import React, { useMemo, useState, useRef } from "react";
+import { Bot, TrendingUp, Settings, Eye, Laptop, Landmark, BarChart3, Cloud, Link2, Globe, ArrowRight } from "lucide-react";
 import FeaturedProduct from "../../Common/ProductPage/Featuredproduct/Featuredproduct";
 import HowItWorks from "../../Common/ProductPage/Howitworks/Howitworks";
 import ProductBenefits from "../../Common/ProductPage/Productbenefits/Productbenefits";
@@ -311,97 +312,42 @@ The underutilised licence detection was the feature that drove the most immediat
 const TAG_DEFAULT_COLOR = "#ff6b35";
 
 export default function Products() {
+    const ourProductRef = useRef(null);
     return (
         <>
             <div className="products">
+                <section class="services-hero">
+                    {/* <div class="services-hero__bg" aria-hidden="true"></div> */}
+
+                    <div class="services-hero__media" aria-hidden="true">
+                        <img
+                            class="services-hero__image"
+                            src="/images/our_product_hero.png"
+                            alt=""
+                        />
+                        <div class="services-hero__overlay"></div>
+                    </div>
+
+                    <div class="services-hero__inner container">
+
+                        <span class="hero_badge">Our Work</span>
+
+                        <h1 class="heading_title services-hero__title">
+                            <span>Innovative products.</span> <br />Built for real-world impact.
+                        </h1>
+
+                        <p class="heading_subtitle services-hero__subtitle">
+                            Discover our suite of technology products designed to simplify operations, improve productivity, and create smarter digital experiences. From AI-powered solutions to scalable business platforms, our products are built to solve complex challenges and drive measurable results.
+                        </p>
+
+                        <div class="services-hero__actions">
+                            <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                        </div>
+                    </div>
+                </section>
                 <section class="product-hero">
                     <div class="product-hero__bg" aria-hidden="true"></div>
                     <div class="product-hero__grid" aria-hidden="true"></div>
-
-                    <div class="product-hero__inner">
-
-                        <div class="product-hero__content">
-                            {/* <span class="product-hero__kicker">
-                                <span class="product-hero__kicker-dot"></span>
-                                AI-Powered Customer Support
-                            </span> */}
-
-                            <h1 class="heading_title" style={{color: 'white'}}>
-                                Meet <span class="product-hero__title--accent">NeuralDesk</span> — the AI Helpdesk
-                                That Resolves Before You Escalate
-                            </h1>
-
-                            <p class="product-hero__subtitle">
-                                NeuralDesk embeds GPT-4 into every layer of your customer support operation —
-                                from first-contact auto-resolution to agent assist, QA scoring, and predictive
-                                churn alerts. Deploy in 48 hours, no migration required.
-                            </p>
-
-                            <ul class="product-hero__features">
-                                {/* <li class="product-hero__feature">
-                                    <span class="product-hero__feature-icon">✓</span>
-                                    GPT-4 ticket auto-resolution (avg 68% deflection rate)
-                                </li>
-                                <li class="product-hero__feature">
-                                    <span class="product-hero__feature-icon">✓</span>
-                                    Smart agent routing based on skills &amp; availability
-                                </li> */}
-                                <li class="product-hero__feature">
-                                    <span class="product-hero__feature-icon">✓</span>
-                                    Real-time CSAT dashboards with drill-down analytics
-                                </li>
-                                <li class="product-hero__feature">
-                                    <span class="product-hero__feature-icon">✓</span>
-                                    White-label &amp; multi-tenant ready out of the box
-                                </li>
-                            </ul>
-
-                            <div class="product-hero__actions">
-                                <a href="#" class="btn-primary">
-                                    Get In Touch
-                                    <span class="product-hero__cta-arrow">→</span>
-                                </a>
-                                {/* <a href="#" class="product-hero__secondary-cta">
-                                    Watch demo
-                                </a> */}
-                            </div>
-
-                            {/* <div class="product-hero__proof">
-                                <div class="product-hero__avatars">
-                                    <span class="product-hero__avatar" style={{background:'#e8621f;'}}>A</span>
-                                    <span class="product-hero__avatar" style={{background:'#4f7ea8;'}}>S</span>
-                                    <span class="product-hero__avatar" style={{background:'#6b8f5c;'}}>M</span>
-                                    <span class="product-hero__avatar" style={{background:'#a86b4f;'}}>R</span>
-                                </div>
-                                <p class="product-hero__proof-text">
-                                    Trusted by <strong>500+</strong> support teams worldwide
-                                </p>
-                            </div> */}
-                        </div>
-
-                        <div class="product-hero__media">
-                            {/* <div class="product-hero__badge product-hero__badge--top">
-                                <span class="product-hero__badge-dot"></span>
-                                68% Auto-resolved
-                            </div> */}
-
-                            <div class="product-hero__frame">
-                                <img
-                                    class="product-hero__image"
-                                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80"
-                                    alt="NeuralDesk product analytics dashboard showing ticket resolution and CSAT metrics"
-                                />
-                                <div class="product-hero__overlay" aria-hidden="true"></div>
-                            </div>
-
-                            {/* <div class="product-hero__badge product-hero__badge--bottom">
-                                <span class="product-hero__badge-dot"></span>
-                                Live in 48 hrs
-                            </div> */}
-                        </div>
-
-                    </div>
-
                     <div class="product-hero__stats">
                         <div class="product-hero__stat">
                             <span class="product-hero__stat-value">68%</span>
@@ -421,10 +367,52 @@ export default function Products() {
                         </div>
                     </div>
                 </section>
-
+                <section className="our-product" ref={ourProductRef}>
+                    <div className="our-product__container container">
+                        <div className="our-work__layout">
+                            <div
+                                className="our-work__intro"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.4 }}
+                                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                            >
+                                <div>
+                                    <div className='hero_badge'><span></span>Real Challenges.</div>
+                                    <h2 className="heading_title">
+                                        Our <span>Products</span>
+                                    </h2>
+                                    <p className='our-work__desc heading_subtitle'>Discover real-world success stories showcasing our expertise, strategic approach, and the impactful results we've achieved for clients across various industries.</p>
+                                </div>
+                            </div>
+                            <div className="row">
+                                {WORKS.map((w, i) => (
+                                    <div className="col-md-4 mb-5">
+                                        <div
+                                            className="our-work__card-wrap"
+                                        >
+                                            <Link to={`https://asztechnologies.com/`} target="__blank" className="our-work__card">
+                                                <div className="our-work__cover" style={{ background: w.coverBg }}>
+                                                    <img src={w.coverImage} alt={w.title} className="our-work__cover-img" />
+                                                    <span className="our-work__cover-arrow">
+                                                        <ArrowRight size={22} />
+                                                    </span>
+                                                </div>
+                                                <div className="our-work__info">
+                                                    <span className="our-work__eyebrow">{w.tags?.[0]}</span>
+                                                    <p className="our-work__card-title">{w.title}</p>
+                                                </div>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 {/* <ProductHero /> */}
                 {/* <FeaturedProduct /> */}
-                <ProductShowcaseGrid />
+                {/* <ProductShowcaseGrid /> */}
                 {/* <ProductFeatures /> */}
                 {/* <ProductCategories /> */}
                 {/* <ProductCardsSlider /> */}

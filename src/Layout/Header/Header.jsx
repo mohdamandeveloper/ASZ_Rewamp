@@ -24,7 +24,7 @@ const NAV_LINKS = [
   { link: "Home", url: "/", dropdown: null },
   { link: "About Us", url: "/about", dropdown: null },
   { link: "Services", url: "/service", dropdown: SERVICES_ITEMS },
-  { link: "Products", url: "/products", dropdown: PRODUCTS_ITEMS },
+  { link: "Products", url: "/products", dropdown: null },
   { link: "Our Work", url: "/work", children: null },
 ];
 
