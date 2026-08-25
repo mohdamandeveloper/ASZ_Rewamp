@@ -1472,7 +1472,7 @@ export default function Investment() {
             <section className="our-work" ref={ourWorkRef}>
                 <div className="our-work__container container">
                     <div className="our-work__layout">
-                        {/* <div
+                        <div
                             className="our-work__intro"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -1480,14 +1480,14 @@ export default function Investment() {
                             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                         >
                             <div>
-                                <div className='hero_badge'><span></span>Real Challenges.</div>
+                                {/* <div className='hero_badge'><span></span>Real Challenges.</div> */}
                                 <h2 className="heading_title">
-                                    Our <span>Work</span>
+                                    Investment <span>Solutions</span>
                                 </h2>
-                                <p className='our-work__desc heading_subtitle'>We don't just talk about outcomes, we build them. These case studies show how we've partnered with teams to solve complex problems, align strategy, and ship real products. The result is work that scales, performs, and gets it right from day one.</p>
+                                <p className='our-work__desc heading_subtitle'>Empowering Smarter Investments Through Data, Automation & Intelligence</p>
                             </div>
                            
-                        </div> */}
+                        </div>
                         <div className="row">
                             {WORKS.map((w, i) => (
                                 <div className="col-md-4 mb-5">

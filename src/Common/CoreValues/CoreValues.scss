@@ -1,32 +1,33 @@
 :root {
-  --ink: #0a121d;
-  --ink-2: #0e1a29;
-  --surface: rgba(255, 255, 255, 0.025);
-  --surface-hi: rgba(255, 255, 255, 0.05);
-  --hair: rgba(201, 163, 94, 0.16);
-  --brass: #c9a35e;
-  --brass-dim: #ff8b3c;
+    --ink: #0a121d;
+    --ink-2: #0e1a29;
+    --surface: rgba(255, 255, 255, 0.025);
+    --surface-hi: rgba(255, 255, 255, 0.05);
+    --hair: rgba(201, 163, 94, 0.16);
+    --brass: #c9a35e;
+    --brass-dim: #ff8b3c;
 
-  --text-1: #eef2f4;
-  --text-2: #ff8b3c;
-  --text-3: #354559;
+    --text-1: #eef2f4;
+    --text-2: #ff8b3c;
+    --text-3: #354559;
 
-  --n-innovation: #ff8b3c;
-  --e-collaboration: #e2933f;
-  --s-excellence: #d4af37;
-  --w-sustainability: #ff8b3c;
+    --n--innovation: #ff7a3c; /* orange */
+    --e--collaboration: #34d399; /* green */
+    --s--excellence: #b869f2; /* purple */
+    --w--sustainability: #4ea8f5; /* blue */
 
-  --font-display: 'Fraunces', serif;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
-}
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
 
 .core_values {
+  
   &.cv {
     position: relative;
     overflow: hidden;
     padding: 75px 0px 75px;
-    background-color: #0c0c0c;
+    background-color: #050505;
 
     .cv__ring {
       position: absolute;
@@ -93,22 +94,38 @@
 
     .compass {
       position: relative;
+      aspect-ratio: 0.9;
     }
 
     .compass img {
+      display: block;
       height: 100%;
       width: 100%;
+      object-fit: contain;
     }
 
-    .compass__glow {
+    /* Small glow that sits exactly on one bearing's icon marker in the
+       compass artwork. Only the icon matching the hovered card lights up —
+       the rest of the image is untouched. Position/color come from inline
+       styles in CoreValues.jsx (per-bearing --spot-color, top, left). */
+    .compass__spot {
       position: absolute;
-      inset: -30px;
+      top: 0;
+      left: 0;
+      width: 14%;
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
       border-radius: 50%;
-      background: radial-gradient(circle, var(--glow-color, var(--brass-dim)) 0%, transparent 68%);
-      opacity: var(--glow-opacity, 0.16);
-      filter: blur(6px);
-      transition: background-color 0.6s ease, opacity 0.6s ease;
+      background: radial-gradient(circle, var(--spot-color) 0%, transparent 75%);
+      filter: blur(3px);
+      opacity: 0;
+      mix-blend-mode: screen;
+      transition: opacity 0.4s ease;
       pointer-events: none;
+    }
+
+    .compass__spot--active {
+      opacity: 0.9;
     }
 
     .compass svg {
@@ -132,25 +149,51 @@
 ============================================================ */
     .b-card {
       --accent: var(--brass-dim);
+      --glow-x: 50%;
+      --glow-y: 50%;
+      --glow-intensity: 0;
       position: relative;
       background: var(--surface);
-      border: 1px solid var(--hair);
-      border-left: 2px solid color-mix(in srgb, var(--color-primary) 55%, transparent);
+      border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--hair));
+      border-left: 2px solid color-mix(in srgb, var(--accent) 55%, transparent);
       border-radius: 16px;
       padding: 26px 24px 24px;
       cursor: default;
       outline: none;
+      will-change: transform;
+      transform-style: preserve-3d;
       transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), background 0.4s ease, border-color 0.4s ease,
         box-shadow 0.4s ease;
     }
 
+    /* magic-bento-style border glow that tracks the cursor; --glow-x/--glow-y/
+       --glow-intensity are set on mousemove from BearingCard.jsx. No particles. */
+    .b-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      border-radius: inherit;
+      background: radial-gradient(220px circle at var(--glow-x) var(--glow-y),
+        color-mix(in srgb, var(--accent) 85%, transparent) 0%,
+        color-mix(in srgb, var(--accent) 35%, transparent) 35%,
+        transparent 65%);
+      opacity: var(--glow-intensity);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
     .b-card:hover,
     .b-card:focus-visible {
-      transform: translateY(-6px);
       background: var(--surface-hi);
-      border-color: color-mix(in srgb, var(--color-primary) 45%, var(--hair));
-      border-left-color: var(--color-primary);
-      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      border-color: color-mix(in srgb, var(--accent) 55%, var(--hair));
+      border-left-color: var(--accent);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 0 26px color-mix(in srgb, var(--accent) 30%, transparent);
     }
 
     .b-card__top {
@@ -245,16 +288,17 @@
       letter-spacing: 0.04em;
       padding: 4px 9px;
       border-radius: 3px;
-      border: 1px solid var(--hair);
-      color: var(--text-muted-light);
-      background: rgba(255, 255, 255, 0.015);
-      transition: border-color 0.35s, color 0.35s;
+      border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+      color: color-mix(in srgb, var(--accent) 80%, #fff);
+      background: color-mix(in srgb, var(--accent) 10%, transparent);
+      transition: border-color 0.35s, color 0.35s, background 0.35s;
     }
 
     .b-card:hover .b-tag,
     .b-card:focus-visible .b-tag {
-      border-color: color-mix(in srgb, var(--accent) 40%, transparent);
-      color: color-mix(in srgb, var(--accent) 75%, #fff);
+      border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+      color: color-mix(in srgb, var(--accent) 92%, #fff);
+      background: color-mix(in srgb, var(--accent) 18%, transparent);
     }
 
     .b-card__rule {

@@ -1247,7 +1247,7 @@
             flex-direction: column;
             gap: 28px;
             container-type: inline-size;
-            --partners-per-row: 5;
+            --partners-per-row: 6;
         }
 
         .partners-loop .logoloop__item {
@@ -1270,11 +1270,11 @@
             width: 100%;
             padding: 10px 28px;
             // border: 2px solid var(--color-primary);
-            border-radius: 70px;
+            border-radius: 8px;
             background-color: white;
             box-shadow: 0px 0px 5px rgb(234, 132, 23);
             img {
-                height: 80px;
+                height: 70px;
                 width: auto;
                 object-fit: contain;
             }

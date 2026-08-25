@@ -276,14 +276,14 @@ export default function Home() {
                     </div>
 
                     <div className="ai-platform__container">
-                        <motion.div
+                        {/* <motion.div
                             className="bg_color_overlay text_overlay"
                             initial={{ opacity: 0, y: 24 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.4 }}
                             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
 
-                        </motion.div>
+                        </motion.div> */}
                         <motion.div
                             className="ai-platform__header"
                             initial={{ opacity: 0, y: 24 }}
@@ -320,7 +320,7 @@ export default function Home() {
                             >
                                 {/* Card 1 — Generative AI Integration (big, spans 2 rows) */}
                                 <TiltedBentoCard className="bento-card--big" glowColor="255, 107, 53">
-                                    <div className="bg_color_overlay"></div>
+                                    {/* <div className="bg_color_overlay"></div> */}
                                     <div className="bento-card__media">
                                         <img src={bentoMeta[0].image} alt={t.platform[0].title} loading="lazy" />
                                         <div className="bento-card__scrim"></div>
@@ -411,13 +411,13 @@ export default function Home() {
                 </section>
 
                 <section className="partners-section">
-                    <motion.div
+                    {/* <motion.div
                         className="bg_color_overlay text_overlay"
                         initial={{ opacity: 0, y: 24 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.4 }}
                         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
-                    </motion.div>
+                    </motion.div> */}
                     <div className="partners_container">
                         <div style={{ position: 'relative' }}>
                             <h3 className="heading_title text-center mb-2" style={{ color: 'white', fontSize: '40px' }}>

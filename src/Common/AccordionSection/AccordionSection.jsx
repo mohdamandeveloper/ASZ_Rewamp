@@ -132,6 +132,7 @@ export default function AccordionSection() {
 
   return (
     <section className="why-section" aria-labelledby="why-title">
+      <div className="grid_overlay"></div>
       {/* animated blobs */}
       <div className="why-blob why-blob--1" aria-hidden="true" />
       <div className="why-blob why-blob--2" aria-hidden="true" />

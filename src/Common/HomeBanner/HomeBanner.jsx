@@ -311,7 +311,7 @@ export default function HomeBanner() {
           This content NEVER changes when slides change.
       ================================================== */}
       <div className="hero-container">
-        <motion.div className="bg_color_overlay text_overlay" initial={{
+        {/* <motion.div className="bg_color_overlay text_overlay" initial={{
               x: "100%",
               opacity: 0,
               scale: 1.04,
@@ -340,7 +340,7 @@ export default function HomeBanner() {
               },
             }}>
 
-        </motion.div>
+        </motion.div> */}
         <div className="hero-content">
           <motion.div
             className="hero-eyebrow"

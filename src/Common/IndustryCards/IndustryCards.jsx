@@ -7,6 +7,7 @@ import {
   useTransform,
 } from "motion/react";
 import { gsap } from 'gsap';
+import { useNavigate } from 'react-router-dom';
 import './IndustryCards.scss';
 
 // ─── Data ───────────────────────────────────────────────────────────────────
@@ -17,72 +18,84 @@ const INDUSTRIES = [
     icon: (
       <img src="/images/asz/services_area/healthcare-1.svg" />
     ),
+    url: 'healthcare'
   },
   {
     name: 'Banking',
     icon: (
       <img src="/images/asz/services_area/bank.svg" />
     ),
+    url: 'banking'
   },
   {
     name: 'Insurance',
     icon: (
       <img src="/images/asz/services_area/insurance-yellow.svg" />
     ),
+    url: '/'
   },
   {
     name: 'Lending',
     icon: (
       <img src="/images/asz/services_area/loan-red.svg" />
     ),
+    url: '/'
   },
   {
     name: 'Payments',
     icon: (
       <img src="/images/asz/services_area/payment-orchestration-yellow.svg" />
     ),
+    url: 'payments'
   },
   {
     name: 'Investment',
     icon: (
       <img src="/images/asz/services_area/investment-red.svg" />
     ),
+    url: 'investment'
   },
   {
     name: 'Real estate',
     icon: (
       <img src="/images/asz/services_area/real-estate.svg" />
     ),
+    url: '/'
   },
   {
     name: 'Retail',
     icon: (
       <img src="/images/asz/services_area/retail-blue.svg" />
     ),
+    url: '/'
   },
   {
     name: 'Manufacturing',
     icon: (
       <img src="/images/asz/services_area/manufacturing-green.svg" />
     ),
+    url: 'manufacturing'
   },
   {
     name: 'Logistics & Transport',
     icon: (
       <img src="/images/asz/services_area/transportation.svg" />
     ),
+    url: 'logistics-transport'
   },
   {
     name: 'Oil and Gas',
     icon: (
       <img src="/images/asz/services_area/oil-and-gas-red.svg" />
     ),
+    url: '/'
   },
   {
     name: 'Energy & Utilities',
     icon: (
       <img src="/images/asz/services_area/energy-yellow.svg" />
     ),
+    url: '/'
   },
 ];
 
@@ -308,18 +321,22 @@ function BgGraphics() {
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 export default function IndustryCards() {
+  const navigate = useNavigate();
   const gridRef = useRef(null);
   const [activeIdx, setActiveIdx] = useState(0);
-
+  const handlePageLink =(url) => {
+    navigate('/work/' + url); 
+  }
   return (
     <section className="ic-section">
-      <motion.div
+      <div className='grid_overlay'></div>
+      {/* <motion.div
         className="bg_color_overlay text_overlay"
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
-      </motion.div>
+      </motion.div> */}
       <div className='container'>
         <div className='row'>
           <div className='col-md-12'>
@@ -357,7 +374,7 @@ export default function IndustryCards() {
                   {/* Content */}
                   <div
                     className="ic-card-content"
-                    onClick={() => setActiveIdx(i)}
+                    onClick={() => handlePageLink(ind.url)}
                   >
                     {/* <div className="ic-card-arrow">↗</div> */}
                     <div className="ic-card-icon">{ind.icon}</div>

@@ -1480,11 +1480,11 @@ export default function Banking() {
                             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                         >
                             <div>
-                                <div className='hero_badge'><span></span>Real Challenges.</div>
+                                {/* <div className='hero_badge'><span></span>Real Challenges.</div> */}
                                 <h2 className="heading_title">
-                                    Our <span>Work</span>
+                                    Banking <span>Solutions</span>
                                 </h2>
-                                <p className='our-work__desc heading_subtitle'>We don't just talk about outcomes, we build them. These case studies show how we've partnered with teams to solve complex problems, align strategy, and ship real products. The result is work that scales, performs, and gets it right from day one.</p>
+                                <p className='our-work__desc heading_subtitle'>Powering Smarter, Safer & More Connected Banking Experiences</p>
                             </div>
                             {/* <div className="our-work__actions">
                                 <div className="our-work__nav">

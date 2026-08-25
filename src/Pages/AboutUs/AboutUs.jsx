@@ -475,18 +475,35 @@ const PARTICLES = Array.from({ length: 14 }, (_, i) => ({
 export default function AboutUs() {
     const sectionRef = useRef(null);
     const [activeId, setActiveId] = useState(null);
+    const [justClickedId, setJustClickedId] = useState(null);
+    const flashTimeoutRef = useRef(null);
     const handleCardEnter = useCallback((id) => setActiveId(id), []);
         const handleCardLeave = useCallback(() => setActiveId(null), []);
 
     // Clicking a map marker scrolls the page to that office's card and
-    // highlights it briefly so the connection is obvious.
+    // highlights it briefly (2.5s) so the connection between the dot and
+    // the card is obvious, independent of hover state.
     const handleMarkerClick = useCallback((id) => {
         setActiveId(id);
         const card = document.getElementById(`office-${id}`);
         if (card) {
             card.scrollIntoView({ behavior: "smooth", block: "center" });
         }
+
+        if (flashTimeoutRef.current) clearTimeout(flashTimeoutRef.current);
+        setJustClickedId(id);
+        flashTimeoutRef.current = setTimeout(() => {
+            setJustClickedId(null);
+            flashTimeoutRef.current = null;
+        }, 2500);
     }, []);
+
+    useEffect(() => {
+        return () => {
+            if (flashTimeoutRef.current) clearTimeout(flashTimeoutRef.current);
+        };
+    }, []);
+
 
     useEffect(() => {
         const panels = document.querySelectorAll('.panel');
@@ -760,7 +777,7 @@ export default function AboutUs() {
                                                     <div
                                                         key={office.id}
                                                         id={`office-${office.id}`}
-                                                        className={`go-card${activeId === office.id ? " is-active" : ""}`}
+                                                        className={`go-card${activeId === office.id ? " is-active" : ""}${justClickedId === office.id ? " go-card--flash" : ""}`}
                                                         onMouseEnter={() => handleCardEnter(office.id)}
                                                         onMouseLeave={handleCardLeave}
                                                         role="button"

@@ -417,7 +417,7 @@ export default function Products() {
                 {/* <ProductCategories /> */}
                 {/* <ProductCardsSlider /> */}
                 {/* <ProductBenefits /> */}
-                <HowItWorks />
+                {/* <HowItWorks /> */}
                 {/* <TechStack /> */}
                 {/* <Testimonials />
                 <ProductCTA /> */}
