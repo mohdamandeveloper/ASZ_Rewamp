@@ -1263,6 +1263,32 @@
             }
         }
 
+        .partner_icon{
+            
+            a{
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all linear 0.2s;
+                .bi{
+                    background-color: var(--color-primary);
+                    height: 25px;
+                    width: 25px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid var(--color-primary);
+                    transition: all linear 0.2s;
+                }
+                &:hover{
+                    color: var(--color-primary);
+                    .bi{
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
         .partner-logo-card {
             display: flex;
             align-items: center;
