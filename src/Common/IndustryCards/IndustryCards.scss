@@ -25,6 +25,13 @@ $font:          'Inter', 'Helvetica Neue', sans-serif;
   @media (max-width: 768px) {
     padding: 48px 20px 56px;
   }
+  .text_overlay{
+            left: -148PX;
+            transform: translate(-15%, -50%) !important;
+            top: 125px;
+            height: 396px;
+            width: 100%;
+        }
 }
 
 // ─── Hidden SVG filter ───────────────────────────────────────────────────────
@@ -144,7 +151,7 @@ $font:          'Inter', 'Helvetica Neue', sans-serif;
   --glow-intensity: 0;
   --glow-radius: 280px;
   --glow-color: #{$accent-rgb};
-
+  
   &:hover {
     box-shadow: $shadow-hover;
   }

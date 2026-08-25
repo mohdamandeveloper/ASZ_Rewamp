@@ -1,4 +1,11 @@
 import { useEffect, useRef, useCallback, useState } from 'react';
+import {
+  AnimatePresence,
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "motion/react";
 import { gsap } from 'gsap';
 import './IndustryCards.scss';
 
@@ -306,6 +313,13 @@ export default function IndustryCards() {
 
   return (
     <section className="ic-section">
+      <motion.div
+        className="bg_color_overlay text_overlay"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
+      </motion.div>
       <div className='container'>
         <div className='row'>
           <div className='col-md-12'>

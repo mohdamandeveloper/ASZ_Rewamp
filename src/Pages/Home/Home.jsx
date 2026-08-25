@@ -1,15 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
 import { Bot, TrendingUp, Settings, Eye, Laptop, Landmark, BarChart3, Cloud, Link2, Globe, ArrowRight } from "lucide-react";
 import './Home.scss';
 import IndustryCards from "../../Common/IndustryCards/IndustryCards";
 import { useLanguage, useTranslation } from "../../Context/LanguageContext";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import LogoLoop from "../../Common/LogoLoop/LogoLoop";
 import { Link } from "react-router-dom";
+import HomeBanner from "../../Common/HomeBanner/HomeBanner";
 
 const statsData = [
     { id: 1, value: 15, suffix: "+" },
@@ -23,6 +20,16 @@ const platformIcons = [
     <TrendingUp size={22} />,
     <Settings size={22} />,
     <Eye size={22} />,
+];
+
+// Non-translated visual metadata for the AI Platform bento grid — kept in the
+// same index order as t.platform / platformIcons so content stays driven by
+// the language file while the imagery/badges live here.
+const bentoMeta = [
+    { badge: "Featured", image: "/images/home/8machine.jpg" },
+    { badge: "Real-Time Insights" },
+    { badge: "Automated", image: "/images/home/parker-nate.jpg" },
+    { badge: "Live Monitoring", image: "/images/home/ilya-pavlov.jpg" },
 ];
 
 const partners = [
@@ -43,6 +50,14 @@ const partners = [
     { text: 'Client15', src: '/images/asz/client-15.png', type: 'text' },
     { text: 'Client16', src: '/images/asz/client-16.png', type: 'text' },
 ];
+
+// Same partner artwork reshaped into LogoLoop's { src, alt, title } item
+// shape — both loop rows below read from this single array.
+const partnerLogos = partners.map((p) => ({
+    src: p.src,
+    alt: p.name || p.text,
+    title: p.name || p.text,
+}));
 
 const servicesMeta = [
     { id: "01", icon: <Laptop size={22} /> },
@@ -84,6 +99,66 @@ const Counter = ({ value, suffix, duration = 2000 }) => {
         <span ref={ref} className="key-facts__number">
             {count}{suffix}
         </span>
+    );
+};
+
+// TiltedBentoCard — merges the React Bits "TiltedCard" mouse-tilt effect
+// with the React Bits "MagicBento" cursor spotlight / border-glow effect.
+// The particle ("bubble") effect from MagicBento is intentionally left out.
+const TiltedBentoCard = ({ children, className = "", glowColor = "255, 107, 53", rotateAmplitude = 7, scaleOnHover = 1.015 }) => {
+    const cardRef = useRef(null);
+    const springCfg = { damping: 28, stiffness: 180, mass: 1 };
+    const rotateX = useSpring(useMotionValue(0), springCfg);
+    const rotateY = useSpring(useMotionValue(0), springCfg);
+    const scale = useSpring(1, { damping: 24, stiffness: 200, mass: 0.8 });
+
+    const handleMouseMove = (e) => {
+        const el = cardRef.current;
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const offsetX = e.clientX - rect.left - rect.width / 2;
+        const offsetY = e.clientY - rect.top - rect.height / 2;
+
+        rotateX.set((offsetY / (rect.height / 2)) * -rotateAmplitude);
+        rotateY.set((offsetX / (rect.width / 2)) * rotateAmplitude);
+
+        const relativeX = ((e.clientX - rect.left) / rect.width) * 100;
+        const relativeY = ((e.clientY - rect.top) / rect.height) * 100;
+        el.style.setProperty("--glow-x", `${relativeX}%`);
+        el.style.setProperty("--glow-y", `${relativeY}%`);
+    };
+
+    const handleMouseEnter = () => {
+        scale.set(scaleOnHover);
+        cardRef.current?.style.setProperty("--glow-intensity", "1");
+    };
+
+    const handleMouseLeave = () => {
+        scale.set(1);
+        rotateX.set(0);
+        rotateY.set(0);
+        cardRef.current?.style.setProperty("--glow-intensity", "0");
+    };
+
+    return (
+        <motion.div
+            ref={cardRef}
+            className={`bento-card ${className}`}
+            style={{
+                "--glow-color": glowColor,
+                rotateX,
+                rotateY,
+                scale,
+                transformPerspective: 1000,
+            }}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
+            <span className="bento-card__border-glow" aria-hidden="true"></span>
+            <span className="bento-card__spotlight" aria-hidden="true"></span>
+            <div className="bento-card__inner">{children}</div>
+        </motion.div>
     );
 };
 
@@ -137,8 +212,8 @@ export default function Home() {
     return (
         <>
             <div className={`homeDark${isRTL ? " rtl" : ""}`}>
-
-                <section className="hero-banner">
+                <HomeBanner />
+                {/* <section className="hero-banner">
                     <video className="hero-banner__video" autoPlay loop muted playsInline>
                         <source src="/images/home/home_bnr.mp4" type="video/mp4" />
                     </video>
@@ -172,7 +247,7 @@ export default function Home() {
                             <span className="hero-banner__scroll-text">{t.scroll}</span>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 <section className="key-facts">
                     <div className="key-facts__container">
@@ -193,6 +268,7 @@ export default function Home() {
                 </section>
 
                 <section className="ai-platform" ref={aiPlatformRef}>
+                    <div className="grid_overlay"></div>
                     <div className="ai-platform__bg">
                         <div className="ai-platform__glow ai-platform__glow--top"></div>
                         <div className="ai-platform__glow ai-platform__glow--bottom"></div>
@@ -200,6 +276,14 @@ export default function Home() {
                     </div>
 
                     <div className="ai-platform__container">
+                        <motion.div
+                            className="bg_color_overlay text_overlay"
+                            initial={{ opacity: 0, y: 24 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.4 }}
+                            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
+
+                        </motion.div>
                         <motion.div
                             className="ai-platform__header"
                             initial={{ opacity: 0, y: 24 }}
@@ -212,19 +296,21 @@ export default function Home() {
                                 {t.badge_ai}
                             </div>
                             <h2 className="heading_title ai-platform__title">
-                                {t.ai_title}
+                                <span>Intelligence built</span> into every solution
                             </h2>
-                            <p className="ai-platform__subtitle">{t.ai_subtitle}</p>
+                            <p className="ai-platform__subtitle">
+                                We don't treat AI as a bolt-on feature — it's foundational to how we design and build software. Our teams embed generative AI, predictive analytics, and intelligent automation directly into the products we ship.
+                            </p>
                         </motion.div>
 
-                        <div className="features-boxy-grid-wrap">
+                        <div className="bento-grid-wrap">
                             <motion.div
-                                className="features-boxy-grid-glow"
+                                className="bento-grid-glow"
                                 style={{ opacity: aiGlowOpacity }}
                             ></motion.div>
 
                             <motion.div
-                                className="features-boxy-grid reveal"
+                                className="bento-grid reveal"
                                 ref={addReveal}
                                 style={{
                                     scale: aiGridScale,
@@ -232,71 +318,147 @@ export default function Home() {
                                     y: aiGridY,
                                 }}
                             >
-                                {t.platform.map((item, i) => (
-                                    <motion.div
-                                        className="feature-box"
-                                        key={i}
-                                        initial={{ opacity: 0, y: 26 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true, amount: 0.35 }}
-                                        transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                                    >
-                                        <div className="feature-box-icon">{platformIcons[i]}</div>
-                                        <div className="feature-box-title">{item.title}</div>
-                                        <p className="feature-box-desc">{item.description}</p>
-                                        <span className="ai-platform__tag">{item.tag}</span>
-                                    </motion.div>
-                                ))}
+                                {/* Card 1 — Generative AI Integration (big, spans 2 rows) */}
+                                <TiltedBentoCard className="bento-card--big" glowColor="255, 107, 53">
+                                    <div className="bg_color_overlay"></div>
+                                    <div className="bento-card__media">
+                                        <img src={bentoMeta[0].image} alt={t.platform[0].title} loading="lazy" />
+                                        <div className="bento-card__scrim"></div>
+                                    </div>
+                                    <div className="bento-card__content bento-card__content--overlay">
+                                        <span className="bento-badge mb-4">
+                                            <span className="bento-badge__dot"></span>
+                                            {bentoMeta[0].badge}
+                                        </span>
+                                        <div>
+                                            <div className="bento-card__text">
+                                                {/* <div className="bento-card__icon">{platformIcons[0]}</div> */}
+                                                <h3 className="bento-card__title">{t.platform[0].title}</h3>
+                                                <p className="bento-card__desc">{t.platform[0].description}</p>
+                                                <div className="bento-card__tags">
+                                                    <span className="bento-tag">{t.platform[0].tag}</span>
+                                                </div>
+                                            </div>
+                                            <Link to="/service" className="bento-card__link">
+                                                {t.btn_explore}
+                                                <span className="bento-card__link-icon"><ArrowRight size={16} /></span>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </TiltedBentoCard>
+
+                                {/* Card 2 — Predictive Analytics (text-forward, top middle) */}
+                                <TiltedBentoCard className="bento-card--mid" glowColor="56, 189, 248">
+                                    <div className="bento-card__content">
+                                        <span className="bento-card__eyebrow">{bentoMeta[1].badge}</span>
+                                        {/* <div className="bento-card__icon">{platformIcons[1]}</div> */}
+                                        <h3 className="bento-card__title">{t.platform[1].title}</h3>
+                                        <p className="bento-card__desc">{t.platform[1].description}</p>
+                                        <div className="bento-card__tags">
+                                            <span className="bento-tag">{t.platform[1].tag}</span>
+                                        </div>
+                                    </div>
+                                </TiltedBentoCard>
+
+                                {/* Card 3 — Intelligent Process Automation (top right) */}
+                                <TiltedBentoCard className="bento-card--right" glowColor="168, 85, 247">
+                                    <div className="bento-card__media">
+                                        <img src={bentoMeta[2].image} alt={t.platform[2].title} loading="lazy" />
+                                        <div className="bento-card__scrim"></div>
+                                    </div>
+                                    <div className="bento-card__content bento-card__content--overlay">
+                                        <span className="bento-badge bento-badge--corner">
+                                            <span className="bento-badge__dot"></span>
+                                            {bentoMeta[2].badge}
+                                        </span>
+                                        <div>
+                                            <h3 className="bento-card__title">{t.platform[2].title}</h3>
+                                            <p className="bento-card__desc">{t.platform[2].description}</p>
+                                            <div className="bento-card__tags">
+                                                <span className="bento-tag">{t.platform[2].tag}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </TiltedBentoCard>
+
+                                {/* Card 4 — Computer Vision (bottom, wide) */}
+                                <TiltedBentoCard className="bento-card--bottom" glowColor="45, 212, 191">
+                                    <div className="bento-card__media bento-card__media--side">
+                                        <img src={bentoMeta[3].image} alt={t.platform[3].title} loading="lazy" />
+                                        <div className="bento-card__scrim"></div>
+                                    </div>
+                                    <div className="bento-card__content">
+                                        <span className="bento-badge">
+                                            <span className="bento-badge__dot"></span>
+                                            {bentoMeta[3].badge}
+                                        </span>
+                                        <div className="bento-card__text">
+                                            <h3 className="bento-card__title">{t.platform[3].title}</h3>
+                                            <p className="bento-card__desc">{t.platform[3].description}</p>
+                                            <div className="bento-card__row">
+                                                <span className="bento-tag">{t.platform[3].tag}</span>
+                                                <Link to="/service" className="bento-card__link">
+                                                    {t.btn_explore}
+                                                    <span className="bento-card__link-icon"><ArrowRight size={16} /></span>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </TiltedBentoCard>
                             </motion.div>
                         </div>
                     </div>
                 </section>
 
                 <section className="partners-section">
-                    <div className="container">
-                        <div>
-                            <h3 className="heading_title text-center mb-2" style={{ color: 'white' }}>
-                                <span>We Support</span> Customers Around The Globe
+                    <motion.div
+                        className="bg_color_overlay text_overlay"
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.4 }}
+                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
+                    </motion.div>
+                    <div className="partners_container">
+                        <div style={{ position: 'relative' }}>
+                            <h3 className="heading_title text-center mb-2" style={{ color: 'white', fontSize: '40px' }}>
+                                <span>We Support</span> Customers <br />Around The Globe
                             </h3>
                             <p className="heading_subtitle mb-5">Delivering innovative technology solutions to businesses worldwide, building lasting partnerships across industries and regions.</p>
-                            <div className="partners-row">
-                                <Swiper
-                                    spaceBetween={50}
-                                    slidesPerView={4.5}
-                                    modules={[Autoplay]}
-                                    breakpoints={{
-                                        240: {
-                                            slidesPerView: 2,
-                                            spaceBetween: 20,
-                                        },
-                                        768: {
-                                            slidesPerView: 3,
-                                            spaceBetween: 40,
-                                        },
-                                        1024: {
-                                            slidesPerView: 4,
-                                            spaceBetween: 50,
-                                        },
-                                        1200: {
-                                            slidesPerView: 5,
-                                            spaceBetween: 50,
-                                        },
-                                    }}
-                                    autoplay={{
-                                        delay: 1500,
-                                        disableOnInteraction: false,
-                                    }}
-                                >
-                                    {partners.map((p, i) => (
-                                        <SwiperSlide>
-                                            <div
-                                                key={i}
-                                                className="partner-item">
-                                                <img src={p.src} alt={p.name} loading="lazy" />
-                                            </div>
-                                        </SwiperSlide>
-                                    ))}
-                                </Swiper>
+                            <div className="partners-loop">
+                                <LogoLoop
+                                    logos={partnerLogos}
+                                    direction="right"
+                                    speed={70}
+                                    logoHeight={56}
+                                    gap={32}
+                                    fadeOut
+                                    fadeOutColor="#111111"
+                                    hoverSpeed={20}
+                                    ariaLabel="Partner logos"
+                                    className="partners-loop__row"
+                                    renderItem={(item) => (
+                                        <div className="partner-logo-card">
+                                            <img src={item.src} alt={item.alt} loading="lazy" />
+                                        </div>
+                                    )}
+                                />
+                                <LogoLoop
+                                    logos={partnerLogos}
+                                    direction="left"
+                                    speed={70}
+                                    logoHeight={56}
+                                    gap={32}
+                                    fadeOut
+                                    fadeOutColor="#111111"
+                                    hoverSpeed={20}
+                                    ariaLabel="Partner logos"
+                                    className="partners-loop__row"
+                                    renderItem={(item) => (
+                                        <div className="partner-logo-card">
+                                            <img src={item.src} alt={item.alt} loading="lazy" />
+                                        </div>
+                                    )}
+                                />
                             </div>
                         </div>
                     </div>
@@ -341,23 +503,28 @@ export default function Home() {
                 </section>
 
                 <section className='contact_section'>
+                    <div className="contact_color_overlay"></div>
+                    <div className="grid_overlay"></div>
+                    {/* <div className="contact_grid_overlay2"></div> */}
                     <div className='container'>
                         <div className='row'>
                             <div className='col-md-12'>
                                 <div className='contact_inner'>
                                     <div className='contact_inner_content mb-4'>
-                                        <motion.h3 className="heading_title text-center mb-3">
-                                            {t.contact_title_white}{" "}
-                                            <span>{t.contact_title_accent}</span>
+                                        <motion.h3 className="heading_title text-center mb-3" style={{ fontSize: '50px' }}>
+                                            Let's Build <br />
+                                            <span>Something real.</span>
                                         </motion.h3>
-                                        <motion.p>{t.contact_subtitle}</motion.p>
+                                        <motion.p>
+                                            Tell us what your're building. We'll scope it, staff it, ship it, and keep the lights on after.
+                                        </motion.p>
                                     </div>
                                     <div className='contact_inner_btn'>
                                         <Link className='btn-primary' to="/contact">
-                                            {t.btn_start} <i className="bi bi-arrow-right"></i>
+                                            Start a Project &nbsp;<i className="bi bi-arrow-right"></i>
                                         </Link>
                                         <motion.button className='btn-secondary'>
-                                            {t.btn_email}
+                                            Explore a Services &nbsp;<i className="bi bi-arrow-right"></i>
                                         </motion.button>
                                     </div>
                                 </div>

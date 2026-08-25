@@ -6,8 +6,8 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Link, Outlet } from 'react-router-dom';
-import "./Work.scss";
+import { Link } from 'react-router-dom';
+import "./Banking.scss";
 
 // function hexPath(cx, cy, r) {
 //     return Array.from({ length: 6 }, (_, i) => {
@@ -969,6 +969,24 @@ const PlusIcon = (props) => (
 //     }
 // }
 
+function LogoMarquee() {
+    const loop = [...LOGOS, ...LOGOS];
+    return (
+        <div className="work__marquee">
+            <motion.div
+                className="work__marquee-track"
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
+            >
+                {loop.map((logo, i) => (
+                    <div className="work__logo-pill" key={`${logo}-${i}`}>
+                        {logo}
+                    </div>
+                ))}
+            </motion.div>
+        </div>
+    );
+}
 
 // function ChatBubble() {
 //     const [open, setOpen] = useState(true);
@@ -1276,7 +1294,7 @@ function Testimonials() {
 /* Main component                                                      */
 /* ------------------------------------------------------------------ */
 
-export default function Work() {
+export default function Banking() {
     const sectionRef = useRef(null);
     const [activeTab, setActiveTab] = useState("Industries");
     const [activeFilter, setActiveFilter] = useState("All Industries");
@@ -1304,274 +1322,287 @@ export default function Work() {
     const visible = showAll ? filtered : filtered.slice(0, 6);
 
     return (
-        <Outlet />
-        // <div className="work">
+        <div className="banking">
 
-        //     {/* <div className="work__bg-grid" aria-hidden="true" /> */}
-        //     <div className="work__glow" aria-hidden="true" />
+            {/* <div className="work__bg-grid" aria-hidden="true" /> */}
+            <div className="work__glow" aria-hidden="true" />
 
-        //     {/* <header className="work__hero">
-        //         <div className="work__hero-inner">
-        //             <motion.h1
-        //                 className="work__hero-heading"
-        //                 initial={{ opacity: 0, y: 24 }}
-        //                 animate={{ opacity: 1, y: 0 }}
-        //                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        //             >
-        //                 Proof, Not Promises
-        //                 <motion.span
-        //                     className="dot"
-        //                     animate={{ opacity: [1, 0.4, 1] }}
-        //                     transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        //                 >
-        //                     .
-        //                 </motion.span>
-        //             </motion.h1>
-        //             <motion.p
-        //                 className="work__hero-sub"
-        //                 initial={{ opacity: 0, y: 24 }}
-        //                 animate={{ opacity: 1, y: 0 }}
-        //                 transition={{ duration: 0.6, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-        //             >
-        //                 We don't just talk about outcomes, we build them. These case studies show how we've partnered with teams
-        //                 to solve complex problems, align strategy, and ship real products. The result is work that scales,
-        //                 performs, and gets it right from day one.
-        //             </motion.p>
-        //         </div>
+            {/* <header className="work__hero">
+                <div className="work__hero-inner">
+                    <motion.h1
+                        className="work__hero-heading"
+                        initial={{ opacity: 0, y: 24 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                        Proof, Not Promises
+                        <motion.span
+                            className="dot"
+                            animate={{ opacity: [1, 0.4, 1] }}
+                            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        >
+                            .
+                        </motion.span>
+                    </motion.h1>
+                    <motion.p
+                        className="work__hero-sub"
+                        initial={{ opacity: 0, y: 24 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                        We don't just talk about outcomes, we build them. These case studies show how we've partnered with teams
+                        to solve complex problems, align strategy, and ship real products. The result is work that scales,
+                        performs, and gets it right from day one.
+                    </motion.p>
+                </div>
 
-        //         <LogoMarquee />
-        //     </header> */}
-        //     {/* <section class="hero_work work-hero">
-        //         <div class="work-hero__stripes" aria-hidden="true">
-        //             <span></span><span></span><span></span><span></span><span></span>
-        //         </div>
-        //         <div class="work-hero__inner">
-        //             <div class="work-hero__content">
-        //                 <h1 class="heading_title">
-        //                     <span>Custom software solutions built</span> for scale, performance, and reliability
-        //                 </h1>
+                <LogoMarquee />
+            </header> */}
+            {/* <section class="hero_work work-hero">
+                <div class="work-hero__stripes" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="work-hero__inner">
+                    <div class="work-hero__content">
+                        <h1 class="heading_title">
+                            <span>Custom software solutions built</span> for scale, performance, and reliability
+                        </h1>
 
-        //                 <p class="work-hero__desc">
-        //                     We engineer tailored software and technology platforms that streamline
-        //                     operations and give your users fast, secure, and dependable digital
-        //                     experiences — from idea to production.
-        //                 </p>
+                        <p class="work-hero__desc">
+                            We engineer tailored software and technology platforms that streamline
+                            operations and give your users fast, secure, and dependable digital
+                            experiences — from idea to production.
+                        </p>
 
-        //                 <div class="work-hero__actions">
-        //                     <Link to="/contact" class="btn-cta btn-primary">
-        //                         <span>Get In Touch</span>
-        //                         <svg class="btn-cta__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        //                             <path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-        //                         </svg>
-        //                     </Link>
-        //                 </div>
+                        <div class="work-hero__actions">
+                            <Link to="/contact" class="btn-cta btn-primary">
+                                <span>Get In Touch</span>
+                                <svg class="btn-cta__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </Link>
+                        </div>
 
-        //             </div>
+                    </div>
 
-        //             <div class="work-hero__visual" aria-hidden="true">
-        //                     <img src="/images/case_studies.jpg" />
-        //             </div>
-        //         </div>
-        //     </section> */}
-        //     <section class="services-hero">
-        //         {/* <div class="services-hero__bg" aria-hidden="true"></div> */}
+                    <div class="work-hero__visual" aria-hidden="true">
+                            <img src="/images/case_studies.jpg" />
+                    </div>
+                </div>
+            </section> */}
+            <section class="services-hero">
+                {/* <div class="services-hero__bg" aria-hidden="true"></div> */}
 
-        //         <div class="services-hero__media" aria-hidden="true">
-        //             <img
-        //                 class="services-hero__image"
-        //                 src="/images/our_work_hero.jpg"
-        //                 alt=""
-        //             />
-        //             <div class="services-hero__overlay"></div>
-        //         </div>
+                <div class="services-hero__media" aria-hidden="true">
+                    <img
+                        class="services-hero__image"
+                        src="/images/our_work_hero.jpg"
+                        alt=""
+                    />
+                    <div class="services-hero__overlay"></div>
+                </div>
 
-        //         <div class="services-hero__inner container">
+                <div class="services-hero__inner container">
 
-        //             <span class="hero_badge">Our Work</span>
+                    <span class="hero_badge">Banking</span>
 
-        //             <h1 class="heading_title services-hero__title">
-        //                 <span>Real challenges.</span> <br />Thoughtful solutions.
-        //             </h1>
+                    <h1 class="heading_title services-hero__title">
+                        <span>Digital Innovation</span> <br />for Modern Banking.
+                    </h1>
 
-        //             <p class="heading_subtitle services-hero__subtitle">
-        //                 Explore how we've helped businesses across industries overcome challenges, modernize their operations, and achieve meaningful results with our technology solutions.
-        //             </p>
+                    <p class="heading_subtitle services-hero__subtitle">
+                        We build secure, scalable, and intelligent banking software solutions that streamline operations, enhance customer experiences, and accelerate digital transformation.
+                    </p>
 
-        //             <div class="services-hero__actions">
-        //                 <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
-        //             </div>
-        //         </div>
-        //     </section>
-        //     {/* <section class="hero_work cs">
-        //         <div class="cs__inner">
-        //             <div class="cs__content">
-        //                 <h1 class="heading_title">
-        //                     <span>Real challenges.</span> <br />Thoughtful solutions.
-        //                 </h1>
+                    <div class="services-hero__actions">
+                        <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                    </div>
+                </div>
+            </section>
+            {/* <section class="hero_work cs">
+                <div class="cs__inner">
+                    <div class="cs__content">
+                        <h1 class="heading_title">
+                            <span>Real challenges.</span> <br />Thoughtful solutions.
+                        </h1>
 
-        //                 <p class="heading_subtitle">
-        //                     Explore how we've helped businesses across industries overcome
-        //                     challenges, modernize their operations, and achieve meaningful
-        //                     results with our technology solutions.
-        //                 </p>
+                        <p class="heading_subtitle">
+                            Explore how we've helped businesses across industries overcome
+                            challenges, modernize their operations, and achieve meaningful
+                            results with our technology solutions.
+                        </p>
 
-        //                 <div class="cs__grid">
+                        <div class="cs__grid">
 
-        //                     <div class="cs__card">
-        //                         <h3 class="cs__card-title">Business Impact</h3>
-        //                         <p class="cs__card-text">
-        //                             Delivering measurable results that drive growth, efficiency,
-        //                             and customer satisfaction.
-        //                         </p>
-        //                         <span class="cs__stat">25+ Successful Projects</span>
-        //                     </div>
+                            <div class="cs__card">
+                                <h3 class="cs__card-title">Business Impact</h3>
+                                <p class="cs__card-text">
+                                    Delivering measurable results that drive growth, efficiency,
+                                    and customer satisfaction.
+                                </p>
+                                <span class="cs__stat">25+ Successful Projects</span>
+                            </div>
 
-        //                     <div class="cs__card">
-        //                         <h3 class="cs__card-title">Diverse Solutions</h3>
-        //                         <p class="cs__card-text">
-        //                             Custom software, web, mobile, cloud, and AI solutions tailored
-        //                             to unique business needs.
-        //                         </p>
-        //                         <span class="cs__stat">10+ Industries Served</span>
-        //                     </div>
-        //                 </div>
+                            <div class="cs__card">
+                                <h3 class="cs__card-title">Diverse Solutions</h3>
+                                <p class="cs__card-text">
+                                    Custom software, web, mobile, cloud, and AI solutions tailored
+                                    to unique business needs.
+                                </p>
+                                <span class="cs__stat">10+ Industries Served</span>
+                            </div>
+                        </div>
 
-        //                 <a href="#" class="btn btn-primary">
-        //                     <span>Connect with us</span>
-        //                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        //                         <path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-        //                     </svg>
-        //                 </a>
+                        <a href="#" class="btn btn-primary">
+                            <span>Connect with us</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.5 8H12.5M12.5 8L8.5 4M12.5 8L8.5 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
 
-        //             </div>
+                    </div>
 
-        //             <div class="cs__visual" aria-hidden="true">
-        //                 <div class="cs__photo">
-        //                     <img src="/images/case_studies.jpg" />
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </section> */}
-        //     <section className="our-work" ref={ourWorkRef}>
-        //         <div className="our-work__container container">
-        //             <div className="our-work__layout">
-        //                 {/* <div
-        //                     className="our-work__intro"
-        //                     initial={{ opacity: 0, y: 30 }}
-        //                     whileInView={{ opacity: 1, y: 0 }}
-        //                     viewport={{ once: true, amount: 0.4 }}
-        //                     transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        //                 >
-        //                     <div>
-        //                         <div className='hero_badge'><span></span>Real Challenges.</div>
-        //                         <h2 className="heading_title">
-        //                             Our <span>Work</span>
-        //                         </h2>
-        //                         <p className='our-work__desc heading_subtitle'>We don't just talk about outcomes, we build them. These case studies show how we've partnered with teams to solve complex problems, align strategy, and ship real products. The result is work that scales, performs, and gets it right from day one.</p>
-        //                     </div>
-        //                 </div> */}
-        //                 <div className="row">
-        //                     {WORKS.map((w, i) => (
-        //                         <div className="col-md-4 mb-5">
-        //                             <div
-        //                                 className="our-work__card-wrap"
-        //                             >
-        //                                 <Link to={`/case-study/${w.id}`} className="our-work__card">
-        //                                     <div className="our-work__cover" style={{ background: w.coverBg }}>
-        //                                         <img src={w.coverImage} alt={w.title} className="our-work__cover-img" />
-        //                                         <span className="our-work__cover-arrow">
-        //                                             <ArrowRight size={22} />
-        //                                         </span>
-        //                                     </div>
-        //                                     <div className="our-work__info">
-        //                                         <span className="our-work__eyebrow">{w.tags?.[0]}</span>
-        //                                         <p className="our-work__card-title">{w.title}</p>
-        //                                     </div>
-        //                                 </Link>
-        //                             </div>
-        //                         </div>
-        //                     ))}
-        //                 </div>
-        //                 {/* <div className="our-work__carousel">
-        //                     <Swiper
-        //                         modules={[Navigation]}
-        //                         loop={true}
-        //                         slidesPerView={1.5}
-        //                         spaceBetween={28}
-        //                         navigation={{
-        //                             prevEl: '#ourWorkPrev',
-        //                             nextEl: '#ourWorkNext',
-        //                         }}
-        //                         breakpoints={{
-        //                             0: { slidesPerView: 1.08, spaceBetween: 16 },
-        //                             600: { slidesPerView: 1.3, spaceBetween: 20 },
-        //                             1024: { slidesPerView: 2, spaceBetween: 28 },
-        //                         }}
-        //                         className="our-work__swiper"
-        //                     >
-        //                         {WORKS.map((w, i) => (
-        //                             <SwiperSlide key={w.id}>
-        //                                 <div
-        //                                     className="our-work__card-wrap"
-        //                                 >
-        //                                     <Link to={`/case-study/${w.id}`} className="our-work__card">
-        //                                         <div className="our-work__cover" style={{ background: w.coverBg }}>
-        //                                             <img src={w.coverImage} alt={w.title} className="our-work__cover-img" />
-        //                                             <span className="our-work__cover-arrow">
-        //                                                 <ArrowRight size={22} />
-        //                                             </span>
-        //                                         </div>
-        //                                         <div className="our-work__info">
-        //                                             <span className="our-work__eyebrow">{w.tags?.[0]}</span>
-        //                                             <p className="our-work__card-title">{w.title}</p>
-        //                                         </div>
-        //                                     </Link>
-        //                                 </div>
-        //                             </SwiperSlide>
-        //                         ))}
-        //                     </Swiper>
-        //                 </div> */}
-        //             </div>
-        //         </div>
-        //     </section>
-        //     {/* <section className="work__list">
-        //         <AnimatePresence mode="popLayout">
-        //             {visible.map((study, i) => (
-        //                 <CaseStudyCard study={study} index={i} key={study.id} />
-        //             ))}
-        //         </AnimatePresence>
-        //     </section> */}
+                    <div class="cs__visual" aria-hidden="true">
+                        <div class="cs__photo">
+                            <img src="/images/case_studies.jpg" />
+                        </div>
+                    </div>
+                </div>
+            </section> */}
+            <section className="our-work" ref={ourWorkRef}>
+                <div className="our-work__container container">
+                    <div className="our-work__layout">
+                        <div
+                            className="our-work__intro"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.4 }}
+                            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                        >
+                            <div>
+                                <div className='hero_badge'><span></span>Real Challenges.</div>
+                                <h2 className="heading_title">
+                                    Our <span>Work</span>
+                                </h2>
+                                <p className='our-work__desc heading_subtitle'>We don't just talk about outcomes, we build them. These case studies show how we've partnered with teams to solve complex problems, align strategy, and ship real products. The result is work that scales, performs, and gets it right from day one.</p>
+                            </div>
+                            {/* <div className="our-work__actions">
+                                <div className="our-work__nav">
+                                    <button className="our-work__nav-btn our-work__nav-btn--prev" id="ourWorkPrev" aria-label="Previous case study">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                            <polyline points="15 18 9 12 15 6" />
+                                        </svg>
+                                    </button>
+                                    <button className="our-work__nav-btn our-work__nav-btn--next" id="ourWorkNext" aria-label="Next case study">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                            <polyline points="9 18 15 12 9 6" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div> */}
+                        </div>
+                        <div className="row">
+                            {WORKS.map((w, i) => (
+                                <div className="col-md-4 mb-5">
+                                    <div
+                                        className="our-work__card-wrap"
+                                    >
+                                        <Link to={`/case-study/${w.id}`} className="our-work__card">
+                                            <div className="our-work__cover" style={{ background: w.coverBg }}>
+                                                <img src={w.coverImage} alt={w.title} className="our-work__cover-img" />
+                                                <span className="our-work__cover-arrow">
+                                                    <ArrowRight size={22} />
+                                                </span>
+                                            </div>
+                                            <div className="our-work__info">
+                                                <span className="our-work__eyebrow">{w.tags?.[0]}</span>
+                                                <p className="our-work__card-title">{w.title}</p>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        {/* <div className="our-work__carousel">
+                            <Swiper
+                                modules={[Navigation]}
+                                loop={true}
+                                slidesPerView={1.5}
+                                spaceBetween={28}
+                                navigation={{
+                                    prevEl: '#ourWorkPrev',
+                                    nextEl: '#ourWorkNext',
+                                }}
+                                breakpoints={{
+                                    0: { slidesPerView: 1.08, spaceBetween: 16 },
+                                    600: { slidesPerView: 1.3, spaceBetween: 20 },
+                                    1024: { slidesPerView: 2, spaceBetween: 28 },
+                                }}
+                                className="our-work__swiper"
+                            >
+                                {WORKS.map((w, i) => (
+                                    <SwiperSlide key={w.id}>
+                                        <div
+                                            className="our-work__card-wrap"
+                                        >
+                                            <Link to={`/case-study/${w.id}`} className="our-work__card">
+                                                <div className="our-work__cover" style={{ background: w.coverBg }}>
+                                                    <img src={w.coverImage} alt={w.title} className="our-work__cover-img" />
+                                                    <span className="our-work__cover-arrow">
+                                                        <ArrowRight size={22} />
+                                                    </span>
+                                                </div>
+                                                <div className="our-work__info">
+                                                    <span className="our-work__eyebrow">{w.tags?.[0]}</span>
+                                                    <p className="our-work__card-title">{w.title}</p>
+                                                </div>
+                                            </Link>
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        </div> */}
+                    </div>
+                </div>
+            </section>
+            {/* <section className="work__list">
+                <AnimatePresence mode="popLayout">
+                    {visible.map((study, i) => (
+                        <CaseStudyCard study={study} index={i} key={study.id} />
+                    ))}
+                </AnimatePresence>
+            </section> */}
 
-        //     {!showAll && filtered.length > visible.length && (
-        //         <motion.div
-        //             className="work__showmore-wrap"
-        //             initial={{ opacity: 0, y: 12 }}
-        //             whileInView={{ opacity: 1, y: 0 }}
-        //             viewport={{ once: true, amount: 0.6 }}
-        //             transition={{ duration: 0.4 }}
-        //         >
-        //             <motion.button
-        //                 className="work__showmore"
-        //                 onClick={() => setShowAll(true)}
-        //                 whileHover="hover"
-        //                 whileTap={{ scale: 0.97 }}
-        //                 initial="rest"
-        //             >
-        //                 Show More
-        //                 <motion.span
-        //                     variants={{ rest: { rotate: 0 }, hover: { rotate: 90 } }}
-        //                     transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        //                     style={{ display: "inline-flex" }}
-        //                 >
-        //                     <PlusIcon />
-        //                 </motion.span>
-        //             </motion.button>
-        //         </motion.div>
-        //     )}
+            {!showAll && filtered.length > visible.length && (
+                <motion.div
+                    className="work__showmore-wrap"
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    transition={{ duration: 0.4 }}
+                >
+                    <motion.button
+                        className="work__showmore"
+                        onClick={() => setShowAll(true)}
+                        whileHover="hover"
+                        whileTap={{ scale: 0.97 }}
+                        initial="rest"
+                    >
+                        Show More
+                        <motion.span
+                            variants={{ rest: { rotate: 0 }, hover: { rotate: 90 } }}
+                            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                            style={{ display: "inline-flex" }}
+                        >
+                            <PlusIcon />
+                        </motion.span>
+                    </motion.button>
+                </motion.div>
+            )}
 
-        //     {/* <Testimonials /> */}
+            {/* <Testimonials /> */}
 
-        //     {/* <ChatBubble /> */}
-        // </div>
+            {/* <ChatBubble /> */}
+        </div>
     );
 }

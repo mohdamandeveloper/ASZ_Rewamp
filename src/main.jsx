@@ -24,6 +24,12 @@ import ItConsulting from './Pages/Services/ItConsulting/ItConsulting.jsx';
 import DataAnalytics from './Pages/Services/DataAnalytics/DataAnalytics.jsx';
 import CyberSecrurityServices from './Pages/Services/CyberSecrurityServices/CyberSecrurityServices.jsx';
 import Work from './Pages/Work/Work.jsx';
+import Banking from './Pages/Work/Banking/Banking.jsx';
+import Health from './Pages/Work/Healthcare/Health.jsx';
+import Investment from './Pages/Work/Investment/Investment.jsx';
+import Logistics from './Pages/Work/Logistics/Logistics.jsx';
+import Manufacturing from './Pages/Work/Manufacturing/Manufacturing.jsx';
+import Payments from './Pages/Work/Payments/Payments.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -47,7 +53,14 @@ const router = createBrowserRouter(
       <Route path='products' element={<Products />} />
       <Route path='products/:id' element={<ProductsDetails />} /> 
       <Route path='products2' element={<Products2 />} />
-      <Route path='work' element={<Work />} />
+      <Route path='work' element={<Work />} >
+        <Route path='banking' element={<Banking />} />
+        <Route path='healthcare' element={<Health />} />
+        <Route path='investment' element={<Investment />} />
+        <Route path='logistics-transport' element={<Logistics />} />
+        <Route path='manufacturing' element={<Manufacturing />} />
+        <Route path='payments' element={<Payments />} />
+      </Route>
       <Route path='contact' element={<ContactUs />} />
       <Route path="case-study/:id" element={<CaseStudyDetail />} />
     </Route>
