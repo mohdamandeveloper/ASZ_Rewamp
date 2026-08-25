@@ -136,8 +136,7 @@ $map-highlight: rgba(255, 107, 53, 0.35);
 
         .hero-world-map__half {
             height: 100%;
-            max-height: 500px;
-            opacity: 0.2;
+            max-height: 550px;
             @media (max-width: 1400px){
                 max-height: 430px;
             }
@@ -147,10 +146,19 @@ $map-highlight: rgba(255, 107, 53, 0.35);
             @media (max-width: 1050px){
                 max-height: 350px;
             }
-            path {
-                fill: none;
+            .hero-map-country {
+                fill: transparent;
                 stroke: var(--text-primary);
                 stroke-width: 0.6;
+                opacity: 0.2;
+                transition: fill 0.35s ease, stroke 0.35s ease, opacity 0.35s ease;
+
+                &.is-highlighted {
+                    fill: rgba(255, 107, 53, 0.4);
+                    stroke: rgba(255, 107, 53, 0.9);
+                    stroke-width: 1;
+                    opacity: 1;
+                }
             }
 
             &--left {
@@ -197,6 +205,62 @@ $map-highlight: rgba(255, 107, 53, 0.35);
             // @media (max-width: 600px) {
             //     display: none;
             // }
+        }
+
+        /* ── Hero map office markers ── */
+        .hero-map-marker {
+            cursor: pointer;
+            pointer-events: auto;
+            outline: none;
+
+            &__hit {
+                fill: transparent;
+                stroke: none;
+            }
+
+            &__dot {
+                fill: var(--color-primary);
+                stroke: rgba(255, 255, 255, 0.9);
+                stroke-width: 0.6;
+                transition: r 0.2s ease;
+            }
+
+            &__ring {
+                fill: none;
+                stroke: var(--color-primary);
+                stroke-width: 1;
+                opacity: 0.6;
+                animation: heroMarkerPulse 2.4s ease-out infinite;
+            }
+
+            &:hover,
+            &.is-active,
+            &:focus-visible {
+                .hero-map-marker__dot {
+                    r: 4;
+                }
+
+                .hero-map-marker__ring {
+                    animation-duration: 1.2s;
+                }
+            }
+        }
+
+        @keyframes heroMarkerPulse {
+            0% {
+                r: 3;
+                opacity: 0.6;
+            }
+
+            70% {
+                r: 11;
+                opacity: 0;
+            }
+
+            100% {
+                r: 11;
+                opacity: 0;
+            }
         }
 
         // ——— Content ———
@@ -652,7 +716,7 @@ $map-highlight: rgba(255, 107, 53, 0.35);
 
     .go-card {
         position: relative;
-        background: rgb(240 240 240 / 4%);
+        background: rgb(11 11 11 / 71%);
         border: 1px solid var(--color-primary);
         border-radius: 14px;
         padding: 20px 22px;
@@ -663,8 +727,10 @@ $map-highlight: rgba(255, 107, 53, 0.35);
             border-color 0.3s ease,
             transform 0.25s ease;
         overflow: hidden;
-        min-height: 165px;
-
+        min-height: 195px;
+        @media (max-width: 1400px){
+            min-height: 235px;
+        }
         &::before {
             content: '';
             position: absolute;
@@ -761,7 +827,7 @@ $map-highlight: rgba(255, 107, 53, 0.35);
         border: 1px solid rgba(255, 107, 53, 0.2);
         border-radius: 4px;
         padding: 2px 8px;
-        margin-bottom: 8px;
+        margin-bottom: 30px;
     }
 
     .go-card__address {

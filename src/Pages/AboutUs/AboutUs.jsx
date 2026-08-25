@@ -442,6 +442,27 @@ const HERO_MAP_RIGHT = Object.entries(MAP_PATHS).filter(
     ([, d]) => averagePathX(d) >= HERO_MAP_SPLIT_X
 );
 
+// OFFICES' markerPos values are percentages against the single full-map
+// viewBox used by the (currently unused) go-map-wrap SVG below:
+// viewBox="380 120 580 270". Converting back to those raw units lets the
+// hero map's dots share the exact same coordinate space as MAP_PATHS, so
+// they land precisely on each country regardless of screen size — no
+// separate HTML overlay/positioning math needed.
+const HERO_MAP_VIEWBOX = { x: 380, y: 120, w: 580, h: 270 };
+function markerPosToXY(markerPos) {
+    return {
+        x: HERO_MAP_VIEWBOX.x + (parseFloat(markerPos.left) / 100) * HERO_MAP_VIEWBOX.w,
+        y: HERO_MAP_VIEWBOX.y + (parseFloat(markerPos.top) / 100) * HERO_MAP_VIEWBOX.h,
+    };
+}
+const HERO_OFFICE_MARKERS = OFFICES.map((office) => ({
+    ...office,
+    ...markerPosToXY(office.markerPos),
+}));
+const HERO_OFFICE_MARKERS_LEFT = HERO_OFFICE_MARKERS.filter((o) => o.x < HERO_MAP_SPLIT_X);
+const HERO_OFFICE_MARKERS_RIGHT = HERO_OFFICE_MARKERS.filter((o) => o.x >= HERO_MAP_SPLIT_X);
+const OFFICE_COUNTRY_KEYS = new Set(OFFICES.map((o) => o.id));
+
 /* ─── Particles ─────────────────────────────────────────── */
 const PARTICLES = Array.from({ length: 14 }, (_, i) => ({
     id: i,
@@ -511,16 +532,54 @@ export default function AboutUs() {
                                         ))}
                                     </g>
                                 </svg> */}
-                                <div className="hero-world-map" aria-hidden="true">
+                                <div className="hero-world-map">
                                     <svg
                                         className="hero-world-map__half hero-world-map__half--left"
                                         viewBox={`380 120 ${HERO_MAP_SPLIT_X - 380} 270`}
                                         xmlns="http://www.w3.org/2000/svg"
                                         preserveAspectRatio="xMaxYMid meet"
                                     >
-                                        {HERO_MAP_LEFT.map(([key, d]) => (
-                                            <path key={key} d={d} />
-                                        ))}
+                                        <g aria-hidden="true">
+                                            {HERO_MAP_LEFT.map(([key, d]) => (
+                                                <path
+                                                    key={key}
+                                                    d={d}
+                                                    className={
+                                                        OFFICE_COUNTRY_KEYS.has(key) && activeId === key
+                                                            ? "hero-map-country is-highlighted"
+                                                            : "hero-map-country"
+                                                    }
+                                                />
+                                            ))}
+                                        </g>
+                                        <g>
+                                            {HERO_OFFICE_MARKERS_LEFT.map((office) => (
+                                                <g
+                                                    key={office.id}
+                                                    className={`hero-map-marker${activeId === office.id ? " is-active" : ""}`}
+                                                    transform={`translate(${office.x}, ${office.y})`}
+                                                    onMouseEnter={() => handleCardEnter(office.id)}
+                                                    onMouseLeave={handleCardLeave}
+                                                    onClick={() => handleMarkerClick(office.id)}
+                                                    onKeyDown={(e) => {
+                                                        if (e.key === "Enter" || e.key === " ") {
+                                                            e.preventDefault();
+                                                            handleMarkerClick(office.id);
+                                                        }
+                                                    }}
+                                                    role="button"
+                                                    tabIndex={0}
+                                                    aria-label={`Go to ${office.country} office details`}
+                                                    onFocus={() => handleCardEnter(office.id)}
+                                                    onBlur={handleCardLeave}
+                                                >
+                                                    <title>{office.country} — {office.type}</title>
+                                                    <circle className="hero-map-marker__ring" cx="0" cy="0" r="3" />
+                                                    <circle className="hero-map-marker__hit" cx="0" cy="0" r="7" />
+                                                    <circle className="hero-map-marker__dot" cx="0" cy="0" r="2.6" />
+                                                </g>
+                                            ))}
+                                        </g>
                                     </svg>
                                     <svg
                                         className="hero-world-map__half hero-world-map__half--right"
@@ -528,14 +587,52 @@ export default function AboutUs() {
                                         xmlns="http://www.w3.org/2000/svg"
                                         preserveAspectRatio="xMinYMid meet"
                                     >
-                                        {HERO_MAP_RIGHT.map(([key, d]) => (
-                                            <path key={key} d={d} />
-                                        ))}
+                                        <g aria-hidden="true">
+                                            {HERO_MAP_RIGHT.map(([key, d]) => (
+                                                <path
+                                                    key={key}
+                                                    d={d}
+                                                    className={
+                                                        OFFICE_COUNTRY_KEYS.has(key) && activeId === key
+                                                            ? "hero-map-country is-highlighted"
+                                                            : "hero-map-country"
+                                                    }
+                                                />
+                                            ))}
+                                        </g>
+                                        <g>
+                                            {HERO_OFFICE_MARKERS_RIGHT.map((office) => (
+                                                <g
+                                                    key={office.id}
+                                                    className={`hero-map-marker${activeId === office.id ? " is-active" : ""}`}
+                                                    transform={`translate(${office.x}, ${office.y})`}
+                                                    onMouseEnter={() => handleCardEnter(office.id)}
+                                                    onMouseLeave={handleCardLeave}
+                                                    onClick={() => handleMarkerClick(office.id)}
+                                                    onKeyDown={(e) => {
+                                                        if (e.key === "Enter" || e.key === " ") {
+                                                            e.preventDefault();
+                                                            handleMarkerClick(office.id);
+                                                        }
+                                                    }}
+                                                    role="button"
+                                                    tabIndex={0}
+                                                    aria-label={`Go to ${office.country} office details`}
+                                                    onFocus={() => handleCardEnter(office.id)}
+                                                    onBlur={handleCardLeave}
+                                                >
+                                                    <title>{office.country} — {office.type}</title>
+                                                    <circle className="hero-map-marker__ring" cx="0" cy="0" r="3" />
+                                                    <circle className="hero-map-marker__hit" cx="0" cy="0" r="7" />
+                                                    <circle className="hero-map-marker__dot" cx="0" cy="0" r="2.6" />
+                                                </g>
+                                            ))}
+                                        </g>
                                     </svg>
                                 </div>
                                 <div className="hero-content">
                                     <div className="hero-eyebrow">
-                                        <h6 className="hero_badge"><span></span>About ASZ Technologies</h6>
+                                        <h6 className="hero_badge">About ASZ Technologies</h6>
                                         <h1 className="heading_title mb-4">Engineering Beyond Code <span className="c_primary">Building Digital Systems</span> That Last</h1>
                                     </div>
                                     <p className="hero-subtitle">
@@ -611,6 +708,7 @@ export default function AboutUs() {
                     </div>
                 </section>
                 <section className="go-section" aria-label="Global offices">
+                    <div className="grid_overlay"></div>
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
@@ -657,7 +755,7 @@ export default function AboutUs() {
                                         {/* <div className="go-offices-label">Offices</div> */}
                                         <div className="row">
                                             {OFFICES.map((office, index) => (
-                                                <div className={`col-md-4 mb-3${index === OFFICES.length - 1 ? " offset-md-4" : ""}`}
+                                                <div className={`col-md-3 mb-3`}
                                                         key={index}>
                                                     <div
                                                         key={office.id}
@@ -676,7 +774,8 @@ export default function AboutUs() {
                                                             <span className="go-card__dot" />
                                                             {office.country}
                                                         </div>
-                                                        <div className="go-card__company">{office.company} &nbsp;<div className="go-card__type">{office.type}</div></div>
+                                                        <div className="go-card__company">{office.company}</div>
+                                                        <div className="go-card__type">{office.type}</div>
 
                                                         <address className="go-card__address">
                                                             {office.address.split("\n").map((line, i) => (
