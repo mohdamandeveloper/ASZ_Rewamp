@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   AnimatePresence,
   motion,
@@ -12,152 +12,89 @@ import './IndustryCards.scss';
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
+// NOTE: swap these `image` paths for your real industry photography —
+// keeping the same /images/asz/... convention used elsewhere in the app.
 const INDUSTRIES = [
   {
     name: 'Healthcare',
-    icon: (
-      <img src="/images/asz/services_area/healthcare-1.svg" />
-    ),
+    image: '/images/asz/services_area/industry-bg/healthcare.jpg',
     url: 'healthcare'
   },
   {
     name: 'Banking',
-    icon: (
-      <img src="/images/asz/services_area/bank.svg" />
-    ),
+    image: '/images/asz/services_area/industry-bg/banking.jpg',
     url: 'banking'
   },
   {
     name: 'Insurance',
-    icon: (
-      <img src="/images/asz/services_area/insurance-yellow.svg" />
-    ),
+    image: '/images/asz/services_area/industry-bg/insurance.jpg',
     url: '/'
   },
   {
     name: 'Lending',
-    icon: (
-      <img src="/images/asz/services_area/loan-red.svg" />
-    ),
+    image: '/images/asz/services_area/industry-bg/lending.jpg',
     url: '/'
   },
   {
     name: 'Payments',
-    icon: (
-      <img src="/images/asz/services_area/payment-orchestration-yellow.svg" />
-    ),
+    image: '/images/asz/services_area/industry-bg/payments.jpg',
     url: 'payments'
   },
   {
     name: 'Investment',
-    icon: (
-      <img src="/images/asz/services_area/investment-red.svg" />
-    ),
+    image: '/images/asz/services_area/industry-bg/investment.jpg',
     url: 'investment'
   },
   {
     name: 'Real estate',
-    icon: (
-      <img src="/images/asz/services_area/real-estate.svg" />
-    ),
+    image: '/images/asz/services_area/industry-bg/real-estate.jpg',
     url: '/'
   },
   {
     name: 'Retail',
-    icon: (
-      <img src="/images/asz/services_area/retail-blue.svg" />
-    ),
+    image: '/images/asz/services_area/industry-bg/retail.jpg',
     url: '/'
   },
   {
     name: 'Manufacturing',
-    icon: (
-      <img src="/images/asz/services_area/manufacturing-green.svg" />
-    ),
+    image: '/images/asz/services_area/industry-bg/manufacturing.jpg',
     url: 'manufacturing'
   },
   {
     name: 'Logistics & Transport',
-    icon: (
-      <img src="/images/asz/services_area/transportation.svg" />
-    ),
+    image: '/images/asz/services_area/industry-bg/logistics.jpg',
     url: 'logistics-transport'
   },
   {
     name: 'Oil and Gas',
-    icon: (
-      <img src="/images/asz/services_area/oil-and-gas-red.svg" />
-    ),
+    image: '/images/asz/services_area/industry-bg/oil-and-gas.jpg',
     url: '/'
   },
   {
     name: 'Energy & Utilities',
-    icon: (
-      <img src="/images/asz/services_area/energy-yellow.svg" />
-    ),
+    image: '/images/asz/services_area/industry-bg/energy.jpg',
     url: '/'
   },
 ];
 
 // ─── Glow constants ───────────────────────────────────────────────────────────
 const GLOW_COLOR = '255, 107, 53'; // #FF6B35
-const PARTICLE_COUNT = 10;
 const SPOTLIGHT_RADIUS = 320;
 
-// ─── Particle helpers ─────────────────────────────────────────────────────────
-function createParticle(x, y) {
-  const el = document.createElement('div');
-  el.className = 'ic-particle';
-  el.style.cssText = `left:${x}px;top:${y}px;`;
-  return el;
-}
-
-// ─── ParticleCard ─────────────────────────────────────────────────────────────
+// ─── TiltCard (magnetic tilt + click ripple, no particle dots) ──────────────
 function ParticleCard({ children, className = '', style = {} }) {
   const cardRef = useRef(null);
-  const particlesRef = useRef([]);
-  const timeoutsRef = useRef([]);
   const hoveredRef = useRef(false);
   const magAnimRef = useRef(null);
-
-  const clearParticles = useCallback(() => {
-    timeoutsRef.current.forEach(clearTimeout);
-    timeoutsRef.current = [];
-    magAnimRef.current?.kill();
-    particlesRef.current.forEach(p => {
-      gsap.to(p, {
-        scale: 0, opacity: 0, duration: 0.28, ease: 'back.in(1.7)',
-        onComplete: () => p.parentNode?.removeChild(p),
-      });
-    });
-    particlesRef.current = [];
-  }, []);
-
-  const spawnParticles = useCallback(() => {
-    if (!cardRef.current || !hoveredRef.current) return;
-    const { width, height } = cardRef.current.getBoundingClientRect();
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      const tid = setTimeout(() => {
-        if (!hoveredRef.current || !cardRef.current) return;
-        const p = createParticle(Math.random() * width, Math.random() * height);
-        cardRef.current.appendChild(p);
-        particlesRef.current.push(p);
-        gsap.fromTo(p, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: 'back.out(1.7)' });
-        gsap.to(p, { x: (Math.random() - 0.5) * 90, y: (Math.random() - 0.5) * 90, rotation: Math.random() * 360, duration: 2.5 + Math.random() * 2, ease: 'none', repeat: -1, yoyo: true });
-        gsap.to(p, { opacity: 0.25, duration: 1.4, ease: 'power2.inOut', repeat: -1, yoyo: true });
-      }, i * 90);
-      timeoutsRef.current.push(tid);
-    }
-  }, []);
 
   useEffect(() => {
     const el = cardRef.current;
     if (!el) return;
 
-    const onEnter = () => { hoveredRef.current = true; spawnParticles(); };
+    const onEnter = () => { hoveredRef.current = true; };
     const onLeave = () => {
       hoveredRef.current = false;
-      clearParticles();
+      magAnimRef.current?.kill();
       gsap.to(el, { rotateX: 0, rotateY: 0, x: 0, y: 0, duration: 0.35, ease: 'power2.out' });
     };
     const onMove = e => {
@@ -186,9 +123,9 @@ function ParticleCard({ children, className = '', style = {} }) {
       el.removeEventListener('mouseleave', onLeave);
       el.removeEventListener('mousemove', onMove);
       el.removeEventListener('click', onClick);
-      clearParticles();
+      magAnimRef.current?.kill();
     };
-  }, [spawnParticles, clearParticles]);
+  }, []);
 
   return (
     <div ref={cardRef} className={`ic-particle-host ${className}`} style={style}>
@@ -366,6 +303,14 @@ export default function IndustryCards() {
                   style={{ '--glow-color': GLOW_COLOR }}
                 >
 
+                  {/* Background image */}
+                  <div
+                    className="ic-card-bg"
+                    style={{ backgroundImage: `url(${ind.image})` }}
+                  />
+                  {/* Bottom-up gradient overlay for legible text */}
+                  <div className="ic-card-overlay" />
+
                   {/* Noise + sheen layers */}
                   <div className="ic-card-noise" />
                   <div className="ic-card-sheen" />
@@ -377,7 +322,6 @@ export default function IndustryCards() {
                     onClick={() => handlePageLink(ind.url)}
                   >
                     {/* <div className="ic-card-arrow">↗</div> */}
-                    <div className="ic-card-icon">{ind.icon}</div>
                     <span className="ic-card-name">{ind.name}</span>
                   </div>
                 </ParticleCard>

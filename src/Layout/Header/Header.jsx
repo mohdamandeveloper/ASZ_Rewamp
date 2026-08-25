@@ -35,7 +35,7 @@ const NAV_LINKS = [
   { link: "About Us", url: "/about", dropdown: null },
   { link: "Services", url: "/service", dropdown: SERVICES_ITEMS },
   { link: "Products", url: "/products", dropdown: null },
-  { link: "Our Work", url: "/work", dropdown: INDUSTRIES_ITEMS },
+  { link: "Our Work", url: "/works", dropdown: INDUSTRIES_ITEMS },
 ];
 
 const MOBILE_MENU = [

@@ -293,7 +293,7 @@
             inset: 0;
             z-index: 0;
             pointer-events: none;
-            background-color: rgba(0, 0, 0, 0.97);
+            background-color: rgba(0, 0, 0, 0.98);
         }
 
         &__glow {
@@ -1224,17 +1224,21 @@
         text-align: center;
         position: relative;
         overflow: hidden;
-        &::before {
-            content: '';
-            position: absolute;
-            bottom: -150px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 400px;
-            background: radial-gradient(ellipse, rgba(232, 41, 42, 0.12) 0%, transparent 65%);
-            pointer-events: none;
-        }
+        background-image: url('/images/asz/our_clients.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     bottom: -150px;
+        //     left: 50%;
+        //     transform: translateX(-50%);
+        //     width: 600px;
+        //     height: 400px;
+        //     background: radial-gradient(ellipse, rgba(232, 41, 42, 0.12) 0%, transparent 65%);
+        //     pointer-events: none;
+        // }
         .text_overlay{
             left: 50%;
             transform: translate(-50%, -50%) !important;
