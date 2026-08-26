@@ -317,7 +317,7 @@ export default function Header() {
             </div>
             <div className="navbar-actions">
               <Link to="/contact" className="contact-btn">
-                Contact Us <i className="bi bi-chevron-right"></i>
+                Book a Discovery Call <i className="bi bi-chevron-right"></i>
               </Link>
               <LanguageSelector />
             </div>

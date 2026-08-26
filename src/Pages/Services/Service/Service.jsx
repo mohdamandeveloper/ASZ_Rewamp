@@ -180,6 +180,7 @@ export default function Service() {
                     </div>
                 </section> */}
                 <section className="cv">
+                    <div className="grid_overlay"></div>
                     <div className="container">
                         <div className="cv__backdrop"></div>
                         <div className="cv__grid"></div>

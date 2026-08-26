@@ -368,6 +368,7 @@ export default function Products() {
                     </div>
                 </section>
                 <section className="our-product" ref={ourProductRef}>
+                    <div className="grid_overlay"></div>
                     <div className="our-product__container container">
                         <div className="our-work__layout">
                             <div

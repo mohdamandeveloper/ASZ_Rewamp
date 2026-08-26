@@ -767,7 +767,8 @@
         .b-card {
             --accent: var(--brass-dim);
             position: relative;
-            background: var(--surface);
+            z-index: 1;
+            background: rgb(11 11 11);
             border: 1px solid var(--hair);
             border-left: 2px solid color-mix(in srgb, var(--color-primary) 55%, transparent);
             border-radius: 16px;
@@ -781,7 +782,7 @@
         .b-card:hover,
         .b-card:focus-visible {
             transform: translateY(-6px);
-            background: var(--surface-hi);
+            background: rgb(13, 13, 13);
             border-color: color-mix(in srgb, var(--color-primary) 45%, var(--hair));
             border-left-color: var(--color-primary);
             box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.04);

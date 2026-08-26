@@ -493,6 +493,7 @@
     }
 
     .service-card {
+        z-index: 1;
         background: linear-gradient(135deg, #060608, #101014);
         border: 1px solid rgba(255, 255, 255, 0.06);
         border-radius: 20px;

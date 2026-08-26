@@ -461,7 +461,7 @@ export default function Home() {
                                 />
                             </div>
                             <div className="partner_icon mt-5">
-                                <Link to={'/work'}>
+                                <Link to={'/works'}>
                                     See our clients &nbsp;&nbsp; <i class="bi bi-arrow-right"></i>
                                 </Link>
                             </div>
