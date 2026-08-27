@@ -5,7 +5,7 @@
         align-items: center;
         overflow: hidden;
         background: #1c0a3e;
-        padding: 100px 64px 75px 64px;
+        padding: 100px 64px 60px 64px;
 
         &__bg {
             position: absolute;
@@ -97,14 +97,10 @@
 
     /* ─── SERVICES STICKY SECTION ─── */
     .services-section {
-        padding: 100px 0px;
+        padding: 60px 0px;
         max-width: 1300px;
         margin: 0 auto;
 
-        // display: grid;
-        // grid-template-columns: 500px 1fr;
-        // gap: 80px;
-        // align-items: start;
         @media (max-width: 600px) {
             display: block;
             padding: 60px 25px;
@@ -245,7 +241,7 @@
 
     .our-work {
         background: #0a0a0a;
-        padding: 80px 0 100px;
+        padding: 60px 0;
 
         &__container {
             max-width: 1320px;

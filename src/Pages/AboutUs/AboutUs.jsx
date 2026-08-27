@@ -605,10 +605,10 @@ export default function AboutUs() {
                                     </p>
                                 </div>
                                 <div className="go-body">
-                                    <aside className="go-offices mb-5">
+                                    <aside className="go-offices">
                                         <div className="row">
                                             {OFFICES.map((office, index) => (
-                                                <div className={`col-md-3 mb-3`}
+                                                <div className={`col-md-6 col-lg-3 ${index !== OFFICES.length - 1 ? 'mb-3' : ''}`}
                                                         key={index}>
                                                     <div
                                                         key={office.id}

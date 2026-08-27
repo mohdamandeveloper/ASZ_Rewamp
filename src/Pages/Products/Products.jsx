@@ -373,7 +373,7 @@ export default function Products() {
                             </div>
                             <div className="row">
                                 {WORKS.map((w, i) => (
-                                    <div className="col-md-4 mb-5">
+                                    <div className={`col-md-4 ${i !== WORKS.length - 1 ? 'mb-5' : ''}`}>
                                         <div
                                             className="our-work__card-wrap"
                                         >

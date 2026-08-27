@@ -1,8 +1,3 @@
-// ============================================================
-// AccordionSection.scss
-// Theme: rgb(255,107,53) | Dark bg: #0d1b35
-// ============================================================
-
 $acc:          rgb(255, 107, 53);
 $acc-glow:     rgba(255, 107, 53, 0.28);
 $acc-border:   rgba(255, 107, 53, 0.38);
@@ -14,17 +9,11 @@ $text-muted:   rgba(215, 220, 238, 0.84);
 $ease:         cubic-bezier(0.23, 1, 0.32, 1);
 $radius:       16px;
 
-// ============================================================
-// SECTION
-// ============================================================
 .why-section {
   background: #060606;
-  padding: 72px 36px 80px;
+  padding: 60px 36px 60px;
   position: relative;
   overflow: hidden;
-  // font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-
-  // subtle dot grid
   &::before {
     content: '';
     position: absolute;
@@ -37,7 +26,6 @@ $radius:       16px;
     z-index: 0;
   }
 
-  // radial vignette
   &::after {
     content: '';
     position: absolute;
@@ -48,9 +36,6 @@ $radius:       16px;
   }
 }
 
-// ============================================================
-// ANIMATED BLOBS
-// ============================================================
 .why-blob {
   position: absolute;
   border-radius: 50%;
@@ -87,9 +72,6 @@ $radius:       16px;
   to   { transform: translate(-38px, -28px); }
 }
 
-// ============================================================
-// HEADER
-// ============================================================
 .why-header {
   text-align: center;
   max-width: 760px;
@@ -113,9 +95,6 @@ $radius:       16px;
   to   { opacity: 1; transform: none; }
 }
 
-// ============================================================
-// ACCORDION TRACK
-// ============================================================
 .accordion-track {
   display: flex;
   gap: 10px;
@@ -131,9 +110,6 @@ $radius:       16px;
   }
 }
 
-// ============================================================
-// PANEL — BASE
-// ============================================================
 .panel {
   position: relative;
   border-radius: $radius;

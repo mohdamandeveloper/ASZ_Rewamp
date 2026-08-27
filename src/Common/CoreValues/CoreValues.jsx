@@ -72,7 +72,7 @@ export default function CoreValues() {
         <div className="cv-layout">
           <div className='row'>
             <div className='col-md-4'>
-              <div className="cv-grid-cards mb-4">
+              <div className="cv-grid-cards">
                 {BEARINGS.map((b, i) => i == 0  ? (
                   <BearingCard
                     key={b.code}

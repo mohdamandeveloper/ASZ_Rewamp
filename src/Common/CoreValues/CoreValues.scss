@@ -30,7 +30,7 @@
   &.cv {
     position: relative;
     overflow: hidden;
-    padding: 75px 0px 75px;
+    padding: 60px 0px 60px;
     background-color: #050505;
 
     .cv__ring {
@@ -170,10 +170,6 @@
     }
 
     @media (max-width: 620px) {
-      .cv {
-        padding: 80px 16px 90px;
-      }
-
       .cv-head {
         margin-bottom: 56px;
       }

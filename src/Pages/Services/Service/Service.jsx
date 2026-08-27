@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import 'swiper/css';
 import { Link } from 'react-router-dom';
 import './Service.scss';
-import BearingCard from "../../../Common/CoreValues/BearingCard";
+import ServiceBearingCard from "./ServiceBearingCard/ServiceBearingCard";
 
 const BEARINGS = [
     {
@@ -148,7 +148,7 @@ export default function Service() {
                                         <div className={`col-md-6 col-lg-4 ${i == 6 ? 'offset-md-4' : ''}`}>
                                             <Link to={b.url}>
                                                 <div className="cv-grid-cards mb-4" style={{ cursor: 'pointer' }}>
-                                                    <BearingCard
+                                                    <ServiceBearingCard
                                                         key={b.code}
                                                         bearing={b}
                                                         onActivate={() => setActiveIndex(i)}
