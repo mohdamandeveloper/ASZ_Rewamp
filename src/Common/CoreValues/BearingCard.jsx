@@ -1,9 +1,7 @@
 import { useRef } from 'react'
 import ValueIcon from './icons.jsx'
+import './BearingCard.scss';
 
-// Kept deliberately subtle — this is a text card, not a poster image,
-// so the tilt (TiltedCard-style) and magnetism (MagicBento-style) amplitudes
-// stay small. No particle/bubble effect is used.
 const TILT_AMPLITUDE = 7 // degrees
 const MAGNETISM = 0.02
 

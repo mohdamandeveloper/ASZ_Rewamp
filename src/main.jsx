@@ -7,15 +7,10 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } 
 import Home from './Pages/Home/Home.jsx'
 import ContactUs from './Pages/ContactUs/ContactUs.jsx'
 import AboutUs from './Pages/AboutUs/AboutUs.jsx'
-import HomeDark from './Pages/HomeDark/HomeDark.jsx';
 import CustomSoftwareDevelopment from './Pages/Services/CustomSoftDevelopment/CustomSoftDevelopment.jsx';
 import MobileAppDevelopment from './Pages/Services/MobileAppDevelopment/MobileAppDevelopment.jsx';
-import AndroidAppDevelopment from './Pages/Services/AndroidAppDevelopment/AndroidAppDevelopment.jsx';
-import IOSAppDevelopment from './Pages/Services/IOSAppDevelopment/IOSAppDevelopment.jsx';
 import Services from './Pages/Services/Services.jsx';
 import Products from './Pages/Products/Products.jsx';
-import Products2 from './Pages/Products2/Products2.jsx';
-import ProductsDetails from './Pages/ProductsDetails/ProductsDetails.jsx';
 import CaseStudyDetail from './Pages/CaseStudyDetail/CaseStudyDetail.jsx';
 import Service from './Pages/Services/Service/Service.jsx';
 import TestingQA from './Pages/Services/TestingQA/TestingQA.jsx';
@@ -23,21 +18,13 @@ import UxUiDesign from './Pages/Services/UxUiDesign/UxUiDesign.jsx';
 import ItConsulting from './Pages/Services/ItConsulting/ItConsulting.jsx';
 import DataAnalytics from './Pages/Services/DataAnalytics/DataAnalytics.jsx';
 import CyberSecrurityServices from './Pages/Services/CyberSecrurityServices/CyberSecrurityServices.jsx';
-import Work from './Pages/Work/Work.jsx';
-import Works from './Pages/Work/Works/Works.jsx';
-import Banking from './Pages/Work/Banking/Banking.jsx';
-import Health from './Pages/Work/Healthcare/Health.jsx';
-import Investment from './Pages/Work/Investment/Investment.jsx';
-import Logistics from './Pages/Work/Logistics/Logistics.jsx';
-import Manufacturing from './Pages/Work/Manufacturing/Manufacturing.jsx';
-import Payments from './Pages/Work/Payments/Payments.jsx';
+import Works from './Pages/Works/Works.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Home />} />
       <Route path='home' element={<Home />} />
-      <Route path='home-dark' element={<HomeDark />} />
       <Route path='about' element={<AboutUs />} />
       <Route path='service' element={<Service />} />
       <Route path='services' element={<Services />}>
@@ -48,21 +35,9 @@ const router = createBrowserRouter(
         <Route path='it-consulting' element={<ItConsulting />} />
         <Route path='data-analytics' element={<DataAnalytics />} />
         <Route path='cybersecurity-services' element={<CyberSecrurityServices />} />
-        <Route path='android-app-development' element={<AndroidAppDevelopment />} />
-        <Route path='ios-app-development' element={<IOSAppDevelopment />} />
       </Route>
       <Route path='products' element={<Products />} />
-      <Route path='products/:id' element={<ProductsDetails />} /> 
-      <Route path='products2' element={<Products2 />} />
       <Route path='works' element={<Works />} />
-      <Route path='work' element={<Work />} >
-        <Route path='banking' element={<Banking />} />
-        <Route path='healthcare' element={<Health />} />
-        <Route path='investment' element={<Investment />} />
-        <Route path='logistics-transport' element={<Logistics />} />
-        <Route path='manufacturing' element={<Manufacturing />} />
-        <Route path='payments' element={<Payments />} />
-      </Route>
       <Route path='contact' element={<ContactUs />} />
       <Route path="case-study/:id" element={<CaseStudyDetail />} />
     </Route>

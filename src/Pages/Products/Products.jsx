@@ -1,19 +1,6 @@
 // import './Header.scss';
-import React, { useMemo, useState, useRef } from "react";
-import { Bot, TrendingUp, Settings, Eye, Laptop, Landmark, BarChart3, Cloud, Link2, Globe, ArrowRight } from "lucide-react";
-import FeaturedProduct from "../../Common/ProductPage/Featuredproduct/Featuredproduct";
-import HowItWorks from "../../Common/ProductPage/Howitworks/Howitworks";
-import ProductBenefits from "../../Common/ProductPage/Productbenefits/Productbenefits";
-import ProductCardsSlider from "../../Common/ProductPage/Productcardsslider/Productcardsslider";
-import ProductCategories from "../../Common/ProductPage/Productcategories/Productcategories";
-import ProductCTA from "../../Common/ProductPage/Productcta/Productcta";
-import ProductFeatures from "../../Common/ProductPage/Productfeatures/Productfeatures";
-import ProductHero from "../../Common/ProductPage/ProductHero/Producthero";
-import ProductShowcaseGrid from "../../Common/ProductPage/Productshowcasegrid/Productshowcasegrid";
-import TechStack from "../../Common/ProductPage/Techstack/Techstack";
-import Testimonials from "../../Common/ProductPage/Testimonials/Testimonials";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import React, { useRef } from "react";
+import { ArrowRight } from "lucide-react";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -309,8 +296,6 @@ The underutilised licence detection was the feature that drove the most immediat
     },
 ];
 
-const TAG_DEFAULT_COLOR = "#ff6b35";
-
 export default function Products() {
     const ourProductRef = useRef(null);
     return (
@@ -411,82 +396,6 @@ export default function Products() {
                         </div>
                     </div>
                 </section>
-                {/* <ProductHero /> */}
-                {/* <FeaturedProduct /> */}
-                {/* <ProductShowcaseGrid /> */}
-                {/* <ProductFeatures /> */}
-                {/* <ProductCategories /> */}
-                {/* <ProductCardsSlider /> */}
-                {/* <ProductBenefits /> */}
-                {/* <HowItWorks /> */}
-                {/* <TechStack /> */}
-                {/* <Testimonials />
-                <ProductCTA /> */}
-                {/* <section className="our-work">
-                    <div className="our-work__container">
-                        <div className="our-work__header">
-                            <div>
-                                <div className='hero_badge'><span></span>Real Challenges.</div>
-                                <h2 className="heading_title mb-4" style={{ color: 'white' }}>
-                                    Our <span>Case Studies</span>
-                                </h2>
-                                <p className='heading_subtitle mt-2 mb-0'>Discover real-world success stories showcasing our expertise, strategic approach, and the impactful results we've achieved for clients across various industries.</p>
-                            </div>
-                            <div className="our-work__nav">
-                                <button className="our-work__nav-btn our-work__nav-btn--prev" id="ourWorkPrev">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                        <polyline points="15 18 9 12 15 6" />
-                                    </svg>
-                                </button>
-                                <button className="our-work__nav-btn our-work__nav-btn--next" id="ourWorkNext">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                        <polyline points="9 18 15 12 9 6" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <Swiper
-                            modules={[Navigation]}
-                            loop={true}
-                            slidesPerView={3}
-                            spaceBetween={24}
-                            navigation={{
-                                prevEl: '#ourWorkPrev',
-                                nextEl: '#ourWorkNext',
-                            }}
-                            breakpoints={{
-                                0: { slidesPerView: 1 },
-                                600: { slidesPerView: 2 },
-                                1024: { slidesPerView: 3 },
-                            }}
-                            className="our-work__swiper"
-                        >
-                            {WORKS.map((w) => (
-                                <SwiperSlide key={w.id}>
-                                    <Link to={`/case-study/${w.id}`} className="our-work__card">
-                                        <div className="our-work__cover" style={{ background: w.coverBg }}>
-                                            <img src={w.coverImage} alt={w.title} className="our-work__cover-img" />
-                                        </div>
-                                        <div className="our-work__info">
-                                            <div className="our-work__tags">
-                                                {w.tags.map((tag, i) => (
-                                                    <span
-                                                        key={tag}
-                                                        className="our-work__tag"
-                                                        style={{ color: w.tagColors?.[i] || TAG_DEFAULT_COLOR, borderColor: w.tagColors?.[i] || TAG_DEFAULT_COLOR }}
-                                                    >
-                                                        {tag}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                            <p className="our-work__title">{w.title}</p>
-                                        </div>
-                                    </Link>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                    </div>
-                </section> */}
             </div>
         </>
     )

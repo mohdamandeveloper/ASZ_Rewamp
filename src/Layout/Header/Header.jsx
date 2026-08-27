@@ -15,15 +15,6 @@ const SERVICES_ITEMS = [
   { label: "CyberSecurity Services", url: "/services/cybersecurity-services" },
 ];
 
-const INDUSTRIES_ITEMS = [
-  { label: "Healthcare", url: "/work/healthcare" },
-  { label: "Banking", url: "/work/banking" },
-  { label: "Logistics & Transport", url: "/work/logistics-transport" },
-  { label: "Payments", url: "/work/payments" },
-  { label: "Manufacturing", url: "/work/manufacturing" },
-  { label: "Investment", url: "/work/investment" },
-  // { label: "CyberSecurity Services", url: "/services/cybersecurity-services" },
-];
 
 const PRODUCTS_ITEMS = [
   { label: "Product 1", url: "/products" },
@@ -35,7 +26,7 @@ const NAV_LINKS = [
   { link: "About Us", url: "/about", dropdown: null },
   { link: "Services", url: "/service", dropdown: SERVICES_ITEMS },
   { link: "Products", url: "/products", dropdown: null },
-  { link: "Our Work", url: "/works", dropdown: INDUSTRIES_ITEMS },
+  { link: "Our Work", url: "/works", dropdown: null },
 ];
 
 const MOBILE_MENU = [

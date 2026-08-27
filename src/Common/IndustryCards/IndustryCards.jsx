@@ -10,10 +10,6 @@ import { gsap } from 'gsap';
 import { useNavigate } from 'react-router-dom';
 import './IndustryCards.scss';
 
-// ─── Data ───────────────────────────────────────────────────────────────────
-
-// NOTE: swap these `image` paths for your real industry photography —
-// keeping the same /images/asz/... convention used elsewhere in the app.
 const INDUSTRIES = [
   {
     name: 'Healthcare',
@@ -194,26 +190,6 @@ function GlobalSpotlight({ gridRef }) {
   return null;
 }
 
-// ─── SVG filter (hidden) ──────────────────────────────────────────────────────
-// function MetallicFilter() {
-//   return (
-//     <svg className="ic-svg-filter" aria-hidden="true">
-//       <defs>
-//         <filter id="ic-metal" x="-20%" y="-20%" width="140%" height="140%">
-//           <feTurbulence type="turbulence" baseFrequency="0.03" numOctaves="2" result="noise" />
-//           <feColorMatrix in="noise" type="luminanceToAlpha" result="noiseAlpha" />
-//           <feDisplacementMap in="SourceGraphic" in2="noise" scale="22" xChannelSelector="R" yChannelSelector="G" result="rippled" />
-//           <feSpecularLighting in="noiseAlpha" surfaceScale="22" specularConstant="1.4" specularExponent="20" lightingColor="#ffffff" result="light">
-//             <fePointLight x="0" y="0" z="300" />
-//           </feSpecularLighting>
-//           <feComposite in="light" in2="rippled" operator="in" result="le" />
-//           <feBlend in="le" in2="rippled" mode="screen" />
-//         </filter>
-//       </defs>
-//     </svg>
-//   );
-// }
-
 // ─── Decorative SVG background graphics ──────────────────────────────────────
 function BgGraphics() {
   return (
@@ -267,17 +243,9 @@ export default function IndustryCards() {
   return (
     <section className="ic-section">
       <div className='grid_overlay'></div>
-      {/* <motion.div
-        className="bg_color_overlay text_overlay"
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
-      </motion.div> */}
       <div className='container'>
         <div className='row'>
           <div className='col-md-12'>
-            {/* <MetallicFilter /> */}
             <BgGraphics />
 
             <div className="ic-header">
@@ -302,26 +270,18 @@ export default function IndustryCards() {
                   className={`ic-card ic-card--glow`}
                   style={{ '--glow-color': GLOW_COLOR }}
                 >
-
-                  {/* Background image */}
                   <div
                     className="ic-card-bg"
                     style={{ backgroundImage: `url(${ind.image})` }}
                   />
-                  {/* Bottom-up gradient overlay for legible text */}
                   <div className="ic-card-overlay" />
-
-                  {/* Noise + sheen layers */}
                   <div className="ic-card-noise" />
                   <div className="ic-card-sheen" />
                   <div className="ic-card-border" />
-
-                  {/* Content */}
                   <div
                     className="ic-card-content"
                     onClick={() => handlePageLink(ind.url)}
                   >
-                    {/* <div className="ic-card-arrow">↗</div> */}
                     <span className="ic-card-name">{ind.name}</span>
                   </div>
                 </ParticleCard>

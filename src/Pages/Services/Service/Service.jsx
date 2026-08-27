@@ -1,16 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import 'swiper/css';
-import { Link, Links } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Service.scss';
 import BearingCard from "../../../Common/CoreValues/BearingCard";
-
-
-function hexPath(cx, cy, r) {
-    return Array.from({ length: 6 }, (_, i) => {
-        const a = (Math.PI / 3) * i - Math.PI / 6;
-        return `${cx + r * Math.cos(a)},${cy + r * Math.sin(a)}`;
-    }).join(" L ").replace(/^/, "M ") + " Z";
-}
 
 const BEARINGS = [
     {
@@ -85,14 +77,7 @@ const BEARINGS = [
     }
 ]
 
-
 export default function Service() {
-    const sectionRef = useRef(null);
-    const [activeIndex, setActiveIndex] = useState(null);
-    const active = activeIndex !== null ? BEARINGS[activeIndex] : null;
-    const glowColor = active ? `var(${active.accentVar})` : 'var(--brass-dim)';
-    const glowOpacity = active ? 0.3 : 0.14;
-
     useEffect(() => {
         const panels = document.querySelectorAll('.panel');
 
@@ -119,8 +104,6 @@ export default function Service() {
         <>
             <div className="service_page">
                 <section class="services-hero">
-                    {/* <div class="services-hero__bg" aria-hidden="true"></div> */}
-
                     <div class="services-hero__media" aria-hidden="true">
                         <img
                             class="services-hero__image"
@@ -129,11 +112,8 @@ export default function Service() {
                         />
                         <div class="services-hero__overlay"></div>
                     </div>
-
                     <div class="services-hero__inner container">
-
                         <span class="hero_badge">Our Services</span>
-
                         <h1 class="heading_title services-hero__title">
                             Building digital <span >products</span>&nbsp;
                             that perform, platforms <span class="services-hero__title--muted">that scale</span>,
@@ -152,33 +132,6 @@ export default function Service() {
                         </div>
                     </div>
                 </section>
-                {/* <section className="hero-section" ref={sectionRef} aria-label="ASZ Technologies hero banner">
-                    <svg
-                        className="bg-canvas"
-                        viewBox="0 0 100 100"
-                        preserveAspectRatio="xMidYMid slice"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                    >
-                        <g>
-                            {[
-                                [8, 72, 9], [25, 10, 7], [85, 15, 8],
-                                [95, 60, 6], [60, 90, 7.5], [45, 50, 5],
-                            ].map(([cx, cy, r], i) => (
-                                <path key={i} className="hex-shape" d={hexPath(cx, cy, r)} />
-                            ))}
-                        </g>
-                    </svg>
-                    <div className="hero-content">
-                        <div className="hero-eyebrow">
-                            <h6 className="hero_badge"><span></span>Our Services</h6>
-                            <h1 className="heading_title mb-4">Technology Solutions <br /><span className="c_primary">That Drive Your Business Forward</span></h1>
-                        </div>
-                        <p className="hero-subtitle">
-                            From idea to impact, we deliver end-to-end IT Services that empower businesses to innovate, optimize and grow in a digital-first world.
-                        </p>
-                    </div>
-                </section> */}
                 <section className="cv">
                     <div className="grid_overlay"></div>
                     <div className="container">
@@ -189,15 +142,6 @@ export default function Service() {
                         <div className="cv__noise"></div>
 
                         <div className="cv__inner">
-                            {/* <header className="cv-head">
-                                <h2 className="heading_title cv-head__title" style={{ color: 'white' }}>
-                                    Everything you need to <span>build and scale</span>
-                                </h2>
-                                <p className="cv-head__sub">
-                                    Seven disciplines, one team. From first line of code to production rollout, ASZ Technologies covers the full stack — software, web, mobile, design, strategy, data, and security.
-                                </p>
-                            </header> */}
-
                             <div className="cv-layout">
                                 <div className='row'>
                                     {BEARINGS.map((b, i) => (

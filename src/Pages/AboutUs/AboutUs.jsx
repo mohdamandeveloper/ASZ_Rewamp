@@ -1,88 +1,16 @@
 import React, { useEffect, useRef, useState,useCallback } from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import { Link } from 'react-router-dom';
 import './AboutUs.scss';
 import AccordionSection from "../../Common/AccordionSection/AccordionSection";
-import FAQSection from "../../Common/FaqSection/FaqSection";
 import CoreValues from "../../Common/CoreValues/CoreValues";
 
-// Decide which side a marker's tooltip should open toward so it never
-// gets clipped by the edge of the map container.
-function getMarkerEdgeClass(markerPos) {
-    const left = parseFloat(markerPos.left);
-    const top = parseFloat(markerPos.top);
-    const classes = [];
-
-    if (left >= 72) classes.push("go-marker--edge-right");
-    else if (left <= 18) classes.push("go-marker--edge-left");
-
-    if (top <= 16) classes.push("go-marker--flip-below");
-
-    return classes.join(" ");
-}
-
-function hexPath(cx, cy, r) {
-    return Array.from({ length: 6 }, (_, i) => {
-        const a = (Math.PI / 3) * i - Math.PI / 6;
-        return `${cx + r * Math.cos(a)},${cy + r * Math.sin(a)}`;
-    }).join(" L ").replace(/^/, "M ") + " Z";
-}
 
 const statsData = [
     { id: 1, target: 12, suffix: "+", label: "Years of Experience" },
     { id: 2, target: 2000, suffix: "+", label: "Products Delivered" },
     { id: 3, target: 50, suffix: "+", label: "Countries Served" },
     { id: 4, target: 500, suffix: "+", label: "Tech Enthusiasts" },
-];
-
-const cardsData = [
-    {
-        id: 1,
-        title: "Human Centric",
-        description:
-            "We work hand-in-hand with you at every stage, prioritizing clear communication and real collaboration over rigid process.",
-        icon: (
-            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-                <path d="M22 6L38 16L22 26L6 16L22 6Z" fill="rgb(255,107,53)" />
-                <path
-                    d="M22 26L38 16V24L22 34L6 24V16L22 26Z"
-                    fill="rgba(255,107,53,0.55)"
-                />
-            </svg>
-        ),
-    },
-    {
-        id: 2,
-        title: "Exceptional Expertise",
-        description:
-            "Our seasoned team brings top-tier innovation and best-in-class development methodology to every project we touch.",
-        icon: (
-            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-                <path d="M22 6L38 36H6L22 6Z" fill="rgb(255,107,53)" />
-            </svg>
-        ),
-    },
-    {
-        id: 3,
-        title: "End-to-End Support",
-        description:
-            "From concept to launch and well beyond, ASZ provides continuous maintenance and support — we don't disappear once the invoice is paid.",
-        icon: (
-            <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-                <circle cx="16" cy="22" r="11" fill="rgb(255,107,53)" />
-                <path
-                    d="M22 22C22 15.9249 26.9249 11 33 11C33 17.0751 28.0751 22 22 22Z"
-                    fill="rgba(255,107,53,0.55)"
-                />
-                <path
-                    d="M22 22C22 28.0751 26.9249 33 33 33C33 26.9249 28.0751 22 22 22Z"
-                    fill="rgba(255,107,53,0.85)"
-                />
-            </svg>
-        ),
-    },
 ];
 
 // ===== Count-up stat =====
@@ -189,25 +117,6 @@ const ParticleLayer = () => {
 
     return <canvas ref={canvasRef} className="who-are-we__particles" />;
 };
-
-const partners = [
-    { text: 'Client1', src: '/images/asz/client-1.png', type: 'text' },
-    { text: 'Client2', src: '/images/asz/client-2.png', type: 'text' },
-    { name: 'Client3', src: '/images/asz/client-3.png', type: 'img' },
-    { text: 'Client4', src: '/images/asz/client-4.png', type: 'text' },
-    { text: 'Client5', src: '/images/asz/client-5.png', type: 'text' },
-    { text: 'Client6', src: '/images/asz/client-6.png', type: 'text' },
-    { text: 'Client7', src: '/images/asz/client-7.png', type: 'text' },
-    { text: 'Client8', src: '/images/asz/client-8.png', type: 'text' },
-    { text: 'Client9', src: '/images/asz/client-9.png', type: 'text' },
-    { text: 'Client10', src: '/images/asz/client-10.png', type: 'text' },
-    { text: 'Client11', src: '/images/asz/client-11.png', type: 'text' },
-    { text: 'Client12', src: '/images/asz/client-12.png', type: 'text' },
-    { text: 'Client13', src: '/images/asz/client-13.png', type: 'text' },
-    { text: 'Client14', src: '/images/asz/client-14.png', type: 'text' },
-    { text: 'Client15', src: '/images/asz/client-15.png', type: 'text' },
-    { text: 'Client16', src: '/images/asz/client-16.png', type: 'text' },
-];
 
 const OFFICES = [
     {
@@ -423,11 +332,7 @@ const MAP_PATHS = {
     "zimbabwe": "M563.295,309.419L561.872,309.153L560.969,309.474L559.68,309.022L558.594,308.99L556.893,307.783L554.826,307.376L554.037,305.682L554.037,304.741L552.893,304.452L549.865,301.519L549.029,299.973L548.49,299.499L547.462,297.361L550.452,297.654L551.317,297.962L552.22,297.903L553.701,296.172L556.018,293.975L556.979,293.768L557.296,292.841L558.825,291.779L560.844,291.413L561.017,292.407L563.247,292.353L564.477,292.918L565.054,293.578L566.323,293.772L567.717,294.631L567.717,298.012L567.198,299.86L567.083,301.858L567.515,302.649L567.217,304.222L566.814,304.461L566.102,306.387Z"
 };
 
-// Split the world map into a "west of India" half and an "India-eastward"
-// half so the hero banner can show one on each side of the headline,
-// symmetrical around the India marker. Only the paths that actually fall
-// on each side are kept, so we're not rendering ~150 hidden shapes twice.
-const HERO_MAP_SPLIT_X = 740; // east edge of India's landmass in map units
+const HERO_MAP_SPLIT_X = 740; 
 function averagePathX(d) {
     const xs = [];
     const re = /(-?\d+\.?\d*),(-?\d+\.?\d*)/g;
@@ -442,12 +347,6 @@ const HERO_MAP_RIGHT = Object.entries(MAP_PATHS).filter(
     ([, d]) => averagePathX(d) >= HERO_MAP_SPLIT_X
 );
 
-// OFFICES' markerPos values are percentages against the single full-map
-// viewBox used by the (currently unused) go-map-wrap SVG below:
-// viewBox="380 120 580 270". Converting back to those raw units lets the
-// hero map's dots share the exact same coordinate space as MAP_PATHS, so
-// they land precisely on each country regardless of screen size — no
-// separate HTML overlay/positioning math needed.
 const HERO_MAP_VIEWBOX = { x: 380, y: 120, w: 580, h: 270 };
 function markerPosToXY(markerPos) {
     return {
@@ -478,11 +377,8 @@ export default function AboutUs() {
     const [justClickedId, setJustClickedId] = useState(null);
     const flashTimeoutRef = useRef(null);
     const handleCardEnter = useCallback((id) => setActiveId(id), []);
-        const handleCardLeave = useCallback(() => setActiveId(null), []);
+    const handleCardLeave = useCallback(() => setActiveId(null), []);
 
-    // Clicking a map marker scrolls the page to that office's card and
-    // highlights it briefly (2.5s) so the connection between the dot and
-    // the card is obvious, independent of hover state.
     const handleMarkerClick = useCallback((id) => {
         setActiveId(id);
         const card = document.getElementById(`office-${id}`);
@@ -533,22 +429,6 @@ export default function AboutUs() {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
-                                {/* <svg
-                                    className="bg-canvas"
-                                    viewBox="0 0 100 100"
-                                    preserveAspectRatio="xMidYMid slice"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true"
-                                >
-                                    <g>
-                                        {[
-                                            [8, 72, 9], [25, 10, 7], [85, 15, 8],
-                                            [95, 60, 6], [60, 90, 7.5], [45, 50, 5],
-                                        ].map(([cx, cy, r], i) => (
-                                            <path key={i} className="hex-shape" d={hexPath(cx, cy, r)} />
-                                        ))}
-                                    </g>
-                                </svg> */}
                                 <div className="hero-world-map">
                                     <svg
                                         className="hero-world-map__half hero-world-map__half--left"
@@ -671,9 +551,6 @@ export default function AboutUs() {
                     <div className="who-are-we__overlay"></div>
                     <ParticleLayer />
                     <div className="who-are-we__container container">
-                        {/* Top row: heading + image + stats */}
-                        {/* <div className="who-are-we__top"> */}
-                        {/* <div className="who-are-we__intro"> */}
                         <div className="row">
                             <div className="col-md-6">
                                 <div className="who-are-we__image-wrap">
@@ -702,26 +579,6 @@ export default function AboutUs() {
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="row mt-5">
-                            <div className="col-md-12">
-                                <div className="who-are-we__cards">
-                                    {cardsData.map((card) => (
-                                        <div className="who-are-we__card" key={card.id}>
-                                            <div className="who-are-we__card-icon">{card.icon}</div>
-                                            <h3 className="who-are-we__card-title">{card.title}</h3>
-                                            <p className="who-are-we__card-desc">{card.description}</p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div> */}
-                        {/* </div> */}
-
-
-                        {/* </div> */}
-
-                        {/* Bottom row: feature cards */}
-
                     </div>
                 </section>
                 <section className="go-section" aria-label="Global offices">
@@ -729,15 +586,6 @@ export default function AboutUs() {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
-                                {/* Ambient orbs */}
-                                {/* <div className="go-orb go-orb--1" aria-hidden="true" />
-                <div className="go-orb go-orb--2" aria-hidden="true" />
-                <div className="go-orb go-orb--3" aria-hidden="true" /> */}
-
-                                {/* Subtle grid */}
-                                {/* <div className="go-grid" aria-hidden="true" /> */}
-
-                                {/* Floating particles */}
                                 <div className="go-particles" aria-hidden="true">
                                     {PARTICLES.map(p => (
                                         <span
@@ -746,11 +594,6 @@ export default function AboutUs() {
                                         />
                                     ))}
                                 </div>
-
-                                {/* Shimmer bar */}
-                                {/* <div className="go-shimmer-bar" aria-hidden="true" /> */}
-
-                                {/* Heading */}
                                 <div className="contact_headline text-center mb-5">
                                     <h6 className="hero_badge">Connect with us</h6>
                                     <h2 className="heading_title go-title" style={{ color: 'white' }}>
@@ -761,15 +604,8 @@ export default function AboutUs() {
                                         of a local partner, with the flexibility and cost-effectiveness of great global talent.
                                     </p>
                                 </div>
-
-
-                                {/* Body */}
                                 <div className="go-body">
-
-                                    {/* ── Offices list ── */}
-
                                     <aside className="go-offices mb-5">
-                                        {/* <div className="go-offices-label">Offices</div> */}
                                         <div className="row">
                                             {OFFICES.map((office, index) => (
                                                 <div className={`col-md-3 mb-3`}
@@ -804,81 +640,6 @@ export default function AboutUs() {
                                             ))}
                                         </div>
                                     </aside>
-                                    {/* ── Map ── */}
-                                    {/* <div className="go-map-wrap">
-                                        <svg
-                                            className="go-map-svg"
-                                            viewBox="380 120 580 270"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            aria-hidden="true"
-                                        >
-                                            <defs>
-                                                <filter id="glow-filter" x="-30%" y="-30%" width="160%" height="100%">
-                                                    <feGaussianBlur stdDeviation="4" result="blur" />
-                                                    <feMerge>
-                                                        <feMergeNode in="blur" />
-                                                        <feMergeNode in="SourceGraphic" />
-                                                    </feMerge>
-                                                </filter>
-                                            </defs>
-                                            {Object.entries(MAP_PATHS).map(([key, d]) => {
-                                                const isCountry = ["india", "singapore", "uae", "australia"].includes(key);
-                                                const highlighted = isCountry && activeId === key;
-                                                return (
-                                                    <path
-                                                        key={key}
-                                                        d={d}
-                                                        className={`map-country${highlighted ? " is-highlighted" : ""}`}
-                                                        style={
-                                                            highlighted
-                                                                ? { filter: "url(#glow-filter)" }
-                                                                : {}
-                                                        }
-                                                    />
-                                                );
-                                            })}
-
-                                            {[100, 150, 200, 250, 300, 350, 400].map(y => (
-                                <line key={y} x1="0" y1={y} x2="900" y2={y}
-                                    stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
-                            ))}
-                            {[100, 200, 300, 400, 500, 600, 700, 800].map(x => (
-                                <line key={x} x1={x} y1="0" x2={x} y2="500"
-                                    stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
-                            ))}
-                                        </svg>
-                                        {OFFICES.map((office) => (
-                                            <div
-                                                key={office.id}
-                                                className={`go-marker${activeId === office.id ? " is-active" : ""} ${getMarkerEdgeClass(office.markerPos)}`}
-                                                style={{ left: office.markerPos.left, top: office.markerPos.top }}
-                                                onMouseEnter={() => handleCardEnter(office.id)}
-                                                onMouseLeave={handleCardLeave}
-                                                onClick={() => handleMarkerClick(office.id)}
-                                                onKeyDown={(e) => {
-                                                    if (e.key === "Enter" || e.key === " ") {
-                                                        e.preventDefault();
-                                                        handleMarkerClick(office.id);
-                                                    }
-                                                }}
-                                                role="button"
-                                                tabIndex={0}
-                                                aria-label={`Go to ${office.country} office details`}
-                                                onFocus={() => handleCardEnter(office.id)}
-                                                onBlur={handleCardLeave}
-                                            >
-                                                <div className="go-marker__ring" />
-                                                <div className="go-marker__pin" />
-                                                <div className="go-marker__label">
-                                                    <strong>{office.country} — {office.type}</strong>
-                                                    <span>{office.company}</span>
-                                                    <span style={{ marginTop: "4px" }}>
-                                                        {office.address.replace("\n", ", ")}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div> */}
                                 </div>
                             </div>
                         </div>
@@ -886,56 +647,6 @@ export default function AboutUs() {
                 </section>
                 <CoreValues />
                 <AccordionSection />
-                {/* <FAQSection /> */}
-                {/* <section className="partners-section">
-                    <div className="container">
-                        <div>
-                            <h3 className="heading_title text-center mb-2" style={{ color: 'white' }}>
-                                <span>We Support</span> Customers Around The Globe
-                            </h3>
-                            <p className="heading_subtitle mb-5">Delivering innovative technology solutions to businesses worldwide, building lasting partnerships across industries and regions.</p>
-                            <div className="partners-row">
-                                <Swiper
-                                    spaceBetween={50}
-                                    slidesPerView={4.5}
-                                    modules={[Autoplay]}
-                                    breakpoints={{
-                                        240: {
-                                            slidesPerView: 2,
-                                            spaceBetween: 20,
-                                        },
-                                        768: {
-                                            slidesPerView: 3,
-                                            spaceBetween: 40,
-                                        },
-                                        1024: {
-                                            slidesPerView: 4,
-                                            spaceBetween: 50,
-                                        },
-                                        1200: {
-                                            slidesPerView: 5,
-                                            spaceBetween: 50,
-                                        },
-                                    }}
-                                    autoplay={{
-                                        delay: 1500,
-                                        disableOnInteraction: false,
-                                    }}
-                                >
-                                    {partners.map((p, i) => (
-                                        <SwiperSlide>
-                                            <div
-                                                key={i}
-                                                className="partner-item">
-                                                <img src={p.src} alt={p.name} loading="lazy" />
-                                            </div>
-                                        </SwiperSlide>
-                                    ))}
-                                </Swiper>
-                            </div>
-                        </div>
-                    </div>
-                </section> */}
             </div>
         </>
     )

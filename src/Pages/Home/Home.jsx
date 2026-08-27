@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useInView, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
-import { Bot, TrendingUp, Settings, Eye, Laptop, Landmark, BarChart3, Cloud, Link2, Globe, ArrowRight } from "lucide-react";
+import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
+import { ArrowRight } from "lucide-react";
 import './Home.scss';
 import IndustryCards from "../../Common/IndustryCards/IndustryCards";
 import { useLanguage, useTranslation } from "../../Context/LanguageContext";
@@ -15,16 +15,7 @@ const statsData = [
     { id: 4, value: 98, suffix: "%" },
 ];
 useLanguage
-const platformIcons = [
-    <Bot size={22} />,
-    <TrendingUp size={22} />,
-    <Settings size={22} />,
-    <Eye size={22} />,
-];
 
-// Non-translated visual metadata for the AI Platform bento grid — kept in the
-// same index order as t.platform / platformIcons so content stays driven by
-// the language file while the imagery/badges live here.
 const bentoMeta = [
     { badge: "Featured", image: "/images/home/8machine.jpg" },
     { badge: "Real-Time Insights" },
@@ -51,22 +42,11 @@ const partners = [
     { text: 'Client16', src: '/images/asz/client-16.png', type: 'text' },
 ];
 
-// Same partner artwork reshaped into LogoLoop's { src, alt, title } item
-// shape — both loop rows below read from this single array.
 const partnerLogos = partners.map((p) => ({
     src: p.src,
     alt: p.name || p.text,
     title: p.name || p.text,
 }));
-
-const servicesMeta = [
-    { id: "01", icon: <Laptop size={22} /> },
-    { id: "02", icon: <Landmark size={22} /> },
-    { id: "03", icon: <BarChart3 size={22} /> },
-    { id: "04", icon: <Cloud size={22} /> },
-    { id: "05", icon: <Link2 size={22} /> },
-    { id: "06", icon: <Globe size={22} /> },
-];
 
 const Counter = ({ value, suffix, duration = 2000 }) => {
     const [count, setCount] = useState(0);
@@ -102,9 +82,6 @@ const Counter = ({ value, suffix, duration = 2000 }) => {
     );
 };
 
-// TiltedBentoCard — merges the React Bits "TiltedCard" mouse-tilt effect
-// with the React Bits "MagicBento" cursor spotlight / border-glow effect.
-// The particle ("bubble") effect from MagicBento is intentionally left out.
 const TiltedBentoCard = ({ children, className = "", glowColor = "255, 107, 53", rotateAmplitude = 7, scaleOnHover = 1.015 }) => {
     const cardRef = useRef(null);
     const springCfg = { damping: 28, stiffness: 180, mass: 1 };
@@ -180,8 +157,6 @@ export default function Home() {
         if (el && !revealRefs.current.includes(el)) revealRefs.current.push(el);
     };
 
-    // Scroll Expand animation — the AI Platform feature grid grows into
-    // place and settles at full size as the section scrolls into view.
     const aiPlatformRef = useRef(null);
     const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
@@ -213,42 +188,6 @@ export default function Home() {
         <>
             <div className={`homeDark${isRTL ? " rtl" : ""}`}>
                 <HomeBanner />
-                {/* <section className="hero-banner">
-                    <video className="hero-banner__video" autoPlay loop muted playsInline>
-                        <source src="/images/home/home_bnr.mp4" type="video/mp4" />
-                    </video>
-                    <div className="hero-banner__overlay"></div>
-                    <div className="hero-banner__content">
-                        <div className="hero-banner__badge">
-                            <span className="hero-banner__dot"></span>
-                            {t.badge_hero}
-                        </div>
-                        <h1 className="hero-banner__title">
-                            <span className="hero-banner__title--white">
-                                {t.hero_title_white}
-                            </span>
-                            <span className="hero-banner__title--gradient">
-                                {t.hero_title_gradient}
-                            </span>
-                        </h1>
-                        <p className="hero-banner__subtitle">{t.hero_subtitle}</p>
-                        <div className="hero-banner__actions">
-                            <Link to="/contact" className="btn-primary hero-banner__btn hero-banner__btn--primary">
-                                {t.btn_explore}&nbsp;
-                                <span><i className="bi bi-arrow-right"></i></span>
-                            </Link>
-                            <Link to="/service" className="btn-secondary hero-banner__btn hero-banner__btn--secondary">
-                                {t.btn_services}&nbsp;
-                                <span><i className="bi bi-arrow-right"></i></span>
-                            </Link>
-                        </div>
-                        <div className="hero-banner__scroll">
-                            <span className="hero-banner__scroll-line"></span>
-                            <span className="hero-banner__scroll-text">{t.scroll}</span>
-                        </div>
-                    </div>
-                </section> */}
-
                 <section className="key-facts">
                     <div className="key-facts__container">
                         {statsData.map((stat, index) => (
@@ -266,7 +205,6 @@ export default function Home() {
                         ))}
                     </div>
                 </section>
-
                 <section className="ai-platform" ref={aiPlatformRef}>
                     <div className="grid_overlay"></div>
                     <div className="ai-platform__bg">
@@ -276,14 +214,6 @@ export default function Home() {
                     </div>
 
                     <div className="ai-platform__container">
-                        {/* <motion.div
-                            className="bg_color_overlay text_overlay"
-                            initial={{ opacity: 0, y: 24 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.4 }}
-                            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
-
-                        </motion.div> */}
                         <motion.div
                             className="ai-platform__header"
                             initial={{ opacity: 0, y: 24 }}
@@ -318,9 +248,7 @@ export default function Home() {
                                     y: aiGridY,
                                 }}
                             >
-                                {/* Card 1 — Generative AI Integration (big, spans 2 rows) */}
                                 <TiltedBentoCard className="bento-card--big" glowColor="255, 107, 53">
-                                    {/* <div className="bg_color_overlay"></div> */}
                                     <div className="bento-card__media">
                                         <img src={bentoMeta[0].image} alt={t.platform[0].title} loading="lazy" />
                                         <div className="bento-card__scrim"></div>
@@ -332,7 +260,6 @@ export default function Home() {
                                         </span>
                                         <div>
                                             <div className="bento-card__text">
-                                                {/* <div className="bento-card__icon">{platformIcons[0]}</div> */}
                                                 <h3 className="bento-card__title">{t.platform[0].title}</h3>
                                                 <p className="bento-card__desc">{t.platform[0].description}</p>
                                                 <div className="bento-card__tags">
@@ -346,12 +273,9 @@ export default function Home() {
                                         </div>
                                     </div>
                                 </TiltedBentoCard>
-
-                                {/* Card 2 — Predictive Analytics (text-forward, top middle) */}
                                 <TiltedBentoCard className="bento-card--mid" glowColor="56, 189, 248">
                                     <div className="bento-card__content">
                                         <span className="bento-card__eyebrow">{bentoMeta[1].badge}</span>
-                                        {/* <div className="bento-card__icon">{platformIcons[1]}</div> */}
                                         <h3 className="bento-card__title">{t.platform[1].title}</h3>
                                         <p className="bento-card__desc">{t.platform[1].description}</p>
                                         <div className="bento-card__tags">
@@ -359,8 +283,6 @@ export default function Home() {
                                         </div>
                                     </div>
                                 </TiltedBentoCard>
-
-                                {/* Card 3 — Intelligent Process Automation (top right) */}
                                 <TiltedBentoCard className="bento-card--right" glowColor="168, 85, 247">
                                     <div className="bento-card__media">
                                         <img src={bentoMeta[2].image} alt={t.platform[2].title} loading="lazy" />
@@ -380,8 +302,6 @@ export default function Home() {
                                         </div>
                                     </div>
                                 </TiltedBentoCard>
-
-                                {/* Card 4 — Computer Vision (bottom, wide) */}
                                 <TiltedBentoCard className="bento-card--bottom" glowColor="45, 212, 191">
                                     <div className="bento-card__media bento-card__media--side">
                                         <img src={bentoMeta[3].image} alt={t.platform[3].title} loading="lazy" />
@@ -409,15 +329,7 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-
                 <section className="partners-section">
-                    {/* <motion.div
-                        className="bg_color_overlay text_overlay"
-                        initial={{ opacity: 0, y: 24 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.4 }}
-                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
-                    </motion.div> */}
                     <div className="partners_container">
                         <div style={{ position: 'relative' }}>
                             <h3 className="heading_title text-center mb-2" style={{ color: 'white', fontSize: '40px' }}>
@@ -468,49 +380,12 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-
-
-                {/* <section className="core-services">
-                    <div className="core-services__bg">
-                        <div className="core-services__glow core-services__glow--top"></div>
-                        <div className="core-services__glow core-services__glow--bottom"></div>
-                        <div className="core-services__dots"></div>
-                    </div>
-
-                    <div className="core-services__container">
-                        <div className="core-services__header">
-                            <div className="hero_badge">
-                                <span></span>
-                                {t.badge_services}
-                            </div>
-                            <h2 className="heading_title">
-                                {t.services_title_white} <br />
-                                <span>{t.services_title_accent}</span>
-                            </h2>
-                            <p className="core-services__subtitle">{t.services_subtitle}</p>
-                        </div>
-
-                        <div className="core-services__grid">
-                            {t.services.map((item, i) => (
-                                <div className="core-services__card" key={servicesMeta[i].id}>
-                                    <span className="core-services__number">{servicesMeta[i].id}</span>
-                                    <div className="core-services__icon">{servicesMeta[i].icon}</div>
-                                    <h3 className="core-services__card-title">{item.title}</h3>
-                                    <p className="core-services__card-desc">{item.description}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section> */}
-
                 <section className='Industry_section'>
                     <IndustryCards />
                 </section>
-
                 <section className='contact_section'>
                     <div className="contact_color_overlay"></div>
                     <div className="grid_overlay"></div>
-                    {/* <div className="contact_grid_overlay2"></div> */}
                     <div className='container'>
                         <div className='row'>
                             <div className='col-md-12'>
