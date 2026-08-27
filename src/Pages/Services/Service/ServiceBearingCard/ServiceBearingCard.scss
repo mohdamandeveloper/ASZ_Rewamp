@@ -125,12 +125,15 @@
       line-height: 1.68;
       color: var(--text-muted);
       margin-bottom: 20px;
+      min-height: 150px;
     }
 
     .b-card__tags {
       display: flex;
       flex-wrap: wrap;
       gap: 7px;
+      min-height: 75px;
+      align-items: center;
       margin-bottom: 18px;
     }
 

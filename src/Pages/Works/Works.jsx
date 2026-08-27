@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -6,12 +6,82 @@ import 'swiper/css/pagination';
 import { Link } from 'react-router-dom';
 import "./Works.scss";
 
+// ===== Continuous typewriter text (types, pauses, deletes, repeats forever) =====
+const HERO_TITLE_SEGMENTS = [
+    { text: "Real challenges." },
+];
+
+const TypewriterText = ({
+    segments,
+    className,
+    typingSpeed = 42,
+    deletingSpeed = 22,
+    pauseAfterTyping = 2200,
+    pauseAfterDeleting = 500,
+}) => {
+    const fullText = segments.map((s) => s.text).join("");
+    const totalLength = fullText.length;
+    const [charCount, setCharCount] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    useEffect(() => {
+        let timeout;
+
+        if (isDeleting) {
+            if (charCount > 0) {
+                timeout = setTimeout(() => setCharCount((c) => c - 1), deletingSpeed);
+            } else {
+                timeout = setTimeout(() => setIsDeleting(false), pauseAfterDeleting);
+            }
+        } else {
+            if (charCount < totalLength) {
+                timeout = setTimeout(() => setCharCount((c) => c + 1), typingSpeed);
+            } else {
+                timeout = setTimeout(() => setIsDeleting(true), pauseAfterTyping);
+            }
+        }
+
+        return () => clearTimeout(timeout);
+    }, [charCount, isDeleting, totalLength, typingSpeed, deletingSpeed, pauseAfterTyping, pauseAfterDeleting]);
+
+    let remaining = charCount;
+    const rendered = segments.map((seg, i) => {
+        const shown = Math.max(0, Math.min(seg.text.length, remaining));
+        remaining -= seg.text.length;
+        return (
+            <React.Fragment key={i}>
+                {seg.text.slice(0, shown)}
+            </React.Fragment>
+        );
+    });
+
+    return (
+        <span className={className} aria-label={fullText}>
+            <span aria-hidden="true">
+                {rendered}
+                <span className="typewriter-cursor" />
+            </span>
+        </span>
+    );
+};
+
+const INDUSTRIES = [
+    { key: "all", label: "All", color: "#ff5068" },
+    { key: "healthcare", label: "Healthcare", color: "#22c55e" },
+    { key: "banking", label: "Banking", color: "#3b82f6" },
+    { key: "insurance", label: "Insurance", color: "#f59e0b" },
+    { key: "lending", label: "Lending", color: "#a855f7" },
+    { key: "payments", label: "Payments", color: "#ec4899" },
+    { key: "investment", label: "Investment", color: "#14b8a6" },
+];
+
 const WORKS = [
     {
         id: "yapz-ai-agent",
         tags: ["Valara", "AI", "SaaS"],
         tagColors: ["#ff6b35", "#4fc3c8", "#a36bff"],
         title: "An All-in-One Rental Management SaaS Platform for Fleet Businesses.",
+        industry: "lending",
         coverBg: "#0d1f1a",
         coverImage: "https://gojilabs.com/wp-content/uploads/2026/01/Valara_750%D1%85500_x3.png",
         // ── Detail page data ──
@@ -90,6 +160,7 @@ The most useful experiment: the streaming UI said it was running. It told every 
         tags: ["Root Insurance", "Mobile App", "Marketplace"],
         tagColors: ["#ff6b35", "#4fc3c8", "#3DDC97"],
         title: "Making Insurance Engagement Fun Through Gamification.",
+        industry: "insurance",
         coverBg: "#fff9c4",
         coverImage: "https://gojilabs.com/wp-content/uploads/2023/03/Root_500%D1%85500_x3.webp",
         breadcrumb: "PLAYBOOK: KUWAIT'S FIRST KIDS' VENUE BOOKING PLATFORM",
@@ -158,6 +229,7 @@ Vendor onboarding reached 24 venues in the first month without paid acquisition 
         tags: ["Castability", "AI", "SaaS"],
         tagColors: ["#ff6b35", "#4fc3c8", "#a36bff"],
         title: "Revolutionizing the Actor Training Experience Through an Intuitive Mobile App",
+        industry: "banking",
         coverBg: "#f5f5f5",
         coverImage: "https://gojilabs.com/wp-content/uploads/2026/01/Castability-750x500_v2.webp",
         breadcrumb: "SPENDHOUND: RENEWAL MANAGEMENT PLATFORM FOR SAAS SPEND",
@@ -228,6 +300,7 @@ The underutilised licence detection was the feature that drove the most immediat
         tags: ["Katzkin Automotive Leather", "AI", "SaaS", "Enterprise"],
         tagColors: ["#ff6b35", "#4fc3c8", "#a36bff", "#3DDC97"],
         title: "Reinventing an Automotive Interior Retailers eCommerce Experience",
+        industry: "payments",
         coverBg: "#f5f5f5",
         coverImage: "https://gojilabs.com/wp-content/uploads/2025/12/Katzkin_500%D1%85500_x3.webp",
         breadcrumb: "SPENDHOUND: RENEWAL MANAGEMENT PLATFORM FOR SAAS SPEND",
@@ -298,6 +371,7 @@ The underutilised licence detection was the feature that drove the most immediat
         tags: ["Intterra Group", "AI", "SaaS", "Enterprise"],
         tagColors: ["#ff6b35", "#4fc3c8", "#a36bff", "#3DDC97"],
         title: "Powering Emergency Response in a Real-Time Mobile Portal.",
+        industry: "healthcare",
         coverBg: "#f5f5f5",
         coverImage: "https://gojilabs.com/wp-content/uploads/2025/12/Interra_500%D1%85500_x3.webp",
         breadcrumb: "SPENDHOUND: RENEWAL MANAGEMENT PLATFORM FOR SAAS SPEND",
@@ -368,6 +442,7 @@ The underutilised licence detection was the feature that drove the most immediat
         tags: ["Root Insurance", "Mobile App", "Marketplace"],
         tagColors: ["#ff6b35", "#4fc3c8", "#3DDC97"],
         title: "Making Insurance Engagement Fun Through Gamification.",
+        industry: "insurance",
         coverBg: "#fff9c4",
         coverImage: "https://gojilabs.com/wp-content/uploads/2023/03/Root_500%D1%85500_x3.webp",
         breadcrumb: "PLAYBOOK: KUWAIT'S FIRST KIDS' VENUE BOOKING PLATFORM",
@@ -436,6 +511,7 @@ Vendor onboarding reached 24 venues in the first month without paid acquisition 
         tags: ["Valara", "AI", "SaaS"],
         tagColors: ["#ff6b35", "#4fc3c8", "#a36bff"],
         title: "An All-in-One Rental Management SaaS Platform for Fleet Businesses.",
+        industry: "lending",
         coverBg: "#0d1f1a",
         coverImage: "https://gojilabs.com/wp-content/uploads/2026/01/Valara_750%D1%85500_x3.png",
         // ── Detail page data ──
@@ -514,6 +590,7 @@ The most useful experiment: the streaming UI said it was running. It told every 
         tags: ["Root Insurance", "Mobile App", "Marketplace"],
         tagColors: ["#ff6b35", "#4fc3c8", "#3DDC97"],
         title: "Making Insurance Engagement Fun Through Gamification.",
+        industry: "insurance",
         coverBg: "#fff9c4",
         coverImage: "https://gojilabs.com/wp-content/uploads/2023/03/Root_500%D1%85500_x3.webp",
         breadcrumb: "PLAYBOOK: KUWAIT'S FIRST KIDS' VENUE BOOKING PLATFORM",
@@ -582,6 +659,7 @@ Vendor onboarding reached 24 venues in the first month without paid acquisition 
         tags: ["Castability", "AI", "SaaS"],
         tagColors: ["#ff6b35", "#4fc3c8", "#a36bff"],
         title: "Revolutionizing the Actor Training Experience Through an Intuitive Mobile App",
+        industry: "banking",
         coverBg: "#f5f5f5",
         coverImage: "https://gojilabs.com/wp-content/uploads/2026/01/Castability-750x500_v2.webp",
         breadcrumb: "SPENDHOUND: RENEWAL MANAGEMENT PLATFORM FOR SAAS SPEND",
@@ -651,6 +729,12 @@ The underutilised licence detection was the feature that drove the most immediat
 
 export default function Works() {
     const ourWorkRef = useRef(null);
+    const [activeIndustry, setActiveIndustry] = useState("all");
+
+    const filteredWorks =
+        activeIndustry === "all"
+            ? WORKS
+            : WORKS.filter((w) => w.industry === activeIndustry);
 
     return (
         <div className="work">
@@ -666,14 +750,14 @@ export default function Works() {
                 </div>
 
                 <div class="services-hero__inner container">
-                    <span class="hero_badge">Our Work</span>
-                    <h1 class="heading_title services-hero__title">
-                        <span>Real challenges.</span> <br />Thoughtful solutions.
+                    <span class="hero_badge hero-anim hero-anim--1">Our Work</span>
+                    <h1 class="heading_title services-hero__title hero-anim hero-anim--2">
+                        <span><TypewriterText segments={HERO_TITLE_SEGMENTS} /></span> <br />Thoughtful solutions.
                     </h1>
-                    <p class="heading_subtitle services-hero__subtitle">
+                    <p class="heading_subtitle services-hero__subtitle hero-anim hero-anim--3">
                         Explore how we've helped businesses across industries overcome challenges, modernize their operations, and achieve meaningful results with our technology solutions.
                     </p>
-                    <div class="services-hero__actions">
+                    <div class="services-hero__actions hero-anim hero-anim--4">
                         <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
                     </div>
                 </div>
@@ -681,27 +765,51 @@ export default function Works() {
             <section className="our-work" ref={ourWorkRef}>
                 <div className="our-work__container container">
                     <div className="our-work__layout">
-                        <div className="row">
-                            {WORKS.map((w, i) => (
-                                <div className="col-md-4 mb-5">
-                                    <div
-                                        className="our-work__card-wrap"
-                                    >
-                                        <Link to={`/case-study/${w.id}`} className="our-work__card">
-                                            <div className="our-work__cover" style={{ background: w.coverBg }}>
-                                                <img src={w.coverImage} alt={w.title} className="our-work__cover-img" />
-                                                <span className="our-work__cover-arrow">
-                                                    <ArrowRight size={22} />
-                                                </span>
-                                            </div>
-                                            <div className="our-work__info">
-                                                <span className="our-work__eyebrow">{w.tags?.[0]}</span>
-                                                <p className="our-work__card-title">{w.title}</p>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                </div>
+                        <div className="our-work__tabs" role="tablist">
+                            {INDUSTRIES.map((ind) => (
+                                <button
+                                    key={ind.key}
+                                    type="button"
+                                    role="tab"
+                                    aria-selected={activeIndustry === ind.key}
+                                    className={`our-work__tab${activeIndustry === ind.key ? " is-active" : ""}`}
+                                    style={{ "--tab-accent": ind.color, color: ind.color, borderColor: ind.color }}
+                                    onClick={() => setActiveIndustry(ind.key)}
+                                >
+                                    {ind.label}
+                                </button>
                             ))}
+                        </div>
+
+                        <div className="row our-work__grid" key={activeIndustry}>
+                            {filteredWorks.length === 0 && (
+                                <div className="col-12">
+                                    <p className="our-work__empty">No case studies for this industry yet — check back soon.</p>
+                                </div>
+                            )}
+                            {filteredWorks.map((w, i) => {
+                                const accent = INDUSTRIES.find((ind) => ind.key === w.industry)?.color || "#ff2d2d";
+                                return (
+                                    <div className="col-md-4 mb-5" key={w.id + i} style={{ "--card-delay": `${i * 60}ms` }}>
+                                        <div
+                                            className="our-work__card-wrap"
+                                        >
+                                            <Link to={`/case-study/${w.id}`} className="our-work__card" style={{ "--arrow-accent": accent }}>
+                                                <div className="our-work__cover" style={{ background: w.coverBg }}>
+                                                    <img src={w.coverImage} alt={w.title} className="our-work__cover-img" />
+                                                    <span className="our-work__cover-arrow">
+                                                        <ArrowRight size={22} />
+                                                    </span>
+                                                </div>
+                                                <div className="our-work__info">
+                                                    <span className="our-work__eyebrow">{w.tags?.[0]}</span>
+                                                    <p className="our-work__card-title">{w.title}</p>
+                                                </div>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>

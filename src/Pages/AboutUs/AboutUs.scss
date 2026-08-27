@@ -137,6 +137,8 @@ $map-highlight: rgba(255, 107, 53, 0.35);
         .hero-world-map__half {
             height: 100%;
             max-height: 550px;
+            opacity: 0;
+            animation: mapSlideInLeft 1.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 
             @media (max-width: 1400px) {
                 max-height: 430px;
@@ -190,6 +192,8 @@ $map-highlight: rgba(255, 107, 53, 0.35);
                 width: 42%;
                 margin-right: -21%;
                 margin-top: 63px;
+                animation-name: mapSlideInRight;
+                animation-delay: 0.15s;
 
                 @media (max-width: 1400px) {
                     margin-right: -23%;
@@ -223,6 +227,8 @@ $map-highlight: rgba(255, 107, 53, 0.35);
             cursor: pointer;
             pointer-events: auto;
             outline: none;
+            opacity: 0;
+            animation: markerFadeIn 0.6s ease forwards;
 
             &__hit {
                 fill: transparent;
@@ -274,6 +280,40 @@ $map-highlight: rgba(255, 107, 53, 0.35);
             }
         }
 
+        @keyframes markerFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes mapSlideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-70px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes mapSlideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(70px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         // ——— Content ———
         .hero-content {
             position: relative;
@@ -297,6 +337,52 @@ $map-highlight: rgba(255, 107, 53, 0.35);
                 line-height: 1.72;
                 margin: 0 auto 0px;
             }
+        }
+
+        // Blinking caret for the looping typewriter heading
+        .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 0.85em;
+            margin-left: 4px;
+            vertical-align: -0.1em;
+            background: currentColor;
+            animation: caretBlink 0.9s steps(1) infinite;
+        }
+
+        @keyframes caretBlink {
+
+            0%,
+            49% {
+                opacity: 1;
+            }
+
+            50%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        // Staggered fade + slide-up entrance for hero badge / heading / subtitle / actions
+        .hero-anim {
+            opacity: 0;
+            animation: fadeInUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .hero-anim--1 {
+            animation-delay: 0.2s;
+        }
+
+        .hero-anim--2 {
+            animation-delay: 0.4s;
+        }
+
+        .hero-anim--3 {
+            animation-delay: 0.65s;
+        }
+
+        .hero-anim--4 {
+            animation-delay: 0.9s;
         }
 
         @keyframes hexPulse {

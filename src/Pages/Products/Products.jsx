@@ -1,11 +1,70 @@
 // import './Header.scss';
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import "./Products.scss";
 import { Link } from "react-router-dom";
+
+// ===== Continuous typewriter text (types, pauses, deletes, repeats forever) =====
+const HERO_TITLE_SEGMENTS = [
+    { text: "Innovative products." },
+];
+
+const TypewriterText = ({
+    segments,
+    className,
+    typingSpeed = 42,
+    deletingSpeed = 22,
+    pauseAfterTyping = 2200,
+    pauseAfterDeleting = 500,
+}) => {
+    const fullText = segments.map((s) => s.text).join("");
+    const totalLength = fullText.length;
+    const [charCount, setCharCount] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    useEffect(() => {
+        let timeout;
+
+        if (isDeleting) {
+            if (charCount > 0) {
+                timeout = setTimeout(() => setCharCount((c) => c - 1), deletingSpeed);
+            } else {
+                timeout = setTimeout(() => setIsDeleting(false), pauseAfterDeleting);
+            }
+        } else {
+            if (charCount < totalLength) {
+                timeout = setTimeout(() => setCharCount((c) => c + 1), typingSpeed);
+            } else {
+                timeout = setTimeout(() => setIsDeleting(true), pauseAfterTyping);
+            }
+        }
+
+        return () => clearTimeout(timeout);
+    }, [charCount, isDeleting, totalLength, typingSpeed, deletingSpeed, pauseAfterTyping, pauseAfterDeleting]);
+
+    let remaining = charCount;
+    const rendered = segments.map((seg, i) => {
+        const shown = Math.max(0, Math.min(seg.text.length, remaining));
+        remaining -= seg.text.length;
+        return (
+            <React.Fragment key={i}>
+                {seg.text.slice(0, shown)}
+            </React.Fragment>
+        );
+    });
+
+    return (
+        <span className={className} aria-label={fullText}>
+            <span aria-hidden="true">
+                {rendered}
+                <span className="typewriter-cursor" />
+            </span>
+        </span>
+    );
+};
 
 export const WORKS = [
     {
@@ -315,22 +374,22 @@ export default function Products() {
 
                     <div class="services-hero__inner container">
 
-                        <span class="hero_badge">Our Work</span>
+                        <span class="hero_badge hero-anim hero-anim--1">Our Products</span>
 
-                        <h1 class="heading_title services-hero__title">
-                            <span>Innovative products.</span> <br />Built for real-world impact.
+                        <h1 class="heading_title services-hero__title hero-anim hero-anim--2">
+                            <span><TypewriterText segments={HERO_TITLE_SEGMENTS} /></span> <br />Built for real-world impact.
                         </h1>
 
-                        <p class="heading_subtitle services-hero__subtitle">
+                        <p class="heading_subtitle services-hero__subtitle hero-anim hero-anim--3">
                             Discover our suite of technology products designed to simplify operations, improve productivity, and create smarter digital experiences. From AI-powered solutions to scalable business platforms, our products are built to solve complex challenges and drive measurable results.
                         </p>
 
-                        <div class="services-hero__actions">
+                        <div class="services-hero__actions hero-anim hero-anim--4">
                             <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
                         </div>
                     </div>
                 </section>
-                <section class="product-hero">
+                {/* <section class="product-hero">
                     <div class="product-hero__bg" aria-hidden="true"></div>
                     <div class="product-hero__grid" aria-hidden="true"></div>
                     <div class="product-hero__stats">
@@ -351,12 +410,12 @@ export default function Products() {
                             <span class="product-hero__stat-label">Teams onboard</span>
                         </div>
                     </div>
-                </section>
+                </section> */}
                 <section className="our-product" ref={ourProductRef}>
                     <div className="grid_overlay"></div>
                     <div className="our-product__container container">
                         <div className="our-work__layout">
-                            <div
+                            {/* <div
                                 className="our-work__intro"
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -370,7 +429,7 @@ export default function Products() {
                                     </h2>
                                     <p className='our-work__desc heading_subtitle'>Discover real-world success stories showcasing our expertise, strategic approach, and the impactful results we've achieved for clients across various industries.</p>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="row">
                                 {WORKS.map((w, i) => (
                                     <div className={`col-md-4 ${i !== WORKS.length - 1 ? 'mb-5' : ''}`}>

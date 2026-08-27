@@ -118,6 +118,67 @@ const ParticleLayer = () => {
     return <canvas ref={canvasRef} className="who-are-we__particles" />;
 };
 
+// ===== Continuous typewriter heading (types, pauses, deletes, repeats forever) =====
+const HERO_TITLE_SEGMENTS = [
+    { text: "Engineering Beyond Code " },
+    // { text: "Building Digital Systems", className: "c_primary" },
+    // { text: " That Last" },
+];
+
+const TypewriterHeading = ({
+    segments,
+    className,
+    typingSpeed = 42,
+    deletingSpeed = 22,
+    pauseAfterTyping = 2200,
+    pauseAfterDeleting = 500,
+}) => {
+    const fullText = segments.map((s) => s.text).join("");
+    const totalLength = fullText.length;
+    const [charCount, setCharCount] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    useEffect(() => {
+        let timeout;
+
+        if (isDeleting) {
+            if (charCount > 0) {
+                timeout = setTimeout(() => setCharCount((c) => c - 1), deletingSpeed);
+            } else {
+                timeout = setTimeout(() => setIsDeleting(false), pauseAfterDeleting);
+            }
+        } else {
+            if (charCount < totalLength) {
+                timeout = setTimeout(() => setCharCount((c) => c + 1), typingSpeed);
+            } else {
+                timeout = setTimeout(() => setIsDeleting(true), pauseAfterTyping);
+            }
+        }
+
+        return () => clearTimeout(timeout);
+    }, [charCount, isDeleting, totalLength, typingSpeed, deletingSpeed, pauseAfterTyping, pauseAfterDeleting]);
+
+    let remaining = charCount;
+    const rendered = segments.map((seg, i) => {
+        const shown = Math.max(0, Math.min(seg.text.length, remaining));
+        remaining -= seg.text.length;
+        return (
+            <span key={i} className={seg.className}>
+                {seg.text.slice(0, shown)}
+            </span>
+        );
+    });
+
+    return (
+        <h1 className={className} aria-label={fullText}>
+            <span aria-hidden="true">
+                {rendered}
+                <span className="typewriter-cursor" />
+            </span>
+        </h1>
+    );
+};
+
 const OFFICES = [
     {
         id: "india",
@@ -450,11 +511,12 @@ export default function AboutUs() {
                                             ))}
                                         </g>
                                         <g>
-                                            {HERO_OFFICE_MARKERS_LEFT.map((office) => (
+                                            {HERO_OFFICE_MARKERS_LEFT.map((office, mi) => (
                                                 <g
                                                     key={office.id}
                                                     className={`hero-map-marker${activeId === office.id ? " is-active" : ""}`}
                                                     transform={`translate(${office.x}, ${office.y})`}
+                                                    style={{ animationDelay: `${1.1 + mi * 0.18}s` }}
                                                     onMouseEnter={() => handleCardEnter(office.id)}
                                                     onMouseLeave={handleCardLeave}
                                                     onClick={() => handleMarkerClick(office.id)}
@@ -498,11 +560,12 @@ export default function AboutUs() {
                                             ))}
                                         </g>
                                         <g>
-                                            {HERO_OFFICE_MARKERS_RIGHT.map((office) => (
+                                            {HERO_OFFICE_MARKERS_RIGHT.map((office, mi) => (
                                                 <g
                                                     key={office.id}
                                                     className={`hero-map-marker${activeId === office.id ? " is-active" : ""}`}
                                                     transform={`translate(${office.x}, ${office.y})`}
+                                                    style={{ animationDelay: `${1.3 + mi * 0.18}s` }}
                                                     onMouseEnter={() => handleCardEnter(office.id)}
                                                     onMouseLeave={handleCardLeave}
                                                     onClick={() => handleMarkerClick(office.id)}
@@ -529,14 +592,18 @@ export default function AboutUs() {
                                 </div>
                                 <div className="hero-content">
                                     <div className="hero-eyebrow">
-                                        <h6 className="hero_badge">About ASZ Technologies</h6>
-                                        <h1 className="heading_title mb-4">Engineering Beyond Code <span className="c_primary">Building Digital Systems</span> That Last</h1>
+                                        <h6 className="hero_badge hero-anim hero-anim--1">About ASZ Technologies</h6>
+                                        <TypewriterHeading
+                                            segments={HERO_TITLE_SEGMENTS}
+                                            className="heading_title hero-anim hero-anim--2"
+                                        />
+                                        <h1 className="heading_title mb-4 hero-anim hero-anim--3">Building Digital Systems</h1>
                                     </div>
-                                    <p className="hero-subtitle">
+                                    <p className="hero-subtitle hero-anim hero-anim--4">
                                         We design, engineer, and scale mission-critical enterprise solutions powered by AI, blockchain, and cloud technologies — helping businesses achieve resilient, lasting growth in a market that rewards speed and punishes fragility.
                                     </p>
 
-                                    <div className="hero-actions mt-4">
+                                    <div className="hero-actions mt-4 hero-anim hero-anim--4">
                                         <Link to="services" className="btn-primary">
                                             Explore Services <i className="bi bi-arrow-right"></i>
                                         </Link>

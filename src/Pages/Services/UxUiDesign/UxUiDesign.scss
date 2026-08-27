@@ -93,6 +93,68 @@
             font-weight: 500;
             color: var(--text-muted-light);
         }
+
+        /* ── Blinking caret for the typing hero title ── */
+        .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 0.85em;
+            margin-left: 6px;
+            vertical-align: -0.1em;
+            background: var(--color-primary, #ff6b35);
+            animation: servicesHeroCaretBlink 0.9s steps(1) infinite;
+
+            &--done {
+                animation-duration: 1.1s;
+            }
+        }
+
+        @keyframes servicesHeroCaretBlink {
+
+            0%,
+            49% {
+                opacity: 1;
+            }
+
+            50%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* ── Staggered fade + slide-up entrance for badge / heading / subtitle / actions ── */
+        .hero-anim {
+            opacity: 0;
+            animation: servicesHeroFadeInUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .hero-anim--1 {
+            animation-delay: 0.2s;
+        }
+
+        .hero-anim--2 {
+            animation-delay: 0.4s;
+        }
+
+        .hero-anim--3 {
+            animation-delay: 0.65s;
+        }
+
+        .hero-anim--4 {
+            animation-delay: 0.9s;
+        }
+
+        @keyframes servicesHeroFadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     }
 
     /* ─── SERVICES STICKY SECTION ─── */

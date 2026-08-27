@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import './UxUiDesign.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -7,49 +7,117 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Link } from 'react-router-dom';
 
+// ===== Continuous typewriter heading (types, pauses, deletes, repeats forever) =====
+const HERO_TITLE_SEGMENTS = [
+    { text: "UX/UI Design", span: true },
+    { text: " Services\u00A0" },
+    // { break: true },
+    // { text: "Built for Every Platform" },
+];
+
+const TypewriterHeading = ({
+    segments,
+    className,
+    loop = true,
+    typingSpeed = 42,
+    deletingSpeed = 22,
+    pauseAfterTyping = 2200,
+    pauseAfterDeleting = 500,
+}) => {
+    const fullText = segments.map((s) => s.text).join("");
+    const totalLength = fullText.length;
+    const [charCount, setCharCount] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    useEffect(() => {
+        let timeout;
+
+        if (isDeleting) {
+            if (charCount > 0) {
+                timeout = setTimeout(() => setCharCount((c) => c - 1), deletingSpeed);
+            } else {
+                timeout = setTimeout(() => setIsDeleting(false), pauseAfterDeleting);
+            }
+        } else {
+            if (charCount < totalLength) {
+                timeout = setTimeout(() => setCharCount((c) => c + 1), typingSpeed);
+            } else if (loop) {
+                timeout = setTimeout(() => setIsDeleting(true), pauseAfterTyping);
+            }
+        }
+
+        return () => clearTimeout(timeout);
+    }, [charCount, isDeleting, totalLength, typingSpeed, deletingSpeed, pauseAfterTyping, pauseAfterDeleting, loop]);
+
+    let remaining = charCount;
+    const rendered = segments.map((seg, i) => {
+        if (seg.break) {
+            return <br key={i} />;
+        }
+        const shown = Math.max(0, Math.min(seg.text.length, remaining));
+        remaining -= seg.text.length;
+        return seg.span ? (
+            <span key={i}>{seg.text.slice(0, shown)}</span>
+        ) : (
+            seg.text.slice(0, shown)
+        );
+    });
+
+    const isTypingDone = !loop && charCount >= totalLength;
+
+    return (
+        <h1 className={className} aria-label={fullText}>
+            {rendered}
+            <span className={`typewriter-cursor${isTypingDone ? " typewriter-cursor--done" : ""}`} />
+        </h1>
+    );
+};
+
+const TAG_DEFAULT_COLOR = "#ff6b35";
+
 const SERVICES = [
-  {
-    icon: "/images/asz/services/uxui-research.png",
-    title: "UI/UX Design Research",
-    desc: "Gain valuable user insights through research, competitor analysis, user personas, and usability studies. We identify user needs and business goals to create meaningful digital experiences.",
-    tags: ["User Research", "Personas", "Usability"],
-    emoji: "🧠",
-  },
-  {
-    icon: "/images/asz/services/ux-design.png",
-    title: "UX Design",
-    desc: "Design intuitive user journeys and seamless interactions that enhance usability and engagement. We focus on creating experiences that are simple, accessible, and user-centered.",
-    tags: ["Wireframes", "User Flow", "Prototyping", "Usability"],
-    emoji: "✨",
-  },
-  {
-    icon: "/images/asz/services/ux-strategy.png",
-    title: "UX Strategy",
-    desc: "Align user experience with your business objectives through data-driven design strategies. We define product roadmaps, optimize customer journeys, and improve overall user satisfaction.",
-    tags: ["Product Strategy", "Customer Journey", "UX Audit"],
-    emoji: "🚀",
-  },
-  {
-    icon: "/images/asz/services/uxui_consulting.png",
-    title: "UI & UX Consulting",
-    desc: "Receive expert guidance on improving digital products through UX audits, interface optimization, accessibility reviews, and design best practices that drive measurable business results.",
-    tags: ["UX Audit", "Consulting", "Accessibility"],
-    emoji: "🤝",
-  },
-  {
-    icon: "/images/asz/services/uxui-mobileapp.png",
-    title: "Mobile App UX & UI Design",
-    desc: "Create engaging mobile experiences with modern interfaces optimized for Android and iOS. We design intuitive layouts, smooth interactions, and visually appealing mobile applications.",
-    tags: ["Mobile UI", "iOS", "Android", "Responsive Design"],
-    emoji: "📲",
-  },
-  {
-    icon: "/images/asz/services/uxui-cross-platform.png",
-    title: "Cross-Platform Design",
-    desc: "Deliver consistent and engaging user experiences across web, mobile, tablet, and desktop platforms. We ensure your brand and interactions remain seamless on every device.",
-    tags: ["Cross Platform", "Responsive UI", "Design System"],
-    emoji: "💻",
-  },
+    {
+        icon: "/images/asz/services/uxui-research.png",
+        title: "UI/UX Design Research",
+        desc: "Gain valuable user insights through research, competitor analysis, user personas, and usability studies. We identify user needs and business goals to create meaningful digital experiences.",
+        tags: ["User Research", "Personas", "Usability"],
+        emoji: "🧠",
+    },
+    {
+        icon: "/images/asz/services/ux-design.png",
+        title: "UX Design",
+        desc: "Design intuitive user journeys and seamless interactions that enhance usability and engagement. We focus on creating experiences that are simple, accessible, and user-centered.",
+        tags: ["Wireframes", "User Flow", "Prototyping", "Usability"],
+        emoji: "✨",
+    },
+    {
+        icon: "/images/asz/services/ux-strategy.png",
+        title: "UX Strategy",
+        desc: "Align user experience with your business objectives through data-driven design strategies. We define product roadmaps, optimize customer journeys, and improve overall user satisfaction.",
+        tags: ["Product Strategy", "Customer Journey", "UX Audit"],
+        emoji: "🚀",
+    },
+    {
+        icon: "/images/asz/services/uxui_consulting.png",
+        title: "UI & UX Consulting",
+        desc: "Receive expert guidance on improving digital products through UX audits, interface optimization, accessibility reviews, and design best practices that drive measurable business results.",
+        tags: ["UX Audit", "Consulting", "Accessibility"],
+        emoji: "🤝",
+    },
+    {
+        icon: "/images/asz/services/uxui-mobileapp.png",
+        title: "Mobile App UX & UI Design",
+        desc: "Create engaging mobile experiences with modern interfaces optimized for Android and iOS. We design intuitive layouts, smooth interactions, and visually appealing mobile applications.",
+        tags: ["Mobile UI", "iOS", "Android", "Responsive Design"],
+        emoji: "📲",
+    },
+    {
+        icon: "/images/asz/services/uxui-cross-platform.png",
+        title: "Cross-Platform Design",
+        desc: "Deliver consistent and engaging user experiences across web, mobile, tablet, and desktop platforms. We ensure your brand and interactions remain seamless on every device.",
+        tags: ["Cross Platform", "Responsive UI", "Design System"],
+        emoji: "💻",
+    },
 ];
 
 export const WORKS = [
@@ -365,15 +433,16 @@ export default function UxUiDesign() {
                         <div class="services-hero__overlay"></div>
                     </div>
                     <div class="services-hero__inner container">
-                        <span class="hero_badge">Our Services</span>
-                        <h1 class="heading_title services-hero__title">
-                            <span>UX/UI Design Services</span> &nbsp;
-                            <br />Built for Every Platform
-                        </h1>
-                        <p class="heading_subtitle services-hero__subtitle">
+                        <span class="hero_badge hero-anim hero-anim--1">Our Services</span>
+                        <TypewriterHeading
+                            segments={HERO_TITLE_SEGMENTS}
+                            className="heading_title services-hero__title hero-anim hero-anim--2 mb-0"
+                        />
+                        <h1 className="heading_title services-hero__title hero-anim hero-anim--3">Built for Every Platform</h1>
+                        <p class="heading_subtitle services-hero__subtitle hero-anim hero-anim--4">
                             Create intuitive, engaging, and visually stunning digital experiences that delight users and drive business growth. From user research and wireframes to interactive prototypes and polished interfaces, we design products that are functional, accessible, and user-centric.
                         </p>
-                        <div class="services-hero__actions">
+                        <div class="services-hero__actions hero-anim hero-anim--4 mt-4">
                             <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
                         </div>
                     </div>

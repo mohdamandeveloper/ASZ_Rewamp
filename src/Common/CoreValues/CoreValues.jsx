@@ -105,7 +105,7 @@ export default function CoreValues() {
                       }}
                     ></div>
                   ))}
-                  <img src='/images/asz/our_core_values.png' />
+                  <img src='/images/asz/our_core_values3.png' />
                 </div>
               </aside>
             </div>
