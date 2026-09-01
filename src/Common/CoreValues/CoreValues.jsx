@@ -20,7 +20,7 @@ const BEARINGS = [
     icon: 'collaboration',
     title: 'Collaboration',
     pos: { top: '52%', left: '14%' },
-    body: 'Great products are never built alone. We embed with your team, share knowledge in the open, and trust that the best outcomes come from diverse minds solving problems together.',
+    body: ' We work hand-in-hand with our clients, not around them. Every engagement starts with listening — understanding what actually moves the needle for your business — before a single line of code gets written.',
     tags: ['Transparent', 'Team-first', 'Co-create']
   },
   {
@@ -40,7 +40,7 @@ const BEARINGS = [
     icon: 'sustainability',
     title: 'Sustainability',
     pos: { top: '86%', left: '50%' },
-    body: "We build for the long run — in code, culture, and impact. From efficient architecture to equitable hiring, we make choices today that tomorrow's world will be glad we made.",
+    body: "We build technology that reduces waste, not just cost. Our own products, like 1Glance's paperless document processing, are engineered to cut material use and carbon footprint alongside operational overhead.",
     tags: ['Green tech', 'Long-term', 'Responsible']
   }
 ]
@@ -59,13 +59,12 @@ export default function CoreValues() {
 
       <div className="cv__inner container">
         <header className="cv-head">
-          <p className="cv-head__eyebrow hero_badge"><span></span>Four bearings, one course</p>
+          <p className="cv-head__eyebrow hero_badge"><span></span>Our Core Values</p>
           <h2 className="heading_title cv-head__title" style={{color: 'white'}}>
-            Our <span>Core Values</span>
+            <span>Values That </span> Align Us
           </h2>
           <p className="cv-head__sub">
-            Like a compass with four fixed points, these principles hold steady and set every course we
-            chart — for our product, our partners, and our team.
+            Four principles that stay constant no matter what we're building or who we're building it for — for our clients, our products, and our own team.
           </p>
         </header>
 

@@ -8,7 +8,7 @@ import ServiceBearingCard from "./ServiceBearingCard/ServiceBearingCard";
 // Mirrors the TypewriterHeading used on the About Us hero — same timing/behavior,
 // extended here with an optional `breakAfter` flag so the two-line title keeps its <br />.
 const SERVICES_TITLE_SEGMENTS = [
-    { text: "Digital products that perform" },
+    { text: "Six Disciplines." },
     // { text: "Platforms that scale. AI that delivers." },
 ];
 
@@ -181,12 +181,9 @@ export default function Service() {
                             segments={SERVICES_TITLE_SEGMENTS}
                             className="heading_title services-hero__title hero-anim hero-anim--2 mb-0"
                         />
-                        <h1 className="heading_title services-hero__title mb-4 hero-anim hero-anim--3">Platforms that scale. AI that delivers.</h1>
+                        <h1 className="heading_title services-hero__title mb-4 hero-anim hero-anim--3">One Delivery Partner.</h1>
                         <p class="heading_subtitle services-hero__subtitle hero-anim hero-anim--4">
-                            Your business doesn't need another isolated technology initiative. It needs
-                            an engineering partner that connects strategy, systems, and execution — across
-                            product design, platform engineering, and applied AI — to turn priorities
-                            into measurable outcomes.
+                            From IT strategy and cloud migration to data engineering, enterprise platforms, and emerging tech like AI and blockchain — we cover every layer of the stack, so you get one accountable partner instead of five different vendors.
                         </p>
 
                         <div className="hero-actions mt-4 hero-anim hero-anim--4">

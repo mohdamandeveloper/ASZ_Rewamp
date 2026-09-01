@@ -745,7 +745,7 @@
 
         .partners-loop .logoloop__item {
             flex: 0 0 calc((100cqw / var(--partners-per-row)) - var(--logoloop-gap));
-            width: calc((100cqw / var(--partners-per-row)) - var(--logoloop-gap));
+            width: 100%;
         }
 
         .partners-loop .logoloop--fade {

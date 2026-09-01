@@ -364,7 +364,7 @@ export default function HomeBanner() {
           >
             <span className="hero-title-typed">
               <TextType
-                text="Enterprise AI."
+                text="Intelligent Products."
                 typingSpeed={60}
                 initialDelay={350}
                 cursorCharacter="|"
@@ -376,7 +376,7 @@ export default function HomeBanner() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1.1 }}
             >
-              Absolute Precision.
+              Engineered to Scale.
             </motion.span>
             <motion.span
               className="hero-title-muted"
@@ -384,7 +384,7 @@ export default function HomeBanner() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1.25 }}
             >
-              Real Outcomes.
+              Built for Real Impact.
             </motion.span>
           </motion.h1>
 
@@ -394,9 +394,9 @@ export default function HomeBanner() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.4 }}
           >
-            AI Development · Business Automation · Talent Acquisition
+            AI & Intelligent systems · Digital Automation · Product Engineering
             <br />
-            Cloud Infrastructure · Managed IT · Product Engineering
+            Cloud & DevOps · Data & Analytics · Cyber Security
           </motion.p>
 
           <motion.div
@@ -406,61 +406,16 @@ export default function HomeBanner() {
             transition={{ duration: 0.7, delay: 1.55 }}
           >
             <a href="#contact" className="hero-button hero-button-primary">
-              <span>Book a Discovery Call</span>
+              <span>Book your Discovery Call</span>
               <span className="hero-button-arrow">↗</span>
             </a>
 
             <a href="#services" className="hero-button hero-button-secondary">
-              <span>Explore Services</span>
+              <span>Explore Our Offering</span>
               <span className="hero-button-arrow">→</span>
             </a>
           </motion.div>
-
-          {/* <motion.a
-            href="#quiz"
-            className="hero-quiz"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.65 }}
-          >
-            <span className="hero-quiz-icon">?</span>
-            <span>NOT SURE WHERE TO START?</span>
-            <span className="hero-quiz-main">
-              TAKE THE 3-QUESTION QUIZ
-            </span>
-            <span className="hero-quiz-arrow">→</span>
-          </motion.a> */}
-
-          {/* <motion.div
-            className="hero-stats"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.8 }}
-          >
-            <div className="hero-stat">
-              <strong>120+</strong>
-              <span>PROJECTS</span>
-            </div>
-
-            <div className="hero-stat-divider" />
-
-            <div className="hero-stat">
-              <strong>40+</strong>
-              <span>CLIENTS</span>
-            </div>
-
-            <div className="hero-stat-divider" />
-
-            <div className="hero-stat">
-              <strong>98%</strong>
-              <span>RETENTION</span>
-            </div>
-          </motion.div> */}
         </div>
-
-        {/* ==================================================
-            SLIDE CONTROLS
-        ================================================== */}
         <div className="hero-controls">
           <div className="hero-slide-number">
             <span>0{activeSlide + 1}</span>
@@ -485,12 +440,6 @@ export default function HomeBanner() {
             ))}
           </div>
         </div>
-
-        {/* Corner UI */}
-        {/* <div className="hero-corner hero-corner-top-left" />
-        <div className="hero-corner hero-corner-top-right" />
-        <div className="hero-corner hero-corner-bottom-left" />
-        <div className="hero-corner hero-corner-bottom-right" /> */}
       </div>
     </section>
   );

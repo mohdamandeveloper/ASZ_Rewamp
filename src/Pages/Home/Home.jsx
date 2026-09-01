@@ -42,7 +42,31 @@ const partners = [
     { text: 'Client16', src: '/images/asz/client-16.png', type: 'text' },
 ];
 
+const partners2 = [
+    { text: 'Client17', src: '/images/asz/client-17.png', type: 'text' },
+    { text: 'Client18', src: '/images/asz/client-18.png', type: 'text' },
+    { name: 'Client19', src: '/images/asz/client-19.jpg', type: 'img' },
+    { text: 'Client20', src: '/images/asz/client-20.jpg', type: 'text' },
+    { text: 'Client21', src: '/images/asz/client-21.png', type: 'text' },
+    { text: 'Client22', src: '/images/asz/client-22.png', type: 'text' },
+    { text: 'Client23', src: '/images/asz/client-23.png', type: 'text' },
+    { text: 'Client24', src: '/images/asz/client-24.png', type: 'text' },
+    { text: 'Client25', src: '/images/asz/client-25.png', type: 'text' },
+    { text: 'Client26', src: '/images/asz/client-26.png', type: 'text' },
+    { text: 'Client27', src: '/images/asz/client-27.png', type: 'text' },
+    { text: 'Client28', src: '/images/asz/client-28.png', type: 'text' },
+    { text: 'Client29', src: '/images/asz/client-29.png', type: 'text' },
+    { text: 'Client30', src: '/images/asz/client-30.png', type: 'text' },
+    { text: 'Client31', src: '/images/asz/client-31.png', type: 'text' },
+];
+
 const partnerLogos = partners.map((p) => ({
+    src: p.src,
+    alt: p.name || p.text,
+    title: p.name || p.text,
+}));
+
+const partnerLogos2 = partners2.map((p) => ({
     src: p.src,
     alt: p.name || p.text,
     title: p.name || p.text,
@@ -355,7 +379,7 @@ export default function Home() {
                                     )}
                                 />
                                 <LogoLoop
-                                    logos={partnerLogos}
+                                    logos={partnerLogos2}
                                     direction="left"
                                     speed={70}
                                     logoHeight={56}
@@ -392,11 +416,11 @@ export default function Home() {
                                 <div className='contact_inner'>
                                     <div className='contact_inner_content mb-4'>
                                         <motion.h3 className="heading_title text-center mb-3" style={{ fontSize: '50px' }}>
-                                            Let's Build <br />
-                                            <span>Something real.</span>
+                                            <span>Ready to Build </span> Together
+                                            {/* <br /><span>Something real.</span> */}
                                         </motion.h3>
                                         <motion.p>
-                                            Tell us what your're building. We'll scope it, staff it, ship it, and keep the lights on after.
+                                            Let's scope your project — we'll have a team proposal ready within 48 hours, no commitment required.
                                         </motion.p>
                                     </div>
                                     <div className='contact_inner_btn'>
@@ -404,7 +428,7 @@ export default function Home() {
                                             Start a Project &nbsp;<i className="bi bi-arrow-right"></i>
                                         </Link>
                                         <motion.button className='btn-secondary'>
-                                            Explore a Services &nbsp;<i className="bi bi-arrow-right"></i>
+                                            Explore Our Offering &nbsp;<i className="bi bi-arrow-right"></i>
                                         </motion.button>
                                     </div>
                                 </div>

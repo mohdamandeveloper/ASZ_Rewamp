@@ -16,7 +16,7 @@ const translations = {
     scroll: "SCROLL",
 
     // AI Platform
-    badge_ai: "AI PLATFORM",
+    badge_ai: "AI Solutions",
     ai_title: "Intelligence built into every solution",
     ai_subtitle: "We don't treat AI as a bolt-on feature — it's foundational to how we design and build software. Our teams embed generative AI, predictive analytics, and intelligent automation directly into the products we ship, so our clients aren't just adopting AI, they're building durable competitive advantage with it. ",
 
@@ -36,32 +36,32 @@ const translations = {
 
     // Stats labels (order matches statsData array)
     stats: [
-      { label: "Years of delivery" },
-      { label: "Projects shipped" },
-      { label: "Engineers on team" },
-      { label: "On-time delivery" },
+      { label: "Years of Delivery" },
+      { label: "Projects Shipped" },
+      { label: "Engineers on Team" },
+      { label: "On-Time Delivery" },
     ],
 
     // AI Platform cards (order matches platformData array)
     platform: [
       { 
-        title: "Generative AI Integration", 
-        description: "We embed GPT-4, Claude, and Gemini into your products — chat interfaces, document generation, intelligent search, and content automation built for production scale, not just a pilot.", 
+        title: "AI & Intelligent Systems", 
+        description: "Predictive analytics, computer vision, and machine learning aren't add-ons for us — they're built into the systems we ship, starting with our own AI-powered document engine, 1Glance.", 
         tag: "LLM INTEGRATION" 
       },
       { 
-        title: "Predictive Analytics", 
-        description: "We turn your raw data into foresight. Our ML models power demand forecasting, churn prediction, fraud detection, and real-time business intelligence dashboards that leadership actually uses.", 
+        title: "Product Engineering", 
+        description: " We design, build, and ship complete digital products — backed by our own line, including 1Glance and Digital One.", 
         tag: "MACHINE LEARNING" 
       },
       { 
-        title: "Intelligent Process Automation", 
-        description: "We combine RPA with AI decision-making to automate document processing, approvals, data entry, and complex workflows — cutting manual effort by up to 80%.", 
+        title: "Intelligent Security", 
+        description: "Our Cordon platform replaces manual guards and paper logs with a zero-touch, AI-driven system — vehicle recognition, facial check-in, and automated access control, all in one platform.", 
         tag: "RPA + AI" 
       },
       { 
-        title: "Computer Vision", 
-        description: "We build image and video intelligence for quality inspection, identity verification, document scanning, and real-time visual monitoring systems.", 
+        title: "Digital Transformation", 
+        description: "We modernize technology landscapes — cloud, systems, and strategy — aligned to your business goals at every layer.", 
         tag: "VISION AI" 
       },
     ],

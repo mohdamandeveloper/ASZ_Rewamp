@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 // ===== Continuous typewriter text (types, pauses, deletes, repeats forever) =====
 const HERO_TITLE_SEGMENTS = [
-    { text: "Innovative products." },
+    { text: "Products We've Built." },
 ];
 
 const TypewriterText = ({
@@ -377,11 +377,11 @@ export default function Products() {
                         <span class="hero_badge hero-anim hero-anim--1">Our Products</span>
 
                         <h1 class="heading_title services-hero__title hero-anim hero-anim--2">
-                            <span><TypewriterText segments={HERO_TITLE_SEGMENTS} /></span> <br />Built for real-world impact.
+                            <span><TypewriterText segments={HERO_TITLE_SEGMENTS} /></span> <br />Problems We've Solved.
                         </h1>
 
                         <p class="heading_subtitle services-hero__subtitle hero-anim hero-anim--3">
-                            Discover our suite of technology products designed to simplify operations, improve productivity, and create smarter digital experiences. From AI-powered solutions to scalable business platforms, our products are built to solve complex challenges and drive measurable results.
+                            From automated document processing to hotel check-in and warehouse management, our in-house product line reflects the same engineering discipline we bring to every client build — real software, running in production today.
                         </p>
 
                         <div class="services-hero__actions hero-anim hero-anim--4">

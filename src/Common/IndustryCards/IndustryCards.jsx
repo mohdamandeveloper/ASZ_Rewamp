@@ -17,28 +17,33 @@ const INDUSTRIES = [
     url: 'healthcare'
   },
   {
+    name: 'Travel & Hospitality',
+    image: '/images/asz/services_area/industry-bg/travel-hospitality.jpg',
+    url: 'healthcare'
+  },
+  {
     name: 'Banking',
     image: '/images/asz/services_area/industry-bg/banking.jpg',
     url: 'banking'
   },
   {
-    name: 'Insurance',
-    image: '/images/asz/services_area/industry-bg/insurance.jpg',
+    name: 'Education',
+    image: '/images/asz/services_area/industry-bg/education.jpg',
     url: '/'
   },
   {
-    name: 'Lending',
+    name: 'Finance',
     image: '/images/asz/services_area/industry-bg/lending.jpg',
     url: '/'
   },
   {
-    name: 'Payments',
-    image: '/images/asz/services_area/industry-bg/payments.jpg',
+    name: 'Automotive',
+    image: '/images/asz/services_area/industry-bg/automotive.jpg',
     url: 'payments'
   },
   {
-    name: 'Investment',
-    image: '/images/asz/services_area/industry-bg/investment.jpg',
+    name: 'Media & Entertainment',
+    image: '/images/asz/services_area/industry-bg/media-entertainment.jpg',
     url: 'investment'
   },
   {
@@ -52,23 +57,23 @@ const INDUSTRIES = [
     url: '/'
   },
   {
-    name: 'Manufacturing',
-    image: '/images/asz/services_area/industry-bg/manufacturing.jpg',
-    url: 'manufacturing'
+    name: 'E-Commerce',
+    image: '/images/asz/services_area/industry-bg/ecommerce.jpg',
+    url: 'ecommerce'
   },
   {
     name: 'Logistics & Transport',
     image: '/images/asz/services_area/industry-bg/logistics.jpg',
     url: 'logistics-transport'
   },
+  // {
+  //   name: 'Oil and Gas',
+  //   image: '/images/asz/services_area/industry-bg/oil-and-gas.jpg',
+  //   url: '/'
+  // },
   {
-    name: 'Oil and Gas',
-    image: '/images/asz/services_area/industry-bg/oil-and-gas.jpg',
-    url: '/'
-  },
-  {
-    name: 'Energy & Utilities',
-    image: '/images/asz/services_area/industry-bg/energy.jpg',
+    name: 'Marketing & Advertising',
+    image: '/images/asz/services_area/industry-bg/marketing.jpg',
     url: '/'
   },
 ];

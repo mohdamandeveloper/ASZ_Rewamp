@@ -8,7 +8,7 @@ import "./ContactUs.scss";
 import { Link } from "react-router-dom";
 
 const SERVICES_HERO_TITLE_SEGMENTS = [
-    { text: "Ready to build better", span: true },
+    { text: "Tell Us", span: true },
     // { text: " Analytics\u00A0" },
     // { break: true },
     // { text: "Built for Every Platform" },
@@ -125,15 +125,15 @@ function ContactUs() {
                 </svg>
                 <div className="hero-content">
                     <div className="hero-eyebrow">
-                        <h6 className="hero_badge hero-anim hero-anim--1"><span></span>Get in Touch With Us</h6>
+                        <h6 className="hero_badge hero-anim hero-anim--1"><span></span>Get In Touch</h6>
                         <TypewriterHeading
                             segments={SERVICES_HERO_TITLE_SEGMENTS}
                             className="heading_title services-hero__title hero-anim hero-anim--2 mb-0"
                         />
-                        <h1 className="heading_title mb-4 hero-anim hero-anim--3">software, faster?</h1>
+                        <h1 className="heading_title mb-4 hero-anim hero-anim--3">What You're Building.</h1>
                     </div>
                     <p className="hero-subtitle hero-anim hero-anim--4">
-                        We’re here to discuss your projects and ambitions. Because every collaboration is an opportunity to move our clients, partners and teams forward.
+                        committing to a 48-hour proposal turnaround.
                     </p>
                 </div>
             </section>

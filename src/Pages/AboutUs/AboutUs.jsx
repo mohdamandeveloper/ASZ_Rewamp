@@ -7,10 +7,10 @@ import CoreValues from "../../Common/CoreValues/CoreValues";
 
 
 const statsData = [
-    { id: 1, target: 12, suffix: "+", label: "Years of Experience" },
-    { id: 2, target: 2000, suffix: "+", label: "Products Delivered" },
-    { id: 3, target: 50, suffix: "+", label: "Countries Served" },
-    { id: 4, target: 500, suffix: "+", label: "Tech Enthusiasts" },
+    { id: 1, target: 15, suffix: "+", label: "Years of Experience" },
+    { id: 2, target: 15, suffix: "+", label: "Industries Served" },
+    { id: 3, target: 30, suffix: "+", label: "Countries Served" },
+    { id: 4, target: 150, suffix: "+", label: "Project Delivered" },
 ];
 
 // ===== Count-up stat =====
@@ -120,7 +120,7 @@ const ParticleLayer = () => {
 
 // ===== Continuous typewriter heading (types, pauses, deletes, repeats forever) =====
 const HERO_TITLE_SEGMENTS = [
-    { text: "Engineering Beyond Code " },
+    { text: "Beyond Code. Beyond Conventional." },
     // { text: "Building Digital Systems", className: "c_primary" },
     // { text: " That Last" },
 ];
@@ -597,10 +597,10 @@ export default function AboutUs() {
                                             segments={HERO_TITLE_SEGMENTS}
                                             className="heading_title hero-anim hero-anim--2"
                                         />
-                                        <h1 className="heading_title mb-4 hero-anim hero-anim--3">Building Digital Systems</h1>
+                                        <h1 className="heading_title mb-4 hero-anim hero-anim--3">Built for What’s Next.</h1>
                                     </div>
                                     <p className="hero-subtitle hero-anim hero-anim--4">
-                                        We design, engineer, and scale mission-critical enterprise solutions powered by AI, blockchain, and cloud technologies — helping businesses achieve resilient, lasting growth in a market that rewards speed and punishes fragility.
+                                        We design, engineer, and scale mission-critical enterprise solutions powered by AI, blockchain, and cloud technology — helping businesses move fast, stay resilient, and grow without compromise.
                                     </p>
 
                                     <div className="hero-actions mt-4 hero-anim hero-anim--4">
@@ -631,9 +631,9 @@ export default function AboutUs() {
                             <div className="col-md-6">
                                 <h2 className="heading_title who-are-we__title" style={{ color: 'white' }}><span>Who</span> We Are</h2>
                                 <p className="who-are-we__desc">
-                                    ASZ Technologies specializes in digital transformation services spanning sourcing and advisory, market intelligence, Industry 4.0, data science, and enterprise data management. We work collaboratively with our clients — translating business requirements into shipped, working technology as quickly and effectively as possible, without sacrificing the engineering discipline that makes systems reliable long after launch.
+                                    With over a decade of experience, we’re a team of 80+ professionals helping organizations navigate digital and AI transformation across sourcing, advisory, market intelligence, data science, and enterprise data management. 
                                 </p>
-                                <p className="who-are-we__desc">Our diverse team combines innovative thinking with proven, battle-tested technology to help clients adapt, transform, and compete. We don't believe in one-size-fits-all delivery — every engagement starts with understanding what actually moves the needle for your business, then engineering toward it.</p>
+                                <p className="who-are-we__desc">We don't do one-size-fits-all delivery. Every engagement starts with understanding what actually moves the needle for your business, then we engineer toward it — which is why regional and multinational companies trust us for cloud and SaaS integration, and hands-on support through onboarding.</p>
 
                                 {/* <p className="who-are-we__desc">ASZ Technologies currently operates out of India, Singapore, and the United States, and continues to expand its global footprint. We're the partner of choice for regional and multinational companies looking for cloud and software-as-a-service integration, and hands-on support through cloud onboarding.</p> */}
                                 <div className="who-are-we__stats">
@@ -662,13 +662,12 @@ export default function AboutUs() {
                                     ))}
                                 </div>
                                 <div className="contact_headline text-center mb-5">
-                                    <h6 className="hero_badge">Connect with us</h6>
+                                    <h6 className="hero_badge">Locations</h6>
                                     <h2 className="heading_title go-title" style={{ color: 'white' }}>
-                                        Local partner, <span>global talent</span>
+                                        Built for Where <span>You Do Business.</span>
                                     </h2>
                                     <p className="go-subtitle">
-                                        Our unique hybrid model combines the culture, collaboration and market-knowledge
-                                        of a local partner, with the flexibility and cost-effectiveness of great global talent.
+                                        With teams in Bangalore, Singapore, Dubai, and Sydney, ASZ Technologies stays close to the markets we serve, bringing local insight and hands-on delivery to every engagement.
                                     </p>
                                 </div>
                                 <div className="go-body">

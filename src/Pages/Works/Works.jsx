@@ -8,7 +8,7 @@ import "./Works.scss";
 
 // ===== Continuous typewriter text (types, pauses, deletes, repeats forever) =====
 const HERO_TITLE_SEGMENTS = [
-    { text: "Real challenges." },
+    { text: "Proof," },
 ];
 
 const TypewriterText = ({
@@ -752,11 +752,12 @@ export default function Works() {
                 <div class="services-hero__inner container">
                     <span class="hero_badge hero-anim hero-anim--1">Our Work</span>
                     <h1 class="heading_title services-hero__title hero-anim hero-anim--2">
-                        <span><TypewriterText segments={HERO_TITLE_SEGMENTS} /></span> <br />Thoughtful solutions.
+                        <span><TypewriterText segments={HERO_TITLE_SEGMENTS} /></span> <br />Not Promises.
                     </h1>
                     <p class="heading_subtitle services-hero__subtitle hero-anim hero-anim--3">
-                        Explore how we've helped businesses across industries overcome challenges, modernize their operations, and achieve meaningful results with our technology solutions.
+                        From automating document workflows for finance teams to powering hotel check-ins and warehouse operations, our work spans industries and geographies — real deployments, real clients, real outcomes.
                     </p>
+                    {/* <p class="heading_subtitle services-hero__subtitle hero-anim hero-anim--3">Both grounded in your actual product portfolio and client case studies from the profile deck, not invented claims. Send the next section whenever you're ready.</p> */}
                     <div class="services-hero__actions hero-anim hero-anim--4">
                         <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
                     </div>
