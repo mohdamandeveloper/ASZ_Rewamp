@@ -14,7 +14,6 @@ const statsData = [
     { id: 3, value: 50, suffix: "+" },
     { id: 4, value: 98, suffix: "%" },
 ];
-useLanguage
 
 const bentoMeta = [
     { badge: "Featured", image: "/images/home/8machine.jpg" },
@@ -250,10 +249,10 @@ export default function Home() {
                                 {t.badge_ai}
                             </div>
                             <h2 className="heading_title ai-platform__title">
-                                <span>Intelligence built</span> into every solution
+                                <span>{t.ai_title_highlight}</span> {t.ai_title_rest}
                             </h2>
                             <p className="ai-platform__subtitle">
-                                We don't treat AI as a bolt-on feature — it's foundational to how we design and build software. Our teams embed generative AI, predictive analytics, and intelligent automation directly into the products we ship.
+                                {t.ai_subtitle}
                             </p>
                         </motion.div>
 
@@ -357,9 +356,9 @@ export default function Home() {
                     <div className="partners_container">
                         <div style={{ position: 'relative' }}>
                             <h3 className="heading_title text-center mb-2" style={{ color: 'white', fontSize: '40px' }}>
-                                <span>We Support</span> Customers <br />Around The Globe
+                                <span>{t.partners_title_highlight}</span> {t.partners_title_rest}
                             </h3>
-                            <p className="heading_subtitle mb-5">Delivering innovative technology solutions to businesses worldwide, building lasting partnerships across industries and regions.</p>
+                            <p className="heading_subtitle mb-5">{t.partners_subtitle}</p>
                             <div className="partners-loop">
                                 <LogoLoop
                                     logos={partnerLogos}
@@ -398,7 +397,7 @@ export default function Home() {
                             </div>
                             <div className="partner_icon mt-5">
                                 <Link to={'/works'}>
-                                    See our clients &nbsp;&nbsp; <i class="bi bi-arrow-right"></i>
+                                    {t.partners_view_clients} &nbsp;&nbsp; <i className={`bi bi-arrow-right${isRTL ? " rotate-rtl" : ""}`}></i>
                                 </Link>
                             </div>
                         </div>
@@ -416,19 +415,19 @@ export default function Home() {
                                 <div className='contact_inner'>
                                     <div className='contact_inner_content mb-4'>
                                         <motion.h3 className="heading_title text-center mb-3" style={{ fontSize: '50px' }}>
-                                            <span>Ready to Build </span> Together
+                                            <span>{t.contact_title_white} </span> {t.contact_title_accent}
                                             {/* <br /><span>Something real.</span> */}
                                         </motion.h3>
                                         <motion.p>
-                                            Let's scope your project — we'll have a team proposal ready within 48 hours, no commitment required.
+                                            {t.contact_subtitle}
                                         </motion.p>
                                     </div>
                                     <div className='contact_inner_btn'>
                                         <Link className='btn-primary' to="/contact">
-                                            Start a Project &nbsp;<i className="bi bi-arrow-right"></i>
+                                            {t.btn_start} &nbsp;<i className={`bi bi-arrow-right${isRTL ? " rotate-rtl" : ""}`}></i>
                                         </Link>
                                         <motion.button className='btn-secondary'>
-                                            Explore Our Offering &nbsp;<i className="bi bi-arrow-right"></i>
+                                            {t.btn_offering} &nbsp;<i className={`bi bi-arrow-right${isRTL ? " rotate-rtl" : ""}`}></i>
                                         </motion.button>
                                     </div>
                                 </div>

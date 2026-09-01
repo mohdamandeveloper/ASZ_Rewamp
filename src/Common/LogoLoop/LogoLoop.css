@@ -1,6 +1,18 @@
 .logoloop {
   position: relative;
 
+  /*
+   * This is a purely decorative, animated marquee. Its scroll math
+   * (translate3d based on a physical, left-origin offset) assumes an
+   * LTR flex layout. If it inherits `dir="rtl"` from the page (e.g.
+   * Arabic), the browser lays out the flex items starting from the
+   * right edge instead, which fights the transform and makes the
+   * loop appear to bunch up / get cut off on one side. Isolating it
+   * to LTR keeps the scroll behaving identically in every language.
+   */
+  direction: ltr;
+  unicode-bidi: isolate;
+
   --logoloop-gap: 32px;
   --logoloop-logoHeight: 28px;
   --logoloop-fadeColorAuto: #ffffff;

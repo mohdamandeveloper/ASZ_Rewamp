@@ -8,6 +8,7 @@ import {
 } from "motion/react";
 
 import TextType from "./TextType";
+import { useLanguage, useTranslation } from "../../Context/LanguageContext";
 
 import "./HomeBanner.scss";
 
@@ -35,6 +36,8 @@ const slides = [
 ];
 
 export default function HomeBanner() {
+  const { isRTL } = useLanguage();
+  const t = useTranslation();
   const [activeSlide, setActiveSlide] = useState(0);
   const [isVideoHovered, setIsVideoHovered] = useState(false);
   const [isMediaActive, setIsMediaActive] = useState(false);
@@ -185,7 +188,7 @@ export default function HomeBanner() {
   };
 
   return (
-    <section className="hero-banner">
+    <section className={`hero-banner${isRTL ? " rtl" : ""}`}>
       <div
         className="hero-media"
         onPointerMove={handlePointerMove}
@@ -349,7 +352,7 @@ export default function HomeBanner() {
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             <span className="hero-eyebrow-dot" />
-            AI-POWERED TECHNOLOGY
+            {t.banner_eyebrow}
           </motion.div>
 
           <motion.h1
@@ -364,7 +367,8 @@ export default function HomeBanner() {
           >
             <span className="hero-title-typed">
               <TextType
-                text="Intelligent Products."
+                key={t.banner_title_typed}
+                text={t.banner_title_typed}
                 typingSpeed={60}
                 initialDelay={350}
                 cursorCharacter="|"
@@ -376,7 +380,7 @@ export default function HomeBanner() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1.1 }}
             >
-              Engineered to Scale.
+              {t.banner_title_gradient}
             </motion.span>
             <motion.span
               className="hero-title-muted"
@@ -384,7 +388,7 @@ export default function HomeBanner() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1.25 }}
             >
-              Built for Real Impact.
+              {t.banner_title_muted}
             </motion.span>
           </motion.h1>
 
@@ -394,9 +398,9 @@ export default function HomeBanner() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.4 }}
           >
-            AI & Intelligent systems · Digital Automation · Product Engineering
+            {t.banner_description_line1}
             <br />
-            Cloud & DevOps · Data & Analytics · Cyber Security
+            {t.banner_description_line2}
           </motion.p>
 
           <motion.div
@@ -406,12 +410,12 @@ export default function HomeBanner() {
             transition={{ duration: 0.7, delay: 1.55 }}
           >
             <a href="#contact" className="hero-button hero-button-primary">
-              <span>Book your Discovery Call</span>
+              <span>{t.banner_btn_primary}</span>
               <span className="hero-button-arrow">↗</span>
             </a>
 
             <a href="#services" className="hero-button hero-button-secondary">
-              <span>Explore Our Offering</span>
+              <span>{t.banner_btn_secondary}</span>
               <span className="hero-button-arrow">→</span>
             </a>
           </motion.div>

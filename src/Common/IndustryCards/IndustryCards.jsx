@@ -8,70 +8,84 @@ import {
 } from "motion/react";
 import { gsap } from 'gsap';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage, useTranslation } from '../../Context/LanguageContext';
 import './IndustryCards.scss';
 
 const INDUSTRIES = [
   {
+    key: 'healthcare',
     name: 'Healthcare',
     image: '/images/asz/services_area/industry-bg/healthcare.jpg',
     url: 'healthcare'
   },
   {
+    key: 'travel_hospitality',
     name: 'Travel & Hospitality',
     image: '/images/asz/services_area/industry-bg/travel-hospitality.jpg',
     url: 'healthcare'
   },
   {
+    key: 'banking',
     name: 'Banking',
     image: '/images/asz/services_area/industry-bg/banking.jpg',
     url: 'banking'
   },
   {
+    key: 'education',
     name: 'Education',
     image: '/images/asz/services_area/industry-bg/education.jpg',
     url: '/'
   },
   {
+    key: 'finance',
     name: 'Finance',
     image: '/images/asz/services_area/industry-bg/lending.jpg',
     url: '/'
   },
   {
+    key: 'automotive',
     name: 'Automotive',
     image: '/images/asz/services_area/industry-bg/automotive.jpg',
     url: 'payments'
   },
   {
+    key: 'media_entertainment',
     name: 'Media & Entertainment',
     image: '/images/asz/services_area/industry-bg/media-entertainment.jpg',
     url: 'investment'
   },
   {
+    key: 'real_estate',
     name: 'Real estate',
     image: '/images/asz/services_area/industry-bg/real-estate.jpg',
     url: '/'
   },
   {
+    key: 'retail',
     name: 'Retail',
     image: '/images/asz/services_area/industry-bg/retail.jpg',
     url: '/'
   },
   {
+    key: 'ecommerce',
     name: 'E-Commerce',
     image: '/images/asz/services_area/industry-bg/ecommerce.jpg',
     url: 'ecommerce'
   },
   {
+    key: 'logistics_transport',
     name: 'Logistics & Transport',
     image: '/images/asz/services_area/industry-bg/logistics.jpg',
     url: 'logistics-transport'
   },
   // {
+  //   key: 'oil_gas',
   //   name: 'Oil and Gas',
   //   image: '/images/asz/services_area/industry-bg/oil-and-gas.jpg',
   //   url: '/'
   // },
   {
+    key: 'marketing_advertising',
     name: 'Marketing & Advertising',
     image: '/images/asz/services_area/industry-bg/marketing.jpg',
     url: '/'
@@ -240,13 +254,15 @@ function BgGraphics() {
 // ─── Main Component ───────────────────────────────────────────────────────────
 export default function IndustryCards() {
   const navigate = useNavigate();
+  const { isRTL } = useLanguage();
+  const t = useTranslation();
   const gridRef = useRef(null);
   const [activeIdx, setActiveIdx] = useState(0);
   const handlePageLink =(url) => {
     navigate('/work/' + url); 
   }
   return (
-    <section className="ic-section">
+    <section className={`ic-section${isRTL ? " rtl" : ""}`}>
       <div className='grid_overlay'></div>
       <div className='container'>
         <div className='row'>
@@ -256,13 +272,13 @@ export default function IndustryCards() {
             <div className="ic-header">
               <div className='hero_badge'>
                 <span></span>
-                Industries we serve
+                {t.industries_badge}
               </div>
               <h2 className="heading_title">
-                Built for every <span>sector</span>
+                {t.industries_title_white} <span>{t.industries_title_accent}</span>
               </h2>
               <p className="ic-subtitle">
-                We build tailored solutions across 12+ verticals — from regulated finance to complex, multi-node supply chains. Whatever your industry's constraints, we've likely already solved for them.
+                {t.industries_subtitle}
               </p>
             </div>
 
@@ -287,7 +303,7 @@ export default function IndustryCards() {
                     className="ic-card-content"
                     onClick={() => handlePageLink(ind.url)}
                   >
-                    <span className="ic-card-name">{ind.name}</span>
+                    <span className="ic-card-name">{t.industries?.[ind.key] ?? ind.name}</span>
                   </div>
                 </ParticleCard>
               ))}

@@ -1054,3 +1054,79 @@
         }
     }
 }
+/* =========================================================
+   RTL SUPPORT
+   Applied via the .rtl modifier class added to .hero-banner
+   when Arabic is selected (see HomeBanner.jsx).
+========================================================= */
+.hero-banner.rtl {
+    direction: rtl;
+
+    .hero-container {
+        // flex-direction: row-reverse;
+        text-align: right;
+    }
+
+    .hero-content {
+        text-align: right;
+    }
+
+    // .hero-eyebrow {
+    //     flex-direction: row-reverse;
+    // }
+
+    // .hero-actions {
+    //     flex-direction: row-reverse;
+    // }
+
+    // .hero-button {
+    //     flex-direction: row-reverse;
+    // }
+
+    .hero-button-arrow {
+        display: inline-block;
+        transform: scaleX(-1);
+    }
+
+    // Slide controls move to the opposite (leading) edge in RTL
+    .hero-controls {
+        right: auto;
+        left: 7vw;
+        flex-direction: row-reverse;
+    }
+
+    // Mirror the decorative corner frame
+    .hero-corner-top-left {
+        left: auto;
+        right: 7vw;
+    }
+
+    .hero-corner-top-right {
+        right: auto;
+        left: 7vw;
+    }
+
+    .hero-corner-bottom-left {
+        left: auto;
+        right: 7vw;
+    }
+
+    .hero-corner-bottom-right {
+        right: auto;
+        left: 7vw;
+    }
+
+    @media (max-width: 1024px) {
+        .hero-controls {
+            right: auto;
+            left: 24px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .hero-controls {
+            left: 18px;
+            right: auto;
+        }
+    }
+}

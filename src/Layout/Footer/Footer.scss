@@ -141,3 +141,13 @@
     }
   }
 }
+
+.rtl{
+  .footer-asz{
+    .footer-heading{
+      &::after{
+        right: 0;
+      }
+    }
+  }
+}

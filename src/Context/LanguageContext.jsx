@@ -9,12 +9,8 @@ const RTL_CODES = ["AR"];
 
 export const LANGUAGES = [
   { code: "EN", label: "English",   flag: "🇺🇸" },
-  // { code: "ES", label: "Español",   flag: "🇪🇸" },
   { code: "FR", label: "Français",  flag: "🇫🇷" },
   { code: "DE", label: "Deutsch",   flag: "🇩🇪" },
-  // { code: "PT", label: "Português", flag: "🇧🇷" },
-  // { code: "JA", label: "日本語",     flag: "🇯🇵" },
-  // { code: "ZH", label: "中文",       flag: "🇨🇳" },
   { code: "AR", label: "العربية",   flag: "🇸🇦" },
 ];
 

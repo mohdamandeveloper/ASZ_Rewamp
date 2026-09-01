@@ -326,7 +326,7 @@ $shadow-hover: 0 0px 10px rgba(255, 107, 53, 0.479), 0 0px 16px rgba(0, 0, 0, 0.
   color: #fff;
   letter-spacing: 0.01em;
   line-height: 1.3;
-  text-align: left;
+  text-align: center;
   // text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
   transition: transform 0.3s ease;
 
@@ -412,5 +412,30 @@ $shadow-hover: 0 0px 10px rgba(255, 107, 53, 0.479), 0 0px 16px rgba(0, 0, 0, 0.
 
   .ic-cam-dot--live {
     animation: none;
+  }
+}
+/* =========================================================
+   RTL SUPPORT
+   Applied via the .rtl modifier class added to .ic-section
+   when Arabic is selected (see IndustryCards.jsx).
+========================================================= */
+.ic-section.rtl {
+  direction: rtl;
+
+  .ic-header {
+    text-align: right;
+  }
+
+  // .ic-card-name {
+  //   text-align: right;
+  // }
+
+  // .ic-card-content {
+  //   align-items: flex-end;
+  // }
+
+  .ic-card-arrow {
+    right: auto;
+    left: 16px;
   }
 }

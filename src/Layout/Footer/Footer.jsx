@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
+import { useTranslation } from '../../Context/LanguageContext';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -13,6 +14,25 @@ const fadeUp = {
 };
 
 export default function Footer() {
+  const t = useTranslation();
+
+  const companyLinks = [
+    t.footer_link_home,
+    t.footer_link_about,
+    t.footer_link_career,
+    t.footer_link_contact,
+  ];
+
+  const serviceLinks = [
+    t.footer_service_software_development,
+    t.footer_service_testing_qa,
+    t.footer_service_application_services,
+    t.footer_service_ai_consulting,
+    t.footer_service_ui_ux_design,
+    t.footer_service_data_analytics,
+    t.footer_service_cybersecurity,
+  ];
+
   return (
     <footer className="footer-asz" id="contact">
       <div className="container">
@@ -31,7 +51,7 @@ export default function Footer() {
                 <img src='/images/asz-logo2.png' />
               </div>
               <p className="footer-desc">
-                ASZ Technologies is one of Asia’s leading innovative IT Solution Providers offering comprehensive and focused solutions in Cloud, Security, Media and Mobile.
+                {t.footer_description}
               </p>
               <div className="footer-socials">
                 {/* <Link to="/" aria-label="Facebook"><i className="bi bi-facebook"></i></Link> */}
@@ -59,9 +79,9 @@ export default function Footer() {
                   whileInView="show"
                   viewport={{ once: true }}
                 >
-                  <h5 className="footer-heading">Company</h5>
+                  <h5 className="footer-heading">{t.footer_company_heading}</h5>
                   <ul className="footer-links">
-                    {['Home', 'About Us', 'Career', 'Contact'].map(link => (
+                    {companyLinks.map(link => (
                       <li key={link}><a href="#!">{link}</a></li>
                     ))}
                   </ul>
@@ -76,9 +96,9 @@ export default function Footer() {
                   whileInView="show"
                   viewport={{ once: true }}
                 >
-                  <h5 className="footer-heading">Our Services</h5>
+                  <h5 className="footer-heading">{t.footer_services_heading}</h5>
                   <ul className="footer-links">
-                    {['Software Development', 'Testing & QA', 'Application Services', 'AI Consulting', 'UI/UX Design', 'Data Analytics', 'Cybersecurity Services'].map(link => (
+                    {serviceLinks.map(link => (
                       <li key={link}><a href="#!">{link}</a></li>
                     ))}
                   </ul>
@@ -97,18 +117,18 @@ export default function Footer() {
               whileInView="show"
               viewport={{ once: true }}
             >
-              <h5 className="footer-heading">Contact Info</h5>
+              <h5 className="footer-heading">{t.footer_contact_heading}</h5>
               <div className="footer-contact-item">
                 <i className="bi bi-geo-alt-fill"></i>
-                <span>Head Office<br />No.106, 4th floor, 10th cross, <br />Ganganagar, Bangalore-32, India</span>
+                <span>{t.footer_head_office_label}<br />{t.footer_head_office_address}</span>
               </div>
               <div className="footer-contact-item">
                 <i className="bi bi-telephone-fill"></i>
-                <span>Call Us<br />+91 9876543210</span>
+                <span>{t.footer_call_us_label}<br />+91 9876543210</span>
               </div>
               <div className="footer-contact-item">
                 <i className="bi bi-envelope-fill"></i>
-                <span>Email Us <br />connect@asztechnologies.com</span>
+                <span>{t.footer_email_us_label} <br />connect@asztechnologies.com</span>
               </div>
             </motion.div>
           </div>
@@ -116,10 +136,10 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="footer-bottom">
-          <p>© 2026 - ASZ Technologies</p>
+          <p>{t.footer_copyright}</p>
           <div className="footer-bottom-links">
-            <a href="#!">Terms & Conditions</a>
-            <a href="#!">Privacy Policy</a>
+            <a href="#!">{t.footer_terms}</a>
+            <a href="#!">{t.footer_privacy}</a>
           </div>
         </div>
       </div>

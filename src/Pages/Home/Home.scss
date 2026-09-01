@@ -504,6 +504,7 @@
                 color: #ffffff;
                 margin-bottom: 10px;
                 line-height: 1.25;
+                margin-top: 16px;
             }
 
             .bento-card--big .bento-card__title {
@@ -876,6 +877,72 @@
         color: var(--color-white);
         ~p {
             color: var(--text-muted-light);
+        }
+    }
+}
+
+/* =========================================================
+   RTL SUPPORT
+   Applied when the <html>/.homeDark wrapper carries the
+   `.rtl` class (see LanguageContext.jsx / Home.jsx), which
+   happens automatically when Arabic is selected.
+========================================================= */
+.rtl {
+
+    .key-facts {
+        &__container {
+            direction: rtl;
+        }
+
+        // &__item {
+        //     border-right: none;
+        //     border-left: 1px solid rgba(255, 255, 255, 0.08);
+
+        //     &:last-child {
+        //         border-left: none;
+        //     }
+        // }
+
+        @media (max-width: 992px) {
+            &__item:nth-child(3n) {
+                border-right: none;
+                border-left: 1px solid rgba(255, 255, 255, 0.08);
+            }
+        }
+
+        @media (max-width: 576px) {
+            &__item {
+                border-left: none !important;
+            }
+        }
+    }
+
+    .bento-card {
+        text-align: right;
+
+        // &__link {
+        //     flex-direction: row-reverse;
+        // }
+
+        // &__row {
+        //     flex-direction: row-reverse;
+        // }
+    }
+
+    .partner_icon a {
+        flex-direction: row-reverse;
+    }
+
+    // Flip trailing arrow icons so they point toward reading-start (left) in RTL
+    .rotate-rtl {
+        display: inline-block;
+        transform: scaleX(-1);
+    }
+
+    .contact_inner_btn {
+        .btn-primary,
+        .btn-secondary {
+            flex-direction: row-reverse;
         }
     }
 }

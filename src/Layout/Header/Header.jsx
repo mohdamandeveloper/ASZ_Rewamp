@@ -2,40 +2,40 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Header.scss';
 import { Link } from 'react-router-dom';
-import { useLanguage, LANGUAGES } from '../../Context/LanguageContext';
+import { useLanguage, useTranslation, LANGUAGES } from '../../Context/LanguageContext';
 
 /* ─── DROPDOWN DATA ─────────────────────────────────────────── */
-const SERVICES_ITEMS = [
-  { label: "Software Development", url: "/services/custom-software-development" },
-  { label: "Testing & QA", url: "/services/testing-qa" },
-  { label: "Mobile Development", url: "/services/mobile-app-development" },
-  { label: "UX/UI Design", url: "/services/ux-ui-development" },
-  { label: "IT Consulting", url: "/services/it-consulting" },
-  { label: "Data Analytics", url: "/services/data-analytics" },
-  { label: "CyberSecurity Services", url: "/services/cybersecurity-services" },
+/* Built from `t` so labels re-render in the active language. URLs stay fixed. */
+const getServicesItems = (t) => [
+  { label: t.nav_services_software_development, url: "/services/custom-software-development" },
+  { label: t.nav_services_testing_qa, url: "/services/testing-qa" },
+  { label: t.nav_services_mobile_development, url: "/services/mobile-app-development" },
+  { label: t.nav_services_ux_ui_design, url: "/services/ux-ui-development" },
+  { label: t.nav_services_it_consulting, url: "/services/it-consulting" },
+  { label: t.nav_services_data_analytics, url: "/services/data-analytics" },
+  { label: t.nav_services_cybersecurity, url: "/services/cybersecurity-services" },
 ];
 
-
-const PRODUCTS_ITEMS = [
-  { label: "Product 1", url: "/products" },
-  { label: "Product 2", url: "/products" },
+const getProductsItems = (t) => [
+  { label: t.nav_products_product1, url: "/products" },
+  { label: t.nav_products_product2, url: "/products" },
 ];
 
-const NAV_LINKS = [
-  { link: "Home", url: "/", dropdown: null },
-  { link: "About Us", url: "/about", dropdown: null },
-  { link: "Services", url: "/service", dropdown: SERVICES_ITEMS },
-  { link: "Products", url: "/products", dropdown: null },
-  { link: "Our Work", url: "/works", dropdown: null },
+const getNavLinks = (t) => [
+  { link: t.nav_home, url: "/", dropdown: null },
+  { link: t.nav_about, url: "/about", dropdown: null },
+  { link: t.nav_services, url: "/service", dropdown: getServicesItems(t) },
+  { link: t.nav_products, url: "/products", dropdown: null },
+  { link: t.nav_our_work, url: "/works", dropdown: null },
 ];
 
-const MOBILE_MENU = [
-  { label: "Home", url: "/", children: null },
-  { label: "About Us", url: "/about", children: null },
-  { label: "Services", url: "/service", children: SERVICES_ITEMS },
-  { label: "Products", url: "/products", children: PRODUCTS_ITEMS },
-  { label: "Our Work", url: "/work", children: null },
-  { label: "Contact Us", url: "/contact", children: null },
+const getMobileMenu = (t) => [
+  { label: t.nav_home, url: "/", children: null },
+  { label: t.nav_about, url: "/about", children: null },
+  { label: t.nav_services, url: "/service", children: getServicesItems(t) },
+  { label: t.nav_products, url: "/products", children: getProductsItems(t) },
+  { label: t.nav_our_work, url: "/work", children: null },
+  { label: t.nav_contact, url: "/contact", children: null },
 ];
 
 /* ─── LANGUAGE SELECTOR ─────────────────────────────────────── */
@@ -83,7 +83,7 @@ function LanguageSelector() {
               >
                 <span style={{ fontSize: 18 }}>{lang.flag}</span>
                 <span style={{ fontWeight: 500 }}>{lang.label}</span>
-                <span style={{ marginLeft: "auto", fontSize: 11, opacity: 0.5 }}>{lang.code}</span>
+                <span style={{ marginInlineStart: "auto", fontSize: 11, opacity: 0.5 }}>{lang.code}</span>
               </button>
             ))}
           </motion.div>
@@ -129,13 +129,19 @@ function NavDropdown({ items, open, onClose }) {
 /* ─── MOBILE MENU ───────────────────────────────────────────── */
 function MobileMenu({ open, onClose }) {
   const [expanded, setExpanded] = useState(null);
+  const { isRTL } = useLanguage();
+  const t = useTranslation();
+  const dir = isRTL ? "rtl" : "ltr";
+  const MOBILE_MENU = getMobileMenu(t);
 
+  // Slide in from the reading-direction "start" edge: left in LTR, right in RTL.
+  const offscreenX = dir === "rtl" ? "100%" : "-100%";
   const sidebarVariants = {
-    closed: { x: "-100%", transition: { type: "tween", duration: 0.35, ease: [0.4, 0, 0.2, 1] } },
+    closed: { x: offscreenX, transition: { type: "tween", duration: 0.35, ease: [0.4, 0, 0.2, 1] } },
     open: { x: 0, transition: { type: "tween", duration: 0.35, ease: [0.4, 0, 0.2, 1] } },
   };
   const itemVariants = {
-    closed: { opacity: 0, x: -20 },
+    closed: { opacity: 0, x: dir === "rtl" ? 20 : -20 },
     open: i => ({ opacity: 1, x: 0, transition: { delay: 0.08 + i * 0.045, duration: 0.28 } }),
   };
   const collapseV = {
@@ -181,7 +187,7 @@ function MobileMenu({ open, onClose }) {
                         <span style={{
                           transform: expanded === item.label ? "rotate(180deg)" : "none",
                           transition: "transform 0.2s",
-                        }}><i class="bi bi-chevron-down"></i></span>
+                        }}><i className="bi bi-chevron-down"></i></span>
                       </Link>
                     ) : (
                       <Link
@@ -223,7 +229,7 @@ function MobileMenu({ open, onClose }) {
                 to="/contact"
                 onClick={onClose}
                 className='btn-primary' style={{ width: '100%' }}>
-                Contact Us <i class="bi bi-arrow-right"></i>
+                {t.nav_contact} <i className={`bi bi-arrow-${dir === "rtl" ? "left" : "right"}`}></i>
               </Link>
             </div>
           </motion.div>
@@ -239,6 +245,10 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navRef = useRef(null);
+  const { isRTL } = useLanguage();
+  const t = useTranslation();
+  const dir = isRTL ? "rtl" : "ltr";
+  const NAV_LINKS = getNavLinks(t);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -308,7 +318,7 @@ export default function Header() {
             </div>
             <div className="navbar-actions">
               <Link to="/contact" className="contact-btn">
-                Book a Discovery Call <i className="bi bi-chevron-right"></i>
+                {t.nav_book_call} <i className={`bi bi-chevron-${dir === "rtl" ? "left" : "right"}`}></i>
               </Link>
               <LanguageSelector />
             </div>
