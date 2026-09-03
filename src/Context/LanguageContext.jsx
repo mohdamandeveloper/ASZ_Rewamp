@@ -51,9 +51,9 @@ export function LanguageProvider({ children }) {
   const urlCode = (searchParams.get("lang") ?? "").toUpperCase();
 
   // Priority:
-  //  1. ?lang= in URL  — explicit user / shareable choice
-  //  2. Browser locale — auto-detect on first visit
-  //  3. English        — hard fallback
+  //  1. ?lang= in URL , explicit user / shareable choice
+  //  2. Browser locale, auto-detect on first visit
+  //  3. English       , hard fallback
   const initial = urlCode
     ? (getLangFromCode(urlCode) ?? DEFAULT_LANG)
     : detectBrowserLang();
@@ -110,14 +110,14 @@ export function LanguageProvider({ children }) {
   );
 }
 
-// ─── useLanguage — access language state ────────────────────────────────────
+// ─── useLanguage, access language state ────────────────────────────────────
 export function useLanguage() {
   const ctx = useContext(LanguageContext);
   if (!ctx) throw new Error("useLanguage must be used inside <LanguageProvider>");
   return ctx;
 }
 
-// ─── useTranslation — get the right translation object for current language ──
+// ─── useTranslation, get the right translation object for current language ──
 // Usage in any component:
 //   const t = useTranslation();
 //   <h1>{t.hero_title_white}</h1>

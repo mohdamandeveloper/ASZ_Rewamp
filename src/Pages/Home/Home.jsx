@@ -10,8 +10,8 @@ import HomeBanner from "../../Common/HomeBanner/HomeBanner";
 
 const statsData = [
     { id: 1, value: 15, suffix: "+" },
-    { id: 2, value: 200, suffix: "+" },
-    { id: 3, value: 50, suffix: "+" },
+    { id: 2, value: 500, suffix: "+" },
+    { id: 3, value: 80, suffix: "+" },
     { id: 4, value: 98, suffix: "%" },
 ];
 

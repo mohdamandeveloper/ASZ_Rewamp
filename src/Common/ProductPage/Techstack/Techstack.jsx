@@ -19,7 +19,7 @@ const TechStack = () => (
         <h2 className="heading_title" style={{color: 'white'}}>The Stack Behind <span>Every Product</span></h2>
         <p className="heading_subtitle">
           Modern, battle-tested technologies selected for performance,
-          maintainability, and longevity — not trend-chasing.
+          maintainability, and longevity, not trend-chasing.
         </p>
       </div>
 

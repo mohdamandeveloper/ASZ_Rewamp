@@ -6,7 +6,7 @@ const TABS = [
   {
     id:0, icon:<Zap size={18}/>, label:"Speed",
     title:"Deploy in Hours, Not Months",
-    desc:"Pre-built modules, one-click cloud deployment, and zero-config integrations mean you're live — and delivering value — before your competitors are done planning.",
+    desc:"Pre-built modules, one-click cloud deployment, and zero-config integrations mean you're live, and delivering value, before your competitors are done planning.",
     points:["One-click cloud deploy","Pre-built auth + RBAC","Zero-config API connections","99.9% SLA uptime"],
     img:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=900",
   },
@@ -20,14 +20,14 @@ const TABS = [
   {
     id:2, icon:<BarChart2 size={18}/>, label:"Analytics",
     title:"Real-Time Insights Built Right In",
-    desc:"Every product includes a live analytics layer — no third-party BI tool required. Drill-down dashboards, export-ready reports, and AI-generated summaries on demand.",
+    desc:"Every product includes a live analytics layer, no third-party BI tool required. Drill-down dashboards, export-ready reports, and AI-generated summaries on demand.",
     points:["Live data dashboards","AI-generated summaries","Custom report builder","CSV / API export"],
     img:"https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=900",
   },
   {
     id:3, icon:<RefreshCw size={18}/>, label:"Integrations",
     title:"Connects to Everything You Already Use",
-    desc:"Webhooks, REST & GraphQL APIs, and native connectors for Salesforce, HubSpot, Stripe, Twilio, and 40+ more — your product stack stays intact.",
+    desc:"Webhooks, REST & GraphQL APIs, and native connectors for Salesforce, HubSpot, Stripe, Twilio, and 40+ more, your product stack stays intact.",
     points:["REST & GraphQL APIs","40+ native connectors","Webhook event system","SDK for custom builds"],
     img:"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=900",
   },

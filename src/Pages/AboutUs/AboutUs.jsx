@@ -532,7 +532,7 @@ export default function AboutUs() {
                                                     onFocus={() => handleCardEnter(office.id)}
                                                     onBlur={handleCardLeave}
                                                 >
-                                                    <title>{office.country} — {office.type}</title>
+                                                    <title>{office.country}, {office.type}</title>
                                                     <circle className="hero-map-marker__ring" cx="0" cy="0" r="3" />
                                                     <circle className="hero-map-marker__hit" cx="0" cy="0" r="7" />
                                                     <circle className="hero-map-marker__dot" cx="0" cy="0" r="2.6" />
@@ -581,7 +581,7 @@ export default function AboutUs() {
                                                     onFocus={() => handleCardEnter(office.id)}
                                                     onBlur={handleCardLeave}
                                                 >
-                                                    <title>{office.country} — {office.type}</title>
+                                                    <title>{office.country}, {office.type}</title>
                                                     <circle className="hero-map-marker__ring" cx="0" cy="0" r="3" />
                                                     <circle className="hero-map-marker__hit" cx="0" cy="0" r="7" />
                                                     <circle className="hero-map-marker__dot" cx="0" cy="0" r="2.6" />
@@ -600,7 +600,7 @@ export default function AboutUs() {
                                         <h1 className="heading_title mb-4 hero-anim hero-anim--3">Built for What’s Next.</h1>
                                     </div>
                                     <p className="hero-subtitle hero-anim hero-anim--4">
-                                        We design, engineer, and scale mission-critical enterprise solutions powered by AI, blockchain, and cloud technology — helping businesses move fast, stay resilient, and grow without compromise.
+                                        We design, engineer, and scale mission-critical enterprise solutions powered by AI, blockchain, and cloud technology, helping businesses move fast, stay resilient, and grow without compromise.
                                     </p>
 
                                     <div className="hero-actions mt-4 hero-anim hero-anim--4">
@@ -633,7 +633,7 @@ export default function AboutUs() {
                                 <p className="who-are-we__desc">
                                     With over a decade of experience, we’re a team of 80+ professionals helping organizations navigate digital and AI transformation across sourcing, advisory, market intelligence, data science, and enterprise data management. 
                                 </p>
-                                <p className="who-are-we__desc">We don't do one-size-fits-all delivery. Every engagement starts with understanding what actually moves the needle for your business, then we engineer toward it — which is why regional and multinational companies trust us for cloud and SaaS integration, and hands-on support through onboarding.</p>
+                                <p className="who-are-we__desc">We don't do one-size-fits-all delivery. Every engagement starts with understanding what actually moves the needle for your business, then we engineer toward it, which is why regional and multinational companies trust us for cloud and SaaS integration, and hands-on support through onboarding.</p>
 
                                 {/* <p className="who-are-we__desc">ASZ Technologies currently operates out of India, Singapore, and the United States, and continues to expand its global footprint. We're the partner of choice for regional and multinational companies looking for cloud and software-as-a-service integration, and hands-on support through cloud onboarding.</p> */}
                                 <div className="who-are-we__stats">
@@ -684,7 +684,7 @@ export default function AboutUs() {
                                                         onMouseLeave={handleCardLeave}
                                                         role="button"
                                                         tabIndex={0}
-                                                        aria-label={`${office.company} — ${office.country}`}
+                                                        aria-label={`${office.company}, ${office.country}`}
                                                         onFocus={() => handleCardEnter(office.id)}
                                                         onBlur={handleCardLeave}
                                                     >

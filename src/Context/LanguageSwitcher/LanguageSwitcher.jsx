@@ -14,8 +14,8 @@ import "./LanguageSwitcher.scss";
  *
  * It reads/writes language state through LanguageContext, so selecting a
  * language here immediately re-renders every component that calls
- * useTranslation() (Home, HomeBanner, IndustryCards, etc.) and — for
- * Arabic — flips the document to RTL via LanguageContext's isRTL effect.
+ * useTranslation() (Home, HomeBanner, IndustryCards, etc.) and, for
+ * Arabic, flips the document to RTL via LanguageContext's isRTL effect.
  */
 export default function LanguageSwitcher({ className = "" }) {
   const { language, setLanguage, isRTL } = useLanguage();

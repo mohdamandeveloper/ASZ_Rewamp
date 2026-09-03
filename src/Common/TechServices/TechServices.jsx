@@ -140,7 +140,7 @@ const tabs = [
     {
         id: "web", label: "Web", number: "01",
         headline: "Web Development",
-        description: "We craft pixel-perfect, performant web applications using modern frameworks and cutting-edge tooling — from marketing sites to complex SaaS platforms.",
+        description: "We craft pixel-perfect, performant web applications using modern frameworks and cutting-edge tooling, from marketing sites to complex SaaS platforms.",
         features: ["React / Next.js", "Progressive Web Apps", "CMS Integration"],
         glowColor: "20,184,166",
         accent: "var(--color-primary)",
@@ -167,7 +167,7 @@ const tabs = [
     {
         id: "database", label: "Database", number: "04",
         headline: "Database Architecture",
-        description: "Robust, scalable data solutions — from schema design and query optimization to migrations and real-time data pipelines.",
+        description: "Robust, scalable data solutions, from schema design and query optimization to migrations and real-time data pipelines.",
         features: ["SQL & NoSQL", "Query Optimization", "Data Migrations"],
         glowColor: "234,179,8",
         accent: "var(--color-primary)",
@@ -185,7 +185,7 @@ const tabs = [
     {
         id: "cloud", label: "Cloud Services", number: "06",
         headline: "Cloud Services",
-        description: "Architecting and managing cloud infrastructure that scales with your business — secure, cost-efficient, and always available.",
+        description: "Architecting and managing cloud infrastructure that scales with your business, secure, cost-efficient, and always available.",
         features: ["AWS / GCP / Azure", "Serverless Functions", "Cost Optimization"],
         glowColor: "14,165,233",
         accent: "var(--color-primary)",
@@ -379,7 +379,7 @@ export default function TechServices() {
                         >
 
                             <p style={{ ...styles.tabBadge, color: tab.accent, borderColor: `${tab.accent}33`, background: `${tab.accent}0d` }}>
-                                {tab.number} — {tab.label}
+                                {tab.number}, {tab.label}
                             </p>
                             <h2 style={styles.headline}>{tab.headline}</h2>
                             <p style={styles.description}>{tab.description}</p>

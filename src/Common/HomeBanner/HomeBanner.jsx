@@ -41,6 +41,7 @@ export default function HomeBanner() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isVideoHovered, setIsVideoHovered] = useState(false);
   const [isMediaActive, setIsMediaActive] = useState(false);
+  const dir = isRTL ? "rtl" : "ltr";
 
   const videoRefs = useRef({});
 
@@ -387,6 +388,7 @@ export default function HomeBanner() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1.25 }}
+              style={{marginTop: '6px'}}
             >
               {t.banner_title_muted}
             </motion.span>
@@ -411,7 +413,7 @@ export default function HomeBanner() {
           >
             <a href="#contact" className="hero-button hero-button-primary">
               <span>{t.banner_btn_primary}</span>
-              <span className="hero-button-arrow">↗</span>
+              <span className="hero-button-arrow"><i className={`bi bi-chevron-${dir === "rtl" ? "left" : "right"}`}></i></span>
             </a>
 
             <a href="#services" className="hero-button hero-button-secondary">

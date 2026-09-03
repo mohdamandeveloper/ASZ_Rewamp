@@ -16,7 +16,7 @@ export default function OnboardingSteps() {
         <div className="section-head">
           <div className="hero_badge"><span></span> How It Works</div>
           <h2 className='heading_title' style={{color: 'white'}}>From Sign-Up to <span>Live in 5 Steps</span></h2>
-          <p className='heading_subtitle' >A repeatable process we've run over 400 times — no surprises.</p>
+          <p className='heading_subtitle' >A repeatable process we've run over 400 times, no surprises.</p>
         </div>
 
         <div className="process__timeline">

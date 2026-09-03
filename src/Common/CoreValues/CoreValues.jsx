@@ -10,7 +10,7 @@ const BEARINGS = [
     icon: 'innovation',
     title: 'Innovation',
     pos: { top: '16%', left: '50%' },
-    body: "We challenge conventional thinking at every turn. From AI-powered features to groundbreaking UX, we chase ideas no one else has tried — and ship them as products that lead the market.",
+    body: "We challenge conventional thinking at every turn. From AI-powered features to groundbreaking UX, we chase ideas no one else has tried, and ship them as products that lead the market.",
     tags: ['R&D first', 'Future-ready', 'Bold ideas']
   },
   {
@@ -20,7 +20,7 @@ const BEARINGS = [
     icon: 'collaboration',
     title: 'Collaboration',
     pos: { top: '52%', left: '14%' },
-    body: ' We work hand-in-hand with our clients, not around them. Every engagement starts with listening — understanding what actually moves the needle for your business — before a single line of code gets written.',
+    body: ' We work hand-in-hand with our clients, not around them. Every engagement starts with listening, understanding what actually moves the needle for your business, before a single line of code gets written.',
     tags: ['Transparent', 'Team-first', 'Co-create']
   },
   {
@@ -30,7 +30,7 @@ const BEARINGS = [
     icon: 'excellence',
     title: 'Excellence',
     pos: { top: '52%', left: '87%' },
-    body: "We hold ourselves to the highest standard in everything: architecture, design, delivery, communication. Good enough is never good enough — we sweat the details so you don't have to.",
+    body: "We hold ourselves to the highest standard in everything: architecture, design, delivery, communication. Good enough is never good enough, we sweat the details so you don't have to.",
     tags: ['Zero compromise', 'High craft', 'On-time']
   },
   {
@@ -64,7 +64,7 @@ export default function CoreValues() {
             <span>Values That </span> Align Us
           </h2>
           <p className="cv-head__sub">
-            Four principles that stay constant no matter what we're building or who we're building it for — for our clients, our products, and our own team.
+            Four principles that stay constant no matter what we're building or who we're building it for, for our clients, our products, and our own team.
           </p>
         </header>
 

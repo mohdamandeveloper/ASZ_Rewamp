@@ -9,7 +9,7 @@ const PANELS = [
     image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=75",
     imagePosition: "center top",
     heading: { highlight: "AI-Powered", rest: " Solutions for the Next Era of Business" },
-    desc: "We integrate cutting-edge artificial intelligence — machine learning models, NLP pipelines, and predictive analytics — directly into your products, turning raw data into strategic advantages that keep you ahead of the competition.",
+    desc: "We integrate cutting-edge artificial intelligence, machine learning models, NLP pipelines, and predictive analytics, directly into your products, turning raw data into strategic advantages that keep you ahead of the competition.",
   },
   {
     id: 1,
@@ -36,7 +36,7 @@ const PANELS = [
     image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=800&q=75",
     imagePosition: "center",
     heading: { highlight: "Zero Compromise", rest: " on Security or Uptime" },
-    desc: "Every system we build is fortified with OWASP-compliant architecture, end-to-end encryption, role-based access, and automated vulnerability scanning — delivering enterprise-grade security around the clock.",
+    desc: "Every system we build is fortified with OWASP-compliant architecture, end-to-end encryption, role-based access, and automated vulnerability scanning, delivering enterprise-grade security around the clock.",
   },
   {
     id: 4,
@@ -121,7 +121,7 @@ function Panel({ panel, isActive, onClick }) {
         </a>
       </div>
 
-      {/* hover border ring — pure CSS via ::after */}
+      {/* hover border ring, pure CSS via ::after */}
     </div>
   );
 }

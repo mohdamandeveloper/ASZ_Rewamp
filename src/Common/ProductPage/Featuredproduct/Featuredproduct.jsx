@@ -31,11 +31,11 @@ const FeaturedProduct = () => {
             <span></span>FEATURED PRODUCT
           </div> */}
           <h2 className="heading_title" style={{color: 'white'}}>
-            Meet <span>NeuralDesk</span> — the AI Helpdesk That Resolves Before You Escalate
+            Meet <span>NeuralDesk</span>, the AI Helpdesk That Resolves Before You Escalate
           </h2>
           <p className="heading_subtitle">
             NeuralDesk embeds GPT-4 into every layer of your customer support
-            operation — from first-contact auto-resolution to agent assist,
+            operation, from first-contact auto-resolution to agent assist,
             QA scoring, and predictive churn alerts. Deploy in 48 hours, no
             migration required.
           </p>

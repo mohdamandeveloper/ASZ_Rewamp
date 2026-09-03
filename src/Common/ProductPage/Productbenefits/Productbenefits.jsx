@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import "./ProductBenefits.scss";
 
 const BENEFITS = [
-  { id:1, title:"Ship Faster Without Sacrificing Quality", desc:"Our products come pre-tested, pre-documented, and pre-integrated with the tooling your teams already use — cutting typical deployment timelines from months to days, without cutting corners on reliability or compliance.", stat:"10x faster deployment vs custom builds from scratch", img:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=900" },
-  { id:2, title:"Own the Product, Not Just the License", desc:"Every product we deliver is fully source-available to paying customers — no vendor lock-in, no black-box updates, no hostage fees. Fork it, extend it, or hand it to your own dev team. It's yours.", stat:"100% source access for all customers", img:"https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=900" },
-  { id:3, title:"Scale Without Re-Architecting", desc:"Every product is built on multi-tenant, cloud-native architecture from the start — meaning you can go from 10 to 10,000 users without a rewrite, a migration, or a call to us in the middle of the night.", stat:"Proven at 50,000+ concurrent users", img:"https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=900" },
+  { id:1, title:"Ship Faster Without Sacrificing Quality", desc:"Our products come pre-tested, pre-documented, and pre-integrated with the tooling your teams already use, cutting typical deployment timelines from months to days, without cutting corners on reliability or compliance.", stat:"10x faster deployment vs custom builds from scratch", img:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=900" },
+  { id:2, title:"Own the Product, Not Just the License", desc:"Every product we deliver is fully source-available to paying customers, no vendor lock-in, no black-box updates, no hostage fees. Fork it, extend it, or hand it to your own dev team. It's yours.", stat:"100% source access for all customers", img:"https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=900" },
+  { id:3, title:"Scale Without Re-Architecting", desc:"Every product is built on multi-tenant, cloud-native architecture from the start, meaning you can go from 10 to 10,000 users without a rewrite, a migration, or a call to us in the middle of the night.", stat:"Proven at 50,000+ concurrent users", img:"https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=900" },
 ];
 
 const BenefitRow = ({ item, index }) => {

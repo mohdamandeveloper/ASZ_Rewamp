@@ -34,7 +34,7 @@ const translations = {
     badge_hero: "TRUSTED SOFTWARE DEVELOPMENT & DIGITAL TRANSFORMATION PARTNER",
     hero_title_white: "Building Scalable Digital",
     hero_title_gradient: "Solutions for Modern Businesses",
-    hero_subtitle: "ASZ Technologies delivers secure, scalable, and intelligent software solutions that accelerate digital transformation. We help businesses build enterprise applications, cloud platforms, and AI-powered systems that don't just keep pace with change — they drive it.",
+    hero_subtitle: "ASZ Technologies delivers secure, scalable, and intelligent software solutions that accelerate digital transformation. We help businesses build enterprise applications, cloud platforms, and AI-powered systems that don't just keep pace with change, they drive it.",
     btn_explore: "Start Your Project",
     btn_services: "Explore Services",
     scroll: "SCROLL",
@@ -44,13 +44,13 @@ const translations = {
     ai_title_highlight: "Intelligence built",
     ai_title_rest: "into every solution",
     ai_title: "Intelligence built into every solution",
-    ai_subtitle: "We don't treat AI as a bolt-on feature — it's foundational to how we design and build software. Our teams embed generative AI, predictive analytics, and intelligent automation directly into the products we ship, so our clients aren't just adopting AI, they're building durable competitive advantage with it.",
+    ai_subtitle: "We don't treat AI as a bolt-on feature, it's foundational to how we design and build software. Our teams embed generative AI, predictive analytics, and intelligent automation directly into the products we ship, so our clients aren't just adopting AI, they're building durable competitive advantage with it.",
 
     // Core Services section
     badge_services: "CORE SERVICES",
     services_title_white: "Everything you need",
     services_title_accent: "to build and scale",
-    services_subtitle: "End-to-end technology delivery, from strategy through to shipped product and ongoing operations. We work as an extension of your team — not a vendor who disappears after handoff.",
+    services_subtitle: "End-to-end technology delivery, from strategy through to shipped product and ongoing operations. We work as an extension of your team, not a vendor who disappears after handoff.",
     learn_more: "Learn more",
 
     // Partners section
@@ -63,14 +63,14 @@ const translations = {
     industries_badge: "Industries we serve",
     industries_title_white: "Built for every",
     industries_title_accent: "sector",
-    industries_subtitle: "We build tailored solutions across 12+ verticals — from regulated finance to complex, multi-node supply chains. Whatever your industry's constraints, we've likely already solved for them.",
+    industries_subtitle: "We build tailored solutions across 12+ verticals, from regulated finance to complex, multi-node supply chains. Whatever your industry's constraints, we've likely already solved for them.",
 
     // Contact
     contact_title_white: "Ready to Build",
     contact_title_accent: "Together",
     contact_title_white2: "Ready to build",
     contact_title_accent2: "with AI?",
-    contact_subtitle: "Let's scope your project — we'll have a team proposal ready within 48 hours, no commitment required.",
+    contact_subtitle: "Let's scope your project, we'll have a team proposal ready within 48 hours, no commitment required.",
     btn_start: "Start a Project",
     btn_offering: "Explore Our Offering",
     btn_email: "info@asztechnologies.com",
@@ -90,22 +90,22 @@ const translations = {
     platform: [
       {
         title: "AI & Intelligent Systems",
-        description: "Predictive analytics, computer vision, and machine learning aren't add-ons for us — they're built into the systems we ship, starting with our own AI-powered document engine, 1Glance.",
+        description: "Predictive analytics, computer vision, and machine learning aren't add-ons for us, they're built into the systems we ship, starting with our own AI-powered document engine, 1Glance.",
         tag: "LLM INTEGRATION"
       },
       {
         title: "Product Engineering",
-        description: " We design, build, and ship complete digital products — backed by our own line, including 1Glance and Digital One.",
+        description: " We design, build, and ship complete digital products, backed by our own line, including 1Glance and Digital One.",
         tag: "MACHINE LEARNING"
       },
       {
         title: "Intelligent Security",
-        description: "Our Cordon platform replaces manual guards and paper logs with a zero-touch, AI-driven system — vehicle recognition, facial check-in, and automated access control, all in one platform.",
+        description: "Our Cordon platform replaces manual guards and paper logs with a zero-touch, AI-driven system, vehicle recognition, facial check-in, and automated access control, all in one platform.",
         tag: "RPA + AI"
       },
       {
         title: "Digital Transformation",
-        description: "We modernize technology landscapes — cloud, systems, and strategy — aligned to your business goals at every layer.",
+        description: "We modernize technology landscapes, cloud, systems, and strategy, aligned to your business goals at every layer.",
         tag: "VISION AI"
       },
     ],
@@ -134,7 +134,7 @@ const translations = {
       },
       {
         title: "Offshore Development Teams",
-        description: "Dedicated offshore pods — engineers, QA, BA, and PM — embedded in your workflow. Scale in 2 weeks, not 2 months."
+        description: "Dedicated offshore pods, engineers, QA, BA, and PM, embedded in your workflow. Scale in 2 weeks, not 2 months."
       },
     ],
 
@@ -213,7 +213,7 @@ const translations = {
     badge_hero: "PARTENAIRE DE CONFIANCE EN DÉVELOPPEMENT LOGICIEL ET TRANSFORMATION NUMÉRIQUE",
     hero_title_white: "Créer des solutions numériques",
     hero_title_gradient: "évolutives pour les entreprises modernes",
-    hero_subtitle: "ASZ Technologies fournit des solutions logicielles sécurisées, évolutives et intelligentes qui accélèrent la transformation numérique. Nous aidons les entreprises à concevoir des applications d'entreprise, des plateformes cloud et des systèmes pilotés par l'IA qui ne se contentent pas de suivre le changement — ils le pilotent.",
+    hero_subtitle: "ASZ Technologies fournit des solutions logicielles sécurisées, évolutives et intelligentes qui accélèrent la transformation numérique. Nous aidons les entreprises à concevoir des applications d'entreprise, des plateformes cloud et des systèmes pilotés par l'IA qui ne se contentent pas de suivre le changement, ils le pilotent.",
     btn_explore: "Démarrez votre projet",
     btn_services: "Découvrir nos services",
     scroll: "DÉFILER",
@@ -223,13 +223,13 @@ const translations = {
     ai_title_highlight: "L'intelligence intégrée",
     ai_title_rest: "à chaque solution",
     ai_title: "L'intelligence intégrée à chaque solution",
-    ai_subtitle: "Pour nous, l'IA n'est pas une simple option ajoutée — elle est au cœur de notre façon de concevoir et de développer des logiciels. Nos équipes intègrent l'IA générative, l'analytique prédictive et l'automatisation intelligente directement dans les produits que nous livrons, afin que nos clients n'adoptent pas seulement l'IA, mais construisent avec elle un avantage compétitif durable.",
+    ai_subtitle: "Pour nous, l'IA n'est pas une simple option ajoutée, elle est au cœur de notre façon de concevoir et de développer des logiciels. Nos équipes intègrent l'IA générative, l'analytique prédictive et l'automatisation intelligente directement dans les produits que nous livrons, afin que nos clients n'adoptent pas seulement l'IA, mais construisent avec elle un avantage compétitif durable.",
 
     // Core Services section
     badge_services: "SERVICES CLÉS",
     services_title_white: "Tout ce dont vous avez besoin",
     services_title_accent: "pour construire et évoluer",
-    services_subtitle: "Une prestation technologique de bout en bout, de la stratégie au produit livré et à son exploitation continue. Nous travaillons comme une extension de votre équipe — pas comme un prestataire qui disparaît après la livraison.",
+    services_subtitle: "Une prestation technologique de bout en bout, de la stratégie au produit livré et à son exploitation continue. Nous travaillons comme une extension de votre équipe, pas comme un prestataire qui disparaît après la livraison.",
     learn_more: "En savoir plus",
 
     // Partners section
@@ -242,14 +242,14 @@ const translations = {
     industries_badge: "Secteurs que nous servons",
     industries_title_white: "Conçu pour chaque",
     industries_title_accent: "secteur",
-    industries_subtitle: "Nous concevons des solutions sur mesure pour plus de 12 secteurs — de la finance réglementée aux chaînes d'approvisionnement complexes et multi-nœuds. Quelles que soient les contraintes de votre secteur, nous les avons probablement déjà résolues.",
+    industries_subtitle: "Nous concevons des solutions sur mesure pour plus de 12 secteurs, de la finance réglementée aux chaînes d'approvisionnement complexes et multi-nœuds. Quelles que soient les contraintes de votre secteur, nous les avons probablement déjà résolues.",
 
     // Contact
     contact_title_white: "Prêts à construire",
     contact_title_accent: "ensemble",
     contact_title_white2: "Prêts à construire",
     contact_title_accent2: "avec l'IA ?",
-    contact_subtitle: "Définissons ensemble le périmètre de votre projet — nous vous présenterons une proposition d'équipe sous 48 heures, sans aucun engagement.",
+    contact_subtitle: "Définissons ensemble le périmètre de votre projet, nous vous présenterons une proposition d'équipe sous 48 heures, sans aucun engagement.",
     btn_start: "Démarrer un projet",
     btn_offering: "Découvrez notre offre",
     btn_email: "info@asztechnologies.com",
@@ -267,22 +267,22 @@ const translations = {
     platform: [
       {
         title: "IA & Systèmes Intelligents",
-        description: "L'analytique prédictive, la vision par ordinateur et le machine learning ne sont pas des options pour nous — ils sont intégrés aux systèmes que nous livrons, à commencer par notre propre moteur documentaire piloté par l'IA, 1Glance.",
+        description: "L'analytique prédictive, la vision par ordinateur et le machine learning ne sont pas des options pour nous, ils sont intégrés aux systèmes que nous livrons, à commencer par notre propre moteur documentaire piloté par l'IA, 1Glance.",
         tag: "INTÉGRATION LLM"
       },
       {
         title: "Ingénierie Produit",
-        description: "Nous concevons, développons et livrons des produits numériques complets — soutenus par notre propre gamme, dont 1Glance et Digital One.",
+        description: "Nous concevons, développons et livrons des produits numériques complets, soutenus par notre propre gamme, dont 1Glance et Digital One.",
         tag: "MACHINE LEARNING"
       },
       {
         title: "Sécurité Intelligente",
-        description: "Notre plateforme Cordon remplace les agents de sécurité manuels et les registres papier par un système piloté par l'IA sans contact — reconnaissance de véhicules, enregistrement facial et contrôle d'accès automatisé, le tout sur une seule plateforme.",
+        description: "Notre plateforme Cordon remplace les agents de sécurité manuels et les registres papier par un système piloté par l'IA sans contact, reconnaissance de véhicules, enregistrement facial et contrôle d'accès automatisé, le tout sur une seule plateforme.",
         tag: "RPA + IA"
       },
       {
         title: "Transformation Numérique",
-        description: "Nous modernisons les environnements technologiques — cloud, systèmes et stratégie — alignés sur les objectifs de votre entreprise à chaque niveau.",
+        description: "Nous modernisons les environnements technologiques, cloud, systèmes et stratégie, alignés sur les objectifs de votre entreprise à chaque niveau.",
         tag: "VISION AI"
       },
     ],
@@ -310,7 +310,7 @@ const translations = {
       },
       {
         title: "Équipes de Développement Offshore",
-        description: "Des pods offshore dédiés — ingénieurs, QA, BA et chef de projet — intégrés à votre flux de travail. Montez en puissance en 2 semaines, pas en 2 mois."
+        description: "Des pods offshore dédiés, ingénieurs, QA, BA et chef de projet, intégrés à votre flux de travail. Montez en puissance en 2 semaines, pas en 2 mois."
       },
     ],
 
@@ -388,7 +388,7 @@ const translations = {
     badge_hero: "VERTRAUENSWÜRDIGER PARTNER FÜR SOFTWAREENTWICKLUNG & DIGITALE TRANSFORMATION",
     hero_title_white: "Skalierbare digitale Lösungen",
     hero_title_gradient: "für moderne Unternehmen",
-    hero_subtitle: "ASZ Technologies liefert sichere, skalierbare und intelligente Softwarelösungen, die die digitale Transformation beschleunigen. Wir helfen Unternehmen, Unternehmensanwendungen, Cloud-Plattformen und KI-gestützte Systeme zu entwickeln, die dem Wandel nicht nur folgen — sie treiben ihn an.",
+    hero_subtitle: "ASZ Technologies liefert sichere, skalierbare und intelligente Softwarelösungen, die die digitale Transformation beschleunigen. Wir helfen Unternehmen, Unternehmensanwendungen, Cloud-Plattformen und KI-gestützte Systeme zu entwickeln, die dem Wandel nicht nur folgen, sie treiben ihn an.",
     btn_explore: "Projekt starten",
     btn_services: "Leistungen entdecken",
     scroll: "SCROLLEN",
@@ -398,13 +398,13 @@ const translations = {
     ai_title_highlight: "Intelligenz eingebaut",
     ai_title_rest: "in jede Lösung",
     ai_title: "Intelligenz eingebaut in jede Lösung",
-    ai_subtitle: "Für uns ist KI kein nachträglich angebautes Feature — sie ist die Grundlage dafür, wie wir Software entwerfen und entwickeln. Unsere Teams integrieren generative KI, prädiktive Analytik und intelligente Automatisierung direkt in die Produkte, die wir liefern, sodass unsere Kunden KI nicht nur nutzen, sondern damit einen dauerhaften Wettbewerbsvorteil aufbauen.",
+    ai_subtitle: "Für uns ist KI kein nachträglich angebautes Feature, sie ist die Grundlage dafür, wie wir Software entwerfen und entwickeln. Unsere Teams integrieren generative KI, prädiktive Analytik und intelligente Automatisierung direkt in die Produkte, die wir liefern, sodass unsere Kunden KI nicht nur nutzen, sondern damit einen dauerhaften Wettbewerbsvorteil aufbauen.",
 
     // Core Services section
     badge_services: "KERNLEISTUNGEN",
     services_title_white: "Alles, was Sie brauchen,",
     services_title_accent: "um zu bauen und zu skalieren",
-    services_subtitle: "End-to-End-Technologielieferung — von der Strategie über das ausgelieferte Produkt bis zum laufenden Betrieb. Wir arbeiten als Erweiterung Ihres Teams — nicht als Dienstleister, der nach der Übergabe verschwindet.",
+    services_subtitle: "End-to-End-Technologielieferung, von der Strategie über das ausgelieferte Produkt bis zum laufenden Betrieb. Wir arbeiten als Erweiterung Ihres Teams, nicht als Dienstleister, der nach der Übergabe verschwindet.",
     learn_more: "Mehr erfahren",
 
     // Partners section
@@ -417,14 +417,14 @@ const translations = {
     industries_badge: "Branchen, die wir bedienen",
     industries_title_white: "Für jede",
     industries_title_accent: "Branche gebaut",
-    industries_subtitle: "Wir entwickeln maßgeschneiderte Lösungen für über 12 Branchen — von regulierten Finanzdienstleistungen bis hin zu komplexen, mehrstufigen Lieferketten. Was auch immer die Anforderungen Ihrer Branche sind, wir haben sie wahrscheinlich bereits gelöst.",
+    industries_subtitle: "Wir entwickeln maßgeschneiderte Lösungen für über 12 Branchen, von regulierten Finanzdienstleistungen bis hin zu komplexen, mehrstufigen Lieferketten. Was auch immer die Anforderungen Ihrer Branche sind, wir haben sie wahrscheinlich bereits gelöst.",
 
     // Contact
     contact_title_white: "Bereit, gemeinsam",
     contact_title_accent: "zu bauen",
     contact_title_white2: "Bereit für den Einstieg",
     contact_title_accent2: "mit KI?",
-    contact_subtitle: "Lassen Sie uns Ihr Projekt einordnen — wir erstellen innerhalb von 48 Stunden einen Teamvorschlag, ganz unverbindlich.",
+    contact_subtitle: "Lassen Sie uns Ihr Projekt einordnen, wir erstellen innerhalb von 48 Stunden einen Teamvorschlag, ganz unverbindlich.",
     btn_start: "Projekt starten",
     btn_offering: "Unser Angebot entdecken",
     btn_email: "info@asztechnologies.com",
@@ -442,22 +442,22 @@ const translations = {
     platform: [
       {
         title: "KI & Intelligente Systeme",
-        description: "Prädiktive Analytik, Computer Vision und maschinelles Lernen sind für uns keine Zusatzfunktionen — sie sind fest in die Systeme integriert, die wir liefern, angefangen bei unserer eigenen KI-gestützten Dokumenten-Engine 1Glance.",
+        description: "Prädiktive Analytik, Computer Vision und maschinelles Lernen sind für uns keine Zusatzfunktionen, sie sind fest in die Systeme integriert, die wir liefern, angefangen bei unserer eigenen KI-gestützten Dokumenten-Engine 1Glance.",
         tag: "LLM-INTEGRATION"
       },
       {
         title: "Produktentwicklung",
-        description: "Wir entwerfen, entwickeln und liefern vollständige digitale Produkte — unterstützt durch unsere eigene Produktlinie, darunter 1Glance und Digital One.",
+        description: "Wir entwerfen, entwickeln und liefern vollständige digitale Produkte, unterstützt durch unsere eigene Produktlinie, darunter 1Glance und Digital One.",
         tag: "MASCHINELLES LERNEN"
       },
       {
         title: "Intelligente Sicherheit",
-        description: "Unsere Cordon-Plattform ersetzt manuelle Wachdienste und Papierprotokolle durch ein berührungsloses, KI-gesteuertes System — Fahrzeugerkennung, Gesichts-Check-in und automatisierte Zutrittskontrolle, alles auf einer Plattform.",
+        description: "Unsere Cordon-Plattform ersetzt manuelle Wachdienste und Papierprotokolle durch ein berührungsloses, KI-gesteuertes System, Fahrzeugerkennung, Gesichts-Check-in und automatisierte Zutrittskontrolle, alles auf einer Plattform.",
         tag: "RPA + KI"
       },
       {
         title: "Digitale Transformation",
-        description: "Wir modernisieren Technologielandschaften — Cloud, Systeme und Strategie — abgestimmt auf Ihre Unternehmensziele auf jeder Ebene.",
+        description: "Wir modernisieren Technologielandschaften, Cloud, Systeme und Strategie, abgestimmt auf Ihre Unternehmensziele auf jeder Ebene.",
         tag: "VISION AI"
       },
     ],
@@ -485,7 +485,7 @@ const translations = {
       },
       {
         title: "Offshore-Entwicklungsteams",
-        description: "Dedizierte Offshore-Teams — Ingenieure, QA, BA und PM — eingebettet in Ihren Workflow. Skalieren Sie in 2 Wochen, nicht in 2 Monaten."
+        description: "Dedizierte Offshore-Teams, Ingenieure, QA, BA und PM, eingebettet in Ihren Workflow. Skalieren Sie in 2 Wochen, nicht in 2 Monaten."
       },
     ],
 
@@ -573,13 +573,13 @@ const translations = {
     ai_title_highlight: "ذكاء مدمج",
     ai_title_rest: "في كل حل",
     ai_title: "ذكاء مدمج في كل حل",
-    ai_subtitle: "نحن لا نتعامل مع الذكاء الاصطناعي كميزة إضافية — بل هو أساس الطريقة التي نصمم بها ونبني بها البرمجيات. تدمج فرقنا الذكاء الاصطناعي التوليدي والتحليلات التنبؤية والأتمتة الذكية مباشرة في المنتجات التي نقدّمها، بحيث لا يكتفي عملاؤنا باعتماد الذكاء الاصطناعي، بل يبنون به ميزة تنافسية دائمة.",
+    ai_subtitle: "نحن لا نتعامل مع الذكاء الاصطناعي كميزة إضافية, بل هو أساس الطريقة التي نصمم بها ونبني بها البرمجيات. تدمج فرقنا الذكاء الاصطناعي التوليدي والتحليلات التنبؤية والأتمتة الذكية مباشرة في المنتجات التي نقدّمها، بحيث لا يكتفي عملاؤنا باعتماد الذكاء الاصطناعي، بل يبنون به ميزة تنافسية دائمة.",
 
     // Core Services section
     badge_services: "الخدمات الأساسية",
     services_title_white: "كل ما تحتاجه",
     services_title_accent: "لتبني وتنمو",
-    services_subtitle: "تقديم تقني شامل، من الاستراتيجية إلى المنتج الجاهز والتشغيل المستمر. نعمل كامتداد لفريقك — وليس كمورّد يختفي بعد التسليم.",
+    services_subtitle: "تقديم تقني شامل، من الاستراتيجية إلى المنتج الجاهز والتشغيل المستمر. نعمل كامتداد لفريقك, وليس كمورّد يختفي بعد التسليم.",
     learn_more: "اعرف المزيد",
 
     // Partners section
@@ -592,14 +592,14 @@ const translations = {
     industries_badge: "القطاعات التي نخدمها",
     industries_title_white: "مصمم لكل",
     industries_title_accent: "قطاع",
-    industries_subtitle: "نبني حلولاً مخصصة عبر أكثر من 12 قطاعاً — من القطاع المالي المنظَّم إلى سلاسل الإمداد المعقّدة متعددة المراحل. مهما كانت قيود قطاعك، فمن المرجّح أننا قد حللناها بالفعل.",
+    industries_subtitle: "نبني حلولاً مخصصة عبر أكثر من 12 قطاعاً, من القطاع المالي المنظَّم إلى سلاسل الإمداد المعقّدة متعددة المراحل. مهما كانت قيود قطاعك، فمن المرجّح أننا قد حللناها بالفعل.",
 
     // Contact
     contact_title_white: "مستعدون للبناء",
     contact_title_accent: "معاً",
     contact_title_white2: "مستعد للبناء",
     contact_title_accent2: "بالذكاء الاصطناعي؟",
-    contact_subtitle: "دعنا نحدد نطاق مشروعك — سنجهز لك اقتراحاً من فريقنا خلال 48 ساعة، دون أي التزام.",
+    contact_subtitle: "دعنا نحدد نطاق مشروعك, سنجهز لك اقتراحاً من فريقنا خلال 48 ساعة، دون أي التزام.",
     btn_start: "ابدأ مشروعاً",
     btn_offering: "استكشف خدماتنا",
     btn_email: "info@asztechnologies.com",
@@ -617,22 +617,22 @@ const translations = {
     platform: [
       {
         title: "الذكاء الاصطناعي والأنظمة الذكية",
-        description: "التحليلات التنبؤية، والرؤية الحاسوبية، والتعلم الآلي ليست إضافات بالنسبة لنا — بل هي مدمجة في الأنظمة التي نقدّمها، بدءاً بمحرك المستندات الخاص بنا المدعوم بالذكاء الاصطناعي، 1Glance.",
+        description: "التحليلات التنبؤية، والرؤية الحاسوبية، والتعلم الآلي ليست إضافات بالنسبة لنا, بل هي مدمجة في الأنظمة التي نقدّمها، بدءاً بمحرك المستندات الخاص بنا المدعوم بالذكاء الاصطناعي، 1Glance.",
         tag: "دمج نماذج اللغة الكبيرة"
       },
       {
         title: "هندسة المنتجات",
-        description: "نصمم ونطور ونقدّم منتجات رقمية متكاملة — مدعومة بمنتجاتنا الخاصة، بما في ذلك 1Glance وDigital One.",
+        description: "نصمم ونطور ونقدّم منتجات رقمية متكاملة, مدعومة بمنتجاتنا الخاصة، بما في ذلك 1Glance وDigital One.",
         tag: "تعلم آلي"
       },
       {
         title: "الأمن الذكي",
-        description: "تستبدل منصة Cordon الخاصة بنا الحراسة اليدوية والسجلات الورقية بنظام مدعوم بالذكاء الاصطناعي وبدون لمس — التعرف على المركبات، وتسجيل الدخول بالتعرف على الوجه، والتحكم الآلي في الوصول، كل ذلك في منصة واحدة.",
+        description: "تستبدل منصة Cordon الخاصة بنا الحراسة اليدوية والسجلات الورقية بنظام مدعوم بالذكاء الاصطناعي وبدون لمس, التعرف على المركبات، وتسجيل الدخول بالتعرف على الوجه، والتحكم الآلي في الوصول، كل ذلك في منصة واحدة.",
         tag: "أتمتة العمليات + الذكاء الاصطناعي"
       },
       {
         title: "التحول الرقمي",
-        description: "نعمل على تحديث البيئات التقنية — السحابة والأنظمة والاستراتيجية — بما يتوافق مع أهداف عملك في كل مستوى.",
+        description: "نعمل على تحديث البيئات التقنية, السحابة والأنظمة والاستراتيجية, بما يتوافق مع أهداف عملك في كل مستوى.",
         tag: "الرؤية الحاسوبية"
       },
     ],
@@ -660,7 +660,7 @@ const translations = {
       },
       {
         title: "فرق تطوير خارجية",
-        description: "فرق تطوير مخصصة في الخارج — مهندسون، وفريق ضمان الجودة، ومحللو أعمال، ومديرو مشاريع — مندمجون في سير عملك. توسّع خلال أسبوعين، لا شهرين."
+        description: "فرق تطوير مخصصة في الخارج, مهندسون، وفريق ضمان الجودة، ومحللو أعمال، ومديرو مشاريع, مندمجون في سير عملك. توسّع خلال أسبوعين، لا شهرين."
       },
     ],
 

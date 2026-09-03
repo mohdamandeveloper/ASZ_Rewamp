@@ -27,7 +27,7 @@ const HowItWorks = () => {
         <div className="how-it-works__header">
           <div className="hero_badge "><span />HOW IT WORKS</div>
           <h2 className="heading_title" style={{color: 'white'}}>From Sign-Up to <span>Live in 5 Steps</span></h2>
-          <p className="heading_subtitle">A repeatable process we've run over 400 times — no surprises.</p>
+          <p className="heading_subtitle">A repeatable process we've run over 400 times, no surprises.</p>
         </div>
 
         <div className={`how-it-works__steps ${vis ? "is-vis" : ""}`}>

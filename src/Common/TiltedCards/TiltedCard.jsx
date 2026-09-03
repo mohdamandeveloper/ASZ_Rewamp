@@ -119,7 +119,7 @@ export default function TiltedCard({ card, className = "" }) {
           {/* Bottom stripe */}
           <div className="tcard__stripe" aria-hidden="true" />
 
-          {/* Static title — visible by default */}
+          {/* Static title, visible by default */}
           <div className="tcard__title-static">{card.title}</div>
 
           {/* Hover content */}

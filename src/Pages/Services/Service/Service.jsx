@@ -5,7 +5,7 @@ import './Service.scss';
 import ServiceBearingCard from "./ServiceBearingCard/ServiceBearingCard";
 
 // ===== Continuous typewriter heading (types, pauses, deletes, repeats forever) =====
-// Mirrors the TypewriterHeading used on the About Us hero — same timing/behavior,
+// Mirrors the TypewriterHeading used on the About Us hero, same timing/behavior,
 // extended here with an optional `breakAfter` flag so the two-line title keeps its <br />.
 const SERVICES_TITLE_SEGMENTS = [
     { text: "Six Disciplines." },
@@ -183,7 +183,7 @@ export default function Service() {
                         />
                         <h1 className="heading_title services-hero__title mb-4 hero-anim hero-anim--3">One Delivery Partner.</h1>
                         <p class="heading_subtitle services-hero__subtitle hero-anim hero-anim--4">
-                            From IT strategy and cloud migration to data engineering, enterprise platforms, and emerging tech like AI and blockchain — we cover every layer of the stack, so you get one accountable partner instead of five different vendors.
+                            From IT strategy and cloud migration to data engineering, enterprise platforms, and emerging tech like AI and blockchain, we cover every layer of the stack, so you get one accountable partner instead of five different vendors.
                         </p>
 
                         <div className="hero-actions mt-4 hero-anim hero-anim--4">

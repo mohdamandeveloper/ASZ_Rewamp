@@ -17,7 +17,7 @@ const tabs = [
     id: 'results',
     label: '📈 Results',
     headline: 'Measurable ROI from Day One',
-    body: "Every feature we ship is tied to a metric. You won't find checkbox features here — every module earns its place with data from customers already using it.",
+    body: "Every feature we ship is tied to a metric. You won't find checkbox features here, every module earns its place with data from customers already using it.",
     stats: [
       { num: '3.2×', label: 'Avg. ROI at 6 months' },
       { num: '89%', label: 'Retention Rate' },
