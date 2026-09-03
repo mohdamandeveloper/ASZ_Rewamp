@@ -385,7 +385,7 @@ export default function Products() {
                         </p>
 
                         <div class="services-hero__actions hero-anim hero-anim--4">
-                            <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                            <Link to={'/contact'} class="btn-primary services-hero__cta">Talk To Our Experts</Link>
                         </div>
                     </div>
                 </section>

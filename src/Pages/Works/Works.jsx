@@ -759,7 +759,7 @@ export default function Works() {
                     </p>
                     {/* <p class="heading_subtitle services-hero__subtitle hero-anim hero-anim--3">Both grounded in your actual product portfolio and client case studies from the profile deck, not invented claims. Send the next section whenever you're ready.</p> */}
                     <div class="services-hero__actions hero-anim hero-anim--4">
-                        <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                        <Link to={'/contact'} class="btn-primary services-hero__cta">Talk To Our Experts</Link>
                     </div>
                 </div>
             </section>

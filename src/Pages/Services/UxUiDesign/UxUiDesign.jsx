@@ -443,7 +443,7 @@ export default function UxUiDesign() {
                             Create intuitive, engaging, and visually stunning digital experiences that delight users and drive business growth. From user research and wireframes to interactive prototypes and polished interfaces, we design products that are functional, accessible, and user-centric.
                         </p>
                         <div class="services-hero__actions hero-anim hero-anim--4 mt-4">
-                            <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                            <Link to={'/contact'} class="btn-primary services-hero__cta">Talk To Our Experts</Link>
                         </div>
                     </div>
                 </section>

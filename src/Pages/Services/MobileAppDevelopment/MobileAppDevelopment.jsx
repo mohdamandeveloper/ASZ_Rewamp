@@ -441,7 +441,7 @@ export default function MobileAppDevelopment() {
                             From concept to App Store, we design, develop, and deploy enterprise-grade mobile applications across iOS, Android, and cross-platform, powered by AI and built for scale. We combine intuitive UX, robust architecture, seamless integrations, and advanced technologies to create secure, high-performance apps that drive real business growth.
                         </p>
                         <div class="services-hero__actions hero-anim hero-anim--4 mt-4">
-                            <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                            <Link to={'/contact'} class="btn-primary services-hero__cta">Talk To Our Experts</Link>
                         </div>
                     </div>
                 </section>

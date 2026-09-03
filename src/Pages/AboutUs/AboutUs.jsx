@@ -604,7 +604,7 @@ export default function AboutUs() {
                                     </p>
 
                                     <div className="hero-actions mt-4 hero-anim hero-anim--4">
-                                        <Link to="services" className="btn-primary">
+                                        <Link to={'/service'} className="btn-primary">
                                             Explore Services <i className="bi bi-arrow-right"></i>
                                         </Link>
                                     </div>

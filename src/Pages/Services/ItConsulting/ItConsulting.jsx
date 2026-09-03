@@ -445,7 +445,7 @@ export default function ItConsulting() {
                              Empower your business with expert IT consulting services designed to optimize technology investments, streamline operations, and accelerate digital transformation. From IT strategy and cloud adoption to solution architecture and technology roadmaps, we help you make confident technology decisions.
                         </p>
                         <div class="services-hero__actions hero-anim hero-anim--4 mt-4">
-                            <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                            <Link to={'/contact'} class="btn-primary services-hero__cta">Talk To Our Experts</Link>
                         </div>
                     </div>
                 </section>

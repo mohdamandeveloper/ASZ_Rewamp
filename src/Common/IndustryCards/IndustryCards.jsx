@@ -301,7 +301,6 @@ export default function IndustryCards() {
                   <div className="ic-card-border" />
                   <div
                     className="ic-card-content"
-                    onClick={() => handlePageLink(ind.url)}
                   >
                     <span className="ic-card-name">{t.industries?.[ind.key] ?? ind.name}</span>
                   </div>

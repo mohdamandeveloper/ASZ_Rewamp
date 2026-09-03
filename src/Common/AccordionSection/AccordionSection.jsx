@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./AccordionSection.scss";
+import { Link } from "react-router-dom";
 
 const PANELS = [
   {
@@ -115,10 +116,10 @@ function Panel({ panel, isActive, onClick }) {
           {panel.heading.rest}
         </h3>
         <p className="panel__desc">{panel.desc}</p>
-        <a className="panel__cta" href="#contact">
+        <Link to={'/contact'} className="panel__cta">
           Get in Touch
           <ArrowIcon />
-        </a>
+        </Link>
       </div>
 
       {/* hover border ring, pure CSS via ::after */}

@@ -6,6 +6,7 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
+import { Link } from "react-router-dom";
 
 import TextType from "./TextType";
 import { useLanguage, useTranslation } from "../../Context/LanguageContext";
@@ -411,15 +412,15 @@ export default function HomeBanner() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.55 }}
           >
-            <a href="#contact" className="hero-button hero-button-primary">
+            <Link to={'/contact'} className="hero-button hero-button-primary">
               <span>{t.banner_btn_primary}</span>
               <span className="hero-button-arrow"><i className={`bi bi-chevron-${dir === "rtl" ? "left" : "right"}`}></i></span>
-            </a>
+            </Link>
 
-            <a href="#services" className="hero-button hero-button-secondary">
+            <Link to={'/service'} className="hero-button hero-button-secondary">
               <span>{t.banner_btn_secondary}</span>
               <span className="hero-button-arrow">→</span>
-            </a>
+            </Link>
           </motion.div>
         </div>
         <div className="hero-controls">

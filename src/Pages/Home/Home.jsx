@@ -289,7 +289,7 @@ export default function Home() {
                                                     <span className="bento-tag">{t.platform[0].tag}</span>
                                                 </div>
                                             </div>
-                                            <Link to="/service" className="bento-card__link">
+                                            <Link to="/contact" className="bento-card__link">
                                                 {t.btn_explore}
                                                 <span className="bento-card__link-icon"><ArrowRight size={16} /></span>
                                             </Link>
@@ -426,9 +426,9 @@ export default function Home() {
                                         <Link className='btn-primary' to="/contact">
                                             {t.btn_start} &nbsp;<i className={`bi bi-arrow-right${isRTL ? " rotate-rtl" : ""}`}></i>
                                         </Link>
-                                        <motion.button className='btn-secondary'>
+                                        <Link to={'/service'} className='btn-secondary'>
                                             {t.btn_offering} &nbsp;<i className={`bi bi-arrow-right${isRTL ? " rotate-rtl" : ""}`}></i>
-                                        </motion.button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

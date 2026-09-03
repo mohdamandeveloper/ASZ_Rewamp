@@ -89,9 +89,9 @@ const translations = {
     // AI Platform cards (order matches platformData array)
     platform: [
       {
-        title: "AI & Intelligent Systems",
-        description: "Predictive analytics, computer vision, and machine learning aren't add-ons for us, they're built into the systems we ship, starting with our own AI-powered document engine, 1Glance.",
-        tag: "LLM INTEGRATION"
+        title: "Intelligent Security",
+        description: "Our Cordon platform replaces manual guards and paper logs with a zero-touch, AI-driven system, vehicle recognition, facial check-in, and automated access control, all in one platform.",
+        tag: "RPA + AI"
       },
       {
         title: "Product Engineering",
@@ -99,9 +99,9 @@ const translations = {
         tag: "MACHINE LEARNING"
       },
       {
-        title: "Intelligent Security",
-        description: "Our Cordon platform replaces manual guards and paper logs with a zero-touch, AI-driven system, vehicle recognition, facial check-in, and automated access control, all in one platform.",
-        tag: "RPA + AI"
+        title: "AI & Intelligent Systems",
+        description: "Predictive analytics, computer vision, and machine learning aren't add-ons for us, they're built into the systems we ship, starting with our own AI-powered document engine, 1Glance.",
+        tag: "LLM INTEGRATION"
       },
       {
         title: "Digital Transformation",

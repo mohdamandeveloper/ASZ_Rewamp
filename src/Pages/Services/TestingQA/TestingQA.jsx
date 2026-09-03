@@ -448,7 +448,7 @@ export default function TestingQA() {
                             We offer full-range QA and testing outsourcing services, can help to develop your QA or enhance the existing one, assist you in TCoE setup and evolution. We perform end-to-end testing of mobile, web and desktop application at each stage of the development lifecycle.
                         </p>
                         <div class="services-hero__actions hero-anim hero-anim--4 mt-4">
-                            <a href="#" class="btn-primary services-hero__cta">Talk To Our Experts</a>
+                            <Link to={'/contact'} class="btn-primary services-hero__cta">Talk To Our Experts</Link>
                         </div>
                     </div>
                 </section>

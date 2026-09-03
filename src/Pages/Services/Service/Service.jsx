@@ -187,7 +187,7 @@ export default function Service() {
                         </p>
 
                         <div className="hero-actions mt-4 hero-anim hero-anim--4">
-                            <Link to="services" className="btn-primary">
+                            <Link to={'/contact'} className="btn-primary">
                                 Talk To Our Experts <i className="bi bi-arrow-right"></i>
                             </Link>
                         </div>

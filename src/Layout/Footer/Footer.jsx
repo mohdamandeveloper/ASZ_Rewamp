@@ -70,7 +70,6 @@ export default function Footer() {
               viewport={{ once: true }}
             >
               <div className='row'>
-                {/* Company Links */}
                 <motion.div
                   className="col-lg-5"
                   custom={1}
@@ -81,13 +80,23 @@ export default function Footer() {
                 >
                   <h5 className="footer-heading">{t.footer_company_heading}</h5>
                   <ul className="footer-links">
-                    {companyLinks.map(link => (
-                      <li key={link}><a href="#!">{link}</a></li>
-                    ))}
+                    <li>
+                      <Link to={'/'}>Home</Link>
+                    </li>
+                    <li>
+                      <Link to={'/about'}>About Us</Link>
+                    </li>
+                    <li>
+                      <Link to={'/products'}>Products</Link>
+                    </li>
+                    <li>
+                      <Link to={'/works'}>Work</Link>
+                    </li>
+                    <li>
+                      <Link to={'/contact'}>Contact</Link>
+                    </li>
                   </ul>
                 </motion.div>
-
-                {/* Services Links */}
                 <motion.div
                   className="col-lg-7"
                   custom={2}
@@ -98,9 +107,29 @@ export default function Footer() {
                 >
                   <h5 className="footer-heading">{t.footer_services_heading}</h5>
                   <ul className="footer-links">
-                    {serviceLinks.map(link => (
-                      <li key={link}><a href="#!">{link}</a></li>
-                    ))}
+                    {/* {serviceLinks.map(link => ( */}
+                    <li>
+                      <Link to={"/services/custom-software-development"}>Software Development</Link>
+                    </li>
+                    <li>
+                      <Link to={"/services/testing-qa"}>Testing & QA</Link>
+                    </li>
+                    <li>
+                      <Link to={"/services/mobile-app-development"}>Mobile Development</Link>
+                    </li>
+                    <li>
+                      <Link to={"/services/ux-ui-development"}>UX/UI Design</Link>
+                    </li>
+                    <li>
+                      <Link to={"/services/it-consulting"}>IT Consulting</Link>
+                    </li>
+                    <li>
+                      <Link to={"/services/data-analytics"}>Data Analytics</Link>
+                    </li>
+                    <li>
+                      <Link to={"/services/cybersecurity-services"}>Cybersecurity Services</Link>
+                    </li>
+                    {/* ))} */}
                   </ul>
                 </motion.div>
               </div>
