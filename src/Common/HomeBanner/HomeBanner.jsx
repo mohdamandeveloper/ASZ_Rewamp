@@ -389,7 +389,6 @@ export default function HomeBanner() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1.25 }}
-              style={{marginTop: '6px'}}
             >
               {t.banner_title_muted}
             </motion.span>

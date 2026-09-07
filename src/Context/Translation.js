@@ -44,7 +44,7 @@ const translations = {
     ai_title_highlight: "Intelligence built",
     ai_title_rest: "into every solution",
     ai_title: "Intelligence built into every solution",
-    ai_subtitle: "We don't treat AI as a bolt-on feature, it's foundational to how we design and build software. Our teams embed generative AI, predictive analytics, and intelligent automation directly into the products we ship, so our clients aren't just adopting AI, they're building durable competitive advantage with it.",
+    ai_subtitle: "From physical security to enterprise platforms, intelligence isn't an add-on at ASZ — it's engineered into everything we build. We don't chase proof-of-concept demos; we ship things that run in production.",
 
     // Core Services section
     badge_services: "CORE SERVICES",
