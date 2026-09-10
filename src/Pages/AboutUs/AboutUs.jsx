@@ -181,20 +181,20 @@ const TypewriterHeading = ({
 
 const OFFICES = [
     {
-        id: "india",
-        country: "India",
-        company: "ASZ Technologies",
-        type: "Headquarters",
-        address: "No.106, 4th Floor, 10th Cross,\nGanganagar, Bangalore – 560 032",
-        markerPos: { left: "53.2%", top: "31.9%" },
-    },
-    {
         id: "singapore",
         country: "Singapore",
         company: "Sagacity Consultancy",
-        type: "Branch Office",
+        type: "Headquarters",
         address: "156 MacPherson Rd,\nSingapore 348528",
         markerPos: { left: "64.8%", top: "47.4%" },
+    },
+    {
+        id: "india",
+        country: "India",
+        company: "ASZ Technologies",
+        type: "Branch Office",
+        address: "No.106, 4th Floor, 10th Cross,\nGanganagar, Bangalore – 560 032",
+        markerPos: { left: "53.2%", top: "31.9%" },
     },
     {
         id: "uae",

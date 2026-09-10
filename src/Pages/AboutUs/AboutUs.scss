@@ -138,7 +138,7 @@ $map-highlight: rgba(255, 107, 53, 0.35);
             height: 100%;
             max-height: 550px;
             opacity: 0;
-            animation: mapSlideInLeft 1.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation: heroMapFadeIn 1.15s ease forwards;
 
             @media (max-width: 1400px) {
                 max-height: 430px;
@@ -192,7 +192,6 @@ $map-highlight: rgba(255, 107, 53, 0.35);
                 width: 42%;
                 margin-right: -21%;
                 margin-top: 63px;
-                animation-name: mapSlideInRight;
                 animation-delay: 0.15s;
 
                 @media (max-width: 1400px) {
@@ -290,27 +289,13 @@ $map-highlight: rgba(255, 107, 53, 0.35);
             }
         }
 
-        @keyframes mapSlideInLeft {
+        @keyframes heroMapFadeIn {
             from {
                 opacity: 0;
-                transform: translateX(-70px);
             }
 
             to {
                 opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes mapSlideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(70px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
             }
         }
 
@@ -363,17 +348,20 @@ $map-highlight: rgba(255, 107, 53, 0.35);
             }
         }
 
-        // Staggered fade + slide-up entrance for hero badge / heading / subtitle / actions
+        // Staggered fade-in entrance for hero badge / heading / subtitle / actions
         .hero-anim {
             opacity: 0;
-            animation: fadeInUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation: heroTextFadeIn 0.85s ease forwards;
         }
 
         .hero-anim--1 {
             animation-delay: 0.2s;
         }
 
+        // Typewriter heading keeps its original fade + slide-up entrance
         .hero-anim--2 {
+            animation-name: fadeInUp;
+            animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
             animation-delay: 0.4s;
         }
 
@@ -383,6 +371,16 @@ $map-highlight: rgba(255, 107, 53, 0.35);
 
         .hero-anim--4 {
             animation-delay: 0.9s;
+        }
+
+        @keyframes heroTextFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes hexPulse {
