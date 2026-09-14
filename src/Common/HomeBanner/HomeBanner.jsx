@@ -7,12 +7,9 @@ import {
   useTransform,
 } from "motion/react";
 import { Link } from "react-router-dom";
-
 import TextType from "./TextType";
 import { useLanguage, useTranslation } from "../../Context/LanguageContext";
-
 import "./HomeBanner.scss";
-
 const SLIDE_INTERVAL = 5000;
 
 const slides = [
@@ -315,7 +312,7 @@ export default function HomeBanner() {
           FIXED CONTENT
           This content NEVER changes when slides change.
       ================================================== */}
-      <div className="hero-container">
+      <div className="container hero-container">
         {/* <motion.div className="bg_color_overlay text_overlay" initial={{
               x: "100%",
               opacity: 0,

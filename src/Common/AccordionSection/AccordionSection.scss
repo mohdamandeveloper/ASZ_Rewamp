@@ -11,7 +11,7 @@ $radius:       16px;
 
 .why-section {
   background: #060606;
-  padding: 60px 36px 60px;
+  padding: 60px 0;
   position: relative;
   overflow: hidden;
   &::before {
@@ -98,8 +98,6 @@ $radius:       16px;
 .accordion-track {
   display: flex;
   gap: 10px;
-  max-width: 1260px;
-  margin: 0 auto;
   height: 480px;
   position: relative;
   z-index: 2;

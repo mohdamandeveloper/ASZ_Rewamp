@@ -137,23 +137,24 @@ export default function AccordionSection() {
       {/* animated blobs */}
       <div className="why-blob why-blob--1" aria-hidden="true" />
       <div className="why-blob why-blob--2" aria-hidden="true" />
+      <div className="container">
+        {/* header */}
+        <div className="why-header">
+          <h2 className="heading_title"><span>Why ASZ?</span> Building Trust with Innovation</h2>
+          <p>We redefine the stature of business with exceptional tech solutions</p>
+        </div>
 
-      {/* header */}
-      <div className="why-header">
-        <h2 className="heading_title"><span>Why ASZ?</span> Building Trust with Innovation</h2>
-        <p>We redefine the stature of business with exceptional tech solutions</p>
-      </div>
-
-      {/* accordion track */}
-      <div className="accordion-track" role="list">
-        {PANELS.map((panel) => (
-          <Panel
-            key={panel.id}
-            panel={panel}
-            isActive={panel.id === activeId}
-            onClick={() => setActiveId(panel.id)}
-          />
-        ))}
+        {/* accordion track */}
+        <div className="accordion-track" role="list">
+          {PANELS.map((panel) => (
+            <Panel
+              key={panel.id}
+              panel={panel}
+              isActive={panel.id === activeId}
+              onClick={() => setActiveId(panel.id)}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

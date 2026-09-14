@@ -236,7 +236,7 @@ export default function Home() {
                         <div className="ai-platform__dots"></div>
                     </div>
 
-                    <div className="ai-platform__container">
+                    <div className="container ai-platform__container">
                         <motion.div
                             className="ai-platform__header"
                             initial={{ opacity: 0, y: 24 }}
@@ -403,9 +403,7 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-                <section className='Industry_section'>
-                    <IndustryCards />
-                </section>
+                <IndustryCards />
                 <section className='contact_section'>
                     <div className="contact_color_overlay"></div>
                     <div className="grid_overlay"></div>

@@ -4,43 +4,34 @@
     --hero-cyan: #19d5ff;
     --hero-text: #ffffff;
     --hero-muted: #94a5bd;
-
     position: relative;
     width: 100%;
-    min-height: 760px;
-    height: min(900px, 92vh);
-
+    height: 700px;
     overflow: hidden;
     isolation: isolate;
-
     background: var(--hero-bg);
     color: var(--hero-text);
-
     perspective: 1400px;
-
+    @media (max-width:600px){
+        height: 600px;
+    }
     .hero-media {
         position: absolute;
         inset: 0;
-
         z-index: -5;
-
         overflow: hidden;
         background: black;
     }
-
     .hero-media-slide {
         position: absolute;
         inset: -2%;
         overflow: hidden;
     }
-
     .hero-media-inner {
         position: absolute;
         inset: -3%;
-
         transform-style: preserve-3d;
         will-change: transform;
-
         backface-visibility: hidden;
     }
 
@@ -215,16 +206,12 @@
 
     .hero-container {
         position: relative;
-
         width: 100%;
         height: 100%;
-        min-height: inherit;
-
-        max-width: 1600px;
-
-        margin: 0 auto;
-        padding: 0 7vw;
-
+        // min-height: inherit;
+        // max-width: 1600px;
+        // margin: 0 auto;
+        // padding: 0 7vw;
         display: flex;
         align-items: center;
 
@@ -818,13 +805,13 @@
 ========================================================= */
 
     @media (max-width: 1100px) {
-        .hero-banner {
-            min-height: 700px;
-        }
+        // .hero-banner {
+        //     min-height: 700px;
+        // }
 
-        .hero-container {
-            padding: 0 6vw;
-        }
+        // .hero-container {
+        //     padding: 0 6vw;
+        // }
 
         .hero-content {
             width: min(650px, 68vw);
@@ -854,16 +841,16 @@
 ========================================================= */
 
     @media (max-width: 768px) {
-        .hero-banner {
-            min-height: 760px;
-            height: 88vh;
-        }
+        // .hero-banner {
+        //     min-height: 760px;
+        //     height: 88vh;
+        // }
 
-        .hero-container {
-            padding: 0 24px;
-            align-items: flex-end;
-            padding-bottom: 105px;
-        }
+        // .hero-container {
+        //     padding: 0 24px;
+        //     align-items: flex-end;
+        //     padding-bottom: 105px;
+        // }
 
         .hero-content {
             width: 100%;
@@ -977,13 +964,13 @@
 ========================================================= */
 
     @media (max-width: 480px) {
-        .hero-banner {
-            min-height: 720px;
-        }
+        // .hero-banner {
+        //     min-height: 720px;
+        // }
 
-        .hero-container {
-            padding: 0 18px 96px;
-        }
+        // .hero-container {
+        //     padding: 0 18px 96px;
+        // }
 
         .hero-title {
             font-size: 33px;
@@ -1063,6 +1050,7 @@
         }
     }
 }
+
 /* =========================================================
    RTL SUPPORT
    Applied via the .rtl modifier class added to .hero-banner
@@ -1072,7 +1060,6 @@
     direction: rtl;
 
     .hero-container {
-        // flex-direction: row-reverse;
         text-align: right;
     }
 

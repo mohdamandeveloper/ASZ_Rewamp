@@ -183,7 +183,7 @@ const OFFICES = [
     {
         id: "singapore",
         country: "Singapore",
-        company: "Sagacity Consultancy",
+        company: "ASZ Technologies",
         type: "Headquarters",
         address: "156 MacPherson Rd,\nSingapore 348528",
         markerPos: { left: "64.8%", top: "47.4%" },
@@ -209,7 +209,6 @@ const OFFICES = [
         country: "Australia",
         company: "ASZ Technologies",
         type: "Branch Office",
-        // TODO: swap in the real Sydney office address
         address: "Suite 4.02, Level 4,\n55 Market Street, Sydney NSW 2000",
         markerPos: { left: "86.9%", top: "81.7%" },
     },

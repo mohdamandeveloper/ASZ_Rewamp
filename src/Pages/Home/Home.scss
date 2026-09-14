@@ -107,14 +107,14 @@
         }
 
         @media (max-width: 576px) {
-            &__container {
-                grid-template-columns: 1fr;
-            }
+            // &__container {
+            //     grid-template-columns: 1fr;
+            // }
 
             &__item {
-                border-right: none !important;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-                padding-bottom: 30px;
+                // border-right: none !important;
+                // border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                // padding-bottom: 30px;
 
                 &:last-child {
                     border-bottom: none;
@@ -127,7 +127,8 @@
         position: relative;
         width: 100%;
         background-color: #fafafa;
-        padding: 60px 20px;
+        padding-top: 60px;
+        padding-bottom: 60px;
         overflow: hidden;
         background-image: url(/images/home/ai-bg-2.jpg);
         background-repeat: no-repeat;
@@ -175,8 +176,6 @@
         &__container {
             position: relative;
             z-index: 1;
-            max-width: 1200px;
-            margin: 0 auto;
             .text_overlay{
                 left: -148px;
                 transform: translate(-15%, -50%) !important;
@@ -186,7 +185,6 @@
             }
             .bento-grid-wrap {
                 position: relative;
-                margin-top: 60px;
             }
 
             .bento-grid-glow {
@@ -798,7 +796,6 @@
             padding: 56px 0 70px 0;
 
             .partners-loop {
-                gap: 18px;
                 --partners-per-row: 2;
             }
 
@@ -820,7 +817,7 @@
         }
     }
     .contact_section {
-        padding: 100px 0;
+        padding: 60px 0;
         text-align: center;
         position: relative;
         overflow: hidden;
