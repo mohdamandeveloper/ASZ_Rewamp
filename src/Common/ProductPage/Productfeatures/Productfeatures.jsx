@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Zap, Lock, BarChart2, RefreshCw } from "lucide-react";
-import "./ProductFeatures.scss";
+import "./Productfeatures.scss";
 
 const TABS = [
   {

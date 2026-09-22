@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "./ProductHero.scss";
+import "./Producthero.scss";
 
 const ProductHero = () => {
   const canvasRef = useRef(null);

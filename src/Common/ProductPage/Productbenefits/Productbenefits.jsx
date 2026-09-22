@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./ProductBenefits.scss";
+import "./Productbenefits.scss";
 
 const BENEFITS = [
   { id:1, title:"Ship Faster Without Sacrificing Quality", desc:"Our products come pre-tested, pre-documented, and pre-integrated with the tooling your teams already use, cutting typical deployment timelines from months to days, without cutting corners on reliability or compliance.", stat:"10x faster deployment vs custom builds from scratch", img:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=900" },

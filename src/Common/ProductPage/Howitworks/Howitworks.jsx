@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Search, ShoppingCart, Settings, UploadCloud, LifeBuoy } from "lucide-react";
-import "./HowItWorks.scss";
+import "./Howitworks.scss";
 
 const STEPS = [
   { n:"01", icon:<Search size={22}/>, title:"Discovery Call", desc:"We map your use-case, team size, and integration requirements in a 30-min scoping call." },

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import "./ProductCardsSlider.scss";
+import "./Productcardsslider.scss";
 
 const SLIDES = [
   { id:1, title:"NeuralDesk", category:"AI Support SaaS", img:"https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=700", tag:"SaaS" },

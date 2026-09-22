@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowRight, Mail } from "lucide-react";
-import "./ProductCTA.scss";
+import "./Productcta.scss";
 
 const ProductCTA = () => (
   <section className="prod-cta">

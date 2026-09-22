@@ -1,5 +1,5 @@
 import React from "react";
-import "./TechStack.scss";
+import "./Techstack.scss";
 
 const STACKS = [
   { group:"Frontend", techs:["React","Next.js","Vue 3","TypeScript","Tailwind","SASS"] },

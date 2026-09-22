@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { CheckCircle2, ArrowRight, Play } from "lucide-react";
-import "./FeaturedProduct.scss";
+import "./Featuredproduct.scss";
 import { Link } from "react-router-dom";
 
 const features = [

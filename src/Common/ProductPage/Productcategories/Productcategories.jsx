@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import "./ProductCategories.scss";
+import "./Productcategories.scss";
 
 const CATS = [
   {
