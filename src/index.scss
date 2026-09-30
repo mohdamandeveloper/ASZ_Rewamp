@@ -122,7 +122,10 @@ a:focus {
     color: #12132c;
     line-height: 1.15;
     margin-bottom: 0.75rem;
-
+    @media (max-width:600px) {
+        text-align: left;
+        font-size: 35px;
+    }
     span {
         background: var(--color-primary-gradient);
         -webkit-text-fill-color: transparent;
@@ -147,7 +150,6 @@ a:focus {
     font-weight: 500;
     color: var(--text-muted-light);
     line-height: 1.6;
-    margin: 0 auto 38px;
     max-width: 700px;
 }
 

@@ -124,16 +124,10 @@ $shadow-hover: 0 0px 10px rgba(255, 107, 53, 0.479), 0 0px 16px rgba(0, 0, 0, 0.
 
   @media (max-width: 768px) {
     margin-bottom: 28px;
+    text-align: center;
   }
 }
 
-.ic-subtitle {
-  font-size: 15px;
-  color: $text-muted;
-  max-width: 480px;
-  line-height: 1.6;
-  margin: 0;
-}
 
 .ic-grid {
   position: relative;

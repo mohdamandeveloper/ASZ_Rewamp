@@ -622,6 +622,7 @@ $map-highlight: rgba(255, 107, 53, 0.35);
             .hero-eyebrow {
                 .heading_title {
                     color: var(--color-white);
+                    text-align: center;
                 }
             }
 
@@ -743,7 +744,7 @@ $shadow-card-hover: 0 10px 32px rgba(255, 107, 53, 0.1);
 
 .contact-section {
     background: linear-gradient(180deg, #141414 0%, #080808 54.47%, #1d1d1d 100%);
-    padding: 96px 24px;
+    padding: 60px 0px;
     position: relative;
 
     &::before {

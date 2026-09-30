@@ -15,7 +15,7 @@ $map-highlight: rgba(255, 107, 53, 0.35);
 
 .about_us {
     .hero-section {
-        padding: 110px 0 80px;
+        padding: 110px 0 60px;
         position: relative;
         width: 100%;
         background: #090909;
@@ -23,7 +23,9 @@ $map-highlight: rgba(255, 107, 53, 0.35);
         display: flex;
         align-items: center;
         justify-content: center;
-
+        @media (max-width: 600px){
+            padding: 110px 0 50px;
+        }
         .bg-canvas {
             position: absolute;
             inset: 0;
@@ -206,19 +208,6 @@ $map-highlight: rgba(255, 107, 53, 0.35);
                     margin-right: -20%;
                 }
             }
-
-            // @media (max-width: 900px) {
-            //     opacity: 0.06;
-
-            //     &--left,
-            //     &--right {
-            //         width: 50%;
-            //     }
-            // }
-
-            // @media (max-width: 600px) {
-            //     display: none;
-            // }
         }
 
         /* ── Hero map office markers ── */
@@ -402,6 +391,14 @@ $map-highlight: rgba(255, 107, 53, 0.35);
         background-color: #06060a;
         padding: 60px 0px;
         overflow: hidden;
+        @media (max-width: 600px){
+            padding: 50px 0;
+        }
+        &_content{
+            @media (max-width: 600px){
+                margin-top: 24px;
+            }
+        }
 
         &__bg-image {
             position: absolute;
@@ -576,10 +573,6 @@ $map-highlight: rgba(255, 107, 53, 0.35);
         }
 
         @media (max-width: 600px) {
-            &__title {
-                font-size: 2rem;
-            }
-
             &__stats {
                 grid-template-columns: 1fr 1fr;
                 gap: 30px 30px;
@@ -683,9 +676,8 @@ $map-highlight: rgba(255, 107, 53, 0.35);
         background: #090909;
         padding: 60px 0;
         overflow: hidden;
-
         @media (max-width:600px) {
-            padding: 80px 25px 0px 25px;
+            padding: 50px 0;
         }
 
         &::before {
@@ -724,9 +716,7 @@ $map-highlight: rgba(255, 107, 53, 0.35);
         }
     }
     .go-subtitle {
-        max-width: 600px;
         margin: 0 auto;
-        color: var(--text-muted-light);
     }
 
     .go-body {

@@ -212,20 +212,22 @@ export default function Home() {
             <div className={`homeDark${isRTL ? " rtl" : ""}`}>
                 <HomeBanner />
                 <section className="key-facts">
-                    <div className="key-facts__container">
-                        {statsData.map((stat, index) => (
-                            <React.Fragment key={stat.id}>
-                                <div className="key-facts__item">
-                                    <Counter value={stat.value} suffix={stat.suffix} />
-                                    <p className="key-facts__label">
-                                        {t.stats[index].label}
-                                    </p>
-                                </div>
-                                {index < statsData.length - 1 && (
-                                    <div className="key-facts__divider"></div>
-                                )}
-                            </React.Fragment>
-                        ))}
+                    <div className="container">
+                        <div className="key-facts__list">
+                            {statsData.map((stat, index) => (
+                                <React.Fragment key={stat.id}>
+                                    <div className="key-facts__item">
+                                        <Counter value={stat.value} suffix={stat.suffix} />
+                                        <p className="key-facts__label">
+                                            {t.stats[index].label}
+                                        </p>
+                                    </div>
+                                    {index < statsData.length - 1 && (
+                                        <div className="key-facts__divider"></div>
+                                    )}
+                                </React.Fragment>
+                            ))}
+                        </div>
                     </div>
                 </section>
                 <section className="ai-platform" ref={aiPlatformRef}>
@@ -233,7 +235,6 @@ export default function Home() {
                     <div className="ai-platform__bg">
                         <div className="ai-platform__glow ai-platform__glow--top"></div>
                         <div className="ai-platform__glow ai-platform__glow--bottom"></div>
-                        <div className="ai-platform__dots"></div>
                     </div>
 
                     <div className="container ai-platform__container">
@@ -251,7 +252,7 @@ export default function Home() {
                             <h2 className="heading_title ai-platform__title">
                                 <span>{t.ai_title_highlight}</span> {t.ai_title_rest}
                             </h2>
-                            <p className="ai-platform__subtitle">
+                            <p className="heading_subtitle">
                                 {t.ai_subtitle}
                             </p>
                         </motion.div>
@@ -355,7 +356,7 @@ export default function Home() {
                 <section className="partners-section">
                     <div className="partners_container">
                         <div style={{ position: 'relative' }}>
-                            <h3 className="heading_title text-center mb-2" style={{ color: 'white', fontSize: '40px' }}>
+                            <h3 className="heading_title mb-2">
                                 <span>{t.partners_title_highlight}</span> {t.partners_title_rest}
                             </h3>
                             <p className="heading_subtitle mb-5">{t.partners_subtitle}</p>
@@ -412,11 +413,11 @@ export default function Home() {
                             <div className='col-md-12'>
                                 <div className='contact_inner'>
                                     <div className='contact_inner_content mb-4'>
-                                        <motion.h3 className="heading_title text-center mb-3" style={{ fontSize: '50px' }}>
+                                        <motion.h3 className="heading_title mb-3">
                                             <span>{t.contact_title_white} </span> {t.contact_title_accent}
                                             {/* <br /><span>Something real.</span> */}
                                         </motion.h3>
-                                        <motion.p>
+                                        <motion.p className="heading_subtitle">
                                             {t.contact_subtitle}
                                         </motion.p>
                                     </div>

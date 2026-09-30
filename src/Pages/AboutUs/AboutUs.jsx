@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState,useCallback } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import 'swiper/css';
 import { Link } from 'react-router-dom';
 import './AboutUs.scss';
@@ -393,7 +393,7 @@ const MAP_PATHS = {
     "zimbabwe": "M563.295,309.419L561.872,309.153L560.969,309.474L559.68,309.022L558.594,308.99L556.893,307.783L554.826,307.376L554.037,305.682L554.037,304.741L552.893,304.452L549.865,301.519L549.029,299.973L548.49,299.499L547.462,297.361L550.452,297.654L551.317,297.962L552.22,297.903L553.701,296.172L556.018,293.975L556.979,293.768L557.296,292.841L558.825,291.779L560.844,291.413L561.017,292.407L563.247,292.353L564.477,292.918L565.054,293.578L566.323,293.772L567.717,294.631L567.717,298.012L567.198,299.86L567.083,301.858L567.515,302.649L567.217,304.222L566.814,304.461L566.102,306.387Z"
 };
 
-const HERO_MAP_SPLIT_X = 740; 
+const HERO_MAP_SPLIT_X = 740;
 function averagePathX(d) {
     const xs = [];
     const re = /(-?\d+\.?\d*),(-?\d+\.?\d*)/g;
@@ -593,7 +593,7 @@ export default function AboutUs() {
                                 <div className="hero-content">
                                     <div className="hero-eyebrow">
                                         <h6 className="hero_badge hero-anim hero-anim--1">About ASZ Technologies</h6>
-                                       <h1 className='heading_title animate__animated animate__zoomIn'>
+                                        <h1 className='heading_title animate__animated animate__zoomIn'>
                                             <span>Beyond Code. Beyond Conventional.</span>
                                         </h1>
                                         {/* <TypewriterHeading
@@ -633,20 +633,20 @@ export default function AboutUs() {
                                 </div>
                             </div>
                             <div className="col-md-6">
-                                <h2 className="heading_title who-are-we__title" style={{ color: 'white' }}><span>Who</span> We Are</h2>
-                                <p className="who-are-we__desc">
-                                    With over a decade of experience, we’re a team of 80+ professionals helping organizations navigate digital and AI transformation across sourcing, advisory, market intelligence, data science, and enterprise data management. 
-                                </p>
-                                <p className="who-are-we__desc">We don't do one-size-fits-all delivery. Every engagement starts with understanding what actually moves the needle for your business, then we engineer toward it, which is why regional and multinational companies trust us for cloud and SaaS integration, and hands-on support through onboarding.</p>
-
-                                {/* <p className="who-are-we__desc">ASZ Technologies currently operates out of India, Singapore, and the United States, and continues to expand its global footprint. We're the partner of choice for regional and multinational companies looking for cloud and software-as-a-service integration, and hands-on support through cloud onboarding.</p> */}
-                                <div className="who-are-we__stats">
-                                    {statsData.map((stat) => (
-                                        <div className="who-are-we__stat" key={stat.id}>
-                                            <Counter target={stat.target} suffix={stat.suffix} />
-                                            <p className="who-are-we__stat-label">{stat.label}</p>
-                                        </div>
-                                    ))}
+                                <div className="who-are-we_content">
+                                    <h2 className="heading_title who-are-we__title" style={{ color: 'white' }}><span>Who</span> We Are</h2>
+                                    <p className="who-are-we__desc">
+                                        With over a decade of experience, we’re a team of 80+ professionals helping organizations navigate digital and AI transformation across sourcing, advisory, market intelligence, data science, and enterprise data management.
+                                    </p>
+                                    <p className="who-are-we__desc">We don't do one-size-fits-all delivery. Every engagement starts with understanding what actually moves the needle for your business, then we engineer toward it, which is why regional and multinational companies trust us for cloud and SaaS integration, and hands-on support through onboarding.</p>
+                                    <div className="who-are-we__stats">
+                                        {statsData.map((stat) => (
+                                            <div className="who-are-we__stat" key={stat.id}>
+                                                <Counter target={stat.target} suffix={stat.suffix} />
+                                                <p className="who-are-we__stat-label">{stat.label}</p>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -670,7 +670,7 @@ export default function AboutUs() {
                                     <h2 className="heading_title go-title" style={{ color: 'white' }}>
                                         Built for Where <span>You Do Business.</span>
                                     </h2>
-                                    <p className="go-subtitle">
+                                    <p className="heading_subtitle go-subtitle">
                                         With teams in Bangalore, Singapore, Dubai, and Sydney, ASZ Technologies stays close to the markets we serve, bringing local insight and hands-on delivery to every engagement.
                                     </p>
                                 </div>
@@ -679,7 +679,7 @@ export default function AboutUs() {
                                         <div className="row">
                                             {OFFICES.map((office, index) => (
                                                 <div className={`col-md-6 col-lg-3 ${index !== OFFICES.length - 1 ? 'mb-3' : ''}`}
-                                                        key={index}>
+                                                    key={index}>
                                                     <div
                                                         key={office.id}
                                                         id={`office-${office.id}`}

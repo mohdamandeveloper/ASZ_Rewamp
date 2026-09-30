@@ -425,7 +425,9 @@
     overflow: hidden;
     padding: 100px 64px 60px 64px;
     position: relative;
-
+    @media (max-width: 600px){
+      padding: 100px 0px 50px;
+    }
     &__bg {
       position: absolute;
       inset: 0;
@@ -465,6 +467,9 @@
       position: relative;
       z-index: 1;
       text-align: center;
+      .heading_title{
+        text-align: center;
+      }
     }
 
     &__title {

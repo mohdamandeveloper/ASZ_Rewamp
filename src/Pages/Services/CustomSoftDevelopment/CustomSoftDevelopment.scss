@@ -45,6 +45,9 @@
       position: relative;
       z-index: 1;
       text-align: center;
+      .heading_title{
+        text-align: center;
+      }
     }
 
     &__title {

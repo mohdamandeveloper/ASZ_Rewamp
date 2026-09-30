@@ -32,7 +32,9 @@
     overflow: hidden;
     padding: 60px 0px;
     background-color: #050505;
-
+    @media (max-width: 600px){
+      padding: 50px 0px;
+    }
     .cv__ring {
       position: absolute;
       z-index: 0;
@@ -158,15 +160,15 @@
         gap: 32px;
       }
 
-      .compass {
-        width: 200px;
-        height: 200px;
-      }
+      // .compass {
+      //   width: 200px;
+      //   height: 200px;
+      // }
 
-      .compass svg {
-        width: 200px;
-        height: 200px;
-      }
+      // .compass svg {
+      //   width: 200px;
+      //   height: 200px;
+      // }
     }
 
     @media (max-width: 620px) {

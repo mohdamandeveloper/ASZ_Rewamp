@@ -453,7 +453,7 @@ export default function UxUiDesign() {
                 </section>
                 <section className='our_services' style={{ background: "rgb(15 15 18)", position: 'relative' }}>
                     <div className='grid_overlay'></div>
-                    <div className='services-section'>
+                    <div className='container'>
                         <div className='row'>
                             {SERVICES.map((s, i) => (
                                 <div className='col-md-4 mb-5'>

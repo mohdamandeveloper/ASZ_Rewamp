@@ -34,7 +34,7 @@ const getMobileMenu = (t) => [
   { label: t.nav_about, url: "/about", children: null },
   { label: t.nav_services, url: "/service", children: getServicesItems(t) },
   { label: t.nav_products, url: "/products", children: getProductsItems(t) },
-  { label: t.nav_our_work, url: "/work", children: null },
+  { label: t.nav_our_work, url: "/works", children: null },
   { label: t.nav_contact, url: "/contact", children: null },
 ];
 

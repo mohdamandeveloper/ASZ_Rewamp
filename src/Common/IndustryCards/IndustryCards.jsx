@@ -277,7 +277,7 @@ export default function IndustryCards() {
               <h2 className="heading_title">
                 {t.industries_title_white} <span>{t.industries_title_accent}</span>
               </h2>
-              <p className="ic-subtitle">
+              <p className="heading_subtitle">
                 {t.industries_subtitle}
               </p>
             </div>

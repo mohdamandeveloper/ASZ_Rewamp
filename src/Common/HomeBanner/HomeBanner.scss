@@ -37,25 +37,17 @@
 
     .hero-media-element {
         display: block;
-
         width: 100%;
         height: 100%;
-
         object-fit: cover;
-
         user-select: none;
         pointer-events: auto;
         -webkit-user-drag: none;
-
         filter:
             saturate(0.78) contrast(1.08) brightness(0.68);
-
         cursor: default;
-
         transform-origin: center center;
         will-change: transform;
-
-        /* Ken-Burns style zoom-in that restarts every time a slide mounts */
         animation: heroMediaZoomIn 16s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
 
@@ -73,85 +65,56 @@
         }
     }
 
-    /*
- * Cursor-tracked shine / glare, Tilted-Card style: a soft bright
- * hotspot that glides across the media as the pointer moves, giving
- * the surface a glassy, reflective feel while it's being interacted with.
- */
     .hero-media-shine {
         position: absolute;
-
         width: min(38vw, 320px);
         height: min(38vw, 320px);
-
         border-radius: 50%;
-
         background: radial-gradient(circle,
                 rgba(255, 255, 255, 0.32) 0%,
                 rgba(255, 255, 255, 0.08) 42%,
                 transparent 72%);
 
         filter: blur(6px);
-
         transform: translate(-50%, -50%);
-
         mix-blend-mode: soft-light;
-
         pointer-events: none;
-
         z-index: 3;
     }
 
-    /*
- * Soft cursor-follow light. It stays behind the cinematic overlays
- * and adds a subtle interactive depth without distracting from the content.
- */
     .hero-cursor-glow {
         position: absolute;
         top: 50%;
         left: 72%;
-
         width: min(34vw, 520px);
         height: min(34vw, 520px);
-
         border-radius: 50%;
-
         background: radial-gradient(circle,
                 rgba(29, 141, 255, 0.12) 0%,
                 rgba(25, 213, 255, 0.035) 35%,
                 transparent 70%);
-
         filter: blur(14px);
         opacity: 0.8;
-
         pointer-events: none;
         transform: translate(-50%, -50%);
-
         mix-blend-mode: screen;
     }
-
-    /* =========================================================
-   CINEMATIC OVERLAYS
-========================================================= */
 
     .hero-overlay {
         position: absolute;
         inset: 0;
-
         background:
             linear-gradient(90deg,
                 rgba(1, 5, 11, 0.98) 0%,
                 rgba(1, 6, 13, 0.92) 24%,
                 rgba(1, 7, 14, 0.58) 52%,
                 rgba(1, 6, 12, 0.38) 100%);
-
         pointer-events: none;
     }
 
     .hero-gradient {
         position: absolute;
         inset: 0;
-
         background:
             radial-gradient(circle at 72% 48%,
                 rgba(15, 104, 190, 0.15),
@@ -159,48 +122,35 @@
             radial-gradient(circle at 86% 20%,
                 rgba(26, 130, 255, 0.1),
                 transparent 28%);
-
         pointer-events: none;
     }
 
     .hero-vignette {
         position: absolute;
         inset: 0;
-
         background:
             radial-gradient(ellipse at center,
                 transparent 30%,
                 rgba(0, 0, 0, 0.32) 72%,
                 rgba(0, 0, 0, 0.68) 100%);
-
         pointer-events: none;
     }
-
-    /* =========================================================
-   TECHNICAL GRID
-========================================================= */
-
     .hero-grid {
         position: absolute;
         inset: 0;
-
         opacity: 0.18;
-
         background-image:
             linear-gradient(rgba(109, 166, 216, 0.07) 1px,
                 transparent 1px),
             linear-gradient(90deg,
                 rgba(109, 166, 216, 0.07) 1px,
                 transparent 1px);
-
         background-size: 90px 90px;
-
         mask-image:
             linear-gradient(90deg,
                 black 0%,
                 rgba(0, 0, 0, 0.5) 55%,
                 transparent 100%);
-
         pointer-events: none;
     }
 
@@ -208,10 +158,6 @@
         position: relative;
         width: 100%;
         height: 100%;
-        // min-height: inherit;
-        // max-width: 1600px;
-        // margin: 0 auto;
-        // padding: 0 7vw;
         display: flex;
         align-items: center;
 
@@ -224,9 +170,7 @@
 
     .hero-content {
         position: relative;
-
         width: min(720px, 60vw);
-
         z-index: 10;
     }
 
@@ -244,20 +188,15 @@
     .hero-eyebrow-dot {
         width: 7px;
         height: 7px;
-
         border-radius: 50%;
-
         background: rgb(255, 107, 53);
-
         box-shadow:
             0 0 10px rgba(255, 107, 53, 0.9),
             0 0 24px rgba(255, 107, 53, 0.45);
-
         animation: heroPulse 2s ease-in-out infinite;
     }
 
     @keyframes heroPulse {
-
         0%,
         100% {
             opacity: 0.55;
@@ -269,11 +208,6 @@
             transform: scale(1.15);
         }
     }
-
-    /* =========================================================
-   TITLE
-========================================================= */
-
     .hero-title {
         display: flex;
         flex-direction: column;
@@ -287,9 +221,6 @@
     .hero-title>span {
         display: block;
     }
-
-    /* The typed headline sits inside its own wrapper span so its internal
-   text-type / cursor spans stay inline instead of stacking. */
     .hero-title-typed {
         display: block;
         min-height: 1.1em;
@@ -297,12 +228,6 @@
 
     .hero-title-gradient {
         color: transparent;
-
-        /* background-clip: text paints the gradient only inside the line
-           box. The title's tight line-height (1.1) doesn't leave enough
-           room for descenders (g, y, p), so they get sliced off at the
-           bottom. Give this line its own roomier line-height + a touch
-           of bottom padding so descenders render fully. */
         line-height: 1.25;
         padding-bottom: 0.06em;
 
@@ -320,11 +245,6 @@
     .hero-title-muted {
         color: rgb(180, 146, 134);
     }
-
-    /* =========================================================
-   DESCRIPTION
-========================================================= */
-
     .hero-description {
         margin: 34px 0 0;
 
@@ -335,11 +255,6 @@
 
         letter-spacing: -0.01em;
     }
-
-    /* =========================================================
-   BUTTONS
-========================================================= */
-
     .hero-actions {
         display: flex;
         align-items: center;
@@ -976,13 +891,13 @@
             font-size: 33px;
         }
 
-        .hero-description {
-            font-size: 11px;
+        // .hero-description {
+        //     font-size: 11px;
 
-            br {
-                display: none;
-            }
-        }
+        //     br {
+        //         display: none;
+        //     }
+        // }
 
         .hero-actions {
             flex-direction: column;

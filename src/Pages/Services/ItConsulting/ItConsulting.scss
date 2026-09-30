@@ -5,7 +5,7 @@
         align-items: center;
         overflow: hidden;
         background: #1c0a3e;
-        padding: 100px 64px 60px 64px;
+        padding: 100px 0px 60px 0px;
 
         &__bg {
             position: absolute;
@@ -45,6 +45,11 @@
             position: relative;
             z-index: 1;
             text-align: center;
+            @media (max-width: 600px){
+                .heading_title{
+                    text-align: center;
+                }
+            }
         }
 
         &__title {
@@ -157,14 +162,10 @@
         }
     }
 
-    .services-section {
-        padding: 60px 0px;
-        max-width: 1300px;
-        margin: 0 auto;
-
-        @media (max-width: 600px) {
-            display: block;
-            padding: 60px 25px;
+    .our_services{
+        padding: 60px 0;
+        @media (max-width: 600px){
+            padding: 50px 0;
         }
     }
 
