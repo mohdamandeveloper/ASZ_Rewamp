@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import "./Products.scss";
+import 'animate.css';
 import { Link } from "react-router-dom";
 
 // ===== Continuous typewriter text (types, pauses, deletes, repeats forever) =====
@@ -375,10 +376,13 @@ export default function Products() {
                     <div class="services-hero__inner container">
 
                         <span class="hero_badge hero-anim hero-anim--1">Our Products</span>
-
-                        <h1 class="heading_title services-hero__title hero-anim hero-anim--2">
-                            <span><TypewriterText segments={HERO_TITLE_SEGMENTS} /></span> <br />Problems We've Solved.
+                        <h1 className='heading_title animate__animated animate__zoomIn'>
+                            <span>Products We've Built.</span>
                         </h1>
+                        <h1 className="heading_title services-hero__title mb-4 hero-anim hero-anim--2">Problems We've Solved.</h1>
+                        {/* <h1 class="heading_title services-hero__title hero-anim hero-anim--2">
+                            <span><TypewriterText segments={HERO_TITLE_SEGMENTS} /></span> <br />Problems We've Solved.
+                        </h1> */}
 
                         <p class="heading_subtitle services-hero__subtitle hero-anim hero-anim--3">
                             From automated document processing to hotel check-in and warehouse management, our in-house product line reflects the same engineering discipline we bring to every client build, real software, running in production today.

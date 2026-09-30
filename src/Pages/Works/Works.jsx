@@ -4,6 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Link } from 'react-router-dom';
+import 'animate.css';
 import "./Works.scss";
 
 // ===== Continuous typewriter text (types, pauses, deletes, repeats forever) =====
@@ -751,9 +752,13 @@ export default function Works() {
 
                 <div class="services-hero__inner container">
                     <span class="hero_badge hero-anim hero-anim--1">Our Work</span>
-                    <h1 class="heading_title services-hero__title hero-anim hero-anim--2">
-                        <span><TypewriterText segments={HERO_TITLE_SEGMENTS} /></span> <br />Not Promises.
+                    <h1 className='heading_title animate__animated animate__zoomIn'>
+                        <span>Proof,</span>
                     </h1>
+                    <h1 className="heading_title services-hero__title mb-4 hero-anim hero-anim--2">Not Promises.</h1>
+                    {/* <h1 class="heading_title services-hero__title hero-anim hero-anim--2">
+                        <span><TypewriterText segments={HERO_TITLE_SEGMENTS} /></span> <br />Not Promises.
+                    </h1> */}
                     <p class="heading_subtitle services-hero__subtitle hero-anim hero-anim--3">
                         From automating document workflows for finance teams to powering hotel check-ins and warehouse operations, our work spans industries and geographies, real deployments, real clients, real outcomes.
                     </p>

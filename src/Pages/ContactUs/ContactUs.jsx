@@ -5,6 +5,7 @@ import {
     ArrowRight,
 } from "lucide-react";
 import "./ContactUs.scss";
+import 'animate.css';
 import { Link } from "react-router-dom";
 
 const SERVICES_HERO_TITLE_SEGMENTS = [
@@ -126,10 +127,14 @@ function ContactUs() {
                 <div className="hero-content">
                     <div className="hero-eyebrow">
                         <h6 className="hero_badge hero-anim hero-anim--1"><span></span>Get In Touch</h6>
-                        <TypewriterHeading
+                        <h1 className='heading_title animate__animated animate__zoomIn'>
+                            <span>Tell Us</span>
+                        </h1>
+                        {/* <h1 className="heading_title services-hero__title mb-4 hero-anim hero-anim--2">Not Promises.</h1> */}
+                        {/* <TypewriterHeading
                             segments={SERVICES_HERO_TITLE_SEGMENTS}
                             className="heading_title services-hero__title hero-anim hero-anim--2 mb-0"
-                        />
+                        /> */}
                         <h1 className="heading_title mb-4 hero-anim hero-anim--3">What You're Building.</h1>
                     </div>
                     <p className="hero-subtitle hero-anim hero-anim--4">

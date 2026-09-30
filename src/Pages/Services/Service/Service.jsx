@@ -3,6 +3,7 @@ import 'swiper/css';
 import { Link } from 'react-router-dom';
 import './Service.scss';
 import ServiceBearingCard from "./ServiceBearingCard/ServiceBearingCard";
+import 'animate.css';
 
 // ===== Continuous typewriter heading (types, pauses, deletes, repeats forever) =====
 // Mirrors the TypewriterHeading used on the About Us hero, same timing/behavior,
@@ -177,10 +178,13 @@ export default function Service() {
                     </div>
                     <div class="services-hero__inner container">
                         <span class="hero_badge hero-anim hero-anim--1">Our Services</span>
-                        <TypewriterHeading
+                        <h1 className='heading_title animate__animated animate__zoomIn'>
+                            <span>Six Disciplines.</span>
+                        </h1>
+                        {/* <TypewriterHeading
                             segments={SERVICES_TITLE_SEGMENTS}
                             className="heading_title services-hero__title hero-anim hero-anim--2 mb-0"
-                        />
+                        /> */}
                         <h1 className="heading_title services-hero__title mb-4 hero-anim hero-anim--3">One Delivery Partner.</h1>
                         <p class="heading_subtitle services-hero__subtitle hero-anim hero-anim--4">
                             From IT strategy and cloud migration to data engineering, enterprise platforms, and emerging tech like AI and blockchain, we cover every layer of the stack, so you get one accountable partner instead of five different vendors.

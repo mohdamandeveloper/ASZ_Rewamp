@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './CustomSoftDevelopment.scss';
+import 'animate.css';
 import { Link } from 'react-router-dom';
 
 const SERVICES = [
@@ -435,10 +436,14 @@ export default function CustomSoftwareDevelopment() {
                     </div>
                     <div class="services-hero__inner container">
                         <span class="hero_badge hero-anim hero-anim--1">Our Services</span>
+                        <h1 className='heading_title services-hero__title animate__animated animate__zoomIn'>
+                            <span>Software Development</span> Services
+                        </h1>
+                        {/* <h1 className="heading_title services-hero__title mb-4 hero-anim hero-anim--2">Not Promises.</h1>
                         <TypewriterHeading
                             segments={SERVICES_HERO_TITLE_SEGMENTS}
                             className="heading_title services-hero__title hero-anim hero-anim--2 mb-0"
-                        />
+                        /> */}
                         <h1 className="heading_title mb-4 hero-anim hero-anim--3" style={{color: 'white'}}>Built for Every Platform.</h1>
                         <p class="heading_subtitle services-hero__subtitle hero-anim hero-anim--4">
                             Turn your digital vision into a high-impact business asset with enterprise-grade software development. We've crafted solutions for organizations of every size, engineered with advanced security, strict compliance standards, and intuitive user experiences that make complex systems feel simple to use.

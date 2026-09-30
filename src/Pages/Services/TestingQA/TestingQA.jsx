@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './TestingQA.scss';
+import 'animate.css';
 import { Link } from 'react-router-dom';
 
 const SERVICES = [
@@ -437,10 +438,13 @@ export default function TestingQA() {
                     </div>
                     <div class="services-hero__inner container">
                         <span class="hero_badge hero-anim hero-anim--1">Our Services</span>
-                        <TypewriterHeading
+                        <h1 className='heading_title services-hero__title animate__animated animate__zoomIn'>
+                            <span>Testing & Quality</span> Assurance
+                        </h1>
+                        {/* <TypewriterHeading
                             segments={SERVICES_HERO_TITLE_SEGMENTS}
                             className="heading_title services-hero__title hero-anim hero-anim--2 mb-0"
-                        />
+                        /> */}
                         <h1 class="heading_title services-hero__title hero-anim hero-anim--3">
                             Built for Reliable Software
                         </h1>

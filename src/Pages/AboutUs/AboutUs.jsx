@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './AboutUs.scss';
 import AccordionSection from "../../Common/AccordionSection/AccordionSection";
 import CoreValues from "../../Common/CoreValues/CoreValues";
+import 'animate.css';
 
 
 const statsData = [
@@ -592,10 +593,14 @@ export default function AboutUs() {
                                 <div className="hero-content">
                                     <div className="hero-eyebrow">
                                         <h6 className="hero_badge hero-anim hero-anim--1">About ASZ Technologies</h6>
-                                        <TypewriterHeading
+                                       <h1 className='heading_title animate__animated animate__zoomIn'>
+                                            <span>Beyond Code. Beyond Conventional.</span>
+                                        </h1>
+                                        {/* <TypewriterHeading
                                             segments={HERO_TITLE_SEGMENTS}
                                             className="heading_title hero-anim hero-anim--2"
-                                        />
+                                        /> */}
+                                        {/* <h1 className="animate__animated animate__zoomIn animate__delay-1s">asfasfasfdsd asdf sdf asdf</h1> */}
                                         <h1 className="heading_title mb-4 hero-anim hero-anim--3">Built for What’s Next.</h1>
                                     </div>
                                     <p className="hero-subtitle hero-anim hero-anim--4">

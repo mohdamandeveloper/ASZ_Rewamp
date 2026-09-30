@@ -5,6 +5,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'animate.css';
 import { Link } from 'react-router-dom';
 import HeroSectionServices from '../../../Common/HeroSectionServices/HeroSectionServices';
 
@@ -429,10 +430,13 @@ export default function MobileAppDevelopment() {
                     </div>
                     <div class="services-hero__inner container">
                         <span class="hero_badge hero-anim hero-anim--1">Our Services</span>
-                        <TypewriterHeading
+                        <h1 className='heading_title services-hero__title animate__animated animate__zoomIn'>
+                            <span>Mobile App</span> Development
+                        </h1>
+                        {/* <TypewriterHeading
                             segments={SERVICES_HERO_TITLE_SEGMENTS}
                             className="heading_title services-hero__title hero-anim hero-anim--2 mb-0"
-                        />
+                        /> */}
                         <h1 class="heading_title services-hero__title hero-anim hero-anim--3">
                             {/* <span>Mobile App Development</span> &nbsp; */}
                             Build Better Mobile Apps
