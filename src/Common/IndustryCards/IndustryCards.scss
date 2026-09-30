@@ -19,11 +19,6 @@ $shadow-hover: 0 0px 10px rgba(255, 107, 53, 0.479), 0 0px 16px rgba(0, 0, 0, 0.
   padding-bottom: 60px;
   overflow: hidden;
   isolation: isolate;
-
-  // @media (max-width: 768px) {
-  //   padding: 48px 20px 56px;
-  // }
-
   background-color: #020202;
 
   .ic-card {
@@ -124,6 +119,9 @@ $shadow-hover: 0 0px 10px rgba(255, 107, 53, 0.479), 0 0px 16px rgba(0, 0, 0, 0.
 
   @media (max-width: 768px) {
     margin-bottom: 28px;
+    text-align: center;
+  }
+  .heading_title{
     text-align: center;
   }
 }
